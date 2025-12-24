@@ -9,9 +9,5 @@ export default defineNuxtConfig({
       tailwindcss(),
     ],
   },
-  modules: [// ...
-    '@pinia/nuxt', "@nuxt/icon"],
-  build: {
-    transpile: ['echarts', 'vue-echarts']
-  }
+  modules: ['@pinia/nuxt', "@nuxt/icon"],
 })
