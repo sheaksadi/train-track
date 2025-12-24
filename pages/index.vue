@@ -1,26 +1,56 @@
 <template>
-  <div class="test-container w-screen h-screen bg-neutral-900 overflow-hidden flex items-center justify-center">
+  <div class="map-container w-screen h-screen bg-neutral-900 overflow-hidden">
     <ClientOnly>
-      <LeafletMap />
+      <TransitMap />
       <template #fallback>
-        <div class="text-white">Loading map...</div>
+        <div class="loading-screen">
+          <div class="loading-content">
+            <div class="loading-spinner">🚂</div>
+            <div class="loading-text">Loading transit map...</div>
+          </div>
+        </div>
       </template>
     </ClientOnly>
   </div>
 </template>
 
 <script setup>
-// Main page wrapper
+// Three.js Transit Map - Berlin Public Transport Visualization
 </script>
 
 <style scoped>
-.test-container {
-    width: 100vw;
-    height: 100vh;
+.map-container {
+  width: 100vw;
+  height: 100vh;
+  background: #1a1a2e;
 }
-.chart {
-  height: 100%;
+
+.loading-screen {
   width: 100%;
-  min-height: 400px; /* Fallback */
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #1a1a2e;
+}
+
+.loading-content {
+  text-align: center;
+}
+
+.loading-spinner {
+  font-size: 48px;
+  animation: bounce 1s ease-in-out infinite;
+}
+
+.loading-text {
+  color: #888;
+  margin-top: 16px;
+  font-size: 14px;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
 }
 </style>
