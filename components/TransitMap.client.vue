@@ -114,6 +114,17 @@
       </div>
     </div>
     
+    <!-- Rate Monitor - Top Left -->
+    <div class="rate-monitor">
+      <div class="rate-title">API RATE</div>
+      <div class="rate-stats">
+        <span :class="{ warning: requestsPerMin > 80, danger: requestsPerMin > 95 }">
+          {{ requestsPerMin }}/100 req/min
+        </span>
+      </div>
+      <div class="rate-interval">refresh: {{ (refreshInterval / 1000).toFixed(1) }}s</div>
+    </div>
+    
     <!-- Status bar - Terminal Style -->
     <div class="status-bar">
       <span v-if="transitStore.loading" class="loading">█</span>
