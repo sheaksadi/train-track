@@ -1,6 +1,15 @@
 // Regional train data (RE1 Magdeburg - Berlin - Frankfurt/Oder)
 export const regionalColors: Record<string, string> = {
-    'RE1': '#E30613',  // Red (DB Regio color)
+    'RE1': '#E30613',  // Red
+    'RE2': '#E30613',
+    'RE3': '#E30613',
+    'RE4': '#E30613',
+    'RE5': '#E30613',
+    'RE6': '#E30613',
+    'RE7': '#E30613',
+    'RE8': '#E30613',
+    'RB23': '#E30613',
+    'FEX': '#E30613',
 };
 
 // RE1 stations - Full route: Magdeburg to Frankfurt (Oder) via Berlin

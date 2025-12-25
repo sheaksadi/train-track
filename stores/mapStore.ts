@@ -25,12 +25,12 @@ export const useMapStore = defineStore('map', {
     }),
 
     actions: {
-        zoomIn() {
-            this.currentZoom = Math.min(5, this.currentZoom * 1.3);
+        zoomIn(amount = 0.3) {
+            this.currentZoom = Math.min(5, this.currentZoom * (1 + amount));
         },
 
-        zoomOut() {
-            this.currentZoom = Math.max(0.1, this.currentZoom * 0.7);
+        zoomOut(amount = 0.3) {
+            this.currentZoom = Math.max(0.05, this.currentZoom * (1 - amount));
         },
 
         resetZoom() {

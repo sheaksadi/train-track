@@ -3,6 +3,8 @@ import { defineStore } from 'pinia';
 import * as THREE from 'three';
 import { ubahnColors, ubahnStations, getLineRoute as getUbahnRoute } from '~/data/ubahn';
 import { regionalColors, re1Stations, getRE1Route } from '~/data/regional';
+import { sbahnColors } from '~/data/sbahn';
+import { tramColors } from '~/data/tram';
 
 // Types
 export interface Train {
@@ -28,6 +30,7 @@ export interface Station {
     lat: number;
     lng: number;
     lines: string[];
+    id?: string;
 }
 
 // Constants
@@ -38,12 +41,12 @@ export const BG_STATION_RADIUS = 1.5;
 export const TRAIN_SIZE = 2.5;
 
 // All line colors
-export const allLineColors: Record<string, string> = { ...ubahnColors, ...regionalColors };
+export const allLineColors: Record<string, string> = { ...ubahnColors, ...regionalColors, ...sbahnColors, ...tramColors };
 
 // Coordinate conversion
 export function latLngToScene(lat: number, lng: number): { x: number; y: number } {
-    const centerLat = 52.4;
-    const centerLng = 13.1;
+    const centerLat = 52.52; // Berlin
+    const centerLng = 13.40;
     const scale = 1000;
     return {
         x: (lng - centerLng) * scale,
@@ -171,13 +174,11 @@ export const useTransitStore = defineStore('transit', {
 
                 const data = await response.json();
 
-                // Filter for U-Bahn subway lines (U1-U9) and RE1 regional
-                const allowedLines = ['U1', 'U2', 'U3', 'U4', 'U5', 'U6', 'U7', 'U8', 'U9', 'RE1'];
-
+                // Filter for supported products
                 const trains = data.movements
                     .filter((m: any) =>
-                        allowedLines.includes(m.line?.name) &&
-                        (m.line?.product === 'subway' || m.line?.product === 'regional') &&
+                        ['subway', 'suburban', 'regional', 'tram'].includes(m.line?.product) &&
+                        allLineColors[m.line?.name] && // Only lines we have colors for (controlled list)
                         m.location?.latitude &&
                         m.location?.longitude
                     )

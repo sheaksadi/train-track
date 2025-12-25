@@ -81,27 +81,86 @@
     <div class="legend">
       <div class="legend-title">LINES</div>
       
-      <!-- Regional Section -->
-      <div 
-        class="legend-section" 
-        @click="toggleLegendSection('regional')"
-      >
-        <span>Regional</span>
-        <span class="section-toggle">{{ collapsedLegend['regional'] ? '[+]' : '[-]' }}</span>
-      </div>
-      <div v-if="!collapsedLegend['regional']" class="legend-list">
-        <div
-          v-for="(color, line) in regionalColors"
-          :key="line"
-          class="legend-item"
-          @click="transitStore.toggleLine(line as string)"
-          :class="{ disabled: !transitStore.enabledLines[line as string] }"
+      <!-- Legend: Regional -->
+      <div class="mb-4">
+        <button 
+          @click="toggleLegendSection('regional')" 
+          class="flex items-center justify-between w-full text-left font-bold text-gray-300 mb-2 text-sm hover:text-white transition-colors"
         >
-          <span class="legend-color" :style="{ backgroundColor: color }"></span>
-          <span class="legend-label">{{ line }}</span>
-          <span class="toggle-indicator">{{ transitStore.enabledLines[line as string] ? '[x]' : '[ ]' }}</span>
+          <span>REGIONAL</span>
+          <Icon :name="collapsedLegend['regional'] ? 'i-heroicons-chevron-down' : 'i-heroicons-chevron-up'" class="w-4 h-4" />
+        </button>
+        <div v-show="!collapsedLegend['regional']" class="grid grid-cols-4 gap-2">
+          <button
+            v-for="(color, line) in regionalColors"
+            :key="line"
+            @click="transitStore.toggleLine(line as string)"
+            :class="[
+              'px-2 py-1 rounded text-xs font-bold transition-all duration-200 border border-transparent shadow-sm',
+              transitStore.enabledLines[line as string] 
+                ? 'bg-red-600 text-white shadow-red-900/50' 
+                : 'bg-gray-800/50 text-gray-500 hover:bg-gray-700 hover:text-gray-300'
+            ]"
+            :style="transitStore.enabledLines[line as string] ? { backgroundColor: color, borderColor: color } : {}"
+          >
+            {{ line }}
+          </button>
         </div>
       </div>
+
+      <!-- Legend: S-Bahn -->
+      <div class="mb-4">
+        <button 
+          @click="toggleLegendSection('sbahn')" 
+          class="flex items-center justify-between w-full text-left font-bold text-gray-300 mb-2 text-sm hover:text-white transition-colors"
+        >
+          <span>S-BAHN</span>
+          <Icon :name="collapsedLegend['sbahn'] ? 'i-heroicons-chevron-down' : 'i-heroicons-chevron-up'" class="w-4 h-4" />
+        </button>
+        <div v-show="!collapsedLegend['sbahn']" class="grid grid-cols-4 gap-2">
+          <button
+            v-for="(color, line) in sbahnColors"
+            :key="line"
+            @click="transitStore.toggleLine(line as string)"
+            :class="[
+              'px-2 py-1 rounded text-xs font-bold transition-all duration-200 border border-transparent shadow-sm',
+              transitStore.enabledLines[line as string] 
+                ? 'bg-green-600 text-white shadow-green-900/50' 
+                : 'bg-gray-800/50 text-gray-500 hover:bg-gray-700 hover:text-gray-300'
+            ]"
+            :style="transitStore.enabledLines[line as string] ? { backgroundColor: color, borderColor: color } : {}"
+          >
+            {{ line }}
+          </button>
+        </div>
+      </div>
+
+      <!-- Legend: Trams -->
+      <div class="mb-4">
+        <button 
+          @click="toggleLegendSection('tram')" 
+          class="flex items-center justify-between w-full text-left font-bold text-gray-300 mb-2 text-sm hover:text-white transition-colors"
+        >
+          <span>TRAM</span>
+          <Icon :name="collapsedLegend['tram'] ? 'i-heroicons-chevron-down' : 'i-heroicons-chevron-up'" class="w-4 h-4" />
+        </button>
+        <div v-show="!collapsedLegend['tram']" class="grid grid-cols-4 gap-2">
+          <button
+            v-for="(color, line) in tramColors"
+            :key="line"
+            @click="transitStore.toggleLine(line as string)"
+            :class="[
+              'px-2 py-1 rounded text-xs font-bold transition-all duration-200 border border-transparent shadow-sm',
+              transitStore.enabledLines[line as string] 
+                ? 'bg-yellow-600 text-white shadow-yellow-900/50' 
+                : 'bg-gray-800/50 text-gray-500 hover:bg-gray-700 hover:text-gray-300'
+            ]"
+            :style="transitStore.enabledLines[line as string] ? { backgroundColor: color, borderColor: color } : {}"
+          >
+            {{ line }}
+          </button>
+        </div>
+      </div> 
       
       <!-- U-Bahn Section -->
       <div 
@@ -175,6 +234,9 @@ import * as THREE from 'three';
 import { ref, computed, onMounted, onUnmounted, nextTick, watch } from 'vue';
 import { ubahnColors } from '~/data/ubahn';
 import { regionalColors } from '~/data/regional';
+import { sbahnColors } from '~/data/sbahn';
+import { tramColors } from '~/data/tram';
+import { majorCities } from '~/data/cities';
 import { useTransitStore, latLngToScene, allLineColors, LINE_THICKNESS, BG_LINE_THICKNESS, STATION_RADIUS, BG_STATION_RADIUS, TRAIN_SIZE } from '~/stores/transitStore';
 import { useMapStore } from '~/stores/mapStore';
 
@@ -335,6 +397,9 @@ let activeLinesGroup: THREE.Group;
 let stationsGroup: THREE.Group;
 let trainsGroup: THREE.Group;
 let labelsGroup: THREE.Group;
+let mapGroup: THREE.Group;
+let statesGroup: THREE.Group;
+let citiesGroup: THREE.Group;
 
 // Hover tracking
 let hoveredObject: THREE.Object3D | null = null;
@@ -357,24 +422,31 @@ function initThreeJS() {
   scene = new THREE.Scene();
   scene.background = new THREE.Color(0x1a1a2e);
 
+  // Groups
   backgroundLinesGroup = new THREE.Group();
   activeLinesGroup = new THREE.Group();
   stationsGroup = new THREE.Group();
   trainsGroup = new THREE.Group();
   labelsGroup = new THREE.Group();
+  mapGroup = new THREE.Group();
+  statesGroup = new THREE.Group();
+  citiesGroup = new THREE.Group();
 
+  scene.add(statesGroup); // States at bottom
+  scene.add(mapGroup);    // Districts
   scene.add(backgroundLinesGroup);
   scene.add(activeLinesGroup);
   scene.add(trainsGroup);
   scene.add(stationsGroup);
   scene.add(labelsGroup);
+  scene.add(citiesGroup); // Cities on top
 
   const aspect = width / height;
-  const viewSize = 150;
+  const viewSize = 350; // Increased view size for Germany
   camera = new THREE.OrthographicCamera(-viewSize * aspect, viewSize * aspect, viewSize, -viewSize, 0.1, 1000);
   camera.position.z = 100;
 
-  renderer = new THREE.WebGLRenderer({ antialias: true });
+  renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
   renderer.setSize(width, height);
   renderer.setPixelRatio(window.devicePixelRatio);
   container.appendChild(renderer.domElement);
@@ -383,13 +455,18 @@ function initThreeJS() {
   raycaster.params.Mesh = { threshold: 2 };
   mouse = new THREE.Vector2();
 
-  // Build routes in store
-  transitStore.buildLineRoutes();
+  // Load Map Data
+  loadGeoJSON('/data/germany_outline.geojson', 0x111111, 'outline', mapGroup, 4); // Thicker outline
+  loadGeoJSON('/data/germany_states.geojson', 0x444466, 'state', statesGroup, 1.5);
+  loadGeoJSON('/data/germany_districts.geojson', 0x333344, 'district', mapGroup, 0.5);
 
-  // Add objects
+  // ...
+
   addTransitLines();
   addStations();
   addStationLabels();
+  addCities();
+  loadGeneratedStations(); // Load S-Bahn/Tram stations
   updateVisibility();
 
   // Events
@@ -403,6 +480,155 @@ function initThreeJS() {
   window.addEventListener('resize', onResize);
 
   animate();
+}
+
+function addCities() {
+  majorCities.forEach(city => {
+    const { x, y } = latLngToScene(city.lat, city.lng);
+    
+    // City Dot
+    const dotGeom = new THREE.CircleGeometry(2, 16);
+    const dotMat = new THREE.MeshBasicMaterial({ color: 0xffffff });
+    const dot = new THREE.Mesh(dotGeom, dotMat);
+    dot.position.set(x, y, 10);
+    citiesGroup.add(dot);
+
+    // City Label
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d')!;
+    canvas.width = 256;
+    canvas.height = 64;
+    ctx.font = 'bold 36px Inter, Arial, sans-serif';
+    ctx.fillStyle = '#ffffff';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.shadowColor = 'rgba(0,0,0,0.8)';
+    ctx.shadowBlur = 4;
+    ctx.fillText(city.name.toUpperCase(), canvas.width / 2, canvas.height / 2);
+
+    const texture = new THREE.CanvasTexture(canvas);
+    texture.minFilter = THREE.LinearFilter;
+    const material = new THREE.SpriteMaterial({ map: texture, transparent: true });
+    const sprite = new THREE.Sprite(material);
+    sprite.scale.set(30, 7.5, 1);
+    sprite.position.set(x, y + 5, 10);
+    citiesGroup.add(sprite);
+  });
+}
+
+function updateVisibility() {
+  const zoom = mapStore.currentZoom;
+  const showDetails = zoom > 0.8; // Threshold for switching modes
+
+  // Toggle Map Layers
+  statesGroup.visible = !showDetails;
+  mapGroup.visible = showDetails; // Districts only when zoomed in
+  citiesGroup.visible = !showDetails;
+
+  // Toggle Transit Layers
+  backgroundLinesGroup.visible = showDetails;
+  activeLinesGroup.visible = showDetails;
+  stationsGroup.visible = showDetails;
+  trainsGroup.visible = showDetails;
+  
+  // Existing Line Logic (only apply if visible)
+  if (showDetails) {
+      activeLinesGroup.children.forEach(child => {
+        const isVisible = transitStore.enabledLines[child.userData.lineName] ?? false;
+        // console.log(`Line ${child.userData.lineName}: visible=${isVisible}`); 
+        child.visible = isVisible;
+      });
+
+      stationsGroup.children.forEach(child => {
+    const lines = child.userData.lines as string[];
+    // Default hidden
+    child.visible = false;
+
+    if (lines && child.userData.isActive) {
+      const hasActive = lines.some(l => transitStore.enabledLines[l]);
+      if (hasActive) {
+        child.visible = true;
+         // Station fill color update
+        if (child.userData.type === 'station-fill') {
+           const activeLine = lines.find(l => transitStore.enabledLines[l]);
+           if (activeLine) {
+             (child as THREE.Mesh).material = new THREE.MeshBasicMaterial({ color: new THREE.Color(transitStore.getLineColor(activeLine)) });
+           }
+        }
+      }
+    }
+  });
+  }
+
+  // Station Labels logic
+  labelsGroup.children.forEach(child => {
+    const lines = child.userData.lines as string[];
+    if (lines) child.visible = showDetails && lines.some(l => transitStore.enabledLines[l]) && zoom > 1.5;
+  });
+
+  updateTrainMarkers();
+}
+
+async function loadGeoJSON(url: string, color: number, type: string, group: THREE.Group, lineWidth: number) {
+  try {
+    const response = await fetch(url);
+    if (!response.ok) throw new Error(`Failed to load ${url}`);
+    const data = await response.json();
+
+    const features = data.features || (data.type === 'FeatureCollection' ? data.features : [data]);
+    const material = new THREE.LineBasicMaterial({ color, linewidth: lineWidth });
+
+    features.forEach((feature: any) => {
+      const geometry = feature.geometry;
+      if (!geometry) return;
+
+      if (geometry.type === 'Polygon') {
+        geometry.coordinates.forEach((ring: any[]) => {
+            const points = ring.map(coord => {
+              const { x, y } = latLngToScene(coord[1], coord[0]);
+              return new THREE.Vector3(x, y, -1); // Behind trains
+            });
+            const geo = new THREE.BufferGeometry().setFromPoints(points);
+            const line = new THREE.Line(geo, material);
+            group.add(line);
+        });
+      } else if (geometry.type === 'MultiPolygon') {
+         geometry.coordinates.forEach((polygon: any[]) => {
+            polygon.forEach((ring: any[]) => {
+              const points = ring.map(coord => {
+                const { x, y } = latLngToScene(coord[1], coord[0]);
+                return new THREE.Vector3(x, y, -1);
+              });
+              const geo = new THREE.BufferGeometry().setFromPoints(points);
+              const line = new THREE.Line(geo, material);
+              group.add(line);
+            });
+         });
+      } else if (geometry.type === 'LineString') {
+         const points = geometry.coordinates.map((coord: any[]) => {
+            const { x, y } = latLngToScene(coord[1], coord[0]);
+            return new THREE.Vector3(x, y, -1);
+         });
+         const geo = new THREE.BufferGeometry().setFromPoints(points);
+         const line = new THREE.Line(geo, material);
+         group.add(line);
+      } else if (geometry.type === 'MultiLineString') {
+         geometry.coordinates.forEach((lineString: any[]) => {
+            const points = lineString.map((coord: any[]) => {
+              const { x, y } = latLngToScene(coord[1], coord[0]);
+              return new THREE.Vector3(x, y, -1);
+            });
+            const geo = new THREE.BufferGeometry().setFromPoints(points);
+            const line = new THREE.Line(geo, material);
+            group.add(line);
+         });
+      }
+    });
+
+    console.log(`Loaded ${url} with ${features.length} features`);
+  } catch (e) {
+    console.error(`Error loading GeoJSON ${url}:`, e);
+  }
 }
 
 function createThickRibbon(points: THREE.Vector3[], color: string | number, thickness: number): THREE.Mesh {
@@ -453,10 +679,65 @@ function createThickRibbon(points: THREE.Vector3[], color: string | number, thic
   return new THREE.Mesh(geometry, material);
 }
 
+
+
+
+async function loadGeneratedStations() {
+  try {
+    const response = await fetch('/data/generated_stations.json');
+    if (!response.ok) return;
+    const stations = await response.json();
+    
+    stations.forEach((s: any) => {
+       const mappedLines = s.lines.map((l: string) => l.replace(/^Train /, '')); // Clean names if needed
+       // Add to allStations for label logic maybe? Or just add directly
+       // Create marker
+       const { x, y } = latLngToScene(s.lat, s.lng);
+       const geometry = new THREE.CircleGeometry(STATION_RADIUS, 16);
+       const material = new THREE.MeshBasicMaterial({ color: 0x888888 }); // Default gray
+       const circle = new THREE.Mesh(geometry, material);
+       circle.position.set(x, y, 3);
+       circle.userData = { 
+           type: 'station-fill', 
+           name: s.name, 
+           lines: mappedLines,
+           isActive: true 
+       };
+       
+       // Outline
+       const outGeo = new THREE.CircleGeometry(BG_STATION_RADIUS, 16);
+       const outMat = new THREE.MeshBasicMaterial({ color: 0x1a1a2e });
+       const outline = new THREE.Mesh(outGeo, outMat);
+       outline.position.set(x, y, 2.8);
+       outline.userData = { lines: mappedLines, isActive: true };
+
+       stationsGroup.add(circle);
+       stationsGroup.add(outline);
+       
+       // Also add to transitStore.allStations if we want labels
+       transitStore.allStations.push({
+           name: s.name, lat: s.lat, lng: s.lng, lines: mappedLines, id: s.name
+       });
+    });
+    
+    // Refresh labels
+    if (labelsGroup) {
+        labelsGroup.clear();
+        addStationLabels();
+    }
+    
+    updateVisibility();
+  } catch (e) {
+    console.error("Failed to load generated stations", e);
+  }
+}
+
 function addTransitLines() {
+  console.log("Adding Transit Lines...");
   Object.entries(allLineColors).forEach(([name, color]) => {
     const route = transitStore.lineRoutes[name];
     if (route && route.length >= 2) {
+      console.log(`Building line ${name} with ${route.length} points.`);
       const bgRibbon = createThickRibbon(route, 0x444466, BG_LINE_THICKNESS);
       bgRibbon.position.z = 0;
       bgRibbon.userData = { lineName: name };
@@ -466,6 +747,8 @@ function addTransitLines() {
       ribbon.position.z = 1;
       ribbon.userData = { lineName: name };
       activeLinesGroup.add(ribbon);
+    } else {
+       // console.warn(`Skipping line ${name}: route length ${route?.length}`);
     }
   });
 }
@@ -582,32 +865,7 @@ function addStationLabels() {
   });
 }
 
-function updateVisibility() {
-  activeLinesGroup.children.forEach(child => {
-    child.visible = transitStore.enabledLines[child.userData.lineName] ?? false;
-  });
 
-  stationsGroup.children.forEach(child => {
-    const lines = child.userData.lines as string[];
-    if (lines && child.userData.isActive) {
-      const hasActive = lines.some(l => transitStore.enabledLines[l]);
-      child.visible = hasActive;
-      if (hasActive && child.userData.type === 'station-fill') {
-        const activeLine = lines.find(l => transitStore.enabledLines[l]);
-        if (activeLine) {
-          (child as THREE.Mesh).material = new THREE.MeshBasicMaterial({ color: new THREE.Color(transitStore.getLineColor(activeLine)) });
-        }
-      }
-    }
-  });
-
-  labelsGroup.children.forEach(child => {
-    const lines = child.userData.lines as string[];
-    if (lines) child.visible = lines.some(l => transitStore.enabledLines[l]) && mapStore.currentZoom > 1.2;
-  });
-
-  updateTrainMarkers();
-}
 
 function updateTrainMarkers() {
   if (!trainsGroup) return;
@@ -637,14 +895,14 @@ function updateCamera() {
   camera.updateProjectionMatrix();
 }
 
-function handleZoomIn() {
-  mapStore.zoomIn();
+function handleZoomIn(amount = 0.3) {
+  mapStore.zoomIn(amount);
   updateCamera();
   updateVisibility();
 }
 
-function handleZoomOut() {
-  mapStore.zoomOut();
+function handleZoomOut(amount = 0.3) {
+  mapStore.zoomOut(amount);
   updateCamera();
   updateVisibility();
 }
@@ -679,9 +937,13 @@ function resetHoveredObject() {
 let isPanning = false;
 let panStart = { x: 0, y: 0 };
 
-function onWheel(e: WheelEvent) {
-  e.preventDefault();
-  if (e.deltaY > 0) mapStore.zoomOut(); else mapStore.zoomIn();
+function onWheel(event: WheelEvent) {
+  event.preventDefault();
+  if (event.deltaY < 0) {
+    if (mapStore.currentZoom < 5) handleZoomIn(0.1); // Small step
+  } else {
+    if (mapStore.currentZoom > 0.05) handleZoomOut(0.1);
+  }
   updateCamera();
   updateVisibility();
 }

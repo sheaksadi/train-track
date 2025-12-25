@@ -1,0 +1,8170 @@
+[
+  {
+    "name": "Gesundbrunnen",
+    "lat": 52.5491593,
+    "lng": 13.3899951,
+    "lines": [
+      "S41",
+      "S42",
+      "S1",
+      "S2",
+      "S25",
+      "S26"
+    ]
+  },
+  {
+    "name": "Schönhauser Allee",
+    "lat": 52.5489522,
+    "lng": 13.4164114,
+    "lines": [
+      "S41",
+      "S42",
+      "S8",
+      "S85"
+    ]
+  },
+  {
+    "name": "Prenzlauer Allee",
+    "lat": 52.5446103,
+    "lng": 13.4262424,
+    "lines": [
+      "S41",
+      "S42",
+      "S8",
+      "S85"
+    ]
+  },
+  {
+    "name": "Greifswalder Straße",
+    "lat": 52.5398615,
+    "lng": 13.4396585,
+    "lines": [
+      "S41",
+      "S42",
+      "S8",
+      "S85"
+    ]
+  },
+  {
+    "name": "Landsberger Allee",
+    "lat": 52.5288924,
+    "lng": 13.4552684,
+    "lines": [
+      "S41",
+      "S42",
+      "S8",
+      "S85"
+    ]
+  },
+  {
+    "name": "Storkower Straße",
+    "lat": 52.5235155,
+    "lng": 13.4656543,
+    "lines": [
+      "S41",
+      "S42",
+      "S8",
+      "S85"
+    ]
+  },
+  {
+    "name": "Frankfurter Allee",
+    "lat": 52.5145767,
+    "lng": 13.4747039,
+    "lines": [
+      "S41",
+      "S42",
+      "S8",
+      "S85"
+    ]
+  },
+  {
+    "name": "Ostkreuz",
+    "lat": 52.5027427,
+    "lng": 13.4687755,
+    "lines": [
+      "S41",
+      "S42",
+      "S5",
+      "S7",
+      "S75",
+      "S8",
+      "S3",
+      "S85"
+    ]
+  },
+  {
+    "name": "Treptower Park",
+    "lat": 52.493408,
+    "lng": 13.4611736,
+    "lines": [
+      "S41",
+      "S42",
+      "S8",
+      "S9",
+      "S85"
+    ]
+  },
+  {
+    "name": "Sonnenallee",
+    "lat": 52.4725382,
+    "lng": 13.455168,
+    "lines": [
+      "S41",
+      "S42"
+    ]
+  },
+  {
+    "name": "Neukölln",
+    "lat": 52.4693782,
+    "lng": 13.4423656,
+    "lines": [
+      "S41",
+      "S42",
+      "S47",
+      "S46"
+    ]
+  },
+  {
+    "name": "Hermannstraße",
+    "lat": 52.4675681,
+    "lng": 13.4303522,
+    "lines": [
+      "S41",
+      "S42",
+      "S47",
+      "S46"
+    ]
+  },
+  {
+    "name": "Tempelhof",
+    "lat": 52.4712316,
+    "lng": 13.3835184,
+    "lines": [
+      "S41",
+      "S42",
+      "S47",
+      "S46"
+    ]
+  },
+  {
+    "name": "Südkreuz",
+    "lat": 52.4763351,
+    "lng": 13.3653382,
+    "lines": [
+      "S41",
+      "S42",
+      "S47",
+      "S2",
+      "S46",
+      "S25",
+      "S26"
+    ]
+  },
+  {
+    "name": "Schöneberg",
+    "lat": 52.4792174,
+    "lng": 13.3509197,
+    "lines": [
+      "S41",
+      "S42",
+      "S1",
+      "S46"
+    ]
+  },
+  {
+    "name": "Innsbrucker Platz",
+    "lat": 52.478168,
+    "lng": 13.3406589,
+    "lines": [
+      "S41",
+      "S42",
+      "S46"
+    ]
+  },
+  {
+    "name": "Bundesplatz",
+    "lat": 52.4777023,
+    "lng": 13.3289611,
+    "lines": [
+      "S41",
+      "S42",
+      "S46"
+    ]
+  },
+  {
+    "name": "Heidelberger Platz",
+    "lat": 52.4804521,
+    "lng": 13.3113393,
+    "lines": [
+      "S41",
+      "S42",
+      "S46"
+    ]
+  },
+  {
+    "name": "Hohenzollerndamm",
+    "lat": 52.4889341,
+    "lng": 13.2999556,
+    "lines": [
+      "S41",
+      "S42",
+      "S46"
+    ]
+  },
+  {
+    "name": "Halensee",
+    "lat": 52.4960144,
+    "lng": 13.2906869,
+    "lines": [
+      "S41",
+      "S42",
+      "S46"
+    ]
+  },
+  {
+    "name": "Westkreuz",
+    "lat": 52.5013808,
+    "lng": 13.2835436,
+    "lines": [
+      "S41",
+      "S42",
+      "S5",
+      "S7",
+      "S3",
+      "S9",
+      "S46"
+    ]
+  },
+  {
+    "name": "Messe Nord/ZOB",
+    "lat": 52.50817,
+    "lng": 13.283939,
+    "lines": [
+      "S41",
+      "S42",
+      "S46"
+    ]
+  },
+  {
+    "name": "Westend",
+    "lat": 52.5187699,
+    "lng": 13.2843103,
+    "lines": [
+      "S41",
+      "S42",
+      "S46"
+    ]
+  },
+  {
+    "name": "Jungfernheide",
+    "lat": 52.5304735,
+    "lng": 13.3002882,
+    "lines": [
+      "S41",
+      "S42"
+    ]
+  },
+  {
+    "name": "Beusselstraße",
+    "lat": 52.5344182,
+    "lng": 13.3300021,
+    "lines": [
+      "S41",
+      "S42"
+    ]
+  },
+  {
+    "name": "Westhafen",
+    "lat": 52.5362865,
+    "lng": 13.3449438,
+    "lines": [
+      "S41",
+      "S42"
+    ]
+  },
+  {
+    "name": "Wedding",
+    "lat": 52.5433212,
+    "lng": 13.3683388,
+    "lines": [
+      "S41",
+      "S42"
+    ]
+  },
+  {
+    "name": "Dorfaue",
+    "lat": 52.4787702,
+    "lng": 13.7004022,
+    "lines": [
+      "88"
+    ]
+  },
+  {
+    "name": "Schillerstraße",
+    "lat": 52.4769477,
+    "lng": 13.7093222,
+    "lines": [
+      "88",
+      "M1"
+    ]
+  },
+  {
+    "name": "Grätzwalde",
+    "lat": 52.473898,
+    "lng": 13.7134123,
+    "lines": [
+      "88"
+    ]
+  },
+  {
+    "name": "Jägerstraße",
+    "lat": 52.4727253,
+    "lng": 13.7302613,
+    "lines": [
+      "88"
+    ]
+  },
+  {
+    "name": "Kalkberger Straße",
+    "lat": 52.4722971,
+    "lng": 13.7377538,
+    "lines": [
+      "88"
+    ]
+  },
+  {
+    "name": "Berghof-Weiche",
+    "lat": 52.4733358,
+    "lng": 13.7520266,
+    "lines": [
+      "88"
+    ]
+  },
+  {
+    "name": "Berghof",
+    "lat": 52.4735812,
+    "lng": 13.7609947,
+    "lines": [
+      "88"
+    ]
+  },
+  {
+    "name": "Torellplatz",
+    "lat": 52.4742525,
+    "lng": 13.7710103,
+    "lines": [
+      "88"
+    ]
+  },
+  {
+    "name": "Museumspark",
+    "lat": 52.4730861,
+    "lng": 13.7765532,
+    "lines": [
+      "88"
+    ]
+  },
+  {
+    "name": "Marktplatz",
+    "lat": 52.4716509,
+    "lng": 13.7817487,
+    "lines": [
+      "88"
+    ]
+  },
+  {
+    "name": "Rathaus",
+    "lat": 52.4702804,
+    "lng": 13.7867307,
+    "lines": [
+      "88",
+      "96",
+      "92"
+    ]
+  },
+  {
+    "name": "Breitscheidstraße",
+    "lat": 52.4686356,
+    "lng": 13.7920927,
+    "lines": [
+      "88"
+    ]
+  },
+  {
+    "name": "Marienstraße",
+    "lat": 52.4683496,
+    "lng": 13.8014544,
+    "lines": [
+      "88"
+    ]
+  },
+  {
+    "name": "Alt-Rüdersdorf",
+    "lat": 52.4664199,
+    "lng": 13.8054918,
+    "lines": [
+      "88"
+    ]
+  },
+  {
+    "name": "Dorfstraße",
+    "lat": 52.4785253,
+    "lng": 13.6950292,
+    "lines": [
+      "88"
+    ]
+  },
+  {
+    "name": "Rahnsdorfer Straße",
+    "lat": 52.4746968,
+    "lng": 13.6922707,
+    "lines": [
+      "88",
+      "62",
+      "63"
+    ]
+  },
+  {
+    "name": "Goethepark",
+    "lat": 52.470862,
+    "lng": 13.6885591,
+    "lines": [
+      "88"
+    ]
+  },
+  {
+    "name": "Waldstraße",
+    "lat": 52.467602,
+    "lng": 13.6816379,
+    "lines": [
+      "88"
+    ]
+  },
+  {
+    "name": "Brösener Straße",
+    "lat": 52.4591593,
+    "lng": 13.6350737,
+    "lines": [
+      "88"
+    ]
+  },
+  {
+    "name": "S Friedrichshagen",
+    "lat": 52.4577004,
+    "lng": 13.6266707,
+    "lines": [
+      "88",
+      "60",
+      "61"
+    ]
+  },
+  {
+    "name": "Woltersdorf, Schleuse",
+    "lat": 52.443332,
+    "lng": 13.7639998,
+    "lines": [
+      "87"
+    ]
+  },
+  {
+    "name": "Krankenhaus",
+    "lat": 52.4472929,
+    "lng": 13.7614934,
+    "lines": [
+      "87"
+    ]
+  },
+  {
+    "name": "Blumenstraße",
+    "lat": 52.4494518,
+    "lng": 13.759453,
+    "lines": [
+      "87"
+    ]
+  },
+  {
+    "name": "Fasanenstraße",
+    "lat": 52.4530562,
+    "lng": 13.7442783,
+    "lines": [
+      "87"
+    ]
+  },
+  {
+    "name": "Berliner Platz",
+    "lat": 52.4542832,
+    "lng": 13.7385887,
+    "lines": [
+      "87"
+    ]
+  },
+  {
+    "name": "Lerchenstraße",
+    "lat": 52.4551646,
+    "lng": 13.7346111,
+    "lines": [
+      "87"
+    ]
+  },
+  {
+    "name": "Eichendamm",
+    "lat": 52.4557144,
+    "lng": 13.73096,
+    "lines": [
+      "87"
+    ]
+  },
+  {
+    "name": "Goethestraße",
+    "lat": 52.4555855,
+    "lng": 13.72639,
+    "lines": [
+      "87"
+    ]
+  },
+  {
+    "name": "Rahnsdorf Bahnhof",
+    "lat": 52.4515271,
+    "lng": 13.692946,
+    "lines": [
+      "87"
+    ]
+  },
+  {
+    "name": "S+U Alexanderplatz/Dircksenstraße",
+    "lat": 52.5213728,
+    "lng": 13.4120602,
+    "lines": [
+      "M2"
+    ]
+  },
+  {
+    "name": "S+U Alexanderplatz/Memhardstraße",
+    "lat": 52.5236711,
+    "lng": 13.4116514,
+    "lines": [
+      "M2"
+    ]
+  },
+  {
+    "name": "Mollstraße/Prenzlauer Allee",
+    "lat": 52.5278448,
+    "lng": 13.4165112,
+    "lines": [
+      "M2",
+      "M8"
+    ]
+  },
+  {
+    "name": "Prenzlauer Allee/Metzer Straße",
+    "lat": 52.5312171,
+    "lng": 13.4195273,
+    "lines": [
+      "M2"
+    ]
+  },
+  {
+    "name": "Knaackstraße",
+    "lat": 52.5334293,
+    "lng": 13.4208437,
+    "lines": [
+      "M2"
+    ]
+  },
+  {
+    "name": "Marienburger Straße",
+    "lat": 52.5362333,
+    "lng": 13.4225029,
+    "lines": [
+      "M2"
+    ]
+  },
+  {
+    "name": "Prenzlauer Allee/Danziger Straße",
+    "lat": 52.5387531,
+    "lng": 13.4239898,
+    "lines": [
+      "M2",
+      "M10"
+    ]
+  },
+  {
+    "name": "Fröbelstraße",
+    "lat": 52.5419298,
+    "lng": 13.4258552,
+    "lines": [
+      "M2"
+    ]
+  },
+  {
+    "name": "S Prenzlauer Allee",
+    "lat": 52.5452356,
+    "lng": 13.4276133,
+    "lines": [
+      "M2"
+    ]
+  },
+  {
+    "name": "Erich-Weinert-Straße",
+    "lat": 52.5475518,
+    "lng": 13.4285563,
+    "lines": [
+      "M2"
+    ]
+  },
+  {
+    "name": "Prenzlauer Allee/Ostseestraße",
+    "lat": 52.5507797,
+    "lng": 13.4300239,
+    "lines": [
+      "M2",
+      "12",
+      "M13"
+    ]
+  },
+  {
+    "name": "Prenzlauer Promenade/Am Steinberg",
+    "lat": 52.5566797,
+    "lng": 13.4299757,
+    "lines": [
+      "M2"
+    ]
+  },
+  {
+    "name": "Am Steinberg",
+    "lat": 52.5585796,
+    "lng": 13.4333751,
+    "lines": [
+      "M2"
+    ]
+  },
+  {
+    "name": "Tino-Schwierzina-Straße",
+    "lat": 52.5622499,
+    "lng": 13.4348544,
+    "lines": [
+      "M2"
+    ]
+  },
+  {
+    "name": "Am Wasserturm",
+    "lat": 52.5653634,
+    "lng": 13.4360911,
+    "lines": [
+      "M2"
+    ]
+  },
+  {
+    "name": "Heinersdorf Kirche",
+    "lat": 52.5686799,
+    "lng": 13.4388807,
+    "lines": [
+      "M2"
+    ]
+  },
+  {
+    "name": "Rothenbachstraße",
+    "lat": 52.5702229,
+    "lng": 13.4377078,
+    "lines": [
+      "M2"
+    ]
+  },
+  {
+    "name": "Heinersdorf",
+    "lat": 52.5727666,
+    "lng": 13.4374123,
+    "lines": [
+      "M2"
+    ]
+  },
+  {
+    "name": "Köllnische Heide",
+    "lat": 52.4697705,
+    "lng": 13.4693669,
+    "lines": [
+      "S47",
+      "S46"
+    ]
+  },
+  {
+    "name": "Baumschulenweg",
+    "lat": 52.4673254,
+    "lng": 13.4900699,
+    "lines": [
+      "S47",
+      "S8",
+      "S9",
+      "S46",
+      "S85"
+    ]
+  },
+  {
+    "name": "Schöneweide",
+    "lat": 52.4546545,
+    "lng": 13.5101089,
+    "lines": [
+      "S47",
+      "S8",
+      "S9",
+      "S46",
+      "S85"
+    ]
+  },
+  {
+    "name": "Oberspree",
+    "lat": 52.4525491,
+    "lng": 13.5384858,
+    "lines": [
+      "S47"
+    ]
+  },
+  {
+    "name": "Spindlersfeld",
+    "lat": 52.4469147,
+    "lng": 13.5614712,
+    "lines": [
+      "S47"
+    ]
+  },
+  {
+    "name": "Berlin Ostkreuz",
+    "lat": 52.5035893,
+    "lng": 13.4691817,
+    "lines": [
+      "RB26",
+      "RB25",
+      "RE2",
+      "RB12",
+      "RE1",
+      "RE7",
+      "RB24",
+      "RB32"
+    ]
+  },
+  {
+    "name": "Berlin-Lichtenberg",
+    "lat": 52.5101114,
+    "lng": 13.4971093,
+    "lines": [
+      "RB26",
+      "RB25",
+      "RB12",
+      "RB24",
+      "RB32",
+      "TES"
+    ]
+  },
+  {
+    "name": "Berlin-Mahlsdorf",
+    "lat": 52.51195,
+    "lng": 13.6110087,
+    "lines": [
+      "RB26"
+    ]
+  },
+  {
+    "name": "Strausberg",
+    "lat": 52.5321108,
+    "lng": 13.8329914,
+    "lines": [
+      "RB26",
+      "S5"
+    ]
+  },
+  {
+    "name": "Herrensee",
+    "lat": 52.529888,
+    "lng": 13.886177,
+    "lines": [
+      "RB26"
+    ]
+  },
+  {
+    "name": "Rehfelde",
+    "lat": 52.5284677,
+    "lng": 13.9221412,
+    "lines": [
+      "RB26"
+    ]
+  },
+  {
+    "name": "Müncheberg (Mark)",
+    "lat": 52.5246378,
+    "lng": 14.1001644,
+    "lines": [
+      "RB26"
+    ]
+  },
+  {
+    "name": "Obersdorf",
+    "lat": 52.5368822,
+    "lng": 14.1677861,
+    "lines": [
+      "RB26"
+    ]
+  },
+  {
+    "name": "Trebnitz (Mark)",
+    "lat": 52.5382499,
+    "lng": 14.216695,
+    "lines": [
+      "RB26"
+    ]
+  },
+  {
+    "name": "Alt Rosenthal",
+    "lat": 52.550416,
+    "lng": 14.2791322,
+    "lines": [
+      "RB26"
+    ]
+  },
+  {
+    "name": "Seelow-Gusow",
+    "lat": 52.5594499,
+    "lng": 14.3524193,
+    "lines": [
+      "RB26"
+    ]
+  },
+  {
+    "name": "Werbig",
+    "lat": 52.5647278,
+    "lng": 14.4055896,
+    "lines": [
+      "RB26"
+    ]
+  },
+  {
+    "name": "Golzow (Oderbruch)",
+    "lat": 52.5625342,
+    "lng": 14.5122478,
+    "lines": [
+      "RB26"
+    ]
+  },
+  {
+    "name": "Gorgast",
+    "lat": 52.5631719,
+    "lng": 14.5508156,
+    "lines": [
+      "RB26"
+    ]
+  },
+  {
+    "name": "Küstrin-Kietz",
+    "lat": 52.5684355,
+    "lng": 14.6077168,
+    "lines": [
+      "RB26"
+    ]
+  },
+  {
+    "name": "Kostrzyn",
+    "lat": 52.59159,
+    "lng": 14.6477253,
+    "lines": [
+      "RB26"
+    ]
+  },
+  {
+    "name": "Ahrensfelde",
+    "lat": 52.5707338,
+    "lng": 13.5648509,
+    "lines": [
+      "RB25",
+      "S7"
+    ]
+  },
+  {
+    "name": "Ahrensfelde Friedhof",
+    "lat": 52.5804698,
+    "lng": 13.5730651,
+    "lines": [
+      "RB25"
+    ]
+  },
+  {
+    "name": "Ahrensfelde Nord",
+    "lat": 52.5910942,
+    "lng": 13.5822507,
+    "lines": [
+      "RB25"
+    ]
+  },
+  {
+    "name": "Blumberg-Rehhahn",
+    "lat": 52.5968317,
+    "lng": 13.5922734,
+    "lines": [
+      "RB25"
+    ]
+  },
+  {
+    "name": "Blumberg (b Berlin)",
+    "lat": 52.6051162,
+    "lng": 13.6114603,
+    "lines": [
+      "RB25"
+    ]
+  },
+  {
+    "name": "Seefeld (Mark)",
+    "lat": 52.6182367,
+    "lng": 13.6756972,
+    "lines": [
+      "RB25"
+    ]
+  },
+  {
+    "name": "Werneuchen",
+    "lat": 52.6373445,
+    "lng": 13.7377022,
+    "lines": [
+      "RB25"
+    ]
+  },
+  {
+    "name": "Berlin-Charlottenburg",
+    "lat": 52.5043703,
+    "lng": 13.3027881,
+    "lines": [
+      "RE6",
+      "RE2",
+      "RE7",
+      "RB23"
+    ]
+  },
+  {
+    "name": "Berlin-Spandau",
+    "lat": 52.5349445,
+    "lng": 13.1956548,
+    "lines": [
+      "RE6",
+      "RE2",
+      "RE4",
+      "RB10",
+      "RB21",
+      "RE8"
+    ]
+  },
+  {
+    "name": "Falkensee",
+    "lat": 52.5599898,
+    "lng": 13.0888268,
+    "lines": [
+      "RE6",
+      "RE2",
+      "RB10"
+    ]
+  },
+  {
+    "name": "Hennigsdorf (bei Berlin)",
+    "lat": 52.6389088,
+    "lng": 13.2055647,
+    "lines": [
+      "RE6",
+      "RB20",
+      "S25",
+      "RB55"
+    ]
+  },
+  {
+    "name": "Velten (Mark)",
+    "lat": 52.6843243,
+    "lng": 13.1729703,
+    "lines": [
+      "RE6",
+      "RB55"
+    ]
+  },
+  {
+    "name": "Kremmen",
+    "lat": 52.7533004,
+    "lng": 13.0401536,
+    "lines": [
+      "RE6",
+      "RB55"
+    ]
+  },
+  {
+    "name": "Beetz-Sommerfeld",
+    "lat": 52.8043649,
+    "lng": 13.0216903,
+    "lines": [
+      "RE6"
+    ]
+  },
+  {
+    "name": "Wustrau-Radensleben",
+    "lat": 52.8574357,
+    "lng": 12.8968614,
+    "lines": [
+      "RE6"
+    ]
+  },
+  {
+    "name": "Neuruppin Rheinsberger Tor",
+    "lat": 52.9300816,
+    "lng": 12.8098873,
+    "lines": [
+      "RE6"
+    ]
+  },
+  {
+    "name": "Neuruppin, West Bhf",
+    "lat": 52.9263509,
+    "lng": 12.7940817,
+    "lines": [
+      "RE6"
+    ]
+  },
+  {
+    "name": "Walsleben",
+    "lat": 52.9466961,
+    "lng": 12.6798995,
+    "lines": [
+      "RE6"
+    ]
+  },
+  {
+    "name": "Netzeband",
+    "lat": 52.9956007,
+    "lng": 12.6279615,
+    "lines": [
+      "RE6"
+    ]
+  },
+  {
+    "name": "Fretzdorf",
+    "lat": 53.0649942,
+    "lng": 12.5458746,
+    "lines": [
+      "RE6"
+    ]
+  },
+  {
+    "name": "Dossow (Prignitz)",
+    "lat": 53.1205495,
+    "lng": 12.5219789,
+    "lines": [
+      "RE6"
+    ]
+  },
+  {
+    "name": "Wittstock (Dosse)",
+    "lat": 53.1607984,
+    "lng": 12.4771339,
+    "lines": [
+      "RE6"
+    ]
+  },
+  {
+    "name": "Liebenthal (Prignitz)",
+    "lat": 53.1512178,
+    "lng": 12.3923767,
+    "lines": [
+      "RE6"
+    ]
+  },
+  {
+    "name": "Heiligengrabe",
+    "lat": 53.1501459,
+    "lng": 12.3426349,
+    "lines": [
+      "RE6"
+    ]
+  },
+  {
+    "name": "Pritzwalk",
+    "lat": 53.1457228,
+    "lng": 12.1844977,
+    "lines": [
+      "RE6"
+    ]
+  },
+  {
+    "name": "Groß Pankow",
+    "lat": 53.1226227,
+    "lng": 12.0467129,
+    "lines": [
+      "RE6"
+    ]
+  },
+  {
+    "name": "Perleberg",
+    "lat": 53.0708597,
+    "lng": 11.8509368,
+    "lines": [
+      "RE6"
+    ]
+  },
+  {
+    "name": "Weisen",
+    "lat": 53.0254778,
+    "lng": 11.7874552,
+    "lines": [
+      "RE6"
+    ]
+  },
+  {
+    "name": "Wittenberge",
+    "lat": 53.0031172,
+    "lng": 11.7630357,
+    "lines": [
+      "RE6"
+    ]
+  },
+  {
+    "name": "Bahnhof Rehbrücke",
+    "lat": 52.360269,
+    "lng": 13.097445,
+    "lines": [
+      "93",
+      "91",
+      "98"
+    ]
+  },
+  {
+    "name": "Am Moosfenn",
+    "lat": 52.3635709,
+    "lng": 13.0949834,
+    "lines": [
+      "93",
+      "91",
+      "98"
+    ]
+  },
+  {
+    "name": "Friedrich-Wolf-Straße",
+    "lat": 52.3658321,
+    "lng": 13.0935775,
+    "lines": [
+      "93",
+      "91",
+      "98",
+      "68"
+    ]
+  },
+  {
+    "name": "Zum Kahleberg",
+    "lat": 52.368211,
+    "lng": 13.0917917,
+    "lines": [
+      "93",
+      "91",
+      "98"
+    ]
+  },
+  {
+    "name": "Eduard-Claudius-Straße/Heinrich-Mann-Allee",
+    "lat": 52.3730978,
+    "lng": 13.088157,
+    "lines": [
+      "93",
+      "91",
+      "98"
+    ]
+  },
+  {
+    "name": "Waldstraße/Horstweg",
+    "lat": 52.377522,
+    "lng": 13.0829446,
+    "lines": [
+      "93",
+      "96",
+      "91",
+      "92",
+      "98",
+      "99"
+    ]
+  },
+  {
+    "name": "Kunersdorfer Straße",
+    "lat": 52.3805657,
+    "lng": 13.0784618,
+    "lines": [
+      "93",
+      "96",
+      "91",
+      "92",
+      "98",
+      "99"
+    ]
+  },
+  {
+    "name": "Sporthalle",
+    "lat": 52.3828006,
+    "lng": 13.0751884,
+    "lines": [
+      "93",
+      "96",
+      "91",
+      "92",
+      "98",
+      "99"
+    ]
+  },
+  {
+    "name": "Friedhöfe",
+    "lat": 52.3860868,
+    "lng": 13.0715218,
+    "lines": [
+      "93",
+      "96",
+      "91",
+      "92",
+      "98",
+      "99"
+    ]
+  },
+  {
+    "name": "S Potsdam Hauptbahnhof",
+    "lat": 52.3910046,
+    "lng": 13.0652694,
+    "lines": [
+      "93",
+      "96",
+      "91",
+      "92",
+      "98",
+      "99"
+    ]
+  },
+  {
+    "name": "Lange Brücke",
+    "lat": 52.3923948,
+    "lng": 13.0635833,
+    "lines": [
+      "93",
+      "96",
+      "91",
+      "92",
+      "98",
+      "99"
+    ]
+  },
+  {
+    "name": "Alter Markt/Landtag",
+    "lat": 52.3951453,
+    "lng": 13.0592313,
+    "lines": [
+      "93",
+      "96",
+      "91",
+      "98",
+      "92",
+      "99"
+    ]
+  },
+  {
+    "name": "Platz der Einheit/Bildungsforum",
+    "lat": 52.3975673,
+    "lng": 13.059502,
+    "lines": [
+      "93",
+      "94",
+      "99",
+      "96",
+      "98"
+    ]
+  },
+  {
+    "name": "Burgstraße/Klinikum",
+    "lat": 52.3984138,
+    "lng": 13.0652995,
+    "lines": [
+      "93",
+      "94",
+      "99"
+    ]
+  },
+  {
+    "name": "Holzmarktstraße",
+    "lat": 52.4017735,
+    "lng": 13.0693612,
+    "lines": [
+      "93",
+      "94",
+      "99"
+    ]
+  },
+  {
+    "name": "Schiffbauergasse/Berliner Straße",
+    "lat": 52.4054539,
+    "lng": 13.0731194,
+    "lines": [
+      "93"
+    ]
+  },
+  {
+    "name": "Mangerstraße",
+    "lat": 52.4085192,
+    "lng": 13.0766986,
+    "lines": [
+      "93"
+    ]
+  },
+  {
+    "name": "Leonardo-da-Vinci-Straße",
+    "lat": 52.4100806,
+    "lng": 13.0803019,
+    "lines": [
+      "93"
+    ]
+  },
+  {
+    "name": "Glienicker Brücke (Ausstieg)",
+    "lat": 52.4112358,
+    "lng": 13.0845469,
+    "lines": [
+      "93"
+    ]
+  },
+  {
+    "name": "Cottbus Hbf",
+    "lat": 51.7510164,
+    "lng": 14.3238729,
+    "lines": [
+      "RE2",
+      "RE20"
+    ]
+  },
+  {
+    "name": "Kolkwitz / Gołkojce",
+    "lat": 51.7577786,
+    "lng": 14.2499825,
+    "lines": [
+      "RE2"
+    ]
+  },
+  {
+    "name": "Kunersdorf / Kósobuz",
+    "lat": 51.7686016,
+    "lng": 14.1885284,
+    "lines": [
+      "RE2"
+    ]
+  },
+  {
+    "name": "Vetschau / Wětošow",
+    "lat": 51.7893589,
+    "lng": 14.082176,
+    "lines": [
+      "RE2",
+      "RE20"
+    ]
+  },
+  {
+    "name": "Raddusch / Raduš",
+    "lat": 51.8159153,
+    "lng": 14.0323685,
+    "lines": [
+      "RE2"
+    ]
+  },
+  {
+    "name": "Lübbenau (Spreewald) / Lubnjow (Błota)",
+    "lat": 51.862108,
+    "lng": 13.9610882,
+    "lines": [
+      "RE2",
+      "RE7",
+      "RE20"
+    ]
+  },
+  {
+    "name": "Lübben (Spreewald) / Lubin (Błota)",
+    "lat": 51.9395996,
+    "lng": 13.8774691,
+    "lines": [
+      "RE2",
+      "RE7",
+      "RE20"
+    ]
+  },
+  {
+    "name": "Brand Tropical Islands",
+    "lat": 52.0300451,
+    "lng": 13.7215181,
+    "lines": [
+      "RE2",
+      "RE7"
+    ]
+  },
+  {
+    "name": "Königs Wusterhausen",
+    "lat": 52.2961876,
+    "lng": 13.6313741,
+    "lines": [
+      "RE2",
+      "RE7",
+      "RB22",
+      "S46",
+      "RB36",
+      "RE20"
+    ]
+  },
+  {
+    "name": "Berlin Ostbahnhof",
+    "lat": 52.5105704,
+    "lng": 13.4350587,
+    "lines": [
+      "RE2",
+      "RE1",
+      "RB23",
+      "RE7"
+    ]
+  },
+  {
+    "name": "Berlin Alexanderplatz",
+    "lat": 52.5214729,
+    "lng": 13.4112036,
+    "lines": [
+      "RE2",
+      "RE1",
+      "RB23",
+      "RE7"
+    ]
+  },
+  {
+    "name": "Berlin Friedrichstraße",
+    "lat": 52.5202843,
+    "lng": 13.3871663,
+    "lines": [
+      "RE2",
+      "RE1",
+      "RB23",
+      "RE7"
+    ]
+  },
+  {
+    "name": "Berlin Hauptbahnhof",
+    "lat": 52.5249394,
+    "lng": 13.3694418,
+    "lines": [
+      "RE2",
+      "RE7",
+      "RB23"
+    ]
+  },
+  {
+    "name": "Berlin Zoologischer Garten",
+    "lat": 52.5073807,
+    "lng": 13.3324884,
+    "lines": [
+      "RE2",
+      "RE1",
+      "RB23",
+      "RE7"
+    ]
+  },
+  {
+    "name": "Albrechtshof",
+    "lat": 52.5495741,
+    "lng": 13.1283351,
+    "lines": [
+      "RE2",
+      "RB10"
+    ]
+  },
+  {
+    "name": "Seegefeld",
+    "lat": 52.5527394,
+    "lng": 13.1159853,
+    "lines": [
+      "RE2",
+      "RB10"
+    ]
+  },
+  {
+    "name": "Finkenkrug",
+    "lat": 52.5699744,
+    "lng": 13.0501037,
+    "lines": [
+      "RE2",
+      "RB10"
+    ]
+  },
+  {
+    "name": "Brieselang",
+    "lat": 52.5829798,
+    "lng": 13.0000537,
+    "lines": [
+      "RE2",
+      "RB10"
+    ]
+  },
+  {
+    "name": "Nauen",
+    "lat": 52.6125909,
+    "lng": 12.8855014,
+    "lines": [
+      "RE2",
+      "RB10"
+    ]
+  },
+  {
+    "name": "Berlin-Hohenschönhausen",
+    "lat": 52.5664999,
+    "lng": 13.5118646,
+    "lines": [
+      "RB12",
+      "RB24"
+    ]
+  },
+  {
+    "name": "Oranienburg",
+    "lat": 52.7538211,
+    "lng": 13.2497204,
+    "lines": [
+      "RB12",
+      "RE5",
+      "RB20",
+      "S1"
+    ]
+  },
+  {
+    "name": "Sachsenhausen (Nordb)",
+    "lat": 52.7722246,
+    "lng": 13.2517444,
+    "lines": [
+      "RB12"
+    ]
+  },
+  {
+    "name": "Nassenheide",
+    "lat": 52.8169542,
+    "lng": 13.2393487,
+    "lines": [
+      "RB12"
+    ]
+  },
+  {
+    "name": "Grüneberg",
+    "lat": 52.86815,
+    "lng": 13.2127838,
+    "lines": [
+      "RB12"
+    ]
+  },
+  {
+    "name": "Löwenberg (Mark)",
+    "lat": 52.8962899,
+    "lng": 13.1904379,
+    "lines": [
+      "RB12",
+      "RE5"
+    ]
+  },
+  {
+    "name": "Bergsdorf",
+    "lat": 52.9365889,
+    "lng": 13.2608517,
+    "lines": [
+      "RB12"
+    ]
+  },
+  {
+    "name": "Zehdenick(Mark)",
+    "lat": 52.9791477,
+    "lng": 13.3174523,
+    "lines": [
+      "RB12"
+    ]
+  },
+  {
+    "name": "Zehdenick-Neuhof",
+    "lat": 53.0057066,
+    "lng": 13.3457843,
+    "lines": [
+      "RB12"
+    ]
+  },
+  {
+    "name": "Vogelsang",
+    "lat": 53.0375623,
+    "lng": 13.3856406,
+    "lines": [
+      "RB12"
+    ]
+  },
+  {
+    "name": "Hammelspring",
+    "lat": 53.0703628,
+    "lng": 13.4359353,
+    "lines": [
+      "RB12"
+    ]
+  },
+  {
+    "name": "Templin",
+    "lat": 53.1124576,
+    "lng": 13.4916791,
+    "lines": [
+      "RB12"
+    ]
+  },
+  {
+    "name": "Templin Stadt",
+    "lat": 53.1171329,
+    "lng": 13.5089803,
+    "lines": [
+      "RB12"
+    ]
+  },
+  {
+    "name": "Gleis 8",
+    "lat": 54.0788513,
+    "lng": 12.1298228,
+    "lines": [
+      "RE5"
+    ]
+  },
+  {
+    "name": "Güstrow",
+    "lat": 53.8006935,
+    "lng": 12.1729282,
+    "lines": [
+      "RE5"
+    ]
+  },
+  {
+    "name": "Langhagen",
+    "lat": 53.6807109,
+    "lng": 12.4254824,
+    "lines": [
+      "RE5"
+    ]
+  },
+  {
+    "name": "Waren (Müritz)",
+    "lat": 53.5216779,
+    "lng": 12.6804553,
+    "lines": [
+      "RE5"
+    ]
+  },
+  {
+    "name": "Kratzeburg",
+    "lat": 53.4277462,
+    "lng": 12.9418073,
+    "lines": [
+      "RE5"
+    ]
+  },
+  {
+    "name": "Neustrelitz Hauptbahnhof",
+    "lat": 53.3594519,
+    "lng": 13.0746793,
+    "lines": [
+      "RE5"
+    ]
+  },
+  {
+    "name": "Fürstenberg (Havel)",
+    "lat": 53.1868047,
+    "lng": 13.1391758,
+    "lines": [
+      "RE5"
+    ]
+  },
+  {
+    "name": "Dannenwalde (Gransee)",
+    "lat": 53.081235,
+    "lng": 13.1807283,
+    "lines": [
+      "RE5"
+    ]
+  },
+  {
+    "name": "Gransee",
+    "lat": 53.0020647,
+    "lng": 13.1681322,
+    "lines": [
+      "RE5"
+    ]
+  },
+  {
+    "name": "Berlin Gesundbrunnen",
+    "lat": 52.5488704,
+    "lng": 13.3894488,
+    "lines": [
+      "RE5",
+      "RE3",
+      "RB21"
+    ]
+  },
+  {
+    "name": "Berlin Hauptbahnhof (Tief)",
+    "lat": 52.5248295,
+    "lng": 13.3695311,
+    "lines": [
+      "RE5",
+      "RE3",
+      "RB10",
+      "RE4",
+      "RE8",
+      "RE20"
+    ]
+  },
+  {
+    "name": "Berlin Potsdamer Platz",
+    "lat": 52.5093095,
+    "lng": 13.3758485,
+    "lines": [
+      "RE5",
+      "RE3",
+      "RE4",
+      "RB10",
+      "FEX",
+      "RE8",
+      "RE20"
+    ]
+  },
+  {
+    "name": "Berlin Südkreuz",
+    "lat": 52.4747813,
+    "lng": 13.3648372,
+    "lines": [
+      "RE5",
+      "RE3",
+      "RE4",
+      "RB10",
+      "FEX",
+      "RE8",
+      "RE20"
+    ]
+  },
+  {
+    "name": "Fontanestraße",
+    "lat": 52.3931434,
+    "lng": 13.1086908,
+    "lines": [
+      "94",
+      "99"
+    ]
+  },
+  {
+    "name": "Plantagenstraße",
+    "lat": 52.3923981,
+    "lng": 13.103264,
+    "lines": [
+      "94",
+      "99"
+    ]
+  },
+  {
+    "name": "Anhaltstraße",
+    "lat": 52.3920755,
+    "lng": 13.0995665,
+    "lines": [
+      "94",
+      "99"
+    ]
+  },
+  {
+    "name": "S Babelsberg/Wattstraße",
+    "lat": 52.3917197,
+    "lng": 13.0954835,
+    "lines": [
+      "94",
+      "99"
+    ]
+  },
+  {
+    "name": "Rathaus Babelsberg",
+    "lat": 52.3920242,
+    "lng": 13.0916969,
+    "lines": [
+      "94",
+      "99"
+    ]
+  },
+  {
+    "name": "Alt Nowawes",
+    "lat": 52.3934867,
+    "lng": 13.0845507,
+    "lines": [
+      "94",
+      "99"
+    ]
+  },
+  {
+    "name": "Humboldtring/Nuthestraße",
+    "lat": 52.3978677,
+    "lng": 13.0788209,
+    "lines": [
+      "94",
+      "99"
+    ]
+  },
+  {
+    "name": "Schiffbauergasse/Uferweg",
+    "lat": 52.4015108,
+    "lng": 13.0717475,
+    "lines": [
+      "94",
+      "99"
+    ]
+  },
+  {
+    "name": "Platz der Einheit/West",
+    "lat": 52.3988767,
+    "lng": 13.057961,
+    "lines": [
+      "94",
+      "96",
+      "91",
+      "92",
+      "98",
+      "99",
+      "93"
+    ]
+  },
+  {
+    "name": "Dortustraße",
+    "lat": 52.3992958,
+    "lng": 13.0539248,
+    "lines": [
+      "94",
+      "91",
+      "98"
+    ]
+  },
+  {
+    "name": "Luisenplatz-Süd/Park Sanssouci",
+    "lat": 52.3984463,
+    "lng": 13.047011,
+    "lines": [
+      "94",
+      "91",
+      "98"
+    ]
+  },
+  {
+    "name": "Feuerbachstraße",
+    "lat": 52.396281,
+    "lng": 13.0424573,
+    "lines": [
+      "94",
+      "91",
+      "98",
+      "S1"
+    ]
+  },
+  {
+    "name": "Auf dem Kiewitt",
+    "lat": 52.3946075,
+    "lng": 13.0381502,
+    "lines": [
+      "94",
+      "91",
+      "98"
+    ]
+  },
+  {
+    "name": "Bahnhof Charlottenhof/Geschwister-Scholl-Straße",
+    "lat": 52.3936426,
+    "lng": 13.0346093,
+    "lines": [
+      "94",
+      "98",
+      "91"
+    ]
+  },
+  {
+    "name": "Schloss Charlottenhof",
+    "lat": 52.3936206,
+    "lng": 13.0285991,
+    "lines": [
+      "94",
+      "98",
+      "91"
+    ]
+  },
+  {
+    "name": "Kastanienallee/Zeppelinstraße",
+    "lat": 52.3891012,
+    "lng": 13.0282804,
+    "lines": [
+      "94",
+      "91",
+      "98"
+    ]
+  },
+  {
+    "name": "Im Bogen/Zeppelinstraße",
+    "lat": 52.384361,
+    "lng": 13.0220337,
+    "lines": [
+      "94",
+      "91"
+    ]
+  },
+  {
+    "name": "Luftschiffhafen",
+    "lat": 52.3805913,
+    "lng": 13.0166315,
+    "lines": [
+      "94",
+      "91"
+    ]
+  },
+  {
+    "name": "Bahnhof Pirschheide",
+    "lat": 52.3740737,
+    "lng": 13.0111531,
+    "lines": [
+      "94",
+      "91"
+    ]
+  },
+  {
+    "name": "Campus Jungfernsee",
+    "lat": 52.4318784,
+    "lng": 13.0550037,
+    "lines": [
+      "96"
+    ]
+  },
+  {
+    "name": "Rote Kaserne",
+    "lat": 52.4249406,
+    "lng": 13.0532119,
+    "lines": [
+      "96"
+    ]
+  },
+  {
+    "name": "Erich-Arendt-Straße",
+    "lat": 52.4223669,
+    "lng": 13.0505428,
+    "lines": [
+      "96"
+    ]
+  },
+  {
+    "name": "Volkspark",
+    "lat": 52.4186584,
+    "lng": 13.0503933,
+    "lines": [
+      "96"
+    ]
+  },
+  {
+    "name": "Campus Fachhochschule",
+    "lat": 52.4140129,
+    "lng": 13.051071,
+    "lines": [
+      "96",
+      "92"
+    ]
+  },
+  {
+    "name": "Am Schragen",
+    "lat": 52.4129461,
+    "lng": 13.0547365,
+    "lines": [
+      "96",
+      "92"
+    ]
+  },
+  {
+    "name": "Puschkinallee",
+    "lat": 52.411488,
+    "lng": 13.0589723,
+    "lines": [
+      "96",
+      "92"
+    ]
+  },
+  {
+    "name": "Reiterweg/Alleestraße",
+    "lat": 52.4084,
+    "lng": 13.0585619,
+    "lines": [
+      "96"
+    ]
+  },
+  {
+    "name": "Nauener Tor",
+    "lat": 52.4028209,
+    "lng": 13.0578542,
+    "lines": [
+      "96",
+      "92"
+    ]
+  },
+  {
+    "name": "Brandenburger Straße",
+    "lat": 52.4009287,
+    "lng": 13.0577435,
+    "lines": [
+      "96",
+      "92"
+    ]
+  },
+  {
+    "name": "Magnus-Zeller-Platz",
+    "lat": 52.3749267,
+    "lng": 13.0919953,
+    "lines": [
+      "96",
+      "92",
+      "91",
+      "93",
+      "98",
+      "99"
+    ]
+  },
+  {
+    "name": "Bisamkiez",
+    "lat": 52.37335,
+    "lng": 13.1008404,
+    "lines": [
+      "96",
+      "92",
+      "91",
+      "93",
+      "98",
+      "99"
+    ]
+  },
+  {
+    "name": "Abzweig Betriebshof ViP",
+    "lat": 52.3733116,
+    "lng": 13.1115649,
+    "lines": [
+      "96",
+      "92"
+    ]
+  },
+  {
+    "name": "Turmstraße",
+    "lat": 52.3746899,
+    "lng": 13.1232704,
+    "lines": [
+      "96",
+      "92"
+    ]
+  },
+  {
+    "name": "Johannes-Kepler-Platz",
+    "lat": 52.3754658,
+    "lng": 13.1295158,
+    "lines": [
+      "96",
+      "92"
+    ]
+  },
+  {
+    "name": "Max-Born-Straße",
+    "lat": 52.3755464,
+    "lng": 13.1378846,
+    "lines": [
+      "96",
+      "92"
+    ]
+  },
+  {
+    "name": "Gaußstraße",
+    "lat": 52.3745624,
+    "lng": 13.1418691,
+    "lines": [
+      "96",
+      "92"
+    ]
+  },
+  {
+    "name": "Hans-Albers-Straße",
+    "lat": 52.369744,
+    "lng": 13.1406268,
+    "lines": [
+      "96",
+      "92"
+    ]
+  },
+  {
+    "name": "Robert-Baberske-Straße",
+    "lat": 52.3669744,
+    "lng": 13.1363025,
+    "lines": [
+      "96",
+      "92"
+    ]
+  },
+  {
+    "name": "Priesterweg",
+    "lat": 52.3649859,
+    "lng": 13.1348818,
+    "lines": [
+      "96",
+      "92",
+      "S2",
+      "S25",
+      "S26"
+    ]
+  },
+  {
+    "name": "Am Hirtengraben",
+    "lat": 52.3619684,
+    "lng": 13.1370913,
+    "lines": [
+      "96",
+      "92"
+    ]
+  },
+  {
+    "name": "Marie-Juchacz-Straße",
+    "lat": 52.3582571,
+    "lng": 13.1372236,
+    "lines": [
+      "96",
+      "92"
+    ]
+  },
+  {
+    "name": "Magdeburg Hauptbahnhof",
+    "lat": 52.1306974,
+    "lng": 11.6260703,
+    "lines": [
+      "RE1"
+    ]
+  },
+  {
+    "name": "Magdeburg-Neustadt",
+    "lat": 52.1488923,
+    "lng": 11.6417302,
+    "lines": [
+      "RE1"
+    ]
+  },
+  {
+    "name": "Burg (b Magdeburg)",
+    "lat": 52.2743683,
+    "lng": 11.8403848,
+    "lines": [
+      "RE1"
+    ]
+  },
+  {
+    "name": "Güsen",
+    "lat": 52.3336144,
+    "lng": 11.9751531,
+    "lines": [
+      "RE1"
+    ]
+  },
+  {
+    "name": "Genthin",
+    "lat": 52.4031919,
+    "lng": 12.1569687,
+    "lines": [
+      "RE1"
+    ]
+  },
+  {
+    "name": "Wusterwitz",
+    "lat": 52.3850899,
+    "lng": 12.3744811,
+    "lines": [
+      "RE1"
+    ]
+  },
+  {
+    "name": "Kirchmöser",
+    "lat": 52.3751679,
+    "lng": 12.4222838,
+    "lines": [
+      "RE1"
+    ]
+  },
+  {
+    "name": "Brandenburg Hauptbahnhof",
+    "lat": 52.4004673,
+    "lng": 12.5659139,
+    "lines": [
+      "RE1"
+    ]
+  },
+  {
+    "name": "Götz",
+    "lat": 52.4110808,
+    "lng": 12.7266181,
+    "lines": [
+      "RE1"
+    ]
+  },
+  {
+    "name": "Groß Kreutz",
+    "lat": 52.4109214,
+    "lng": 12.7766407,
+    "lines": [
+      "RE1"
+    ]
+  },
+  {
+    "name": "Werder (Havel)",
+    "lat": 52.3927341,
+    "lng": 12.9279494,
+    "lines": [
+      "RE1"
+    ]
+  },
+  {
+    "name": "Potsdam Park Sanssouci",
+    "lat": 52.3945802,
+    "lng": 13.0136463,
+    "lines": [
+      "RE1",
+      "RB23",
+      "RB20",
+      "RB22",
+      "RB21"
+    ]
+  },
+  {
+    "name": "Potsdam Charlottenhof",
+    "lat": 52.3928275,
+    "lng": 13.0372472,
+    "lines": [
+      "RE1",
+      "RB23",
+      "RB33",
+      "RB20",
+      "RB22",
+      "RB21"
+    ]
+  },
+  {
+    "name": "Potsdam Hauptbahnhof",
+    "lat": 52.3913368,
+    "lng": 13.0683057,
+    "lines": [
+      "RE1",
+      "RB23",
+      "RB33",
+      "RB20",
+      "RB22",
+      "S7",
+      "RB21"
+    ]
+  },
+  {
+    "name": "Berlin-Wannsee",
+    "lat": 52.4208664,
+    "lng": 13.1795909,
+    "lines": [
+      "RE1",
+      "RB23",
+      "RE7",
+      "RB37"
+    ]
+  },
+  {
+    "name": "Erkner",
+    "lat": 52.4270352,
+    "lng": 13.7525718,
+    "lines": [
+      "RE1",
+      "S3",
+      "TES"
+    ]
+  },
+  {
+    "name": "Fangschleuse",
+    "lat": 52.4067323,
+    "lng": 13.8240461,
+    "lines": [
+      "RE1"
+    ]
+  },
+  {
+    "name": "Hangelsberg",
+    "lat": 52.4002266,
+    "lng": 13.9210592,
+    "lines": [
+      "RE1"
+    ]
+  },
+  {
+    "name": "Fürstenwalde (Spree)",
+    "lat": 52.3670789,
+    "lng": 14.0584832,
+    "lines": [
+      "RE1"
+    ]
+  },
+  {
+    "name": "Berkenbrück",
+    "lat": 52.3570766,
+    "lng": 14.1667165,
+    "lines": [
+      "RE1"
+    ]
+  },
+  {
+    "name": "Briesen (Mark)",
+    "lat": 52.3462755,
+    "lng": 14.2821927,
+    "lines": [
+      "RE1"
+    ]
+  },
+  {
+    "name": "Jacobsdorf (Mark)",
+    "lat": 52.3327343,
+    "lng": 14.3561627,
+    "lines": [
+      "RE1"
+    ]
+  },
+  {
+    "name": "Pillgram",
+    "lat": 52.33691,
+    "lng": 14.3982758,
+    "lines": [
+      "RE1"
+    ]
+  },
+  {
+    "name": "Frankfurt(Oder)-Rosengarten",
+    "lat": 52.3378489,
+    "lng": 14.4728351,
+    "lines": [
+      "RE1"
+    ]
+  },
+  {
+    "name": "Frankfurt (Oder)",
+    "lat": 52.3363122,
+    "lng": 14.5460971,
+    "lines": [
+      "RE1",
+      "RB36"
+    ]
+  },
+  {
+    "name": "Eisenhüttenstadt",
+    "lat": 52.1482252,
+    "lng": 14.6583064,
+    "lines": [
+      "RE1"
+    ]
+  },
+  {
+    "name": "Schillerplatz/Schafgraben",
+    "lat": 52.3912775,
+    "lng": 13.033065,
+    "lines": [
+      "91",
+      "98",
+      "94"
+    ]
+  },
+  {
+    "name": "Bahnhof Charlottenhof",
+    "lat": 52.3932339,
+    "lng": 13.0366232,
+    "lines": [
+      "91",
+      "98",
+      "94"
+    ]
+  },
+  {
+    "name": "Stralsund Hbf",
+    "lat": 54.3077756,
+    "lng": 13.0788836,
+    "lines": [
+      "RE3",
+      "RE5"
+    ]
+  },
+  {
+    "name": "Miltzow",
+    "lat": 54.2010522,
+    "lng": 13.1971669,
+    "lines": [
+      "RE3"
+    ]
+  },
+  {
+    "name": "Greifswald",
+    "lat": 54.0929329,
+    "lng": 13.370273,
+    "lines": [
+      "RE3"
+    ]
+  },
+  {
+    "name": "Greifswald Süd",
+    "lat": 54.0764452,
+    "lng": 13.3966061,
+    "lines": [
+      "RE3"
+    ]
+  },
+  {
+    "name": "Groß Kiesow",
+    "lat": 54.0134386,
+    "lng": 13.4810755,
+    "lines": [
+      "RE3"
+    ]
+  },
+  {
+    "name": "Züssow",
+    "lat": 53.9728296,
+    "lng": 13.5494182,
+    "lines": [
+      "RE3"
+    ]
+  },
+  {
+    "name": "Klein Bünzow",
+    "lat": 53.924784,
+    "lng": 13.6206607,
+    "lines": [
+      "RE3"
+    ]
+  },
+  {
+    "name": "Anklam",
+    "lat": 53.8560506,
+    "lng": 13.7018355,
+    "lines": [
+      "RE3"
+    ]
+  },
+  {
+    "name": "Ducherow",
+    "lat": 53.7622809,
+    "lng": 13.7983967,
+    "lines": [
+      "RE3"
+    ]
+  },
+  {
+    "name": "Ferdinandshof",
+    "lat": 53.6594885,
+    "lng": 13.8823607,
+    "lines": [
+      "RE3"
+    ]
+  },
+  {
+    "name": "Jatznick",
+    "lat": 53.6024786,
+    "lng": 13.9380668,
+    "lines": [
+      "RE3"
+    ]
+  },
+  {
+    "name": "Pasewalk",
+    "lat": 53.5152581,
+    "lng": 13.9889444,
+    "lines": [
+      "RE3"
+    ]
+  },
+  {
+    "name": "Nechlin",
+    "lat": 53.4419093,
+    "lng": 13.9033995,
+    "lines": [
+      "RE3"
+    ]
+  },
+  {
+    "name": "Prenzlau",
+    "lat": 53.3215675,
+    "lng": 13.866417,
+    "lines": [
+      "RE3"
+    ]
+  },
+  {
+    "name": "Seehausen (Uckermark)",
+    "lat": 53.2210083,
+    "lng": 13.8844994,
+    "lines": [
+      "RE3"
+    ]
+  },
+  {
+    "name": "Warnitz (Uckermark)",
+    "lat": 53.1836588,
+    "lng": 13.8772248,
+    "lines": [
+      "RE3"
+    ]
+  },
+  {
+    "name": "Wilmersdorf (bei Angermünde)",
+    "lat": 53.1121215,
+    "lng": 13.8921003,
+    "lines": [
+      "RE3"
+    ]
+  },
+  {
+    "name": "Angermünde",
+    "lat": 53.0155569,
+    "lng": 13.9958005,
+    "lines": [
+      "RE3"
+    ]
+  },
+  {
+    "name": "Chorin",
+    "lat": 52.903051,
+    "lng": 13.8687351,
+    "lines": [
+      "RE3"
+    ]
+  },
+  {
+    "name": "Britz",
+    "lat": 52.8725032,
+    "lng": 13.8197842,
+    "lines": [
+      "RE3"
+    ]
+  },
+  {
+    "name": "Eberswalde Hauptbahnhof",
+    "lat": 52.8337909,
+    "lng": 13.7967936,
+    "lines": [
+      "RE3",
+      "RB24"
+    ]
+  },
+  {
+    "name": "Bernau (b Berlin)",
+    "lat": 52.6748097,
+    "lng": 13.5903211,
+    "lines": [
+      "RE3",
+      "RB24"
+    ]
+  },
+  {
+    "name": "Berlin-Lichterfelde Ost",
+    "lat": 52.4295962,
+    "lng": 13.3287065,
+    "lines": [
+      "RE3",
+      "RE4"
+    ]
+  },
+  {
+    "name": "Ludwigsfelde",
+    "lat": 52.2985227,
+    "lng": 13.267388,
+    "lines": [
+      "RE3",
+      "RE4",
+      "RB32"
+    ]
+  },
+  {
+    "name": "Thyrow",
+    "lat": 52.2471219,
+    "lng": 13.2599179,
+    "lines": [
+      "RE3",
+      "RE4"
+    ]
+  },
+  {
+    "name": "Trebbin",
+    "lat": 52.2167475,
+    "lng": 13.2296798,
+    "lines": [
+      "RE3",
+      "RE4"
+    ]
+  },
+  {
+    "name": "Woltersdorf/Nuthe-Urstromtal",
+    "lat": 52.1172169,
+    "lng": 13.1951178,
+    "lines": [
+      "RE3"
+    ]
+  },
+  {
+    "name": "Luckenwalde",
+    "lat": 52.091103,
+    "lng": 13.1608069,
+    "lines": [
+      "RE3",
+      "RE4"
+    ]
+  },
+  {
+    "name": "Kirschallee",
+    "lat": 52.4139898,
+    "lng": 13.0335487,
+    "lines": [
+      "92"
+    ]
+  },
+  {
+    "name": "Johan-Bouman-Platz",
+    "lat": 52.4135011,
+    "lng": 13.038618,
+    "lines": [
+      "92"
+    ]
+  },
+  {
+    "name": "Hannes-Meyer-Straße",
+    "lat": 52.4153444,
+    "lng": 13.0403509,
+    "lines": [
+      "92"
+    ]
+  },
+  {
+    "name": "Wiesenpark",
+    "lat": 52.4149464,
+    "lng": 13.0458971,
+    "lines": [
+      "92"
+    ]
+  },
+  {
+    "name": "Griebnitzsee",
+    "lat": 52.3942101,
+    "lng": 13.126482,
+    "lines": [
+      "RB23",
+      "RB20",
+      "RB22",
+      "S7"
+    ]
+  },
+  {
+    "name": "Golm",
+    "lat": 52.4099074,
+    "lng": 12.9720163,
+    "lines": [
+      "RB23",
+      "RB20",
+      "RB22",
+      "RB21"
+    ]
+  },
+  {
+    "name": "Platz der Einheit/Nord",
+    "lat": 52.3991779,
+    "lng": 13.0586149,
+    "lines": [
+      "99",
+      "93",
+      "96",
+      "98"
+    ]
+  },
+  {
+    "name": "Potsdam Pirschheide",
+    "lat": 52.3728774,
+    "lng": 13.0114702,
+    "lines": [
+      "RB33",
+      "RB22"
+    ]
+  },
+  {
+    "name": "Caputh-Geltow",
+    "lat": 52.349943,
+    "lng": 12.9841269,
+    "lines": [
+      "RB33"
+    ]
+  },
+  {
+    "name": "Caputh-Schwielowsee",
+    "lat": 52.3410157,
+    "lng": 12.9804187,
+    "lines": [
+      "RB33"
+    ]
+  },
+  {
+    "name": "Ferch-Lienewitz",
+    "lat": 52.3037082,
+    "lng": 12.964087,
+    "lines": [
+      "RB33"
+    ]
+  },
+  {
+    "name": "Beelitz Stadt",
+    "lat": 52.2393865,
+    "lng": 12.966794,
+    "lines": [
+      "RB33",
+      "RB37"
+    ]
+  },
+  {
+    "name": "Elsholz",
+    "lat": 52.203915,
+    "lng": 12.9549613,
+    "lines": [
+      "RB33"
+    ]
+  },
+  {
+    "name": "Buchholz (Zauche)",
+    "lat": 52.1657248,
+    "lng": 12.9204375,
+    "lines": [
+      "RB33"
+    ]
+  },
+  {
+    "name": "Treuenbrietzen",
+    "lat": 52.0918854,
+    "lng": 12.8532274,
+    "lines": [
+      "RB33"
+    ]
+  },
+  {
+    "name": "Treuenbrietzen Süd",
+    "lat": 52.0807535,
+    "lng": 12.8809019,
+    "lines": [
+      "RB33"
+    ]
+  },
+  {
+    "name": "Altes Lager",
+    "lat": 52.0158901,
+    "lng": 12.9924447,
+    "lines": [
+      "RB33"
+    ]
+  },
+  {
+    "name": "Jüterbog",
+    "lat": 51.9973116,
+    "lng": 13.0535996,
+    "lines": [
+      "RB33",
+      "RE4",
+      "RE3"
+    ]
+  },
+  {
+    "name": "Senftenberg - Zły Komorow",
+    "lat": 51.5274132,
+    "lng": 14.0041032,
+    "lines": [
+      "RE7"
+    ]
+  },
+  {
+    "name": "Sedlitz Ost",
+    "lat": 51.5540621,
+    "lng": 14.0563076,
+    "lines": [
+      "RE7"
+    ]
+  },
+  {
+    "name": "Großräschen",
+    "lat": 51.5915091,
+    "lng": 14.0149079,
+    "lines": [
+      "RE7"
+    ]
+  },
+  {
+    "name": "Altdöbern",
+    "lat": 51.6524738,
+    "lng": 14.0093533,
+    "lines": [
+      "RE7"
+    ]
+  },
+  {
+    "name": "Luckaitztal",
+    "lat": 51.6844336,
+    "lng": 14.0018261,
+    "lines": [
+      "RE7"
+    ]
+  },
+  {
+    "name": "Calau (Niederlausitz)",
+    "lat": 51.7380154,
+    "lng": 13.9798297,
+    "lines": [
+      "RE7"
+    ]
+  },
+  {
+    "name": "Lubolz",
+    "lat": 51.9617392,
+    "lng": 13.8223811,
+    "lines": [
+      "RE7"
+    ]
+  },
+  {
+    "name": "Schönwalde (Spreewald)",
+    "lat": 51.9914999,
+    "lng": 13.7768107,
+    "lines": [
+      "RE7"
+    ]
+  },
+  {
+    "name": "Oderin",
+    "lat": 52.074853,
+    "lng": 13.7269998,
+    "lines": [
+      "RE7"
+    ]
+  },
+  {
+    "name": "Halbe",
+    "lat": 52.10913,
+    "lng": 13.7010544,
+    "lines": [
+      "RE7"
+    ]
+  },
+  {
+    "name": "Groß Köris",
+    "lat": 52.1596756,
+    "lng": 13.650715,
+    "lines": [
+      "RE7"
+    ]
+  },
+  {
+    "name": "Bestensee",
+    "lat": 52.2412566,
+    "lng": 13.6351882,
+    "lines": [
+      "RE7"
+    ]
+  },
+  {
+    "name": "Zeesen",
+    "lat": 52.2649551,
+    "lng": 13.6351438,
+    "lines": [
+      "RE7"
+    ]
+  },
+  {
+    "name": "Potsdam Medienstadt Babelsberg",
+    "lat": 52.3825766,
+    "lng": 13.1220474,
+    "lines": [
+      "RE7",
+      "RB37"
+    ]
+  },
+  {
+    "name": "Potsdam-Rehbrücke",
+    "lat": 52.3582656,
+    "lng": 13.0980856,
+    "lines": [
+      "RE7",
+      "RB37"
+    ]
+  },
+  {
+    "name": "Wilhelmshorst",
+    "lat": 52.3318733,
+    "lng": 13.0683773,
+    "lines": [
+      "RE7",
+      "RB37"
+    ]
+  },
+  {
+    "name": "Michendorf",
+    "lat": 52.3167233,
+    "lng": 13.0308723,
+    "lines": [
+      "RE7",
+      "RB37"
+    ]
+  },
+  {
+    "name": "Seddin",
+    "lat": 52.2915302,
+    "lng": 12.9844638,
+    "lines": [
+      "RE7"
+    ]
+  },
+  {
+    "name": "Beelitz-Heilstätten",
+    "lat": 52.2622721,
+    "lng": 12.9257724,
+    "lines": [
+      "RE7"
+    ]
+  },
+  {
+    "name": "Borkheide",
+    "lat": 52.2308054,
+    "lng": 12.8544911,
+    "lines": [
+      "RE7"
+    ]
+  },
+  {
+    "name": "Brück (Mark)",
+    "lat": 52.1869278,
+    "lng": 12.7586395,
+    "lines": [
+      "RE7"
+    ]
+  },
+  {
+    "name": "Baitz",
+    "lat": 52.1641594,
+    "lng": 12.6852415,
+    "lines": [
+      "RE7"
+    ]
+  },
+  {
+    "name": "Bad Belzig",
+    "lat": 52.1360501,
+    "lng": 12.5949376,
+    "lines": [
+      "RE7"
+    ]
+  },
+  {
+    "name": "Wiesenburg (Mark)",
+    "lat": 52.0988239,
+    "lng": 12.4313411,
+    "lines": [
+      "RE7"
+    ]
+  },
+  {
+    "name": "Medewitz (Mark)",
+    "lat": 52.0610947,
+    "lng": 12.3920435,
+    "lines": [
+      "RE7"
+    ]
+  },
+  {
+    "name": "Jeber-Bergfrieden",
+    "lat": 51.9847881,
+    "lng": 12.349693,
+    "lines": [
+      "RE7"
+    ]
+  },
+  {
+    "name": "Roßlau (Elbe)",
+    "lat": 51.8839516,
+    "lng": 12.2370159,
+    "lines": [
+      "RE7"
+    ]
+  },
+  {
+    "name": "Dessau Hauptbahnhof",
+    "lat": 51.8399918,
+    "lng": 12.2346067,
+    "lines": [
+      "RE7"
+    ]
+  },
+  {
+    "name": "Falkenberg (Elster)",
+    "lat": 51.5842357,
+    "lng": 13.2469982,
+    "lines": [
+      "RE4"
+    ]
+  },
+  {
+    "name": "Herzberg (Elster)",
+    "lat": 51.6794489,
+    "lng": 13.2028784,
+    "lines": [
+      "RE4"
+    ]
+  },
+  {
+    "name": "Holzdorf (Elster)",
+    "lat": 51.7804949,
+    "lng": 13.1141208,
+    "lines": [
+      "RE4"
+    ]
+  },
+  {
+    "name": "Linda (Elster)",
+    "lat": 51.8529162,
+    "lng": 13.0851797,
+    "lines": [
+      "RE4"
+    ]
+  },
+  {
+    "name": "Zellendorf",
+    "lat": 51.8941997,
+    "lng": 13.0669176,
+    "lines": [
+      "RE4"
+    ]
+  },
+  {
+    "name": "Oehna",
+    "lat": 51.9317652,
+    "lng": 13.0488002,
+    "lines": [
+      "RE4"
+    ]
+  },
+  {
+    "name": "Berlin Hauptbahnhof (tief)",
+    "lat": 52.5260775,
+    "lng": 13.3690803,
+    "lines": [
+      "RE4",
+      "RE3",
+      "RE5",
+      "RB10",
+      "FEX",
+      "RE8",
+      "RE20"
+    ]
+  },
+  {
+    "name": "Berlin Jungfernheide",
+    "lat": 52.530316,
+    "lng": 13.2995592,
+    "lines": [
+      "RE4",
+      "RB10",
+      "RB21",
+      "RE8"
+    ]
+  },
+  {
+    "name": "Berlin-Staaken",
+    "lat": 52.5377544,
+    "lng": 13.1413469,
+    "lines": [
+      "RE4",
+      "RB21",
+      "RE8"
+    ]
+  },
+  {
+    "name": "Dallgow-Döberitz",
+    "lat": 52.5436959,
+    "lng": 13.058287,
+    "lines": [
+      "RE4",
+      "RB21",
+      "RE8"
+    ]
+  },
+  {
+    "name": "Elstal",
+    "lat": 52.547594,
+    "lng": 13.0006905,
+    "lines": [
+      "RE4",
+      "RB21",
+      "RE8"
+    ]
+  },
+  {
+    "name": "Wustermark",
+    "lat": 52.5519699,
+    "lng": 12.9385029,
+    "lines": [
+      "RE4",
+      "RB21"
+    ]
+  },
+  {
+    "name": "Buschow",
+    "lat": 52.5922745,
+    "lng": 12.6297347,
+    "lines": [
+      "RE4"
+    ]
+  },
+  {
+    "name": "Nennhausen",
+    "lat": 52.6000355,
+    "lng": 12.5018995,
+    "lines": [
+      "RE4"
+    ]
+  },
+  {
+    "name": "Rathenow",
+    "lat": 52.59977,
+    "lng": 12.3549287,
+    "lines": [
+      "RE4"
+    ]
+  },
+  {
+    "name": "Stendal Hbf",
+    "lat": 52.5947967,
+    "lng": 11.8546909,
+    "lines": [
+      "RE4"
+    ]
+  },
+  {
+    "name": "Blankensee",
+    "lat": 53.4083705,
+    "lng": 13.263157,
+    "lines": [
+      "RE5"
+    ]
+  },
+  {
+    "name": "Cammin (Meckl)",
+    "lat": 53.4404151,
+    "lng": 13.3019073,
+    "lines": [
+      "RE5"
+    ]
+  },
+  {
+    "name": "Burg Stargard",
+    "lat": 53.4998204,
+    "lng": 13.3028726,
+    "lines": [
+      "RE5"
+    ]
+  },
+  {
+    "name": "Neubrandenburg",
+    "lat": 53.5618903,
+    "lng": 13.2617171,
+    "lines": [
+      "RE5"
+    ]
+  },
+  {
+    "name": "Gnevkow",
+    "lat": 53.7931527,
+    "lng": 13.1744947,
+    "lines": [
+      "RE5"
+    ]
+  },
+  {
+    "name": "Sternfeld",
+    "lat": 53.8257672,
+    "lng": 13.1494685,
+    "lines": [
+      "RE5"
+    ]
+  },
+  {
+    "name": "Utzedel",
+    "lat": 53.8603536,
+    "lng": 13.1168311,
+    "lines": [
+      "RE5"
+    ]
+  },
+  {
+    "name": "Demmin",
+    "lat": 53.9012192,
+    "lng": 13.0539145,
+    "lines": [
+      "RE5"
+    ]
+  },
+  {
+    "name": "Rakow",
+    "lat": 54.048101,
+    "lng": 13.0458175,
+    "lines": [
+      "RE5"
+    ]
+  },
+  {
+    "name": "Wittenhagen",
+    "lat": 54.185155,
+    "lng": 13.0568417,
+    "lines": [
+      "RE5"
+    ]
+  },
+  {
+    "name": "Elmenhorst",
+    "lat": 54.2101273,
+    "lng": 13.0740199,
+    "lines": [
+      "RE5"
+    ]
+  },
+  {
+    "name": "Zarrendorf",
+    "lat": 54.2406953,
+    "lng": 13.0801187,
+    "lines": [
+      "RE5"
+    ]
+  },
+  {
+    "name": "Karow",
+    "lat": 52.6153746,
+    "lng": 13.4697585,
+    "lines": [
+      "RB27",
+      "S2"
+    ]
+  },
+  {
+    "name": "Schönerlinde",
+    "lat": 52.65287,
+    "lng": 13.4285363,
+    "lines": [
+      "RB27"
+    ]
+  },
+  {
+    "name": "Schönwalde",
+    "lat": 52.680696,
+    "lng": 13.4324638,
+    "lines": [
+      "RB27"
+    ]
+  },
+  {
+    "name": "Basdorf",
+    "lat": 52.7156874,
+    "lng": 13.4337843,
+    "lines": [
+      "RB27"
+    ]
+  },
+  {
+    "name": "Wandlitz",
+    "lat": 52.7452035,
+    "lng": 13.4664569,
+    "lines": [
+      "RB27"
+    ]
+  },
+  {
+    "name": "Wandlitzsee",
+    "lat": 52.7560565,
+    "lng": 13.4739403,
+    "lines": [
+      "RB27"
+    ]
+  },
+  {
+    "name": "Klosterfelde",
+    "lat": 52.7916014,
+    "lng": 13.4881771,
+    "lines": [
+      "RB27"
+    ]
+  },
+  {
+    "name": "Lottschesee",
+    "lat": 52.8157929,
+    "lng": 13.4985035,
+    "lines": [
+      "RB27"
+    ]
+  },
+  {
+    "name": "Ruhlsdorf-Zerpenschleuse",
+    "lat": 52.8435929,
+    "lng": 13.5420707,
+    "lines": [
+      "RB27"
+    ]
+  },
+  {
+    "name": "Klandorf",
+    "lat": 52.8781956,
+    "lng": 13.5558548,
+    "lines": [
+      "RB27"
+    ]
+  },
+  {
+    "name": "Groß Schönebeck (Schorfheide)",
+    "lat": 52.9043634,
+    "lng": 13.5373714,
+    "lines": [
+      "RB27"
+    ]
+  },
+  {
+    "name": "Birkenwerder",
+    "lat": 52.6882693,
+    "lng": 13.288626,
+    "lines": [
+      "RB20",
+      "S1",
+      "S8"
+    ]
+  },
+  {
+    "name": "Hohen Neuendorf West",
+    "lat": 52.6723028,
+    "lng": 13.2706921,
+    "lines": [
+      "RB20"
+    ]
+  },
+  {
+    "name": "Priort",
+    "lat": 52.5164413,
+    "lng": 12.9713462,
+    "lines": [
+      "RB20",
+      "RB21"
+    ]
+  },
+  {
+    "name": "Marquardt",
+    "lat": 52.4586211,
+    "lng": 12.9717694,
+    "lines": [
+      "RB20",
+      "RB21"
+    ]
+  },
+  {
+    "name": "Glienicker Brücke (Einstieg)",
+    "lat": 52.4128707,
+    "lng": 13.0867153,
+    "lines": [
+      "93"
+    ]
+  },
+  {
+    "name": "Blankenfelde (Teltow-Fläming)",
+    "lat": 52.3368268,
+    "lng": 13.4161307,
+    "lines": [
+      "RB10",
+      "S2",
+      "RB24",
+      "RE8"
+    ]
+  },
+  {
+    "name": "Dahlewitz",
+    "lat": 52.3263958,
+    "lng": 13.4197769,
+    "lines": [
+      "RB10",
+      "RE8"
+    ]
+  },
+  {
+    "name": "Rangsdorf",
+    "lat": 52.2947073,
+    "lng": 13.4304919,
+    "lines": [
+      "RB10",
+      "RE8"
+    ]
+  },
+  {
+    "name": "Lehnitz",
+    "lat": 52.7409702,
+    "lng": 13.2634681,
+    "lines": [
+      "S1"
+    ]
+  },
+  {
+    "name": "Borgsdorf",
+    "lat": 52.715214,
+    "lng": 13.2764576,
+    "lines": [
+      "S1"
+    ]
+  },
+  {
+    "name": "Hohen Neuendorf (b Berlin)",
+    "lat": 52.6686566,
+    "lng": 13.286948,
+    "lines": [
+      "S1",
+      "S8"
+    ]
+  },
+  {
+    "name": "Frohnau",
+    "lat": 52.6322807,
+    "lng": 13.2902405,
+    "lines": [
+      "S1",
+      "S85"
+    ]
+  },
+  {
+    "name": "Hermsdorf",
+    "lat": 52.6173097,
+    "lng": 13.30755,
+    "lines": [
+      "S1",
+      "S85"
+    ]
+  },
+  {
+    "name": "Waidmannslust",
+    "lat": 52.6062369,
+    "lng": 13.3210671,
+    "lines": [
+      "S1",
+      "S85"
+    ]
+  },
+  {
+    "name": "Wittenau",
+    "lat": 52.5970052,
+    "lng": 13.3341609,
+    "lines": [
+      "S1",
+      "S85"
+    ]
+  },
+  {
+    "name": "Wilhelmsruh",
+    "lat": 52.5816602,
+    "lng": 13.3621312,
+    "lines": [
+      "S1",
+      "S85"
+    ]
+  },
+  {
+    "name": "Schönholz",
+    "lat": 52.5712418,
+    "lng": 13.38128,
+    "lines": [
+      "S1",
+      "S25",
+      "S85"
+    ]
+  },
+  {
+    "name": "Wollankstraße",
+    "lat": 52.5648374,
+    "lng": 13.3927639,
+    "lines": [
+      "S1",
+      "S25",
+      "S85"
+    ]
+  },
+  {
+    "name": "Bornholmer Straße",
+    "lat": 52.5542239,
+    "lng": 13.3977372,
+    "lines": [
+      "S1",
+      "S2",
+      "S8",
+      "S25",
+      "S85",
+      "S26"
+    ]
+  },
+  {
+    "name": "Humboldthain",
+    "lat": 52.5447617,
+    "lng": 13.3792576,
+    "lines": [
+      "S1",
+      "S2",
+      "S25",
+      "S26"
+    ]
+  },
+  {
+    "name": "Nordbahnhof",
+    "lat": 52.5326616,
+    "lng": 13.3869051,
+    "lines": [
+      "S1",
+      "S2",
+      "S25",
+      "S26"
+    ]
+  },
+  {
+    "name": "Oranienburger Straße",
+    "lat": 52.5251817,
+    "lng": 13.3928834,
+    "lines": [
+      "S1",
+      "S2",
+      "S25",
+      "S26"
+    ]
+  },
+  {
+    "name": "Friedrichstraße",
+    "lat": 52.5202346,
+    "lng": 13.3858855,
+    "lines": [
+      "S1",
+      "S5",
+      "S7",
+      "S2",
+      "S3",
+      "S9",
+      "S25",
+      "S26"
+    ]
+  },
+  {
+    "name": "Brandenburger Tor",
+    "lat": 52.5164367,
+    "lng": 13.3809354,
+    "lines": [
+      "S1",
+      "S2",
+      "S25",
+      "S26"
+    ]
+  },
+  {
+    "name": "Potsdamer Platz",
+    "lat": 52.5092642,
+    "lng": 13.3763912,
+    "lines": [
+      "S1",
+      "S2",
+      "S25",
+      "S26"
+    ]
+  },
+  {
+    "name": "Anhalter Bahnhof",
+    "lat": 52.5034307,
+    "lng": 13.3813522,
+    "lines": [
+      "S1",
+      "S2",
+      "S25",
+      "S26"
+    ]
+  },
+  {
+    "name": "Yorckstraße (Großgörschenstraße)",
+    "lat": 52.4917071,
+    "lng": 13.3672668,
+    "lines": [
+      "S1"
+    ]
+  },
+  {
+    "name": "Julius-Leber-Brücke",
+    "lat": 52.4864469,
+    "lng": 13.3610584,
+    "lines": [
+      "S1"
+    ]
+  },
+  {
+    "name": "Friedenau",
+    "lat": 52.4703937,
+    "lng": 13.3409812,
+    "lines": [
+      "S1"
+    ]
+  },
+  {
+    "name": "Rathaus Steglitz",
+    "lat": 52.4550524,
+    "lng": 13.3217761,
+    "lines": [
+      "S1"
+    ]
+  },
+  {
+    "name": "Botanischer Garten",
+    "lat": 52.447952,
+    "lng": 13.3069148,
+    "lines": [
+      "S1"
+    ]
+  },
+  {
+    "name": "Lichterfelde West",
+    "lat": 52.4432747,
+    "lng": 13.2932719,
+    "lines": [
+      "S1"
+    ]
+  },
+  {
+    "name": "Sundgauer Straße",
+    "lat": 52.4364446,
+    "lng": 13.2739864,
+    "lines": [
+      "S1"
+    ]
+  },
+  {
+    "name": "Zehlendorf",
+    "lat": 52.4309282,
+    "lng": 13.257755,
+    "lines": [
+      "S1"
+    ]
+  },
+  {
+    "name": "Mexikoplatz",
+    "lat": 52.4368079,
+    "lng": 13.2332646,
+    "lines": [
+      "S1"
+    ]
+  },
+  {
+    "name": "Schlachtensee",
+    "lat": 52.4400364,
+    "lng": 13.2148203,
+    "lines": [
+      "S1"
+    ]
+  },
+  {
+    "name": "Nikolassee",
+    "lat": 52.4318965,
+    "lng": 13.1941445,
+    "lines": [
+      "S1",
+      "S7"
+    ]
+  },
+  {
+    "name": "Wannsee",
+    "lat": 52.4211255,
+    "lng": 13.1792262,
+    "lines": [
+      "S1",
+      "S7"
+    ]
+  },
+  {
+    "name": "Saarmund",
+    "lat": 52.3235707,
+    "lng": 13.1391488,
+    "lines": [
+      "RB22"
+    ]
+  },
+  {
+    "name": "Ludwigsfelde-Struveshof",
+    "lat": 52.3171413,
+    "lng": 13.2320247,
+    "lines": [
+      "RB22"
+    ]
+  },
+  {
+    "name": "Flughafen BER",
+    "lat": 52.3648022,
+    "lng": 13.5125169,
+    "lines": [
+      "RB22",
+      "S9",
+      "RB24",
+      "FEX",
+      "RB32",
+      "RE20"
+    ]
+  },
+  {
+    "name": "Falkenberg",
+    "lat": 52.5698506,
+    "lng": 13.5265911,
+    "lines": [
+      "M4",
+      "M17"
+    ]
+  },
+  {
+    "name": "Welsestraße",
+    "lat": 52.5692194,
+    "lng": 13.5251581,
+    "lines": [
+      "M4",
+      "M17"
+    ]
+  },
+  {
+    "name": "Prendener Straße",
+    "lat": 52.5685017,
+    "lng": 13.5195448,
+    "lines": [
+      "M4",
+      "M17"
+    ]
+  },
+  {
+    "name": "S Hohenschönhausen",
+    "lat": 52.5663088,
+    "lng": 13.5131802,
+    "lines": [
+      "M4",
+      "M17"
+    ]
+  },
+  {
+    "name": "Prerower Platz",
+    "lat": 52.5627532,
+    "lng": 13.5037009,
+    "lines": [
+      "M4",
+      "M5",
+      "M17"
+    ]
+  },
+  {
+    "name": "Hansastraße/Malchower Weg",
+    "lat": 52.5612044,
+    "lng": 13.4992999,
+    "lines": [
+      "M4"
+    ]
+  },
+  {
+    "name": "Feldtmannstraße",
+    "lat": 52.5597435,
+    "lng": 13.4950964,
+    "lines": [
+      "M4"
+    ]
+  },
+  {
+    "name": "Stadion Buschallee/Hansastraße",
+    "lat": 52.5566718,
+    "lng": 13.4869834,
+    "lines": [
+      "M4"
+    ]
+  },
+  {
+    "name": "Giersstraße",
+    "lat": 52.5544234,
+    "lng": 13.4821862,
+    "lines": [
+      "M4"
+    ]
+  },
+  {
+    "name": "Sulzfelder Straße",
+    "lat": 52.5533884,
+    "lng": 13.4753656,
+    "lines": [
+      "M4",
+      "27"
+    ]
+  },
+  {
+    "name": "Buschallee",
+    "lat": 52.5537598,
+    "lng": 13.4691966,
+    "lines": [
+      "M4",
+      "27"
+    ]
+  },
+  {
+    "name": "Weißer See",
+    "lat": 52.5521763,
+    "lng": 13.4659619,
+    "lines": [
+      "M4",
+      "12",
+      "M13"
+    ]
+  },
+  {
+    "name": "Albertinenstraße",
+    "lat": 52.5497061,
+    "lng": 13.4573677,
+    "lines": [
+      "M4",
+      "12",
+      "M13"
+    ]
+  },
+  {
+    "name": "Antonplatz",
+    "lat": 52.5484803,
+    "lng": 13.4517416,
+    "lines": [
+      "M4",
+      "12",
+      "M13"
+    ]
+  },
+  {
+    "name": "Greifswalder Straße/Ostseestraße",
+    "lat": 52.5457311,
+    "lng": 13.445119,
+    "lines": [
+      "M4"
+    ]
+  },
+  {
+    "name": "Thomas-Mann-Straße",
+    "lat": 52.5435991,
+    "lng": 13.4416553,
+    "lines": [
+      "M4"
+    ]
+  },
+  {
+    "name": "S Greifswalder Straße",
+    "lat": 52.5407284,
+    "lng": 13.4382788,
+    "lines": [
+      "M4"
+    ]
+  },
+  {
+    "name": "Greifswalder Straße/Danziger Straße",
+    "lat": 52.5364999,
+    "lng": 13.4333987,
+    "lines": [
+      "M4",
+      "M10"
+    ]
+  },
+  {
+    "name": "Hufelandstraße",
+    "lat": 52.5324521,
+    "lng": 13.428684,
+    "lines": [
+      "M4"
+    ]
+  },
+  {
+    "name": "Am Friedrichshain",
+    "lat": 52.5285131,
+    "lng": 13.424138,
+    "lines": [
+      "M4"
+    ]
+  },
+  {
+    "name": "Mollstraße/Otto-Braun-Straße",
+    "lat": 52.5255473,
+    "lng": 13.4202755,
+    "lines": [
+      "M4",
+      "M5",
+      "M8",
+      "M6"
+    ]
+  },
+  {
+    "name": "U Alexanderplatz",
+    "lat": 52.5219449,
+    "lng": 13.4143847,
+    "lines": [
+      "M4",
+      "M5",
+      "M6"
+    ]
+  },
+  {
+    "name": "S+U Alexanderplatz/Gontardstraße",
+    "lat": 52.5212168,
+    "lng": 13.4110566,
+    "lines": [
+      "M4",
+      "M5",
+      "M6"
+    ]
+  },
+  {
+    "name": "Spandauer Straße/Marienkirche",
+    "lat": 52.5202778,
+    "lng": 13.4052519,
+    "lines": [
+      "M4",
+      "M5",
+      "M6"
+    ]
+  },
+  {
+    "name": "S Hackescher Markt",
+    "lat": 52.5226155,
+    "lng": 13.4034101,
+    "lines": [
+      "M4",
+      "M5",
+      "M1",
+      "M6"
+    ]
+  },
+  {
+    "name": "Zingster Straße",
+    "lat": 52.5723695,
+    "lng": 13.494867,
+    "lines": [
+      "M4",
+      "M5"
+    ]
+  },
+  {
+    "name": "Zingster Straße/Ribnitzer Straße",
+    "lat": 52.5703215,
+    "lng": 13.4971498,
+    "lines": [
+      "M4",
+      "M5"
+    ]
+  },
+  {
+    "name": "Ahrenshooper Straße",
+    "lat": 52.566363,
+    "lng": 13.5016719,
+    "lines": [
+      "M4",
+      "M5"
+    ]
+  },
+  {
+    "name": "Hansastraße/Buschallee",
+    "lat": 52.5537608,
+    "lng": 13.4805827,
+    "lines": [
+      "M4",
+      "27"
+    ]
+  },
+  {
+    "name": "Rüdickenstraße",
+    "lat": 52.5599848,
+    "lng": 13.5097678,
+    "lines": [
+      "M5",
+      "M17"
+    ]
+  },
+  {
+    "name": "Arnimstraße",
+    "lat": 52.5585353,
+    "lng": 13.5150534,
+    "lines": [
+      "M5",
+      "M17"
+    ]
+  },
+  {
+    "name": "Anna-Ebermann-Straße",
+    "lat": 52.5549343,
+    "lng": 13.512077,
+    "lines": [
+      "M5",
+      "M17"
+    ]
+  },
+  {
+    "name": "Gehrenseestraße",
+    "lat": 52.5508669,
+    "lng": 13.5095067,
+    "lines": [
+      "M5",
+      "M17"
+    ]
+  },
+  {
+    "name": "Alt-Hohenschönhausen",
+    "lat": 52.5488737,
+    "lng": 13.5045505,
+    "lines": [
+      "M5",
+      "27"
+    ]
+  },
+  {
+    "name": "Oberseestraße",
+    "lat": 52.5469426,
+    "lng": 13.4978874,
+    "lines": [
+      "M5"
+    ]
+  },
+  {
+    "name": "Freienwalder Straße",
+    "lat": 52.5442504,
+    "lng": 13.4927547,
+    "lines": [
+      "M5"
+    ]
+  },
+  {
+    "name": "Werneuchener Straße",
+    "lat": 52.5429295,
+    "lng": 13.4902215,
+    "lines": [
+      "M5"
+    ]
+  },
+  {
+    "name": "Simon-Bolivar-Straße",
+    "lat": 52.5399029,
+    "lng": 13.4844148,
+    "lines": [
+      "M5"
+    ]
+  },
+  {
+    "name": "Sandinostraße",
+    "lat": 52.5384568,
+    "lng": 13.4805355,
+    "lines": [
+      "M5"
+    ]
+  },
+  {
+    "name": "Hohenschönhauser Straße",
+    "lat": 52.5357243,
+    "lng": 13.472126,
+    "lines": [
+      "M5",
+      "16",
+      "M6",
+      "M13"
+    ]
+  },
+  {
+    "name": "Judith-Auer-Straße",
+    "lat": 52.5340748,
+    "lng": 13.4676978,
+    "lines": [
+      "M5",
+      "M6"
+    ]
+  },
+  {
+    "name": "Oderbruchstraße",
+    "lat": 52.530501,
+    "lng": 13.4614668,
+    "lines": [
+      "M5",
+      "M6"
+    ]
+  },
+  {
+    "name": "S Landsberger Allee",
+    "lat": 52.5285325,
+    "lng": 13.4557828,
+    "lines": [
+      "M5",
+      "M8",
+      "18",
+      "M6"
+    ]
+  },
+  {
+    "name": "Landsberger Allee/Petersburger Straße",
+    "lat": 52.5257994,
+    "lng": 13.4457082,
+    "lines": [
+      "M5",
+      "M8",
+      "18",
+      "M6",
+      "M10"
+    ]
+  },
+  {
+    "name": "Klinikum im Friedrichshain",
+    "lat": 52.5240678,
+    "lng": 13.4398394,
+    "lines": [
+      "M5",
+      "M8",
+      "M6"
+    ]
+  },
+  {
+    "name": "Platz der Vereinten Nationen",
+    "lat": 52.5232674,
+    "lng": 13.4326467,
+    "lines": [
+      "M5",
+      "M8",
+      "M6"
+    ]
+  },
+  {
+    "name": "Büschingstraße",
+    "lat": 52.5231328,
+    "lng": 13.4267728,
+    "lines": [
+      "M5",
+      "M8",
+      "M6"
+    ]
+  },
+  {
+    "name": "Monbijouplatz",
+    "lat": 52.5237138,
+    "lng": 13.3986649,
+    "lines": [
+      "M5",
+      "M1"
+    ]
+  },
+  {
+    "name": "S Oranienburger Straße",
+    "lat": 52.5251144,
+    "lng": 13.3924023,
+    "lines": [
+      "M5",
+      "M1"
+    ]
+  },
+  {
+    "name": "U Oranienburger Tor",
+    "lat": 52.5262067,
+    "lng": 13.3878498,
+    "lines": [
+      "M5",
+      "12",
+      "M1"
+    ]
+  },
+  {
+    "name": "U Naturkundemuseum",
+    "lat": 52.5302913,
+    "lng": 13.3834143,
+    "lines": [
+      "M5",
+      "12",
+      "M8",
+      "M10"
+    ]
+  },
+  {
+    "name": "Invalidenpark",
+    "lat": 52.5286147,
+    "lng": 13.3763477,
+    "lines": [
+      "M5",
+      "M8",
+      "M10"
+    ]
+  },
+  {
+    "name": "S+U Hauptbahnhof",
+    "lat": 52.5264878,
+    "lng": 13.3694466,
+    "lines": [
+      "M5",
+      "M8",
+      "M10"
+    ]
+  },
+  {
+    "name": "Lesser-Ury-Weg",
+    "lat": 52.5242203,
+    "lng": 13.3620668,
+    "lines": [
+      "M5",
+      "M8",
+      "M10"
+    ]
+  },
+  {
+    "name": "Lüneburger Straße",
+    "lat": 52.5231079,
+    "lng": 13.3617622,
+    "lines": [
+      "M5",
+      "M8"
+    ]
+  },
+  {
+    "name": "Clara-Jaschke-Straße",
+    "lat": 52.5251507,
+    "lng": 13.3662382,
+    "lines": [
+      "M5",
+      "M8"
+    ]
+  },
+  {
+    "name": "Hannoversche Straße",
+    "lat": 52.5274173,
+    "lng": 13.3868971,
+    "lines": [
+      "M5",
+      "12"
+    ]
+  },
+  {
+    "name": "Pasedagplatz",
+    "lat": 52.5599523,
+    "lng": 13.4602303,
+    "lines": [
+      "12",
+      "27"
+    ]
+  },
+  {
+    "name": "Berliner Allee/Rennbahnstraße",
+    "lat": 52.5574032,
+    "lng": 13.4656912,
+    "lines": [
+      "12",
+      "27"
+    ]
+  },
+  {
+    "name": "Behaimstraße",
+    "lat": 52.5498427,
+    "lng": 13.4467563,
+    "lines": [
+      "12",
+      "M13"
+    ]
+  },
+  {
+    "name": "Friesickestraße",
+    "lat": 52.5518541,
+    "lng": 13.4403417,
+    "lines": [
+      "12",
+      "M13"
+    ]
+  },
+  {
+    "name": "Gustav-Adolf-Straße/Langhansstraße",
+    "lat": 52.5534647,
+    "lng": 13.4352447,
+    "lines": [
+      "12",
+      "M13"
+    ]
+  },
+  {
+    "name": "Stahlheimer Straße/Wisbyer Straße",
+    "lat": 52.5525646,
+    "lng": 13.425432,
+    "lines": [
+      "12",
+      "M13"
+    ]
+  },
+  {
+    "name": "Humannplatz",
+    "lat": 52.549753,
+    "lng": 13.4216984,
+    "lines": [
+      "12"
+    ]
+  },
+  {
+    "name": "Stargarder Straße",
+    "lat": 52.5472432,
+    "lng": 13.4189937,
+    "lines": [
+      "12"
+    ]
+  },
+  {
+    "name": "Raumerstraße",
+    "lat": 52.5443197,
+    "lng": 13.4158316,
+    "lines": [
+      "12"
+    ]
+  },
+  {
+    "name": "U Eberswalder Straße/Pappelallee",
+    "lat": 52.5415991,
+    "lng": 13.4128789,
+    "lines": [
+      "12"
+    ]
+  },
+  {
+    "name": "U Eberswalder Straße",
+    "lat": 52.540204,
+    "lng": 13.4113879,
+    "lines": [
+      "12",
+      "M1",
+      "M10"
+    ]
+  },
+  {
+    "name": "Schwedter Straße",
+    "lat": 52.5365045,
+    "lng": 13.4075076,
+    "lines": [
+      "12",
+      "M1"
+    ]
+  },
+  {
+    "name": "Zionskirchplatz",
+    "lat": 52.5344603,
+    "lng": 13.4055497,
+    "lines": [
+      "12",
+      "M1"
+    ]
+  },
+  {
+    "name": "Brunnenstraße/Invalidenstraße",
+    "lat": 52.532764,
+    "lng": 13.3995725,
+    "lines": [
+      "12",
+      "M8"
+    ]
+  },
+  {
+    "name": "Pappelplatz",
+    "lat": 52.5322699,
+    "lng": 13.3945079,
+    "lines": [
+      "12",
+      "M8"
+    ]
+  },
+  {
+    "name": "S Nordbahnhof",
+    "lat": 52.5316628,
+    "lng": 13.3887101,
+    "lines": [
+      "12",
+      "M8",
+      "M10"
+    ]
+  },
+  {
+    "name": "S+U Friedrichstraße",
+    "lat": 52.5192799,
+    "lng": 13.3884008,
+    "lines": [
+      "12",
+      "M1"
+    ]
+  },
+  {
+    "name": "Universitätsstraße",
+    "lat": 52.5190874,
+    "lng": 13.3917624,
+    "lines": [
+      "12",
+      "M1"
+    ]
+  },
+  {
+    "name": "Am Kupfergraben",
+    "lat": 52.5192178,
+    "lng": 13.3937453,
+    "lines": [
+      "12",
+      "M1"
+    ]
+  },
+  {
+    "name": "Georgenstraße/Am Kupfergraben",
+    "lat": 52.5203082,
+    "lng": 13.3936919,
+    "lines": [
+      "12",
+      "M1"
+    ]
+  },
+  {
+    "name": "Falkenberger Straße/Berliner Allee",
+    "lat": 52.5548156,
+    "lng": 13.4676381,
+    "lines": [
+      "12",
+      "27"
+    ]
+  },
+  {
+    "name": "Ahrensfelde/Stadtgrenze",
+    "lat": 52.5727427,
+    "lng": 13.5748224,
+    "lines": [
+      "M8",
+      "16"
+    ]
+  },
+  {
+    "name": "Barnimplatz",
+    "lat": 52.5679547,
+    "lng": 13.574395,
+    "lines": [
+      "M8",
+      "16"
+    ]
+  },
+  {
+    "name": "Niemegker Straße",
+    "lat": 52.5646318,
+    "lng": 13.5714494,
+    "lines": [
+      "M8",
+      "16"
+    ]
+  },
+  {
+    "name": "Wuhletalstraße",
+    "lat": 52.5573513,
+    "lng": 13.568045,
+    "lines": [
+      "M8",
+      "16"
+    ]
+  },
+  {
+    "name": "Max-Herrmann-Straße",
+    "lat": 52.5537187,
+    "lng": 13.565478,
+    "lines": [
+      "M8",
+      "16"
+    ]
+  },
+  {
+    "name": "Bürgerpark Marzahn",
+    "lat": 52.5502042,
+    "lng": 13.5611133,
+    "lines": [
+      "M8",
+      "16"
+    ]
+  },
+  {
+    "name": "Jan-Petersen-Straße",
+    "lat": 52.5472111,
+    "lng": 13.5619425,
+    "lines": [
+      "M8",
+      "M6"
+    ]
+  },
+  {
+    "name": "Alt-Marzahn",
+    "lat": 52.5417781,
+    "lng": 13.5635092,
+    "lines": [
+      "M8",
+      "18"
+    ]
+  },
+  {
+    "name": "Schragenfeldstraße",
+    "lat": 52.5376742,
+    "lng": 13.5600838,
+    "lines": [
+      "M8",
+      "18"
+    ]
+  },
+  {
+    "name": "Allee der Kosmonauten/Poelchaustraße",
+    "lat": 52.5339106,
+    "lng": 13.5520361,
+    "lines": [
+      "M8",
+      "18"
+    ]
+  },
+  {
+    "name": "Boschpoler Straße",
+    "lat": 52.527324,
+    "lng": 13.5486679,
+    "lines": [
+      "M8",
+      "18"
+    ]
+  },
+  {
+    "name": "Helene-Weigel-Platz",
+    "lat": 52.5259347,
+    "lng": 13.5434041,
+    "lines": [
+      "M8",
+      "18"
+    ]
+  },
+  {
+    "name": "S Springpfuhl",
+    "lat": 52.525709,
+    "lng": 13.5360958,
+    "lines": [
+      "M8",
+      "18"
+    ]
+  },
+  {
+    "name": "Beilsteiner Straße",
+    "lat": 52.5255039,
+    "lng": 13.5297264,
+    "lines": [
+      "M8",
+      "18"
+    ]
+  },
+  {
+    "name": "Allee der Kosmonauten/Rhinstraße",
+    "lat": 52.5259142,
+    "lng": 13.5203097,
+    "lines": [
+      "M8",
+      "18",
+      "M17",
+      "27",
+      "37"
+    ]
+  },
+  {
+    "name": "Ev. Krankenhaus KEH",
+    "lat": 52.5254877,
+    "lng": 13.508866,
+    "lines": [
+      "M8",
+      "18",
+      "37"
+    ]
+  },
+  {
+    "name": "Herzbergstraße/Siegfriedstraße",
+    "lat": 52.5264353,
+    "lng": 13.4976022,
+    "lines": [
+      "M8",
+      "18",
+      "21",
+      "37"
+    ]
+  },
+  {
+    "name": "Herzbergstraße/Industriegebiet",
+    "lat": 52.5265974,
+    "lng": 13.4897656,
+    "lines": [
+      "M8",
+      "18",
+      "21"
+    ]
+  },
+  {
+    "name": "Bernhard-Bästlein-Straße",
+    "lat": 52.5267637,
+    "lng": 13.4821953,
+    "lines": [
+      "M8",
+      "18",
+      "21"
+    ]
+  },
+  {
+    "name": "Roederplatz",
+    "lat": 52.5266198,
+    "lng": 13.4784194,
+    "lines": [
+      "M8",
+      "18",
+      "16",
+      "M13"
+    ]
+  },
+  {
+    "name": "Anton-Saefkow-Platz",
+    "lat": 52.5281596,
+    "lng": 13.4689825,
+    "lines": [
+      "M8",
+      "18"
+    ]
+  },
+  {
+    "name": "Karl-Lade-Straße",
+    "lat": 52.5292356,
+    "lng": 13.4626679,
+    "lines": [
+      "M8",
+      "18"
+    ]
+  },
+  {
+    "name": "U Rosa-Luxemburg-Platz",
+    "lat": 52.5286105,
+    "lng": 13.4104123,
+    "lines": [
+      "M8"
+    ]
+  },
+  {
+    "name": "U Rosenthaler Platz",
+    "lat": 52.5297422,
+    "lng": 13.4019,
+    "lines": [
+      "M8",
+      "M1"
+    ]
+  },
+  {
+    "name": "Strausberg Nord",
+    "lat": 52.5903172,
+    "lng": 13.9084343,
+    "lines": [
+      "S5"
+    ]
+  },
+  {
+    "name": "Strausberg Stadt",
+    "lat": 52.5766368,
+    "lng": 13.8879547,
+    "lines": [
+      "S5"
+    ]
+  },
+  {
+    "name": "Hegermühle",
+    "lat": 52.5485461,
+    "lng": 13.8665454,
+    "lines": [
+      "S5"
+    ]
+  },
+  {
+    "name": "Petershagen Nord",
+    "lat": 52.5288646,
+    "lng": 13.7892237,
+    "lines": [
+      "S5"
+    ]
+  },
+  {
+    "name": "Fredersdorf (bei Berlin)",
+    "lat": 52.5262949,
+    "lng": 13.7604323,
+    "lines": [
+      "S5"
+    ]
+  },
+  {
+    "name": "Neuenhagen",
+    "lat": 52.5206623,
+    "lng": 13.6994089,
+    "lines": [
+      "S5"
+    ]
+  },
+  {
+    "name": "Hoppegarten (Mark)",
+    "lat": 52.5181921,
+    "lng": 13.6729032,
+    "lines": [
+      "S5"
+    ]
+  },
+  {
+    "name": "Birkenstein",
+    "lat": 52.5156381,
+    "lng": 13.6466028,
+    "lines": [
+      "S5"
+    ]
+  },
+  {
+    "name": "Mahlsdorf",
+    "lat": 52.5120294,
+    "lng": 13.6094152,
+    "lines": [
+      "S5"
+    ]
+  },
+  {
+    "name": "Kaulsdorf",
+    "lat": 52.5121783,
+    "lng": 13.5892643,
+    "lines": [
+      "S5"
+    ]
+  },
+  {
+    "name": "Wuhletal",
+    "lat": 52.5127794,
+    "lng": 13.5740798,
+    "lines": [
+      "S5"
+    ]
+  },
+  {
+    "name": "Biesdorf",
+    "lat": 52.5131322,
+    "lng": 13.5551031,
+    "lines": [
+      "S5"
+    ]
+  },
+  {
+    "name": "Friedrichsfelde Ost",
+    "lat": 52.5142039,
+    "lng": 13.5188271,
+    "lines": [
+      "S5",
+      "S7",
+      "S75"
+    ]
+  },
+  {
+    "name": "Lichtenberg",
+    "lat": 52.5098537,
+    "lng": 13.4969968,
+    "lines": [
+      "S5",
+      "S7",
+      "S75"
+    ]
+  },
+  {
+    "name": "Nöldnerplatz",
+    "lat": 52.5036017,
+    "lng": 13.4845309,
+    "lines": [
+      "S5",
+      "S7",
+      "S75"
+    ]
+  },
+  {
+    "name": "Warschauer Straße",
+    "lat": 52.5065998,
+    "lng": 13.4498985,
+    "lines": [
+      "S5",
+      "S7",
+      "S75",
+      "S3",
+      "S9"
+    ]
+  },
+  {
+    "name": "Ostbahnhof",
+    "lat": 52.5108252,
+    "lng": 13.4353143,
+    "lines": [
+      "S5",
+      "S7",
+      "S75",
+      "S3",
+      "S9"
+    ]
+  },
+  {
+    "name": "Jannowitzbrücke",
+    "lat": 52.5143973,
+    "lng": 13.4191704,
+    "lines": [
+      "S5",
+      "S7",
+      "S3",
+      "S9"
+    ]
+  },
+  {
+    "name": "Alexanderplatz",
+    "lat": 52.5215799,
+    "lng": 13.4113785,
+    "lines": [
+      "S5",
+      "S7",
+      "S3",
+      "S9"
+    ]
+  },
+  {
+    "name": "Hackescher Markt",
+    "lat": 52.5226795,
+    "lng": 13.4020708,
+    "lines": [
+      "S5",
+      "S7",
+      "S3",
+      "S9"
+    ]
+  },
+  {
+    "name": "Hauptbahnhof",
+    "lat": 52.525275,
+    "lng": 13.3692007,
+    "lines": [
+      "S5",
+      "S7",
+      "S3",
+      "S9"
+    ]
+  },
+  {
+    "name": "Bellevue",
+    "lat": 52.5200575,
+    "lng": 13.3477818,
+    "lines": [
+      "S5",
+      "S7",
+      "S3",
+      "S9"
+    ]
+  },
+  {
+    "name": "Tiergarten",
+    "lat": 52.5140458,
+    "lng": 13.3361945,
+    "lines": [
+      "S5",
+      "S7",
+      "S3",
+      "S9"
+    ]
+  },
+  {
+    "name": "Zoologischer Garten",
+    "lat": 52.5068696,
+    "lng": 13.3315321,
+    "lines": [
+      "S5",
+      "S7",
+      "S3",
+      "S9"
+    ]
+  },
+  {
+    "name": "Savignyplatz",
+    "lat": 52.5052233,
+    "lng": 13.3190102,
+    "lines": [
+      "S5",
+      "S7",
+      "S3",
+      "S9"
+    ]
+  },
+  {
+    "name": "Charlottenburg",
+    "lat": 52.505042,
+    "lng": 13.3037874,
+    "lines": [
+      "S5",
+      "S7",
+      "S3",
+      "S9"
+    ]
+  },
+  {
+    "name": "Mehrower Allee",
+    "lat": 52.5570451,
+    "lng": 13.5529098,
+    "lines": [
+      "S7"
+    ]
+  },
+  {
+    "name": "Raoul-Wallenberg-Straße",
+    "lat": 52.550278,
+    "lng": 13.5470665,
+    "lines": [
+      "S7"
+    ]
+  },
+  {
+    "name": "Marzahn",
+    "lat": 52.5431633,
+    "lng": 13.5408064,
+    "lines": [
+      "S7"
+    ]
+  },
+  {
+    "name": "Poelchaustraße",
+    "lat": 52.5348877,
+    "lng": 13.5350668,
+    "lines": [
+      "S7"
+    ]
+  },
+  {
+    "name": "Springpfuhl",
+    "lat": 52.5264147,
+    "lng": 13.5366914,
+    "lines": [
+      "S7",
+      "S75"
+    ]
+  },
+  {
+    "name": "Grunewald",
+    "lat": 52.4885617,
+    "lng": 13.2612684,
+    "lines": [
+      "S7"
+    ]
+  },
+  {
+    "name": "Babelsberg",
+    "lat": 52.391449,
+    "lng": 13.0927304,
+    "lines": [
+      "S7"
+    ]
+  },
+  {
+    "name": "Riesaer Straße",
+    "lat": 52.5296427,
+    "lng": 13.6240653,
+    "lines": [
+      "18",
+      "M6"
+    ]
+  },
+  {
+    "name": "Riesaer Straße/Louis-Lewin-Straße",
+    "lat": 52.5307469,
+    "lng": 13.6211499,
+    "lines": [
+      "18",
+      "M6"
+    ]
+  },
+  {
+    "name": "Jenaer Straße",
+    "lat": 52.5321781,
+    "lng": 13.6143398,
+    "lines": [
+      "18",
+      "M6"
+    ]
+  },
+  {
+    "name": "Nossener Straße",
+    "lat": 52.533407,
+    "lng": 13.6084404,
+    "lines": [
+      "18",
+      "M6"
+    ]
+  },
+  {
+    "name": "U Hellersdorf",
+    "lat": 52.5364636,
+    "lng": 13.6050402,
+    "lines": [
+      "18",
+      "M6"
+    ]
+  },
+  {
+    "name": "Stendaler Straße/Quedlinburger Straße",
+    "lat": 52.5394032,
+    "lng": 13.6042999,
+    "lines": [
+      "18",
+      "M6"
+    ]
+  },
+  {
+    "name": "Stendaler Straße/Zossener Straße",
+    "lat": 52.5437922,
+    "lng": 13.6033753,
+    "lines": [
+      "18",
+      "M6"
+    ]
+  },
+  {
+    "name": "Zossener Straße/Kastanienallee",
+    "lat": 52.5440155,
+    "lng": 13.5982956,
+    "lines": [
+      "18",
+      "M6"
+    ]
+  },
+  {
+    "name": "Alte Hellersdorfer Straße/Zossener Straße",
+    "lat": 52.5448661,
+    "lng": 13.5920431,
+    "lines": [
+      "18",
+      "M6"
+    ]
+  },
+  {
+    "name": "Michendorfer Straße",
+    "lat": 52.5455892,
+    "lng": 13.5867347,
+    "lines": [
+      "18",
+      "M6"
+    ]
+  },
+  {
+    "name": "Landsberger Chaussee/Zossener Straße",
+    "lat": 52.5490935,
+    "lng": 13.5871358,
+    "lines": [
+      "18",
+      "M6"
+    ]
+  },
+  {
+    "name": "Betriebshof Marzahn",
+    "lat": 52.5487647,
+    "lng": 13.5815651,
+    "lines": [
+      "18",
+      "M6"
+    ]
+  },
+  {
+    "name": "Brodowiner Ring",
+    "lat": 52.5478226,
+    "lng": 13.5779591,
+    "lines": [
+      "18",
+      "M6"
+    ]
+  },
+  {
+    "name": "Landsberger Allee/Blumberger Damm",
+    "lat": 52.5457935,
+    "lng": 13.5703135,
+    "lines": [
+      "18",
+      "M6"
+    ]
+  },
+  {
+    "name": "Virchowstraße",
+    "lat": 52.5257322,
+    "lng": 13.4421106,
+    "lines": [
+      "18",
+      "M6"
+    ]
+  },
+  {
+    "name": "Freizeitforum Marzahn",
+    "lat": 52.5459306,
+    "lng": 13.5569071,
+    "lines": [
+      "16",
+      "M6"
+    ]
+  },
+  {
+    "name": "Marzahner Promenade",
+    "lat": 52.5426977,
+    "lng": 13.5485317,
+    "lines": [
+      "16",
+      "M6"
+    ]
+  },
+  {
+    "name": "S Marzahn",
+    "lat": 52.5424883,
+    "lng": 13.5419279,
+    "lines": [
+      "16",
+      "M6"
+    ]
+  },
+  {
+    "name": "Gewerbepark Georg Knorr",
+    "lat": 52.5390995,
+    "lng": 13.5341226,
+    "lines": [
+      "16",
+      "M6"
+    ]
+  },
+  {
+    "name": "Dingelstädter Straße",
+    "lat": 52.5366428,
+    "lng": 13.5244371,
+    "lines": [
+      "16",
+      "M6"
+    ]
+  },
+  {
+    "name": "Landsberger Allee/Rhinstraße",
+    "lat": 52.5357322,
+    "lng": 13.5181868,
+    "lines": [
+      "16",
+      "M6",
+      "M17",
+      "27"
+    ]
+  },
+  {
+    "name": "Schalkauer Straße",
+    "lat": 52.5351866,
+    "lng": 13.5100149,
+    "lines": [
+      "16",
+      "M6"
+    ]
+  },
+  {
+    "name": "Arendsweg",
+    "lat": 52.5348368,
+    "lng": 13.5045091,
+    "lines": [
+      "16",
+      "M6"
+    ]
+  },
+  {
+    "name": "Genslerstraße",
+    "lat": 52.53439,
+    "lng": 13.4948771,
+    "lines": [
+      "16",
+      "M6"
+    ]
+  },
+  {
+    "name": "Zechliner Straße",
+    "lat": 52.5339761,
+    "lng": 13.4874733,
+    "lines": [
+      "16",
+      "M6"
+    ]
+  },
+  {
+    "name": "Altenhofer Straße",
+    "lat": 52.5348987,
+    "lng": 13.480383,
+    "lines": [
+      "16",
+      "M6"
+    ]
+  },
+  {
+    "name": "Landsberger Allee/Weißenseer Weg",
+    "lat": 52.532258,
+    "lng": 13.476705,
+    "lines": [
+      "16",
+      "M13"
+    ]
+  },
+  {
+    "name": "Möllendorffstraße/Storkower Straße",
+    "lat": 52.523331,
+    "lng": 13.4795469,
+    "lines": [
+      "16",
+      "M13",
+      "21"
+    ]
+  },
+  {
+    "name": "Loeperplatz",
+    "lat": 52.5197412,
+    "lng": 13.4797196,
+    "lines": [
+      "16",
+      "M13",
+      "21"
+    ]
+  },
+  {
+    "name": "Rathaus Lichtenberg",
+    "lat": 52.5156658,
+    "lng": 13.4788562,
+    "lines": [
+      "16",
+      "M13"
+    ]
+  },
+  {
+    "name": "S+U Frankfurter Allee",
+    "lat": 52.513805,
+    "lng": 13.4773672,
+    "lines": [
+      "16",
+      "M13"
+    ]
+  },
+  {
+    "name": "Jessnerstraße",
+    "lat": 52.5120988,
+    "lng": 13.473326,
+    "lines": [
+      "16",
+      "M13"
+    ]
+  },
+  {
+    "name": "Traveplatz",
+    "lat": 52.5118973,
+    "lng": 13.4708034,
+    "lines": [
+      "16",
+      "M13"
+    ]
+  },
+  {
+    "name": "U Weinmeisterstraße/Gipsstraße",
+    "lat": 52.5253215,
+    "lng": 13.4035047,
+    "lines": [
+      "M1"
+    ]
+  },
+  {
+    "name": "Milastraße",
+    "lat": 52.5456515,
+    "lng": 13.4129878,
+    "lines": [
+      "M1"
+    ]
+  },
+  {
+    "name": "S+U Schönhauser Allee",
+    "lat": 52.5495502,
+    "lng": 13.4138505,
+    "lines": [
+      "M1"
+    ]
+  },
+  {
+    "name": "Schönhauser Allee/Bornholmer Straße",
+    "lat": 52.5532393,
+    "lng": 13.414524,
+    "lines": [
+      "M1",
+      "M13",
+      "50"
+    ]
+  },
+  {
+    "name": "U Vinetastraße",
+    "lat": 52.5596168,
+    "lng": 13.413232,
+    "lines": [
+      "M1",
+      "50"
+    ]
+  },
+  {
+    "name": "Masurenstraße",
+    "lat": 52.5636566,
+    "lng": 13.4127766,
+    "lines": [
+      "M1",
+      "50"
+    ]
+  },
+  {
+    "name": "S+U Pankow",
+    "lat": 52.5671035,
+    "lng": 13.4122882,
+    "lines": [
+      "M1",
+      "50"
+    ]
+  },
+  {
+    "name": "Pankow Kirche",
+    "lat": 52.5706409,
+    "lng": 13.4103041,
+    "lines": [
+      "M1",
+      "50"
+    ]
+  },
+  {
+    "name": "Rathaus Pankow",
+    "lat": 52.5694816,
+    "lng": 13.4038045,
+    "lines": [
+      "M1"
+    ]
+  },
+  {
+    "name": "Bürgerpark Pankow",
+    "lat": 52.5714873,
+    "lng": 13.3984217,
+    "lines": [
+      "M1"
+    ]
+  },
+  {
+    "name": "Tschaikowskistraße",
+    "lat": 52.5756602,
+    "lng": 13.3988199,
+    "lines": [
+      "M1"
+    ]
+  },
+  {
+    "name": "Grabbeallee/Pastor-Niemöller-Platz",
+    "lat": 52.579025,
+    "lng": 13.3983499,
+    "lines": [
+      "M1"
+    ]
+  },
+  {
+    "name": "Hermann-Hesse-Straße/Waldstraße",
+    "lat": 52.5806125,
+    "lng": 13.4020889,
+    "lines": [
+      "M1"
+    ]
+  },
+  {
+    "name": "Kuckhoffstraße",
+    "lat": 52.5836046,
+    "lng": 13.403169,
+    "lines": [
+      "M1"
+    ]
+  },
+  {
+    "name": "Heinrich-Böll-Straße",
+    "lat": 52.5875526,
+    "lng": 13.4017828,
+    "lines": [
+      "M1"
+    ]
+  },
+  {
+    "name": "Nordend",
+    "lat": 52.5902044,
+    "lng": 13.4027567,
+    "lines": [
+      "M1"
+    ]
+  },
+  {
+    "name": "Waldemarstraße",
+    "lat": 52.590844,
+    "lng": 13.4062294,
+    "lines": [
+      "M1"
+    ]
+  },
+  {
+    "name": "Pastor-Niemöller-Platz",
+    "lat": 52.5802279,
+    "lng": 13.3969139,
+    "lines": [
+      "M1"
+    ]
+  },
+  {
+    "name": "Am Iderfenngraben",
+    "lat": 52.582622,
+    "lng": 13.3921181,
+    "lines": [
+      "M1"
+    ]
+  },
+  {
+    "name": "Friedrich-Engels-Straße/Eichenstraße",
+    "lat": 52.5851216,
+    "lng": 13.3902792,
+    "lines": [
+      "M1"
+    ]
+  },
+  {
+    "name": "Nordendstraße",
+    "lat": 52.5887072,
+    "lng": 13.3882501,
+    "lines": [
+      "M1"
+    ]
+  },
+  {
+    "name": "Angerweg",
+    "lat": 52.591974,
+    "lng": 13.3837136,
+    "lines": [
+      "M1"
+    ]
+  },
+  {
+    "name": "Wiesenwinkel",
+    "lat": 52.5945425,
+    "lng": 13.3808669,
+    "lines": [
+      "M1"
+    ]
+  },
+  {
+    "name": "Hauptstraße/Friedrich-Engels-Straße",
+    "lat": 52.5970074,
+    "lng": 13.3763918,
+    "lines": [
+      "M1"
+    ]
+  },
+  {
+    "name": "Rosenthal Nord",
+    "lat": 52.5985188,
+    "lng": 13.3728938,
+    "lines": [
+      "M1"
+    ]
+  },
+  {
+    "name": "U Turmstraße",
+    "lat": 52.5263202,
+    "lng": 13.34097,
+    "lines": [
+      "M10"
+    ]
+  },
+  {
+    "name": "Lübecker Straße",
+    "lat": 52.5262093,
+    "lng": 13.3465026,
+    "lines": [
+      "M10"
+    ]
+  },
+  {
+    "name": "Kriminalgericht Moabit",
+    "lat": 52.5266322,
+    "lng": 13.3548211,
+    "lines": [
+      "M10"
+    ]
+  },
+  {
+    "name": "Alt-Moabit/Rathenower Straße",
+    "lat": 52.5234797,
+    "lng": 13.3583979,
+    "lines": [
+      "M10"
+    ]
+  },
+  {
+    "name": "Gedenkstätte Berliner Mauer",
+    "lat": 52.5359069,
+    "lng": 13.3908576,
+    "lines": [
+      "M10"
+    ]
+  },
+  {
+    "name": "U Bernauer Straße",
+    "lat": 52.5380716,
+    "lng": 13.3954653,
+    "lines": [
+      "M10"
+    ]
+  },
+  {
+    "name": "Wolliner Straße",
+    "lat": 52.5396897,
+    "lng": 13.4012039,
+    "lines": [
+      "M10"
+    ]
+  },
+  {
+    "name": "Friedrich-Ludwig-Jahn-Sportpark",
+    "lat": 52.5409885,
+    "lng": 13.4065488,
+    "lines": [
+      "M10"
+    ]
+  },
+  {
+    "name": "Husemannstraße",
+    "lat": 52.5399725,
+    "lng": 13.4191052,
+    "lines": [
+      "M10"
+    ]
+  },
+  {
+    "name": "Winsstraße",
+    "lat": 52.5378916,
+    "lng": 13.4280022,
+    "lines": [
+      "M10"
+    ]
+  },
+  {
+    "name": "Arnswalder Platz",
+    "lat": 52.5342203,
+    "lng": 13.437123,
+    "lines": [
+      "M10"
+    ]
+  },
+  {
+    "name": "Kniprodestraße/Danziger Straße",
+    "lat": 52.5315225,
+    "lng": 13.4421124,
+    "lines": [
+      "M10"
+    ]
+  },
+  {
+    "name": "Paul-Heyse-Straße",
+    "lat": 52.5289276,
+    "lng": 13.4449135,
+    "lines": [
+      "M10"
+    ]
+  },
+  {
+    "name": "Straßmannstraße",
+    "lat": 52.5224781,
+    "lng": 13.4503004,
+    "lines": [
+      "M10"
+    ]
+  },
+  {
+    "name": "Bersarinplatz",
+    "lat": 52.519215,
+    "lng": 13.4525257,
+    "lines": [
+      "M10",
+      "21"
+    ]
+  },
+  {
+    "name": "U Frankfurter Tor",
+    "lat": 52.5154601,
+    "lng": 13.4537902,
+    "lines": [
+      "M10",
+      "21"
+    ]
+  },
+  {
+    "name": "Grünberger Straße/Warschauer Straße",
+    "lat": 52.5120579,
+    "lng": 13.4522675,
+    "lines": [
+      "M10"
+    ]
+  },
+  {
+    "name": "S Warschauer Straße",
+    "lat": 52.5078885,
+    "lng": 13.450451,
+    "lines": [
+      "M10",
+      "M13"
+    ]
+  },
+  {
+    "name": "S+U Warschauer Straße",
+    "lat": 52.5048497,
+    "lng": 13.4484558,
+    "lines": [
+      "M10"
+    ]
+  },
+  {
+    "name": "Revaler Straße",
+    "lat": 52.5095695,
+    "lng": 13.4514133,
+    "lines": [
+      "M10",
+      "M13"
+    ]
+  },
+  {
+    "name": "Libauer Straße",
+    "lat": 52.5101841,
+    "lng": 13.4546946,
+    "lines": [
+      "M13"
+    ]
+  },
+  {
+    "name": "Wühlischstraße/Gärtnerstraße",
+    "lat": 52.50903,
+    "lng": 13.4597503,
+    "lines": [
+      "M13"
+    ]
+  },
+  {
+    "name": "Holteistraße",
+    "lat": 52.5081321,
+    "lng": 13.4658555,
+    "lines": [
+      "M13",
+      "21"
+    ]
+  },
+  {
+    "name": "Sportforum",
+    "lat": 52.5385243,
+    "lng": 13.4713825,
+    "lines": [
+      "M13"
+    ]
+  },
+  {
+    "name": "Betriebshof Indira-Gandhi-Straße",
+    "lat": 52.5442346,
+    "lng": 13.4687215,
+    "lines": [
+      "M13"
+    ]
+  },
+  {
+    "name": "Gounodstraße",
+    "lat": 52.5485019,
+    "lng": 13.4671538,
+    "lines": [
+      "M13"
+    ]
+  },
+  {
+    "name": "Schönfließer Straße",
+    "lat": 52.5540724,
+    "lng": 13.4090846,
+    "lines": [
+      "M13",
+      "50"
+    ]
+  },
+  {
+    "name": "Björnsonstraße",
+    "lat": 52.5544232,
+    "lng": 13.4030585,
+    "lines": [
+      "M13",
+      "50"
+    ]
+  },
+  {
+    "name": "S Bornholmer Straße",
+    "lat": 52.5549382,
+    "lng": 13.3954269,
+    "lines": [
+      "M13",
+      "50"
+    ]
+  },
+  {
+    "name": "Grüntaler Straße",
+    "lat": 52.5554183,
+    "lng": 13.3902457,
+    "lines": [
+      "M13",
+      "50"
+    ]
+  },
+  {
+    "name": "Osloer Straße/Prinzenallee",
+    "lat": 52.5559762,
+    "lng": 13.383244,
+    "lines": [
+      "M13",
+      "50"
+    ]
+  },
+  {
+    "name": "Drontheimer Straße",
+    "lat": 52.5563959,
+    "lng": 13.377926,
+    "lines": [
+      "M13",
+      "50"
+    ]
+  },
+  {
+    "name": "U Osloer Straße",
+    "lat": 52.5567774,
+    "lng": 13.3726126,
+    "lines": [
+      "M13",
+      "50"
+    ]
+  },
+  {
+    "name": "Louise-Schroeder-Platz",
+    "lat": 52.5570154,
+    "lng": 13.3659991,
+    "lines": [
+      "M13",
+      "50"
+    ]
+  },
+  {
+    "name": "Osram-Höfe",
+    "lat": 52.553567,
+    "lng": 13.3579372,
+    "lines": [
+      "M13",
+      "50"
+    ]
+  },
+  {
+    "name": "U Seestraße",
+    "lat": 52.5499916,
+    "lng": 13.3510635,
+    "lines": [
+      "M13",
+      "50"
+    ]
+  },
+  {
+    "name": "Seestraße/Amrumer Straße",
+    "lat": 52.5464797,
+    "lng": 13.3443768,
+    "lines": [
+      "M13",
+      "50"
+    ]
+  },
+  {
+    "name": "Virchow-Klinikum",
+    "lat": 52.5436415,
+    "lng": 13.3389703,
+    "lines": [
+      "M13",
+      "50"
+    ]
+  },
+  {
+    "name": "Simplonstraße",
+    "lat": 52.5098432,
+    "lng": 13.4564928,
+    "lines": [
+      "M13"
+    ]
+  },
+  {
+    "name": "Kopernikusstraße/Warschauer Straße",
+    "lat": 52.5105842,
+    "lng": 13.4526258,
+    "lines": [
+      "M13"
+    ]
+  },
+  {
+    "name": "Rhinstraße/Gärtnerstraße",
+    "lat": 52.5457156,
+    "lng": 13.5098227,
+    "lines": [
+      "M17",
+      "27"
+    ]
+  },
+  {
+    "name": "Rhinstraße/Plauener Straße",
+    "lat": 52.539004,
+    "lng": 13.5146099,
+    "lines": [
+      "M17",
+      "27"
+    ]
+  },
+  {
+    "name": "Meeraner Straße",
+    "lat": 52.5290091,
+    "lng": 13.5192567,
+    "lines": [
+      "M17",
+      "27"
+    ]
+  },
+  {
+    "name": "Kleingartenanlage Bielefeldt",
+    "lat": 52.5188045,
+    "lng": 13.5192897,
+    "lines": [
+      "M17",
+      "27",
+      "37"
+    ]
+  },
+  {
+    "name": "S Friedrichsfelde Ost",
+    "lat": 52.513975,
+    "lng": 13.5190194,
+    "lines": [
+      "M17",
+      "27",
+      "37"
+    ]
+  },
+  {
+    "name": "Alt-Friedrichsfelde/Rhinstraße",
+    "lat": 52.5100917,
+    "lng": 13.5189315,
+    "lines": [
+      "M17",
+      "27",
+      "37"
+    ]
+  },
+  {
+    "name": "Alfred-Kowalke-Straße",
+    "lat": 52.5047159,
+    "lng": 13.5202011,
+    "lines": [
+      "M17",
+      "27",
+      "37"
+    ]
+  },
+  {
+    "name": "Criegernweg",
+    "lat": 52.5005867,
+    "lng": 13.52173,
+    "lines": [
+      "M17",
+      "27",
+      "37"
+    ]
+  },
+  {
+    "name": "U Tierpark",
+    "lat": 52.4964388,
+    "lng": 13.5241639,
+    "lines": [
+      "M17",
+      "27",
+      "37"
+    ]
+  },
+  {
+    "name": "Treskowallee/HTW",
+    "lat": 52.4929123,
+    "lng": 13.5264678,
+    "lines": [
+      "M17",
+      "27",
+      "37"
+    ]
+  },
+  {
+    "name": "Marksburgstraße",
+    "lat": 52.4867994,
+    "lng": 13.5269579,
+    "lines": [
+      "M17",
+      "27",
+      "37"
+    ]
+  },
+  {
+    "name": "S Karlshorst",
+    "lat": 52.481264,
+    "lng": 13.5251316,
+    "lines": [
+      "M17",
+      "27",
+      "37"
+    ]
+  },
+  {
+    "name": "Traberweg",
+    "lat": 52.4769473,
+    "lng": 13.5233991,
+    "lines": [
+      "M17",
+      "27",
+      "37",
+      "21"
+    ]
+  },
+  {
+    "name": "Hegemeisterweg",
+    "lat": 52.4739371,
+    "lng": 13.5201087,
+    "lines": [
+      "M17",
+      "27",
+      "37",
+      "21"
+    ]
+  },
+  {
+    "name": "Volkspark Wuhlheide",
+    "lat": 52.4709069,
+    "lng": 13.5169533,
+    "lines": [
+      "M17",
+      "27",
+      "37",
+      "21"
+    ]
+  },
+  {
+    "name": "Rummelsburger Straße/Edisonstraße",
+    "lat": 52.4679531,
+    "lng": 13.5135217,
+    "lines": [
+      "M17",
+      "27",
+      "37",
+      "21"
+    ]
+  },
+  {
+    "name": "Siemensstraße/Edisonstraße",
+    "lat": 52.4648695,
+    "lng": 13.5135663,
+    "lines": [
+      "M17",
+      "27",
+      "37",
+      "21"
+    ]
+  },
+  {
+    "name": "Wilhelminenhofstraße/Edisonstraße",
+    "lat": 52.4630566,
+    "lng": 13.5138993,
+    "lines": [
+      "M17",
+      "27",
+      "37",
+      "60",
+      "67",
+      "21"
+    ]
+  },
+  {
+    "name": "Brückenstraße",
+    "lat": 52.4575996,
+    "lng": 13.5110528,
+    "lines": [
+      "M17",
+      "37",
+      "60",
+      "67",
+      "21"
+    ]
+  },
+  {
+    "name": "S Schöneweide",
+    "lat": 52.4559651,
+    "lng": 13.5090826,
+    "lines": [
+      "M17",
+      "37",
+      "60",
+      "67",
+      "21"
+    ]
+  },
+  {
+    "name": "S Schöneweide/Sterndamm",
+    "lat": 52.454297,
+    "lng": 13.5092859,
+    "lines": [
+      "M17",
+      "37",
+      "60",
+      "61",
+      "67",
+      "21"
+    ]
+  },
+  {
+    "name": "Nieberstraße",
+    "lat": 52.4490273,
+    "lng": 13.5116758,
+    "lines": [
+      "M17",
+      "61"
+    ]
+  },
+  {
+    "name": "Landfliegerstraße",
+    "lat": 52.4459695,
+    "lng": 13.515054,
+    "lines": [
+      "M17",
+      "61"
+    ]
+  },
+  {
+    "name": "Benno-König-Straße",
+    "lat": 52.4427282,
+    "lng": 13.5197601,
+    "lines": [
+      "M17",
+      "61"
+    ]
+  },
+  {
+    "name": "Gerhard-Sedlmayr-Straße",
+    "lat": 52.4397147,
+    "lng": 13.5241905,
+    "lines": [
+      "M17",
+      "61"
+    ]
+  },
+  {
+    "name": "Landschaftspark Johannisthal",
+    "lat": 52.4370286,
+    "lng": 13.5260077,
+    "lines": [
+      "M17",
+      "61",
+      "63"
+    ]
+  },
+  {
+    "name": "Karl-Ziegler-Straße",
+    "lat": 52.4324964,
+    "lng": 13.5264686,
+    "lines": [
+      "M17",
+      "61",
+      "63"
+    ]
+  },
+  {
+    "name": "Magnusstraße",
+    "lat": 52.4299521,
+    "lng": 13.5306579,
+    "lines": [
+      "M17",
+      "61",
+      "63"
+    ]
+  },
+  {
+    "name": "Walther-Nernst-Straße",
+    "lat": 52.4321529,
+    "lng": 13.5350435,
+    "lines": [
+      "M17",
+      "61",
+      "63"
+    ]
+  },
+  {
+    "name": "S Adlershof",
+    "lat": 52.4340207,
+    "lng": 13.5413836,
+    "lines": [
+      "M17",
+      "61",
+      "63"
+    ]
+  },
+  {
+    "name": "Krankenhaus Köpenick/Südseite",
+    "lat": 52.4390415,
+    "lng": 13.5916396,
+    "lines": [
+      "27",
+      "67"
+    ]
+  },
+  {
+    "name": "Pablo-Neruda-Straße",
+    "lat": 52.440604,
+    "lng": 13.586986,
+    "lines": [
+      "27",
+      "67"
+    ]
+  },
+  {
+    "name": "Müggelheimer Straße/Wendenschloßstraße",
+    "lat": 52.443069,
+    "lng": 13.5811288,
+    "lines": [
+      "27",
+      "62",
+      "67"
+    ]
+  },
+  {
+    "name": "Freiheit",
+    "lat": 52.4466212,
+    "lng": 13.576083,
+    "lines": [
+      "27",
+      "61",
+      "62",
+      "68",
+      "67",
+      "63"
+    ]
+  },
+  {
+    "name": "Bahnhofstraße/Lindenstraße",
+    "lat": 52.4516146,
+    "lng": 13.5710431,
+    "lines": [
+      "27",
+      "60",
+      "61",
+      "62",
+      "68",
+      "67",
+      "63"
+    ]
+  },
+  {
+    "name": "Alte Försterei",
+    "lat": 52.4565253,
+    "lng": 13.5631525,
+    "lines": [
+      "27",
+      "60",
+      "67"
+    ]
+  },
+  {
+    "name": "Spindlersfelder Straße",
+    "lat": 52.455916,
+    "lng": 13.5586012,
+    "lines": [
+      "27",
+      "60",
+      "67"
+    ]
+  },
+  {
+    "name": "Nixenstraße",
+    "lat": 52.4566234,
+    "lng": 13.5501064,
+    "lines": [
+      "27",
+      "60",
+      "67"
+    ]
+  },
+  {
+    "name": "Freizeit- und Erholungszentrum",
+    "lat": 52.4575779,
+    "lng": 13.5436031,
+    "lines": [
+      "27",
+      "60",
+      "67"
+    ]
+  },
+  {
+    "name": "Weiskopffstraße",
+    "lat": 52.4576241,
+    "lng": 13.5394706,
+    "lines": [
+      "27",
+      "60",
+      "67"
+    ]
+  },
+  {
+    "name": "Ostendstraße",
+    "lat": 52.4572322,
+    "lng": 13.5338473,
+    "lines": [
+      "27",
+      "60",
+      "67"
+    ]
+  },
+  {
+    "name": "Rathenaustraße/HTW",
+    "lat": 52.4587748,
+    "lng": 13.5258742,
+    "lines": [
+      "27",
+      "60",
+      "67"
+    ]
+  },
+  {
+    "name": "Firlstraße",
+    "lat": 52.4607897,
+    "lng": 13.5212276,
+    "lines": [
+      "27",
+      "60",
+      "67"
+    ]
+  },
+  {
+    "name": "Am Faulen See",
+    "lat": 52.5506013,
+    "lng": 13.4947328,
+    "lines": [
+      "27"
+    ]
+  },
+  {
+    "name": "Orankestrand",
+    "lat": 52.5523154,
+    "lng": 13.4858397,
+    "lines": [
+      "27"
+    ]
+  },
+  {
+    "name": "Degnerstraße/Suermondtstraße",
+    "lat": 52.5497835,
+    "lng": 13.4982024,
+    "lines": [
+      "27"
+    ]
+  },
+  {
+    "name": "Rathaus Köpenick",
+    "lat": 52.4454593,
+    "lng": 13.5743834,
+    "lines": [
+      "27",
+      "61",
+      "62",
+      "68",
+      "67",
+      "63"
+    ]
+  },
+  {
+    "name": "Schloßplatz Köpenick",
+    "lat": 52.4443426,
+    "lng": 13.5754514,
+    "lines": [
+      "27",
+      "61",
+      "62",
+      "68",
+      "67",
+      "63"
+    ]
+  },
+  {
+    "name": "Wismarplatz",
+    "lat": 52.5111368,
+    "lng": 13.4633489,
+    "lines": [
+      "21"
+    ]
+  },
+  {
+    "name": "Niederbarnimstraße",
+    "lat": 52.5126725,
+    "lng": 13.458491,
+    "lines": [
+      "21"
+    ]
+  },
+  {
+    "name": "Forckenbeckplatz",
+    "lat": 52.5201985,
+    "lng": 13.4585731,
+    "lines": [
+      "21"
+    ]
+  },
+  {
+    "name": "Proskauer Straße",
+    "lat": 52.5198524,
+    "lng": 13.4634375,
+    "lines": [
+      "21"
+    ]
+  },
+  {
+    "name": "James-Hobrecht-Straße",
+    "lat": 52.5202222,
+    "lng": 13.4678152,
+    "lines": [
+      "21"
+    ]
+  },
+  {
+    "name": "Scheffelstraße",
+    "lat": 52.5204942,
+    "lng": 13.474128,
+    "lines": [
+      "21"
+    ]
+  },
+  {
+    "name": "Siegfriedstraße/Josef-Orlopp-Straße",
+    "lat": 52.5231484,
+    "lng": 13.4995626,
+    "lines": [
+      "21",
+      "37"
+    ]
+  },
+  {
+    "name": "Betriebshof Lichtenberg",
+    "lat": 52.5194799,
+    "lng": 13.4993269,
+    "lines": [
+      "21",
+      "37"
+    ]
+  },
+  {
+    "name": "Gotlindestraße",
+    "lat": 52.5178145,
+    "lng": 13.4991322,
+    "lines": [
+      "21",
+      "37"
+    ]
+  },
+  {
+    "name": "Fanningerstraße",
+    "lat": 52.5143097,
+    "lng": 13.4982207,
+    "lines": [
+      "21",
+      "37"
+    ]
+  },
+  {
+    "name": "Guntherstraße",
+    "lat": 52.5136196,
+    "lng": 13.5017038,
+    "lines": [
+      "21",
+      "37"
+    ]
+  },
+  {
+    "name": "S+U Lichtenberg/Gudrunstraße",
+    "lat": 52.5125804,
+    "lng": 13.5005323,
+    "lines": [
+      "21",
+      "37"
+    ]
+  },
+  {
+    "name": "S+U Lichtenberg/Siegfriedstraße",
+    "lat": 52.51236,
+    "lng": 13.4977506,
+    "lines": [
+      "21",
+      "37"
+    ]
+  },
+  {
+    "name": "Freiaplatz",
+    "lat": 52.5154751,
+    "lng": 13.4985788,
+    "lines": [
+      "21",
+      "37"
+    ]
+  },
+  {
+    "name": "Guyotstraße",
+    "lat": 52.6053946,
+    "lng": 13.4167576,
+    "lines": [
+      "50"
+    ]
+  },
+  {
+    "name": "Hugenottenplatz",
+    "lat": 52.6060687,
+    "lng": 13.4196558,
+    "lines": [
+      "50"
+    ]
+  },
+  {
+    "name": "Arnouxstraße",
+    "lat": 52.6072487,
+    "lng": 13.424295,
+    "lines": [
+      "50"
+    ]
+  },
+  {
+    "name": "Französisch Buchholz Friedhof",
+    "lat": 52.608242,
+    "lng": 13.4293062,
+    "lines": [
+      "50"
+    ]
+  },
+  {
+    "name": "Französisch Buchholz Kirche",
+    "lat": 52.6071269,
+    "lng": 13.433607,
+    "lines": [
+      "50"
+    ]
+  },
+  {
+    "name": "Blankenfelder Straße",
+    "lat": 52.6017309,
+    "lng": 13.4314825,
+    "lines": [
+      "50"
+    ]
+  },
+  {
+    "name": "Rosenthaler Straße",
+    "lat": 52.5963302,
+    "lng": 13.4328707,
+    "lines": [
+      "50"
+    ]
+  },
+  {
+    "name": "Marienstraße/Pasewalker Straße",
+    "lat": 52.5922981,
+    "lng": 13.4313671,
+    "lines": [
+      "50"
+    ]
+  },
+  {
+    "name": "Pasewalker Straße/Blankenburger Weg",
+    "lat": 52.589266,
+    "lng": 13.4303202,
+    "lines": [
+      "50"
+    ]
+  },
+  {
+    "name": "Pankower Straße",
+    "lat": 52.5851776,
+    "lng": 13.4289064,
+    "lines": [
+      "50"
+    ]
+  },
+  {
+    "name": "Galenusstraße",
+    "lat": 52.5818061,
+    "lng": 13.4286019,
+    "lines": [
+      "50"
+    ]
+  },
+  {
+    "name": "S Pankow-Heinersdorf",
+    "lat": 52.5773178,
+    "lng": 13.4276065,
+    "lines": [
+      "50"
+    ]
+  },
+  {
+    "name": "Würtzstraße",
+    "lat": 52.5760936,
+    "lng": 13.4244231,
+    "lines": [
+      "50"
+    ]
+  },
+  {
+    "name": "Mendelstraße",
+    "lat": 52.5750424,
+    "lng": 13.4192595,
+    "lines": [
+      "50"
+    ]
+  },
+  {
+    "name": "Stiftsweg",
+    "lat": 52.5724332,
+    "lng": 13.4151516,
+    "lines": [
+      "50"
+    ]
+  },
+  {
+    "name": "Altes Wasserwerk",
+    "lat": 52.4479905,
+    "lng": 13.6390729,
+    "lines": [
+      "60"
+    ]
+  },
+  {
+    "name": "Bruno-Wille-Straße",
+    "lat": 52.4469208,
+    "lng": 13.6321468,
+    "lines": [
+      "60"
+    ]
+  },
+  {
+    "name": "Josef-Nawrocki-Straße",
+    "lat": 52.4466962,
+    "lng": 13.6285653,
+    "lines": [
+      "60"
+    ]
+  },
+  {
+    "name": "Marktplatz Friedrichshagen",
+    "lat": 52.4508226,
+    "lng": 13.6247417,
+    "lines": [
+      "60",
+      "61"
+    ]
+  },
+  {
+    "name": "Drachholzstraße",
+    "lat": 52.4540834,
+    "lng": 13.6251266,
+    "lines": [
+      "60",
+      "61"
+    ]
+  },
+  {
+    "name": "Ahornallee",
+    "lat": 52.4556007,
+    "lng": 13.6189045,
+    "lines": [
+      "60"
+    ]
+  },
+  {
+    "name": "Mühlweg",
+    "lat": 52.4541676,
+    "lng": 13.6128612,
+    "lines": [
+      "60"
+    ]
+  },
+  {
+    "name": "Westendsiedlung",
+    "lat": 52.453131,
+    "lng": 13.6082703,
+    "lines": [
+      "60"
+    ]
+  },
+  {
+    "name": "Hirschgartendreieck",
+    "lat": 52.4519532,
+    "lng": 13.6002344,
+    "lines": [
+      "60",
+      "61"
+    ]
+  },
+  {
+    "name": "Bellevuestraße",
+    "lat": 52.4530499,
+    "lng": 13.5937857,
+    "lines": [
+      "60",
+      "61"
+    ]
+  },
+  {
+    "name": "Brandenburgplatz",
+    "lat": 52.4553158,
+    "lng": 13.5908676,
+    "lines": [
+      "60",
+      "61"
+    ]
+  },
+  {
+    "name": "Gelnitzstraße",
+    "lat": 52.45543,
+    "lng": 13.5850479,
+    "lines": [
+      "60",
+      "61"
+    ]
+  },
+  {
+    "name": "Bahnhofstraße/Seelenbinderstraße",
+    "lat": 52.4547262,
+    "lng": 13.576353,
+    "lines": [
+      "60",
+      "61",
+      "62",
+      "68",
+      "63"
+    ]
+  },
+  {
+    "name": "Pietschkerstraße",
+    "lat": 52.4505494,
+    "lng": 13.5079617,
+    "lines": [
+      "60"
+    ]
+  },
+  {
+    "name": "Sterndamm/Königsheideweg",
+    "lat": 52.4467798,
+    "lng": 13.5066717,
+    "lines": [
+      "60"
+    ]
+  },
+  {
+    "name": "Johannisthal Kirche",
+    "lat": 52.4443557,
+    "lng": 13.5039451,
+    "lines": [
+      "60"
+    ]
+  },
+  {
+    "name": "Mühlbergstraße",
+    "lat": 52.4416656,
+    "lng": 13.503402,
+    "lines": [
+      "60"
+    ]
+  },
+  {
+    "name": "Haeckelstraße",
+    "lat": 52.4402944,
+    "lng": 13.5052638,
+    "lines": [
+      "60"
+    ]
+  },
+  {
+    "name": "Herweghstraße",
+    "lat": 52.4442228,
+    "lng": 13.5055404,
+    "lines": [
+      "60"
+    ]
+  },
+  {
+    "name": "Berlin, Altes Wasserwerk [Ausstieg]",
+    "lat": 52.4482775,
+    "lng": 13.6404328,
+    "lines": [
+      "60"
+    ]
+  },
+  {
+    "name": "Marktplatz Adlershof",
+    "lat": 52.4372349,
+    "lng": 13.5462409,
+    "lines": [
+      "61",
+      "63"
+    ]
+  },
+  {
+    "name": "Wassermannstraße",
+    "lat": 52.4392704,
+    "lng": 13.5519025,
+    "lines": [
+      "61",
+      "63"
+    ]
+  },
+  {
+    "name": "Ottomar-Geschke-Straße",
+    "lat": 52.4418687,
+    "lng": 13.5594516,
+    "lines": [
+      "61",
+      "63"
+    ]
+  },
+  {
+    "name": "S Spindlersfeld",
+    "lat": 52.4457149,
+    "lng": 13.5624076,
+    "lines": [
+      "61",
+      "63"
+    ]
+  },
+  {
+    "name": "Köllnischer Platz",
+    "lat": 52.4447245,
+    "lng": 13.5686302,
+    "lines": [
+      "61",
+      "68",
+      "63"
+    ]
+  },
+  {
+    "name": "Wassersportzentrum",
+    "lat": 52.4490623,
+    "lng": 13.6090983,
+    "lines": [
+      "61"
+    ]
+  },
+  {
+    "name": "Spreestraße",
+    "lat": 52.4470553,
+    "lng": 13.6156241,
+    "lines": [
+      "61"
+    ]
+  },
+  {
+    "name": "Hartlebenstraße",
+    "lat": 52.4566173,
+    "lng": 13.6333365,
+    "lines": [
+      "61"
+    ]
+  },
+  {
+    "name": "Wasserwerk Friedrichshagen",
+    "lat": 52.4560552,
+    "lng": 13.6419956,
+    "lines": [
+      "61"
+    ]
+  },
+  {
+    "name": "Fürstenwalder Damm",
+    "lat": 52.4524638,
+    "lng": 13.6521704,
+    "lines": [
+      "61"
+    ]
+  },
+  {
+    "name": "Fürstenwalder Damm/Müggelseedamm",
+    "lat": 52.4498523,
+    "lng": 13.6615253,
+    "lines": [
+      "61"
+    ]
+  },
+  {
+    "name": "Licht- und Luftbad Müggelsee",
+    "lat": 52.4476458,
+    "lng": 13.6711513,
+    "lines": [
+      "61"
+    ]
+  },
+  {
+    "name": "Strandbad Müggelsee",
+    "lat": 52.4457181,
+    "lng": 13.6776394,
+    "lines": [
+      "61"
+    ]
+  },
+  {
+    "name": "Rahnsdorf/Waldschänke",
+    "lat": 52.4435317,
+    "lng": 13.685038,
+    "lines": [
+      "61"
+    ]
+  },
+  {
+    "name": "S Mahlsdorf",
+    "lat": 52.5111685,
+    "lng": 13.6109691,
+    "lines": [
+      "62"
+    ]
+  },
+  {
+    "name": "Wilhelmsmühlenweg",
+    "lat": 52.5082644,
+    "lng": 13.6130109,
+    "lines": [
+      "62"
+    ]
+  },
+  {
+    "name": "Alt-Mahlsdorf",
+    "lat": 52.5051994,
+    "lng": 13.6133356,
+    "lines": [
+      "62"
+    ]
+  },
+  {
+    "name": "Ledebourstraße",
+    "lat": 52.4936827,
+    "lng": 13.609508,
+    "lines": [
+      "62",
+      "63"
+    ]
+  },
+  {
+    "name": "Eichenhofweg",
+    "lat": 52.4914085,
+    "lng": 13.6078903,
+    "lines": [
+      "62",
+      "63"
+    ]
+  },
+  {
+    "name": "Bruchsaler Straße",
+    "lat": 52.4893741,
+    "lng": 13.6064139,
+    "lines": [
+      "62",
+      "63"
+    ]
+  },
+  {
+    "name": "Bütower Straße",
+    "lat": 52.486104,
+    "lng": 13.603978,
+    "lines": [
+      "62",
+      "63"
+    ]
+  },
+  {
+    "name": "Erich-Baron-Weg",
+    "lat": 52.4839641,
+    "lng": 13.602463,
+    "lines": [
+      "62",
+      "63"
+    ]
+  },
+  {
+    "name": "Roseggerstraße",
+    "lat": 52.4802773,
+    "lng": 13.6009017,
+    "lines": [
+      "62",
+      "63"
+    ]
+  },
+  {
+    "name": "Hultschiner Damm/Seestraße",
+    "lat": 52.4766078,
+    "lng": 13.6003908,
+    "lines": [
+      "62",
+      "63"
+    ]
+  },
+  {
+    "name": "Mahlsdorf-Süd",
+    "lat": 52.4739776,
+    "lng": 13.598672,
+    "lines": [
+      "62",
+      "63"
+    ]
+  },
+  {
+    "name": "Unter den Birken",
+    "lat": 52.4701961,
+    "lng": 13.5893611,
+    "lines": [
+      "62",
+      "63"
+    ]
+  },
+  {
+    "name": "Wongrowitzer Steig",
+    "lat": 52.4671864,
+    "lng": 13.5855872,
+    "lines": [
+      "62",
+      "63"
+    ]
+  },
+  {
+    "name": "Mittelheide",
+    "lat": 52.4637631,
+    "lng": 13.5840398,
+    "lines": [
+      "62",
+      "63"
+    ]
+  },
+  {
+    "name": "S Köpenick",
+    "lat": 52.4593295,
+    "lng": 13.5800797,
+    "lines": [
+      "62",
+      "68",
+      "63"
+    ]
+  },
+  {
+    "name": "Betriebshof Köpenick",
+    "lat": 52.4400324,
+    "lng": 13.58176,
+    "lines": [
+      "62"
+    ]
+  },
+  {
+    "name": "Mayschweg",
+    "lat": 52.4366682,
+    "lng": 13.5824134,
+    "lines": [
+      "62"
+    ]
+  },
+  {
+    "name": "Segewaldweg",
+    "lat": 52.4343208,
+    "lng": 13.5828587,
+    "lines": [
+      "62"
+    ]
+  },
+  {
+    "name": "Pritstabelstraße",
+    "lat": 52.4316011,
+    "lng": 13.5836094,
+    "lines": [
+      "62"
+    ]
+  },
+  {
+    "name": "Dregerhoffstraße",
+    "lat": 52.4274137,
+    "lng": 13.5852586,
+    "lines": [
+      "62"
+    ]
+  },
+  {
+    "name": "Zur Nachtheide",
+    "lat": 52.4248423,
+    "lng": 13.5864837,
+    "lines": [
+      "62"
+    ]
+  },
+  {
+    "name": "Lienhardweg",
+    "lat": 52.4217056,
+    "lng": 13.5879084,
+    "lines": [
+      "62"
+    ]
+  },
+  {
+    "name": "Müggelbergallee",
+    "lat": 52.4189067,
+    "lng": 13.5888148,
+    "lines": [
+      "62"
+    ]
+  },
+  {
+    "name": "Wendenschloß",
+    "lat": 52.4169977,
+    "lng": 13.5885444,
+    "lines": [
+      "62"
+    ]
+  },
+  {
+    "name": "Alt-Schmöckwitz",
+    "lat": 52.3752811,
+    "lng": 13.6495632,
+    "lines": [
+      "68"
+    ]
+  },
+  {
+    "name": "Zum Seeblick",
+    "lat": 52.3798545,
+    "lng": 13.6433378,
+    "lines": [
+      "68"
+    ]
+  },
+  {
+    "name": "Adlergestell/Vetschauer Allee",
+    "lat": 52.3866019,
+    "lng": 13.634025,
+    "lines": [
+      "68"
+    ]
+  },
+  {
+    "name": "Lübbenauer Weg",
+    "lat": 52.3912295,
+    "lng": 13.634932,
+    "lines": [
+      "68"
+    ]
+  },
+  {
+    "name": "Schappachstraße",
+    "lat": 52.3946578,
+    "lng": 13.6317399,
+    "lines": [
+      "68"
+    ]
+  },
+  {
+    "name": "Richtershorn",
+    "lat": 52.4013919,
+    "lng": 13.6246617,
+    "lines": [
+      "68"
+    ]
+  },
+  {
+    "name": "Bammelecke",
+    "lat": 52.4059861,
+    "lng": 13.6205655,
+    "lines": [
+      "68"
+    ]
+  },
+  {
+    "name": "Strandbad Grünau",
+    "lat": 52.4087096,
+    "lng": 13.603986,
+    "lines": [
+      "68"
+    ]
+  },
+  {
+    "name": "Regattastraße/Sportpromenade",
+    "lat": 52.4105463,
+    "lng": 13.5976825,
+    "lines": [
+      "68"
+    ]
+  },
+  {
+    "name": "Regattatribünen",
+    "lat": 52.4114267,
+    "lng": 13.5880838,
+    "lines": [
+      "68"
+    ]
+  },
+  {
+    "name": "S Grünau",
+    "lat": 52.4134772,
+    "lng": 13.5747052,
+    "lines": [
+      "68"
+    ]
+  },
+  {
+    "name": "Wassersportallee",
+    "lat": 52.4163494,
+    "lng": 13.5800196,
+    "lines": [
+      "68"
+    ]
+  },
+  {
+    "name": "Königsseestraße",
+    "lat": 52.4205549,
+    "lng": 13.577895,
+    "lines": [
+      "68"
+    ]
+  },
+  {
+    "name": "Betonwerk",
+    "lat": 52.4309071,
+    "lng": 13.5716912,
+    "lines": [
+      "68"
+    ]
+  },
+  {
+    "name": "Rosenweg",
+    "lat": 52.4349601,
+    "lng": 13.5714816,
+    "lines": [
+      "68"
+    ]
+  },
+  {
+    "name": "Vollkropfgraben",
+    "lat": 52.43886,
+    "lng": 13.5714377,
+    "lines": [
+      "68"
+    ]
+  },
+  {
+    "name": "Glienicker Straße",
+    "lat": 52.4415594,
+    "lng": 13.5700051,
+    "lines": [
+      "68"
+    ]
+  },
+  {
+    "name": "Hirtestraße",
+    "lat": 52.4590446,
+    "lng": 13.5838302,
+    "lines": [
+      "68"
+    ]
+  },
+  {
+    "name": "Janitzkystraße",
+    "lat": 52.4615785,
+    "lng": 13.5840982,
+    "lines": [
+      "68"
+    ]
+  },
+  {
+    "name": "Hohenschönhausen",
+    "lat": 52.5662962,
+    "lng": 13.5126246,
+    "lines": [
+      "S75"
+    ]
+  },
+  {
+    "name": "Wartenberg",
+    "lat": 52.5730239,
+    "lng": 13.5039068,
+    "lines": [
+      "S75"
+    ]
+  },
+  {
+    "name": "Bernau",
+    "lat": 52.675156,
+    "lng": 13.5907001,
+    "lines": [
+      "S2"
+    ]
+  },
+  {
+    "name": "Bernau-Friedenstal",
+    "lat": 52.6682515,
+    "lng": 13.5641477,
+    "lines": [
+      "S2"
+    ]
+  },
+  {
+    "name": "Zepernick (bei Bernau)",
+    "lat": 52.6595392,
+    "lng": 13.5334481,
+    "lines": [
+      "S2"
+    ]
+  },
+  {
+    "name": "Röntgental",
+    "lat": 52.6486244,
+    "lng": 13.5133191,
+    "lines": [
+      "S2"
+    ]
+  },
+  {
+    "name": "Buch",
+    "lat": 52.6354994,
+    "lng": 13.4910958,
+    "lines": [
+      "S2"
+    ]
+  },
+  {
+    "name": "Blankenburg",
+    "lat": 52.5912002,
+    "lng": 13.443073,
+    "lines": [
+      "S2",
+      "S8",
+      "S26"
+    ]
+  },
+  {
+    "name": "Pankow-Heinersdorf",
+    "lat": 52.577582,
+    "lng": 13.4289179,
+    "lines": [
+      "S2",
+      "S8",
+      "S26"
+    ]
+  },
+  {
+    "name": "Pankow",
+    "lat": 52.5658314,
+    "lng": 13.4093955,
+    "lines": [
+      "S2",
+      "S8",
+      "S85",
+      "S26"
+    ]
+  },
+  {
+    "name": "Yorckstraße",
+    "lat": 52.4911246,
+    "lng": 13.3719824,
+    "lines": [
+      "S2",
+      "S25",
+      "S26"
+    ]
+  },
+  {
+    "name": "Attilastraße",
+    "lat": 52.4474772,
+    "lng": 13.3609467,
+    "lines": [
+      "S2"
+    ]
+  },
+  {
+    "name": "Marienfelde",
+    "lat": 52.4240092,
+    "lng": 13.3746866,
+    "lines": [
+      "S2"
+    ]
+  },
+  {
+    "name": "Buckower Chaussee",
+    "lat": 52.4103123,
+    "lng": 13.3828599,
+    "lines": [
+      "S2"
+    ]
+  },
+  {
+    "name": "Schichauweg",
+    "lat": 52.3984322,
+    "lng": 13.3894497,
+    "lines": [
+      "S2"
+    ]
+  },
+  {
+    "name": "Lichtenrade",
+    "lat": 52.3868303,
+    "lng": 13.3964093,
+    "lines": [
+      "S2"
+    ]
+  },
+  {
+    "name": "Mahlow",
+    "lat": 52.3602994,
+    "lng": 13.4078583,
+    "lines": [
+      "S2"
+    ]
+  },
+  {
+    "name": "Bergfelde",
+    "lat": 52.669823,
+    "lng": 13.3212436,
+    "lines": [
+      "S8"
+    ]
+  },
+  {
+    "name": "Schönfließ",
+    "lat": 52.664527,
+    "lng": 13.3405462,
+    "lines": [
+      "S8"
+    ]
+  },
+  {
+    "name": "Mühlenbeck-Mönchmühle",
+    "lat": 52.6548389,
+    "lng": 13.3860512,
+    "lines": [
+      "S8"
+    ]
+  },
+  {
+    "name": "Plänterwald",
+    "lat": 52.4780482,
+    "lng": 13.473842,
+    "lines": [
+      "S8",
+      "S9",
+      "S85"
+    ]
+  },
+  {
+    "name": "Johannisthal",
+    "lat": 52.446382,
+    "lng": 13.5244274,
+    "lines": [
+      "S8",
+      "S9",
+      "S46",
+      "S85"
+    ]
+  },
+  {
+    "name": "Adlershof",
+    "lat": 52.4344971,
+    "lng": 13.5417397,
+    "lines": [
+      "S8",
+      "S9",
+      "S46",
+      "S85"
+    ]
+  },
+  {
+    "name": "Grünau",
+    "lat": 52.4121419,
+    "lng": 13.5745583,
+    "lines": [
+      "S8",
+      "S46",
+      "S85"
+    ]
+  },
+  {
+    "name": "Eichwalde",
+    "lat": 52.3707372,
+    "lng": 13.6155861,
+    "lines": [
+      "S8",
+      "S46"
+    ]
+  },
+  {
+    "name": "Zeuthen",
+    "lat": 52.3480904,
+    "lng": 13.627824,
+    "lines": [
+      "S8",
+      "S46"
+    ]
+  },
+  {
+    "name": "Wilhelmshagen",
+    "lat": 52.4390294,
+    "lng": 13.7218932,
+    "lines": [
+      "S3"
+    ]
+  },
+  {
+    "name": "Rahnsdorf",
+    "lat": 52.4518069,
+    "lng": 13.6890906,
+    "lines": [
+      "S3"
+    ]
+  },
+  {
+    "name": "Friedrichshagen",
+    "lat": 52.4574689,
+    "lng": 13.62278,
+    "lines": [
+      "S3"
+    ]
+  },
+  {
+    "name": "Hirschgarten",
+    "lat": 52.4579906,
+    "lng": 13.602588,
+    "lines": [
+      "S3"
+    ]
+  },
+  {
+    "name": "Köpenick",
+    "lat": 52.4587496,
+    "lng": 13.5803483,
+    "lines": [
+      "S3"
+    ]
+  },
+  {
+    "name": "Wuhlheide",
+    "lat": 52.4690134,
+    "lng": 13.5534889,
+    "lines": [
+      "S3"
+    ]
+  },
+  {
+    "name": "Karlshorst",
+    "lat": 52.4808666,
+    "lng": 13.526581,
+    "lines": [
+      "S3"
+    ]
+  },
+  {
+    "name": "Betriebsbahnhof Rummelsburg",
+    "lat": 52.494368,
+    "lng": 13.4969807,
+    "lines": [
+      "S3"
+    ]
+  },
+  {
+    "name": "Rummelsburg",
+    "lat": 52.5014609,
+    "lng": 13.4778948,
+    "lines": [
+      "S3"
+    ]
+  },
+  {
+    "name": "Messe Süd (Eichkamp)",
+    "lat": 52.4986015,
+    "lng": 13.2708238,
+    "lines": [
+      "S3",
+      "S9"
+    ]
+  },
+  {
+    "name": "Heerstraße",
+    "lat": 52.5080375,
+    "lng": 13.2595757,
+    "lines": [
+      "S3",
+      "S9"
+    ]
+  },
+  {
+    "name": "Olympiastadion",
+    "lat": 52.5112475,
+    "lng": 13.2423363,
+    "lines": [
+      "S3",
+      "S9"
+    ]
+  },
+  {
+    "name": "Pichelsberg",
+    "lat": 52.5102387,
+    "lng": 13.2275633,
+    "lines": [
+      "S3",
+      "S9"
+    ]
+  },
+  {
+    "name": "Stresow",
+    "lat": 52.5320425,
+    "lng": 13.2089734,
+    "lines": [
+      "S3",
+      "S9"
+    ]
+  },
+  {
+    "name": "Spandau",
+    "lat": 52.534908,
+    "lng": 13.1969431,
+    "lines": [
+      "S3",
+      "S9"
+    ]
+  },
+  {
+    "name": "Waßmannsdorf",
+    "lat": 52.3684398,
+    "lng": 13.4635452,
+    "lines": [
+      "S9"
+    ]
+  },
+  {
+    "name": "Schönefeld",
+    "lat": 52.3910415,
+    "lng": 13.5135287,
+    "lines": [
+      "S9"
+    ]
+  },
+  {
+    "name": "Grünbergallee",
+    "lat": 52.3994019,
+    "lng": 13.5428049,
+    "lines": [
+      "S9"
+    ]
+  },
+  {
+    "name": "Altglienicke",
+    "lat": 52.4075134,
+    "lng": 13.559258,
+    "lines": [
+      "S9"
+    ]
+  },
+  {
+    "name": "Wildau",
+    "lat": 52.3198222,
+    "lng": 13.6340808,
+    "lines": [
+      "S46"
+    ]
+  },
+  {
+    "name": "Heiligensee",
+    "lat": 52.6245533,
+    "lng": 13.2292253,
+    "lines": [
+      "S25"
+    ]
+  },
+  {
+    "name": "Schulzendorf",
+    "lat": 52.6129562,
+    "lng": 13.2460901,
+    "lines": [
+      "S25"
+    ]
+  },
+  {
+    "name": "Tegel",
+    "lat": 52.5880882,
+    "lng": 13.2896504,
+    "lines": [
+      "S25"
+    ]
+  },
+  {
+    "name": "Eichborndamm",
+    "lat": 52.5776678,
+    "lng": 13.3165114,
+    "lines": [
+      "S25"
+    ]
+  },
+  {
+    "name": "Karl-Bonhoeffer-Nervenklinik",
+    "lat": 52.5780444,
+    "lng": 13.3291599,
+    "lines": [
+      "S25"
+    ]
+  },
+  {
+    "name": "Alt-Reinickendorf",
+    "lat": 52.5778107,
+    "lng": 13.3507735,
+    "lines": [
+      "S25"
+    ]
+  },
+  {
+    "name": "Südende",
+    "lat": 52.4482973,
+    "lng": 13.3536687,
+    "lines": [
+      "S25",
+      "S26"
+    ]
+  },
+  {
+    "name": "Lankwitz",
+    "lat": 52.4388305,
+    "lng": 13.3421759,
+    "lines": [
+      "S25",
+      "S26"
+    ]
+  },
+  {
+    "name": "Lichterfelde Ost",
+    "lat": 52.4297557,
+    "lng": 13.3277975,
+    "lines": [
+      "S25",
+      "S26"
+    ]
+  },
+  {
+    "name": "Osdorfer Straße",
+    "lat": 52.4189581,
+    "lng": 13.3142073,
+    "lines": [
+      "S25",
+      "S26"
+    ]
+  },
+  {
+    "name": "Lichterfelde Süd",
+    "lat": 52.4099655,
+    "lng": 13.3084508,
+    "lines": [
+      "S25",
+      "S26"
+    ]
+  },
+  {
+    "name": "Teltow Stadt",
+    "lat": 52.3968181,
+    "lng": 13.2764196,
+    "lines": [
+      "S25",
+      "S26"
+    ]
+  },
+  {
+    "name": "Schwante",
+    "lat": 52.7348317,
+    "lng": 13.0914928,
+    "lines": [
+      "RB55"
+    ]
+  },
+  {
+    "name": "Vehlefanz",
+    "lat": 52.7224498,
+    "lng": 13.1146672,
+    "lines": [
+      "RB55"
+    ]
+  },
+  {
+    "name": "Bärenklau",
+    "lat": 52.7041584,
+    "lng": 13.1433525,
+    "lines": [
+      "RB55"
+    ]
+  },
+  {
+    "name": "Niederlehme",
+    "lat": 52.3020555,
+    "lng": 13.6521232,
+    "lines": [
+      "RB36"
+    ]
+  },
+  {
+    "name": "Zernsdorf",
+    "lat": 52.2993977,
+    "lng": 13.6930815,
+    "lines": [
+      "RB36"
+    ]
+  },
+  {
+    "name": "Kablow",
+    "lat": 52.300086,
+    "lng": 13.7212564,
+    "lines": [
+      "RB36"
+    ]
+  },
+  {
+    "name": "Friedersdorf (bei Königs Wusterhausen)",
+    "lat": 52.2899387,
+    "lng": 13.7851168,
+    "lines": [
+      "RB36"
+    ]
+  },
+  {
+    "name": "Kummersdorf (bei Storkow)",
+    "lat": 52.2752002,
+    "lng": 13.873654,
+    "lines": [
+      "RB36"
+    ]
+  },
+  {
+    "name": "Storkow (Mark)",
+    "lat": 52.2516626,
+    "lng": 13.9207775,
+    "lines": [
+      "RB36"
+    ]
+  },
+  {
+    "name": "Hubertushöhe",
+    "lat": 52.2339752,
+    "lng": 13.9650899,
+    "lines": [
+      "RB36"
+    ]
+  },
+  {
+    "name": "Wendisch Rietz",
+    "lat": 52.206907,
+    "lng": 14.009541,
+    "lines": [
+      "RB36"
+    ]
+  },
+  {
+    "name": "Lindenberg (Mark)",
+    "lat": 52.2040513,
+    "lng": 14.1146836,
+    "lines": [
+      "RB36"
+    ]
+  },
+  {
+    "name": "Buckow (bei Beeskow)",
+    "lat": 52.1882525,
+    "lng": 14.1694067,
+    "lines": [
+      "RB36"
+    ]
+  },
+  {
+    "name": "Beeskow",
+    "lat": 52.1775088,
+    "lng": 14.2495338,
+    "lines": [
+      "RB36"
+    ]
+  },
+  {
+    "name": "Oegeln",
+    "lat": 52.1727478,
+    "lng": 14.2708727,
+    "lines": [
+      "RB36"
+    ]
+  },
+  {
+    "name": "Schneeberg (Mark)",
+    "lat": 52.1645491,
+    "lng": 14.3302914,
+    "lines": [
+      "RB36"
+    ]
+  },
+  {
+    "name": "Grunow (Niederlausitz)",
+    "lat": 52.1651473,
+    "lng": 14.3786507,
+    "lines": [
+      "RB36"
+    ]
+  },
+  {
+    "name": "Mixdorf",
+    "lat": 52.1973197,
+    "lng": 14.3943554,
+    "lines": [
+      "RB36"
+    ]
+  },
+  {
+    "name": "Müllrose",
+    "lat": 52.2419835,
+    "lng": 14.4343424,
+    "lines": [
+      "RB36"
+    ]
+  },
+  {
+    "name": "Helenesee",
+    "lat": 52.2796066,
+    "lng": 14.4792727,
+    "lines": [
+      "RB36"
+    ]
+  },
+  {
+    "name": "Frankfurt (Oder)-Neuberesinchen",
+    "lat": 52.3224051,
+    "lng": 14.5463175,
+    "lines": [
+      "RB36"
+    ]
+  },
+  {
+    "name": "Lutherstadt Wittenberg Hauptbahnhof",
+    "lat": 51.8676878,
+    "lng": 12.6615178,
+    "lines": [
+      "RE3"
+    ]
+  },
+  {
+    "name": "Zahna",
+    "lat": 51.918917,
+    "lng": 12.779819,
+    "lines": [
+      "RE3"
+    ]
+  },
+  {
+    "name": "Blönsdorf",
+    "lat": 51.9554869,
+    "lng": 12.8958106,
+    "lines": [
+      "RE3"
+    ]
+  },
+  {
+    "name": "Niedergörsdorf",
+    "lat": 51.9678792,
+    "lng": 12.9786318,
+    "lines": [
+      "RE3"
+    ]
+  },
+  {
+    "name": "Birkengrund",
+    "lat": 52.3156552,
+    "lng": 13.2720891,
+    "lines": [
+      "RE3",
+      "RB32"
+    ]
+  },
+  {
+    "name": "Großbeeren",
+    "lat": 52.3509765,
+    "lng": 13.2847711,
+    "lines": [
+      "RE3"
+    ]
+  },
+  {
+    "name": "Teltow",
+    "lat": 52.3879811,
+    "lng": 13.2997931,
+    "lines": [
+      "RE3"
+    ]
+  },
+  {
+    "name": "Pinnow (Uckermark)",
+    "lat": 53.0653234,
+    "lng": 14.0886417,
+    "lines": [
+      "RE3"
+    ]
+  },
+  {
+    "name": "Schwedt (Oder) Mitte",
+    "lat": 53.0682993,
+    "lng": 14.2716644,
+    "lines": [
+      "RE3"
+    ]
+  },
+  {
+    "name": "Schwedt (Oder)",
+    "lat": 53.0629777,
+    "lng": 14.2905106,
+    "lines": [
+      "RE3"
+    ]
+  },
+  {
+    "name": "Zühlsdorf",
+    "lat": 52.7328505,
+    "lng": 13.4033684,
+    "lines": [
+      "RB27"
+    ]
+  },
+  {
+    "name": "Wensickendorf",
+    "lat": 52.7551394,
+    "lng": 13.3865685,
+    "lines": [
+      "RB27"
+    ]
+  },
+  {
+    "name": "Berlin-Schöneweide",
+    "lat": 52.4548792,
+    "lng": 13.5093931,
+    "lines": [
+      "RB24",
+      "RB32"
+    ]
+  },
+  {
+    "name": "Rüdnitz",
+    "lat": 52.7174355,
+    "lng": 13.636198,
+    "lines": [
+      "RB24"
+    ]
+  },
+  {
+    "name": "Biesenthal",
+    "lat": 52.7558742,
+    "lng": 13.6751515,
+    "lines": [
+      "RB24"
+    ]
+  },
+  {
+    "name": "Melchow",
+    "lat": 52.7745547,
+    "lng": 13.6940119,
+    "lines": [
+      "RB24"
+    ]
+  },
+  {
+    "name": "Elsterwerda",
+    "lat": 51.4604006,
+    "lng": 13.5167411,
+    "lines": [
+      "RE8"
+    ]
+  },
+  {
+    "name": "Hohenleipisch",
+    "lat": 51.493638,
+    "lng": 13.5666439,
+    "lines": [
+      "RE8"
+    ]
+  },
+  {
+    "name": "Rückersdorf",
+    "lat": 51.5664569,
+    "lng": 13.5743281,
+    "lines": [
+      "RE8"
+    ]
+  },
+  {
+    "name": "Doberlug-Kirchhain",
+    "lat": 51.6213735,
+    "lng": 13.5644631,
+    "lines": [
+      "RE8"
+    ]
+  },
+  {
+    "name": "Walddrehna",
+    "lat": 51.7732352,
+    "lng": 13.6173915,
+    "lines": [
+      "RE8"
+    ]
+  },
+  {
+    "name": "Luckau-Uckro",
+    "lat": 51.8519872,
+    "lng": 13.6079382,
+    "lines": [
+      "RE8"
+    ]
+  },
+  {
+    "name": "Drahnsdorf",
+    "lat": 51.9166977,
+    "lng": 13.5817979,
+    "lines": [
+      "RE8"
+    ]
+  },
+  {
+    "name": "Golßen (Niederlausitz)",
+    "lat": 51.9735428,
+    "lng": 13.5751101,
+    "lines": [
+      "RE8"
+    ]
+  },
+  {
+    "name": "Klasdorf-Glashütte",
+    "lat": 52.0215688,
+    "lng": 13.5434706,
+    "lines": [
+      "RE8"
+    ]
+  },
+  {
+    "name": "Baruth (Mark)",
+    "lat": 52.0593364,
+    "lng": 13.5115279,
+    "lines": [
+      "RE8"
+    ]
+  },
+  {
+    "name": "Neuhof (b Zossen)",
+    "lat": 52.1395929,
+    "lng": 13.4795654,
+    "lines": [
+      "RE8"
+    ]
+  },
+  {
+    "name": "Wünsdorf-Waldstadt",
+    "lat": 52.1658588,
+    "lng": 13.4679189,
+    "lines": [
+      "RE8"
+    ]
+  },
+  {
+    "name": "Zossen",
+    "lat": 52.2188978,
+    "lng": 13.4386635,
+    "lines": [
+      "RE8"
+    ]
+  },
+  {
+    "name": "Dabendorf",
+    "lat": 52.2368903,
+    "lng": 13.4375251,
+    "lines": [
+      "RE8"
+    ]
+  },
+  {
+    "name": "Fangschleuse Tesla Süd",
+    "lat": 52.3921518,
+    "lng": 13.7966818,
+    "lines": [
+      "TES"
+    ]
+  },
+  {
+    "name": "Treskowallee/Ehrlichstraße",
+    "lat": 52.4789919,
+    "lng": 13.5234115,
+    "lines": [
+      "21"
+    ]
+  },
+  {
+    "name": "Stühlinger Straße",
+    "lat": 52.4800886,
+    "lng": 13.5209193,
+    "lines": [
+      "21"
+    ]
+  },
+  {
+    "name": "Stechlinstraße",
+    "lat": 52.4819797,
+    "lng": 13.5166242,
+    "lines": [
+      "21"
+    ]
+  },
+  {
+    "name": "Blockdammweg",
+    "lat": 52.4842911,
+    "lng": 13.5096509,
+    "lines": [
+      "21"
+    ]
+  },
+  {
+    "name": "Köpenicker Chaussee/Blockdammweg",
+    "lat": 52.4832902,
+    "lng": 13.5016748,
+    "lines": [
+      "21"
+    ]
+  },
+  {
+    "name": "Heizkraftwerk Klingenberg",
+    "lat": 52.4877427,
+    "lng": 13.4963382,
+    "lines": [
+      "21"
+    ]
+  },
+  {
+    "name": "Gustav-Holzmann-Straße",
+    "lat": 52.4932974,
+    "lng": 13.4904967,
+    "lines": [
+      "21"
+    ]
+  },
+  {
+    "name": "Kosanke-Siedlung",
+    "lat": 52.4973878,
+    "lng": 13.4843647,
+    "lines": [
+      "21"
+    ]
+  },
+  {
+    "name": "S Rummelsburg",
+    "lat": 52.5006384,
+    "lng": 13.4772464,
+    "lines": [
+      "21"
+    ]
+  },
+  {
+    "name": "Marktstraße",
+    "lat": 52.5029507,
+    "lng": 13.4742272,
+    "lines": [
+      "21"
+    ]
+  }
+]
