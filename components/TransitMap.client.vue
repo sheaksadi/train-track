@@ -13,15 +13,37 @@
         <div v-if="mapStore.infoPanel.type === 'station'">
           <div class="info-lines">Lines: {{ mapStore.infoPanel.lines }}</div>
           <div v-if="mapStore.infoPanel.loading" class="info-loading">Loading...</div>
-          <div v-else>
+          <div v-else class="departures-container">
             <div class="info-label">Next departures:</div>
-            <div v-for="(deps, category) in mapStore.infoPanel.grouped" :key="category" class="departure-group">
-              <div class="group-header">{{ category }}</div>
-              <div v-for="(dep, i) in deps" :key="i" class="departure-row">
-                <span class="dep-line" :style="{ backgroundColor: dep.color }">{{ dep.line }}</span>
-                <span class="dep-arrow">→</span>
-                <span class="dep-dest">{{ dep.destination }}</span>
-                <span class="dep-time" :class="{ delay: dep.delay > 0 }">{{ dep.delay > 0 ? `+${dep.delay}m` : dep.time }}</span>
+            <!-- Grid of collapsible transport type cards -->
+            <div 
+              class="transport-grid"
+              :class="{ 
+                'single-type': Object.keys(mapStore.infoPanel.grouped).length === 1,
+                'multi-type': Object.keys(mapStore.infoPanel.grouped).length > 1
+              }"
+            >
+              <div 
+                v-for="(deps, category) in mapStore.infoPanel.grouped" 
+                :key="category" 
+                class="transport-card"
+                :class="{ collapsed: collapsedCategories[category as string] }"
+              >
+                <div 
+                  class="transport-header" 
+                  @click="toggleCategory(category as string)"
+                >
+                  <span class="transport-name">{{ category }}</span>
+                  <span class="transport-count">{{ deps.length }}</span>
+                  <span class="transport-toggle">{{ collapsedCategories[category as string] ? '[+]' : '[-]' }}</span>
+                </div>
+                <div v-if="!collapsedCategories[category as string]" class="transport-deps">
+                  <div v-for="(dep, i) in deps" :key="i" class="departure-row">
+                    <span class="dep-line" :style="{ backgroundColor: dep.color }">{{ dep.line }}</span>
+                    <span class="dep-dest">→ {{ dep.destination }}</span>
+                    <span class="dep-time" :class="{ delay: dep.delay > 0 }">{{ dep.delay > 0 ? `+${dep.delay}m` : dep.time }}</span>
+                  </div>
+                </div>
               </div>
             </div>
             <div v-if="Object.keys(mapStore.infoPanel.grouped).length === 0" class="no-deps">No departures</div>
@@ -38,34 +60,52 @@
       </div>
     </div>
     
-    <!-- Legend - Terminal Style -->
+    <!-- Legend - Terminal Style (Collapsible Sections) -->
     <div class="legend">
       <div class="legend-title">LINES</div>
       
-      <div class="legend-section">Regional</div>
-      <div
-        v-for="(color, line) in regionalColors"
-        :key="line"
-        class="legend-item"
-        @click="transitStore.toggleLine(line as string)"
-        :class="{ disabled: !transitStore.enabledLines[line as string] }"
+      <!-- Regional Section -->
+      <div 
+        class="legend-section" 
+        @click="toggleLegendSection('regional')"
       >
-        <span class="legend-color" :style="{ backgroundColor: color }"></span>
-        <span class="legend-label">{{ line }}</span>
-        <span class="toggle-indicator">{{ transitStore.enabledLines[line as string] ? '[x]' : '[ ]' }}</span>
+        <span>Regional</span>
+        <span class="section-toggle">{{ collapsedLegend['regional'] ? '[+]' : '[-]' }}</span>
+      </div>
+      <div v-if="!collapsedLegend['regional']" class="legend-list">
+        <div
+          v-for="(color, line) in regionalColors"
+          :key="line"
+          class="legend-item"
+          @click="transitStore.toggleLine(line as string)"
+          :class="{ disabled: !transitStore.enabledLines[line as string] }"
+        >
+          <span class="legend-color" :style="{ backgroundColor: color }"></span>
+          <span class="legend-label">{{ line }}</span>
+          <span class="toggle-indicator">{{ transitStore.enabledLines[line as string] ? '[x]' : '[ ]' }}</span>
+        </div>
       </div>
       
-      <div class="legend-section">U-Bahn</div>
-      <div
-        v-for="(color, line) in ubahnColors"
-        :key="line"
-        class="legend-item"
-        @click="transitStore.toggleLine(line as string)"
-        :class="{ disabled: !transitStore.enabledLines[line as string] }"
+      <!-- U-Bahn Section -->
+      <div 
+        class="legend-section" 
+        @click="toggleLegendSection('ubahn')"
       >
-        <span class="legend-color" :style="{ backgroundColor: color }"></span>
-        <span class="legend-label">{{ line }}</span>
-        <span class="toggle-indicator">{{ transitStore.enabledLines[line as string] ? '[x]' : '[ ]' }}</span>
+        <span>U-Bahn</span>
+        <span class="section-toggle">{{ collapsedLegend['ubahn'] ? '[+]' : '[-]' }}</span>
+      </div>
+      <div v-if="!collapsedLegend['ubahn']" class="legend-list">
+        <div
+          v-for="(color, line) in ubahnColors"
+          :key="line"
+          class="legend-item"
+          @click="transitStore.toggleLine(line as string)"
+          :class="{ disabled: !transitStore.enabledLines[line as string] }"
+        >
+          <span class="legend-color" :style="{ backgroundColor: color }"></span>
+          <span class="legend-label">{{ line }}</span>
+          <span class="toggle-indicator">{{ transitStore.enabledLines[line as string] ? '[x]' : '[ ]' }}</span>
+        </div>
       </div>
       
       <div class="legend-actions">
@@ -100,6 +140,20 @@ import { useMapStore } from '~/stores/mapStore';
 // Stores
 const transitStore = useTransitStore();
 const mapStore = useMapStore();
+
+// Collapsible categories state (departures panel)
+const collapsedCategories = ref<Record<string, boolean>>({});
+
+function toggleCategory(category: string) {
+  collapsedCategories.value[category] = !collapsedCategories.value[category];
+}
+
+// Collapsible legend sections
+const collapsedLegend = ref<Record<string, boolean>>({});
+
+function toggleLegendSection(section: string) {
+  collapsedLegend.value[section] = !collapsedLegend.value[section];
+}
 
 // Refs
 const canvasContainer = ref<HTMLElement | null>(null);
@@ -270,20 +324,55 @@ function addStations() {
     bgCircle.userData = { stationName: station.name, lines: station.lines, isActive: false };
     stationsGroup.add(bgCircle);
 
-    // Active station
-    const activeLine = station.lines.find(l => transitStore.enabledLines[l]);
-    const fillColor = activeLine ? transitStore.getLineColor(activeLine) : 0x444466;
+    // Get active lines for this station
+    const activeLines = station.lines.filter(l => transitStore.enabledLines[l]);
+    const hasMultipleActiveLines = activeLines.length > 1;
 
-    const geometry = new THREE.CircleGeometry(STATION_RADIUS, 20);
-    const material = new THREE.MeshBasicMaterial({ color: new THREE.Color(fillColor) });
-    const circle = new THREE.Mesh(geometry, material);
-    circle.position.set(x, y, 3);
-    circle.userData = { stationName: station.name, lines: station.lines, type: 'station-fill', isActive: true, baseRadius: STATION_RADIUS };
-    circle.visible = station.lines.some(l => transitStore.enabledLines[l]);
-    stationsGroup.add(circle);
+    if (hasMultipleActiveLines) {
+      // Create pie chart for multi-line stations
+      const numSlices = activeLines.length;
+      const sliceAngle = (Math.PI * 2) / numSlices;
+      
+      activeLines.forEach((line, i) => {
+        const startAngle = i * sliceAngle - Math.PI / 2;
+        const endAngle = startAngle + sliceAngle;
+        
+        // Create pie slice using Shape
+        const shape = new THREE.Shape();
+        shape.moveTo(0, 0);
+        shape.arc(0, 0, STATION_RADIUS, startAngle, endAngle, false);
+        shape.lineTo(0, 0);
+        
+        const geometry = new THREE.ShapeGeometry(shape);
+        const material = new THREE.MeshBasicMaterial({ color: new THREE.Color(transitStore.getLineColor(line)) });
+        const slice = new THREE.Mesh(geometry, material);
+        slice.position.set(x, y, 3);
+        slice.userData = { 
+          stationName: station.name, 
+          lines: station.lines, 
+          type: 'station-fill', 
+          isActive: true, 
+          baseRadius: STATION_RADIUS,
+          lineName: line
+        };
+        stationsGroup.add(slice);
+      });
+    } else {
+      // Single line or no active: simple circle
+      const activeLine = activeLines[0];
+      const fillColor = activeLine ? transitStore.getLineColor(activeLine) : 0x444466;
 
-    // Outline
-    const outlineGeom = new THREE.RingGeometry(STATION_RADIUS, STATION_RADIUS + 0.2, 20);
+      const geometry = new THREE.CircleGeometry(STATION_RADIUS, 20);
+      const material = new THREE.MeshBasicMaterial({ color: new THREE.Color(fillColor) });
+      const circle = new THREE.Mesh(geometry, material);
+      circle.position.set(x, y, 3);
+      circle.userData = { stationName: station.name, lines: station.lines, type: 'station-fill', isActive: true, baseRadius: STATION_RADIUS };
+      circle.visible = activeLines.length > 0;
+      stationsGroup.add(circle);
+    }
+
+    // Outline (always)
+    const outlineGeom = new THREE.RingGeometry(STATION_RADIUS, STATION_RADIUS + 0.3, 24);
     const outlineMat = new THREE.MeshBasicMaterial({ color: 0x000000 });
     const outline = new THREE.Mesh(outlineGeom, outlineMat);
     outline.position.set(x, y, 3.1);
@@ -576,8 +665,8 @@ onUnmounted(() => {
   z-index: 2000;
   background: rgba(15, 20, 35, 0.95);
   min-width: 260px;
-  max-width: 320px;
-  max-height: 420px;
+  max-width: 80vw;
+  max-height: 60vh;
   overflow-y: auto;
   border: 1px solid rgba(100, 120, 150, 0.3);
   border-left: 3px solid #888;
@@ -585,31 +674,31 @@ onUnmounted(() => {
 }
 
 .info-header {
-  padding: 12px 16px;
+  padding: 8px 12px;
   font-weight: 600;
   color: #e8e8e8;
-  font-size: 16px;
+  font-size: 14px;
   letter-spacing: 0.5px;
   border-bottom: 1px solid rgba(100, 120, 150, 0.2);
 }
 
 .info-body {
-  padding: 12px 16px;
+  padding: 8px 12px;
   color: #c8c8d0;
-  font-size: 12px;
+  font-size: 11px;
 }
 
 .info-lines {
   color: #8090a0;
-  font-size: 11px;
-  margin-bottom: 12px;
+  font-size: 10px;
+  margin-bottom: 8px;
   letter-spacing: 0.3px;
 }
 
 .info-label {
   color: #6a7a8a;
-  font-size: 10px;
-  margin-bottom: 8px;
+  font-size: 9px;
+  margin-bottom: 6px;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
@@ -625,47 +714,101 @@ onUnmounted(() => {
   51%, 100% { opacity: 0.3; }
 }
 
-/* Departure Groups */
-.departure-group {
-  margin-bottom: 14px;
+/* Transport Type Grid */
+.departures-container {
+  padding-top: 4px;
 }
 
-.group-header {
-  font-size: 9px;
-  font-weight: 500;
-  color: #5a6a7a;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  margin-bottom: 6px;
-  padding-bottom: 4px;
+.transport-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Single type: keep compact */
+.transport-grid.single-type {
+  max-width: 320px;
+}
+
+/* Multiple types: expand to grid */
+.transport-grid.multi-type {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 6px;
+}
+
+.transport-card {
+  border: 1px solid rgba(100, 120, 150, 0.2);
+  background: rgba(20, 25, 40, 0.5);
+}
+
+.transport-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 8px;
+  cursor: pointer;
   border-bottom: 1px solid rgba(100, 120, 150, 0.15);
+  transition: background 0.15s;
+}
+
+.transport-header:hover {
+  background: rgba(100, 120, 150, 0.15);
+}
+
+.transport-name {
+  flex: 1;
+  font-size: 9px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: #8090a0;
+}
+
+.transport-count {
+  font-size: 8px;
+  color: #5a6a7a;
+  background: rgba(100, 120, 150, 0.2);
+  padding: 1px 4px;
+}
+
+.transport-toggle {
+  font-size: 9px;
+  color: #5a6a7a;
+}
+
+.transport-deps {
+  padding: 4px 8px;
+}
+
+.transport-card.collapsed {
+  opacity: 0.7;
+}
+
+.transport-card.collapsed .transport-header {
+  border-bottom: none;
 }
 
 .departure-row {
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 5px 0;
-  border-bottom: 1px solid rgba(100, 120, 150, 0.08);
+  gap: 6px;
+  padding: 3px 0;
+  border-bottom: 1px solid rgba(100, 120, 150, 0.06);
 }
 
 .dep-line {
-  padding: 3px 6px;
-  font-size: 10px;
+  padding: 2px 4px;
+  font-size: 9px;
   font-weight: 600;
   color: white;
-  min-width: 32px;
+  min-width: 26px;
   text-align: center;
-}
-
-.dep-arrow {
-  color: #5a6a7a;
-  font-size: 12px;
 }
 
 .dep-dest {
   flex: 1;
-  font-size: 11px;
+  font-size: 10px;
   color: #c8c8d0;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -675,8 +818,8 @@ onUnmounted(() => {
 .dep-time {
   color: #4ade80;
   font-weight: 500;
-  font-size: 11px;
-  min-width: 35px;
+  font-size: 10px;
+  min-width: 28px;
   text-align: right;
 }
 
@@ -738,13 +881,33 @@ onUnmounted(() => {
 }
 
 .legend-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   font-size: 9px;
   font-weight: 500;
   color: #5a6a7a;
   margin-top: 12px;
   margin-bottom: 6px;
+  padding: 4px 6px;
   text-transform: uppercase;
   letter-spacing: 1.5px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.legend-section:hover {
+  background: rgba(100, 120, 150, 0.1);
+}
+
+.section-toggle {
+  font-size: 10px;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+
+.legend-section:hover .section-toggle {
+  opacity: 1;
 }
 
 .legend-item {
@@ -777,7 +940,6 @@ onUnmounted(() => {
 .toggle-indicator {
   font-size: 10px;
   color: #6a7a8a;
-  font-family: 'JetBrains Mono', monospace;
 }
 
 .legend-actions {
