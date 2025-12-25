@@ -57,6 +57,16 @@ export function latLngToScene(lat: number, lng: number): { x: number; y: number 
     };
 }
 
+export function sceneToLatLng(x: number, y: number): { lat: number; lng: number } {
+    const centerLat = 52.52; // Berlin
+    const centerLng = 13.40;
+    const scale = 1000;
+    return {
+        lat: y / scale + centerLat,
+        lng: x / scale + centerLng
+    };
+}
+
 export const useTransitStore = defineStore('transit', {
     state: () => ({
         // Line visibility
@@ -78,6 +88,9 @@ export const useTransitStore = defineStore('transit', {
 
         // Departures cache
         departuresCache: new Map<string, any>(),
+
+        // Station ID cache (permanent for session)
+        stationIdCache: new Map<string, string>(),
     }),
 
     getters: {
@@ -120,6 +133,11 @@ export const useTransitStore = defineStore('transit', {
 
             // U-Bahn lines
             Object.keys(ubahnColors).forEach(name => {
+                // Check if we already have a high-quality route from generated data
+                if (this.lineRoutes[name] && this.lineRoutes[name].length > 2) {
+                    return; // Skip rebuilding, preserve generated route
+                }
+
                 // Returns [lat, lng][]. It doesn't give names.
                 // We need the station objects to match names.
                 // Let's use getStationsForLine from data/ubahn.ts and sort them.
@@ -143,13 +161,16 @@ export const useTransitStore = defineStore('transit', {
             });
 
             // RE1
-            const re1Ordered = re1Stations; // Already ordered list in re1Stations
-            if (re1Ordered.length >= 2) {
-                this.lineRoutes['RE1'] = re1Ordered.map(s => {
-                    const [lat, lng] = getCoords(s.name, s.lat, s.lng);
-                    const { x, y } = latLngToScene(lat, lng);
-                    return new THREE.Vector3(x, y, 0);
-                });
+            // Check if RE1 already exists (unlikely from generated U/S-Bahn data, but good practice)
+            if (!this.lineRoutes['RE1'] || this.lineRoutes['RE1'].length < 2) {
+                const re1Ordered = re1Stations; // Already ordered list in re1Stations
+                if (re1Ordered.length >= 2) {
+                    this.lineRoutes['RE1'] = re1Ordered.map(s => {
+                        const [lat, lng] = getCoords(s.name, s.lat, s.lng);
+                        const { x, y } = latLngToScene(lat, lng);
+                        return new THREE.Vector3(x, y, 0);
+                    });
+                }
             }
         },
 
@@ -180,7 +201,7 @@ export const useTransitStore = defineStore('transit', {
         },
 
         // Fetch trains directly from BVG API (client-side for per-client rate limiting)
-        async fetchTrains() {
+        async fetchTrains(bounds?: { north: number, south: number, west: number, east: number }) {
             const { useApiStore } = await import('./apiStore');
             const apiStore = useApiStore();
 
@@ -188,11 +209,27 @@ export const useTransitStore = defineStore('transit', {
             const priority = apiStore.lastHoveredLine ? 'normal' : 'low';
 
             const result = await apiStore.executeRequest('trains', async () => {
-                // Bounding box covering full RE1: Magdeburg to Frankfurt (Oder)
-                const north = 52.65;
-                const south = 52.05;
-                const west = 11.50;
-                const east = 14.60;
+                // Default bounding box covering full RE1: Magdeburg to Frankfurt (Oder)
+                // If bounds passed, use them (with some padding preferably)
+                let north = 52.65;
+                let south = 52.05;
+                let west = 11.50;
+                let east = 14.60;
+
+                if (bounds) {
+                    north = bounds.north;
+                    south = bounds.south;
+                    west = bounds.west;
+                    east = bounds.east;
+
+                    // Add buffer to avoid popping
+                    const latBuffer = 0.1;
+                    const lngBuffer = 0.2;
+                    north += latBuffer;
+                    south -= latBuffer;
+                    east += lngBuffer;
+                    west -= lngBuffer;
+                }
 
                 const url = `https://v6.bvg.transport.rest/radar?north=${north}&west=${west}&south=${south}&east=${east}&results=512&duration=30&frames=1&_t=${Date.now()}`;
                 const response = await fetch(url);
@@ -261,6 +298,34 @@ export const useTransitStore = defineStore('transit', {
             this.loading = false;
         },
 
+        // Helper to get or search station ID
+        async getStationId(stationName: string, apiStore: any): Promise<string | null> {
+            if (this.stationIdCache.has(stationName)) {
+                return this.stationIdCache.get(stationName) || null;
+            }
+
+            const searchResult = await apiStore.executeRequest('locations', async () => {
+                const searchUrl = `https://v6.bvg.transport.rest/locations?query=${encodeURIComponent(stationName)}&results=5&addresses=false&poi=false&_t=${Date.now()}`;
+                const searchResponse = await fetch(searchUrl);
+                return await searchResponse.json();
+            });
+
+            if (!searchResult || !Array.isArray(searchResult) || searchResult.length === 0) {
+                console.warn('No station found for:', stationName);
+                return null;
+            }
+
+            // Find best match (prefer stops over addresses)
+            const station = searchResult.find((s: any) => s.type === 'stop') || searchResult[0];
+
+            if (station && station.id) {
+                this.stationIdCache.set(stationName, station.id);
+                return station.id;
+            }
+
+            return null;
+        },
+
         // Fetch departures directly from BVG API (client-side for per-client rate limiting)
         async fetchDepartures(stationName: string, isHovered: boolean = false) {
             const cached = this.departuresCache.get(stationName);
@@ -272,28 +337,14 @@ export const useTransitStore = defineStore('transit', {
             // High priority if this is the hovered station
             const priority = isHovered || apiStore.lastHoveredStation === stationName ? 'high' : 'normal';
 
+            // 1. Get Station ID (Cached or Search)
+            const stationId = await this.getStationId(stationName, apiStore);
+            if (!stationId) {
+                return { grouped: {} };
+            }
+
+            // 2. Fetch Departures using ID
             const result = await apiStore.executeRequest('departures', async () => {
-                // Search for the station
-                const searchUrl = `https://v6.bvg.transport.rest/locations?query=${encodeURIComponent(stationName)}&results=5&addresses=false&poi=false&_t=${Date.now()}`;
-                const searchResponse = await fetch(searchUrl);
-                const searchData = await searchResponse.json();
-
-                if (!searchData || !Array.isArray(searchData) || searchData.length === 0) {
-                    console.warn('No station found for:', stationName);
-                    return { departures: [], stationId: null, grouped: {} };
-                }
-
-                // Find best match (prefer stops over addresses)
-                const station = searchData.find((s: any) => s.type === 'stop') || searchData[0];
-
-                if (!station || !station.id) {
-                    console.warn('Station found but no ID:', station);
-                    return { departures: [], stationId: null, grouped: {} };
-                }
-
-                const stationId = station.id;
-
-                // Fetch departures
                 const departuresUrl = `https://v6.bvg.transport.rest/stops/${stationId}/departures?duration=60&results=30&_t=${Date.now()}`;
                 const depsResponse = await fetch(departuresUrl);
                 const depsData = await depsResponse.json();
@@ -342,7 +393,7 @@ export const useTransitStore = defineStore('transit', {
 
                 return {
                     stationId,
-                    stationName: station.name,
+                    stationName,
                     departures: allDepartures.slice(0, 15),
                     grouped
                 };

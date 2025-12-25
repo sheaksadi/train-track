@@ -219,7 +219,8 @@
     
     <!-- Status bar - Terminal Style -->
     <div class="status-bar">
-      <span v-if="transitStore.loading || apiStore.departuresLoading" class="loading">█</span>
+      <span v-if="transitStore.loading || apiStore.departuresLoading" class="loading spin">↻</span>
+      <span v-else class="loading-placeholder"> </span>
       <span>trains: {{ transitStore.trainCount }} | zoom: {{ Math.round(mapStore.currentZoom * 100) }}%</span>
       <span v-if="apiStore.departuresLoading" class="loading-text"> | loading departures...</span>
       <!-- Refresh progress bar at bottom -->
@@ -246,12 +247,47 @@ import { sbahnColors } from '~/data/sbahn';
 import { tramColors } from '~/data/tram';
 import { majorCities } from '~/data/cities';
 import { Icon } from '@iconify/vue';
-import { useTransitStore, latLngToScene, allLineColors, LINE_THICKNESS, BG_LINE_THICKNESS, STATION_RADIUS, BG_STATION_RADIUS, TRAIN_SIZE } from '~/stores/transitStore';
+import { useTransitStore, latLngToScene, sceneToLatLng, allLineColors, LINE_THICKNESS, BG_LINE_THICKNESS, STATION_RADIUS, BG_STATION_RADIUS, TRAIN_SIZE } from '~/stores/transitStore';
 import { useMapStore } from '~/stores/mapStore';
 
 // Stores
 const transitStore = useTransitStore();
 const mapStore = useMapStore();
+
+// Helper to get current map bounds
+function getMapBounds() {
+    if (!canvasContainer.value || !camera) return undefined;
+    
+    const width = canvasContainer.value.clientWidth;
+    const height = canvasContainer.value.clientHeight;
+    const aspect = width / height;
+    const viewSize = 150 / mapStore.currentZoom;
+    
+    // Calculate scene bounds
+    // Camera position is center
+    const x = camera.position.x;
+    const y = camera.position.y;
+    
+    // Half dimensions
+    const halfH = viewSize;
+    const halfW = viewSize * aspect;
+    
+    const top = y + halfH;
+    const bottom = y - halfH;
+    const left = x - halfW;
+    const right = x + halfW;
+    
+    // Convert to LatLng
+    const topLeft = sceneToLatLng(left, top);
+    const bottomRight = sceneToLatLng(right, bottom);
+    
+    return {
+        north: topLeft.lat,
+        south: bottomRight.lat,
+        west: topLeft.lng,
+        east: bottomRight.lng
+    };
+}
 
 // Collapsible categories state (departures panel)
 const collapsedCategories = ref<Record<string, boolean>>({});
@@ -327,7 +363,8 @@ function restartRefreshInterval() {
   refreshIntervalId = setInterval(() => {
     lastRefreshTime.value = Date.now();
     refreshProgress.value = 100;
-    transitStore.fetchTrains().then(updateTrainMarkers);
+    const bounds = getMapBounds();
+    transitStore.fetchTrains(bounds).then(updateTrainMarkers);
   }, apiStore.refreshInterval);
   
   // Update progress bar more frequently
@@ -342,7 +379,8 @@ async function handleManualRefresh() {
   refreshProgress.value = 100;
   
   try {
-    await transitStore.fetchTrains();
+    const bounds = getMapBounds();
+    await transitStore.fetchTrains(bounds);
     updateTrainMarkers();
   } finally {
     isRefreshing.value = false;
@@ -538,9 +576,14 @@ function updateVisibility() {
   
   // Toggle Transit Layers
   backgroundLinesGroup.visible = showTracksAndStations;
-  activeLinesGroup.visible = true; // Always visible (filtered by children)
-  stationsGroup.visible = showTracksAndStations;
-  trainsGroup.visible = true; // Always show trains
+  
+  // Trains and Active Lines also need zoom threshold now
+  // Keep activeLines visible always? No, user requested they vanish when zoomed out.
+  // "when zoomed out the trains also should vanish with their track"
+  // So we tie them to showTracksAndStations or a similar threshold.
+  
+  activeLinesGroup.visible = showTracksAndStations;
+  trainsGroup.visible = showTracksAndStations;
   
   // Update Child Visibility
   activeLinesGroup.children.forEach(child => {
@@ -549,11 +592,11 @@ function updateVisibility() {
     const isEnabled = transitStore.enabledLines[name] ?? false;
     
     // Regional always visible if enabled, others depend on zoom
-    if (isRegional) {
-        child.visible = isEnabled;
-    } else {
-        child.visible = isEnabled && showTracksAndStations;
-    }
+    // User request overrides: "trains also should vanish with their track"
+    // So we respect the parent group visibility (showTracksAndStations) 
+    // but still need to toggle based on enabledLines.
+    
+    child.visible = isEnabled; 
   });
 
   // Background lines visibility - NEW: Hide phantom tracks
@@ -1144,7 +1187,7 @@ function onMouseMove(e: MouseEvent) {
   }
 
   // Stations - delayed hover
-  const stationHits = raycaster.intersectObjects(stationsGroup.children.filter(c => c.userData.isActive && c.userData.type === 'station-fill' && c.visible));
+  const stationHits = raycaster.intersectObjects(stationsGroup.children.filter(c => c.visible && c.userData.isActive && c.userData.type === 'station-fill'));
   if (stationHits.length > 0) {
     const hit = stationHits[0].object;
     if (hit !== hoveredObject) {
@@ -1192,14 +1235,14 @@ async function onClick(e: MouseEvent) {
   mouse.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
   raycaster.setFromCamera(mouse, camera);
 
-  const trainHits = raycaster.intersectObjects(trainsGroup.children.filter(c => !c.userData.isBorder));
+  const trainHits = raycaster.intersectObjects(trainsGroup.children.filter(c => c.visible && !c.userData.isBorder));
   if (trainHits.length > 0) {
     const t = trainHits[0].object.userData;
     mapStore.showTrainInfo(t.lineName, t.direction || 'Unknown', Math.round((t.delay || 0) / 60), transitStore.getLineColor(t.lineName), e.clientX, e.clientY, t.nextStation, t.nextStationTime, t.platform, true);
     return;
   }
 
-  const stationHits = raycaster.intersectObjects(stationsGroup.children.filter(c => c.userData.isActive && c.userData.type === 'station-fill'));
+  const stationHits = raycaster.intersectObjects(stationsGroup.children.filter(c => c.visible && c.userData.isActive && c.userData.type === 'station-fill'));
   if (stationHits.length > 0) {
     await handleShowStation(stationHits[0].object.userData, e.clientX, e.clientY, true);
   }
@@ -1229,7 +1272,8 @@ onMounted(async () => {
   startApiMonitoring(); // Start tracking requests per minute
   setTimeout(() => {
     initThreeJS();
-    transitStore.fetchTrains().then(updateTrainMarkers);
+    const bounds = getMapBounds();
+    transitStore.fetchTrains(bounds).then(updateTrainMarkers);
     restartRefreshInterval();
   }, 100);
 });

@@ -17,6 +17,7 @@ interface QueuedRequest {
     type: 'trains' | 'departures';
     stationName?: string;
     timestamp: number;
+    execute?: () => Promise<void>;
 }
 
 export const useApiStore = defineStore('api', {
@@ -24,6 +25,9 @@ export const useApiStore = defineStore('api', {
         // Request tracking (per minute)
         requestTimestamps: [] as number[],
         requestsPerMin: 0,
+
+        // Interval ID for monitoring
+        monitorInterval: null as ReturnType<typeof setInterval> | null,
 
         // Endpoint frequency tracking (last 15 seconds)
         endpointCalls: [] as EndpointCall[],
@@ -175,60 +179,106 @@ export const useApiStore = defineStore('api', {
             return false;
         },
 
-        // Execute a request if allowed
+        // Helper to check rate limit without side effects
+        checkRateLimit(priority: 'high' | 'normal' | 'low'): boolean {
+            const threshold = priority === 'high' ? 98 : priority === 'normal' ? 90 : 80;
+            return this.requestsPerMin < threshold;
+        },
+
+        // Execute a request (immediate or queued)
         async executeRequest<T>(
-            type: 'trains' | 'departures',
+            type: 'trains' | 'departures' | 'locations',
             fetchFn: () => Promise<T>,
             priority: 'high' | 'normal' | 'low' = 'normal'
         ): Promise<T | null> {
-            const threshold = priority === 'high' ? 98 : priority === 'normal' ? 90 : 80;
+            // 1. Check if we can run immediately
+            if (this.checkRateLimit(priority)) {
+                this.recordRequest();
+                this.recordEndpointCall(type);
 
-            if (this.requestsPerMin >= threshold) {
-                this.blockedRequests++;
-                setTimeout(() => {
-                    if (this.blockedRequests > 0) this.blockedRequests--;
-                }, 1000);
-                return null;
-            }
-
-            this.recordRequest();
-            this.recordEndpointCall(type);
-
-            if (type === 'departures') {
-                this.departuresLoading = true;
-            }
-
-            try {
-                return await fetchFn();
-            } finally {
-                if (type === 'departures') {
-                    this.departuresLoading = false;
+                if (type === 'departures') this.departuresLoading = true;
+                try {
+                    return await fetchFn();
+                } finally {
+                    if (type === 'departures') this.departuresLoading = false;
                 }
             }
+
+            // 2. If high priority (user interaction), queue it
+            if (priority === 'high') {
+                return new Promise<T>((resolve) => {
+                    const id = Math.random().toString(36).substring(7);
+                    this.requestQueue.push({
+                        id,
+                        priority,
+                        type,
+                        timestamp: Date.now(),
+                        execute: async () => {
+                            this.recordRequest();
+                            this.recordEndpointCall(type);
+                            if (type === 'departures') this.departuresLoading = true;
+                            try {
+                                const result = await fetchFn();
+                                resolve(result);
+                            } finally {
+                                if (type === 'departures') this.departuresLoading = false;
+                            }
+                        }
+                    });
+                });
+            }
+
+            // 3. Low/Normal priority - drop it and show blocked
+            this.blockedRequests++;
+            setTimeout(() => {
+                if (this.blockedRequests > 0) this.blockedRequests--;
+            }, 1000);
+            return null;
         },
 
-        // Reset blocked counter
-        clearBlocked() {
-            this.blockedRequests = 0;
+        // Process queued requests
+        processQueue() {
+            if (this.requestQueue.length === 0) return;
+
+            // Sort by priority/age? For now just FIFO high priority
+            // Check slots
+            if (!this.checkRateLimit('high')) return;
+
+            const nextReq = this.requestQueue.shift();
+            if (nextReq && nextReq.execute) {
+                nextReq.execute();
+            }
         },
+
+        // Start monitoring
+        startMonitoring() {
+            if (this.isProcessing) return;
+            this.isProcessing = true;
+
+            // Update rates and process queue every second
+            this.monitorInterval = setInterval(() => {
+                this.updateRequestCount();
+                this.processQueue();
+            }, 1000);
+        },
+
+        // Stop monitoring
+        stopMonitoring() {
+            if (this.monitorInterval) {
+                clearInterval(this.monitorInterval);
+                this.monitorInterval = null;
+            }
+            this.isProcessing = false;
+        }
     },
 });
 
-// Start periodic update of request count
-let updateInterval: ReturnType<typeof setInterval> | null = null;
-
 export function startApiMonitoring() {
-    if (updateInterval) return;
-
     const apiStore = useApiStore();
-    updateInterval = setInterval(() => {
-        apiStore.updateRequestCount();
-    }, 1000);
+    apiStore.startMonitoring();
 }
 
 export function stopApiMonitoring() {
-    if (updateInterval) {
-        clearInterval(updateInterval);
-        updateInterval = null;
-    }
+    const apiStore = useApiStore();
+    apiStore.stopMonitoring();
 }
