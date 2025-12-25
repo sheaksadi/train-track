@@ -60,8 +60,8 @@ export default defineEventHandler(async (event) => {
         // Group by category
         const grouped: Record<string, any[]> = {};
 
-        // Priority order
-        const categoryOrder = ['U-Bahn', 'S-Bahn', 'Regional', 'Tram', 'Bus', 'other'];
+        // Priority order: U-Bahn first, then Regional, then S-Bahn
+        const categoryOrder = ['U-Bahn', 'Regional', 'S-Bahn', 'Tram', 'Bus', 'other'];
 
         categoryOrder.forEach(cat => {
             const deps = allDepartures

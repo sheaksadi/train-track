@@ -41,8 +41,37 @@ export const useMapStore = defineStore('map', {
             this.infoPanel.visible = true;
             this.infoPanel.locked = lock;
             this.infoPanel.loading = true;
-            this.infoPanel.x = Math.min(x + 15, window.innerWidth - 320);
-            this.infoPanel.y = Math.min(y + 15, window.innerHeight - 350);
+
+            // Improved positioning - ensure panel stays on screen
+            const panelWidth = 380;
+            const panelHeight = 400;
+            const margin = 15;
+
+            let posX = x + margin;
+            let posY = y + margin;
+
+            // Check right edge - flip to left side if needed
+            if (posX + panelWidth > window.innerWidth - margin) {
+                posX = x - panelWidth - margin;
+            }
+
+            // Check left edge
+            if (posX < margin) {
+                posX = margin;
+            }
+
+            // Check bottom edge - flip to top if needed
+            if (posY + panelHeight > window.innerHeight - margin) {
+                posY = y - panelHeight - margin;
+            }
+
+            // Check top edge
+            if (posY < margin) {
+                posY = margin;
+            }
+
+            this.infoPanel.x = posX;
+            this.infoPanel.y = posY;
             this.infoPanel.type = 'station';
             this.infoPanel.title = stationName;
             this.infoPanel.lines = lines.join(', ');

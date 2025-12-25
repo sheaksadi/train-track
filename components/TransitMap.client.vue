@@ -116,14 +116,18 @@
     
     <!-- Rate Monitor - Top Left -->
     <div class="rate-monitor">
-      <div class="rate-title">API RATE</div>
+      <div class="rate-header">
+        <div class="rate-title">API RATE</div>
+        <button class="refresh-btn" @click="handleManualRefresh" :disabled="isRefreshing" :title="'Refresh trains'">
+          <span :class="{ 'spin': isRefreshing }">↻</span>
+        </button>
+      </div>
       <div class="rate-stats">
         <span :class="{ warning: apiStore.isWarning, danger: apiStore.isDanger }">
           {{ apiStore.requestsPerMin }}/100 req/min
         </span>
       </div>
       <div class="rate-interval">refresh: {{ (apiStore.refreshInterval / 1000).toFixed(1) }}s</div>
-      <div class="rate-available">slots: {{ apiStore.availableSlots }}</div>
       <div v-if="apiStore.blockedRequests > 0" class="rate-blocked">
         ⚠ {{ apiStore.blockedRequests }} blocked
       </div>
@@ -134,6 +138,10 @@
       <span v-if="transitStore.loading || apiStore.departuresLoading" class="loading">█</span>
       <span>trains: {{ transitStore.trainCount }} | zoom: {{ Math.round(mapStore.currentZoom * 100) }}%</span>
       <span v-if="apiStore.departuresLoading" class="loading-text"> | loading departures...</span>
+      <!-- Refresh progress bar at bottom -->
+      <div class="refresh-progress">
+        <div class="refresh-progress-bar" :style="{ width: refreshProgress + '%' }"></div>
+      </div>
     </div>
     
     <!-- Zoom controls -->
@@ -177,12 +185,53 @@ const apiStore = useApiStore();
 
 // Refresh interval management
 let refreshIntervalId: ReturnType<typeof setInterval> | null = null;
+let progressIntervalId: ReturnType<typeof setInterval> | null = null;
+
+// Refresh progress tracking
+const lastRefreshTime = ref(Date.now());
+const refreshProgress = ref(100);
+const isRefreshing = ref(false);
+
+function updateRefreshProgress() {
+  const elapsed = Date.now() - lastRefreshTime.value;
+  const interval = apiStore.refreshInterval;
+  const remaining = Math.max(0, interval - elapsed);
+  refreshProgress.value = Math.round((remaining / interval) * 100);
+}
 
 function restartRefreshInterval() {
   if (refreshIntervalId) clearInterval(refreshIntervalId);
+  if (progressIntervalId) clearInterval(progressIntervalId);
+  
+  lastRefreshTime.value = Date.now();
+  refreshProgress.value = 100;
+  
   refreshIntervalId = setInterval(() => {
+    lastRefreshTime.value = Date.now();
+    refreshProgress.value = 100;
     transitStore.fetchTrains().then(updateTrainMarkers);
   }, apiStore.refreshInterval);
+  
+  // Update progress bar more frequently
+  progressIntervalId = setInterval(updateRefreshProgress, 100);
+}
+
+async function handleManualRefresh() {
+  if (isRefreshing.value) return;
+  
+  isRefreshing.value = true;
+  lastRefreshTime.value = Date.now();
+  refreshProgress.value = 100;
+  
+  try {
+    await transitStore.fetchTrains();
+    updateTrainMarkers();
+  } finally {
+    isRefreshing.value = false;
+  }
+  
+  // Restart the interval from now
+  restartRefreshInterval();
 }
 
 // Watch for refresh interval changes
@@ -695,6 +744,7 @@ onUnmounted(() => {
   stopApiMonitoring();
   if (animationId) cancelAnimationFrame(animationId);
   if (refreshIntervalId) clearInterval(refreshIntervalId);
+  if (progressIntervalId) clearInterval(progressIntervalId);
   if (renderer) { renderer.dispose(); window.removeEventListener('resize', onResize); }
 });
 </script>
@@ -726,7 +776,7 @@ onUnmounted(() => {
   position: fixed;
   z-index: 2000;
   background: rgba(15, 20, 35, 0.95);
-  min-width: 260px;
+  min-width: 380px;
   max-width: 80vw;
   max-height: 60vh;
   overflow-y: auto;
@@ -792,10 +842,10 @@ onUnmounted(() => {
   max-width: 320px;
 }
 
-/* Multiple types: expand to grid */
+/* Multiple types: expand to 2-column grid when panel is wide enough */
 .transport-grid.multi-type {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-template-columns: repeat(2, minmax(160px, 1fr));
   gap: 6px;
 }
 
@@ -1036,12 +1086,28 @@ onUnmounted(() => {
   left: 12px;
   background: rgba(15, 20, 35, 0.95);
   color: #8090a0;
-  padding: 10px 16px;
+  padding: 10px 16px 14px 16px;
   font-size: 11px;
   z-index: 1000;
   border: 1px solid rgba(100, 120, 150, 0.3);
   border-left: 3px solid #4a5a6a;
   letter-spacing: 0.5px;
+}
+
+.refresh-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: rgba(74, 90, 106, 0.3);
+  overflow: hidden;
+}
+
+.refresh-progress-bar {
+  height: 100%;
+  background: #5a7a8a;
+  transition: width 0.1s linear;
 }
 
 .loading {
@@ -1105,13 +1171,52 @@ onUnmounted(() => {
   border: 1px solid rgba(100, 120, 150, 0.3);
   border-left: 3px solid #4a5a6a;
   font-size: 10px;
+  min-width: 130px;
+}
+
+.rate-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
 }
 
 .rate-title {
   font-size: 9px;
   color: #5a6a7a;
   letter-spacing: 1px;
-  margin-bottom: 4px;
+}
+
+.refresh-btn {
+  background: transparent;
+  border: 1px solid rgba(100, 120, 150, 0.3);
+  color: #8090a0;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 2px 6px;
+  line-height: 1;
+  font-family: 'JetBrains Mono', monospace;
+  transition: all 0.15s;
+}
+
+.refresh-btn:hover:not(:disabled) {
+  background: rgba(100, 120, 150, 0.2);
+  color: #c8c8d0;
+}
+
+.refresh-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.refresh-btn .spin {
+  display: inline-block;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
 .rate-stats {
