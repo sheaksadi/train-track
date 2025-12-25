@@ -59,38 +59,61 @@ function processData(osmData) {
 
     // Second pass: Process relations (routes)
     let relationCount = 0;
+    const routes = {}; // Key: "S1", Value: [[lat,lng], ...]
+
     osmData.elements.forEach(el => {
         if (el.type === 'relation' && el.tags && el.tags.ref) {
             relationCount++;
-            const lineName = el.tags.ref;
+            // Clean line name: "Tram M10" -> "M10", "Train S1" -> "S1"
+            let lineName = el.tags.ref.replace(/^(Train|Tram|Bus|Subway) /, '').replace(/\s+/g, '');
+
+            // Collect ordered points only
+            const routePoints = [];
             const members = el.members || [];
 
             members.forEach(member => {
                 if (member.type === 'node') {
                     const node = nodes[member.ref];
-                    if (node && node.name) {
-                        const key = node.name;
-                        if (!stations[key]) {
-                            stations[key] = {
-                                name: node.name,
-                                lat: node.lat,
-                                lng: node.lon,
-                                lines: new Set()
-                            };
+                    if (node) {
+                        routePoints.push([node.lat, node.lon]);
+
+                        // Station logic (keep existing)
+                        if (node.name) {
+                            const key = node.name;
+                            if (!stations[key]) {
+                                stations[key] = {
+                                    name: node.name,
+                                    lat: node.lat,
+                                    lng: node.lon,
+                                    lines: new Set()
+                                };
+                            }
+                            stations[key].lines.add(lineName);
                         }
-                        stations[key].lines.add(lineName);
                     }
                 }
             });
+
+            // If valid route, store it. 
+            // Note: Relations might be fragmented. Simple overwrite for now, ideally merge.
+            if (routePoints.length > 2) {
+                // If route already exists (e.g. direction 2), maybe append or store separately?
+                // For simplicity: Longest wins or just overwrite.
+                if (!routes[lineName] || routes[lineName].length < routePoints.length) {
+                    routes[lineName] = routePoints;
+                }
+            }
         }
     });
     console.log(`Found ${relationCount} route relations.`);
 
     // Convert Sets to Arrays
-    return Object.values(stations).map(s => ({
+    const stationList = Object.values(stations).map(s => ({
         ...s,
         lines: Array.from(s.lines)
     }));
+
+    return { stations: stationList, routes };
 }
 
 async function run() {
@@ -100,7 +123,7 @@ async function run() {
         console.log(`Received ${data.elements.length} elements.`);
 
         const processed = processData(data);
-        console.log(`Processed ${processed.length} stations.`);
+        console.log(`Processed ${processed.stations.length} stations and ${Object.keys(processed.routes).length} routes.`);
 
         fs.writeFileSync('public/data/generated_stations.json', JSON.stringify(processed, null, 2));
         console.log('Saved to public/data/generated_stations.json');

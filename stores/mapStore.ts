@@ -5,7 +5,7 @@ import type { Departure } from './transitStore';
 export const useMapStore = defineStore('map', {
     state: () => ({
         // Zoom
-        currentZoom: 1,
+        currentZoom: 1, // Start zoom
 
         // Info panel
         infoPanel: {
@@ -14,23 +14,27 @@ export const useMapStore = defineStore('map', {
             loading: false,
             x: 0,
             y: 0,
-            type: '' as 'station' | 'train' | '',
+            type: '' as '' | 'station' | 'train',
             title: '',
             lines: '',
-            color: '#888',
+            color: '#fff',
             direction: '',
             delay: 0,
-            grouped: {} as Record<string, Departure[]>,
+            grouped: {} as Record<string, any>,
         },
     }),
 
     actions: {
         zoomIn(amount = 0.3) {
-            this.currentZoom = Math.min(5, this.currentZoom * (1 + amount));
+            if (!Number.isFinite(this.currentZoom)) this.currentZoom = 1;
+            const val = typeof amount === 'number' && isFinite(amount) ? amount : 0.3;
+            this.currentZoom = Math.min(5, this.currentZoom * (1 + val));
         },
 
         zoomOut(amount = 0.3) {
-            this.currentZoom = Math.max(0.05, this.currentZoom * (1 - amount));
+            if (!Number.isFinite(this.currentZoom)) this.currentZoom = 1;
+            const val = typeof amount === 'number' && isFinite(amount) ? amount : 0.3;
+            this.currentZoom = Math.max(0.05, this.currentZoom * (1 - val));
         },
 
         resetZoom() {

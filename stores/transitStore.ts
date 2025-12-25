@@ -70,6 +70,9 @@ export const useTransitStore = defineStore('transit', {
         // Line routes (for snapping)
         lineRoutes: {} as Record<string, THREE.Vector3[]>,
 
+        // Canonical station coordinates (from generated/live data)
+        canonicalCoordinates: {} as Record<string, { lat: number, lng: number }>,
+
         // Departures cache
         departuresCache: new Map<string, any>(),
     }),
@@ -101,13 +104,36 @@ export const useTransitStore = defineStore('transit', {
             Object.keys(this.enabledLines).forEach(l => this.enabledLines[l] = false);
         },
 
+        updateRouteCoordinates(coords: Record<string, { lat: number, lng: number }>) {
+            this.canonicalCoordinates = { ...this.canonicalCoordinates, ...coords };
+        },
+
         // Build line routes for Three.js
         buildLineRoutes() {
+            const getCoords = (name: string, fallbackLat: number, fallbackLng: number) => {
+                const canon = this.canonicalCoordinates[name];
+                return canon ? [canon.lat, canon.lng] : [fallbackLat, fallbackLng];
+            };
+
             // U-Bahn lines
             Object.keys(ubahnColors).forEach(name => {
-                const route = getUbahnRoute(name);
-                if (route.length >= 2) {
-                    this.lineRoutes[name] = route.map(([lat, lng]) => {
+                const stations = getUbahnRoute(name); // returns [lat, lng] array? 
+                // Wait, getUbahnRoute returns [lat, lng][]. It doesn't give names.
+                // We need the station objects to match names.
+                // Let's use getStationsForLine from data/ubahn.ts and sort them.
+                // Re-implementing route building with coordinate lookup:
+
+                const lineStations = ubahnStations.filter(s => s.lines.includes(name));
+                const lowerName = name.toLowerCase();
+                const ordered = lineStations.sort((a, b) => {
+                    const idA = parseInt(a.id.split('-')[1] || '0');
+                    const idB = parseInt(b.id.split('-')[1] || '0');
+                    return idA - idB;
+                });
+
+                if (ordered.length >= 2) {
+                    this.lineRoutes[name] = ordered.map(s => {
+                        const [lat, lng] = getCoords(s.name, s.lat, s.lng);
                         const { x, y } = latLngToScene(lat, lng);
                         return new THREE.Vector3(x, y, 0);
                     });
@@ -115,9 +141,10 @@ export const useTransitStore = defineStore('transit', {
             });
 
             // RE1
-            const re1Route = getRE1Route();
-            if (re1Route.length >= 2) {
-                this.lineRoutes['RE1'] = re1Route.map(([lat, lng]) => {
+            const re1Ordered = re1Stations; // Already ordered list in re1Stations
+            if (re1Ordered.length >= 2) {
+                this.lineRoutes['RE1'] = re1Ordered.map(s => {
+                    const [lat, lng] = getCoords(s.name, s.lat, s.lng);
                     const { x, y } = latLngToScene(lat, lng);
                     return new THREE.Vector3(x, y, 0);
                 });

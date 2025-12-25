@@ -412,7 +412,7 @@ watch(() => transitStore.enabledLines, () => {
   updateVisibility();
 }, { deep: true });
 
-function initThreeJS() {
+async function initThreeJS() {
   const container = canvasContainer.value;
   if (!container) return;
 
@@ -463,10 +463,11 @@ function initThreeJS() {
   // ...
 
   addTransitLines();
-  addStations();
-  addStationLabels();
-  addCities();
-  loadGeneratedStations(); // Load S-Bahn/Tram stations
+  // transitStore.buildLineRoutes(); // Moved to loadGeneratedStations to ensure coords are ready
+  await loadGeneratedStations(); // Populates stationDataMap and store routes
+  mergeStaticStations();         // Merges static data into stationDataMap
+  renderStations();              // Draws all merged stations
+  addStationLabels();            // Updates labels
   updateVisibility();
 
   // Events
@@ -518,28 +519,48 @@ function addCities() {
 
 function updateVisibility() {
   const zoom = mapStore.currentZoom;
-  const showDetails = zoom > 0.8; // Threshold for switching modes
-
-  // Toggle Map Layers
-  statesGroup.visible = !showDetails;
-  mapGroup.visible = showDetails; // Districts only when zoomed in
-  citiesGroup.visible = !showDetails;
-
-  // Toggle Transit Layers
-  backgroundLinesGroup.visible = showDetails;
-  activeLinesGroup.visible = showDetails;
-  stationsGroup.visible = showDetails;
-  trainsGroup.visible = showDetails;
+  const showDistricts = zoom > 0.8;
+  const showTracksAndStations = zoom > 0.3; // Show tracks much earlier
   
-  // Existing Line Logic (only apply if visible)
-  if (showDetails) {
-      activeLinesGroup.children.forEach(child => {
-        const isVisible = transitStore.enabledLines[child.userData.lineName] ?? false;
-        // console.log(`Line ${child.userData.lineName}: visible=${isVisible}`); 
-        child.visible = isVisible;
-      });
+  // Toggle Map Layers
+  statesGroup.visible = true; // Always keep states as base? Or fade? Keep for now.
+  mapGroup.visible = showDistricts; 
+  citiesGroup.visible = !showDistricts; // Hide simple city dots when detailed districts appear
+  
+  // Toggle Transit Layers
+  backgroundLinesGroup.visible = showTracksAndStations;
+  activeLinesGroup.visible = true; // Always visible (filtered by children)
+  stationsGroup.visible = showTracksAndStations;
+  trainsGroup.visible = true; // Always show trains
+  
+  // Update Child Visibility
+  activeLinesGroup.children.forEach(child => {
+    const name = child.userData.lineName;
+    const isRegional = name.startsWith('RE') || name.startsWith('RB') || name === 'FEX';
+    const isEnabled = transitStore.enabledLines[name] ?? false;
+    
+    // Regional always visible if enabled, others depend on zoom
+    if (isRegional) {
+        child.visible = isEnabled;
+    } else {
+        child.visible = isEnabled && showTracksAndStations;
+    }
+  });
 
-      stationsGroup.children.forEach(child => {
+  // Background lines visibility - NEW: Hide phantom tracks
+  backgroundLinesGroup.children.forEach(child => {
+      const name = child.userData.lineName;
+      const isEnabled = transitStore.enabledLines[name] ?? false;
+      child.visible = isEnabled && showTracksAndStations;
+  });
+
+  stationsGroup.children.forEach(child => {
+    // Only show stations if zoomed in enough
+    if (!showTracksAndStations) {
+        child.visible = false;
+        return;
+    }
+    
     const lines = child.userData.lines as string[];
     // Default hidden
     child.visible = false;
@@ -558,12 +579,11 @@ function updateVisibility() {
       }
     }
   });
-  }
 
   // Station Labels logic
   labelsGroup.children.forEach(child => {
     const lines = child.userData.lines as string[];
-    if (lines) child.visible = showDetails && lines.some(l => transitStore.enabledLines[l]) && zoom > 1.5;
+    if (lines) child.visible = showTracksAndStations && lines.some(l => transitStore.enabledLines[l]) && zoom > 1.5;
   });
 
   updateTrainMarkers();
@@ -682,51 +702,67 @@ function createThickRibbon(points: THREE.Vector3[], color: string | number, thic
 
 
 
+// Shared station merging map
+interface MergedStation {
+    name: string;
+    lat: number;
+    lng: number;
+    lines: Set<string>;
+}
+const stationDataMap = new Map<string, MergedStation>();
+
 async function loadGeneratedStations() {
   try {
     const response = await fetch('/data/generated_stations.json');
     if (!response.ok) return;
-    const stations = await response.json();
+    const data = await response.json();
     
-    stations.forEach((s: any) => {
-       const mappedLines = s.lines.map((l: string) => l.replace(/^Train /, '')); // Clean names if needed
-       // Add to allStations for label logic maybe? Or just add directly
-       // Create marker
-       const { x, y } = latLngToScene(s.lat, s.lng);
-       const geometry = new THREE.CircleGeometry(STATION_RADIUS, 16);
-       const material = new THREE.MeshBasicMaterial({ color: 0x888888 }); // Default gray
-       const circle = new THREE.Mesh(geometry, material);
-       circle.position.set(x, y, 3);
-       circle.userData = { 
-           type: 'station-fill', 
-           name: s.name, 
-           lines: mappedLines,
-           isActive: true 
-       };
-       
-       // Outline
-       const outGeo = new THREE.CircleGeometry(BG_STATION_RADIUS, 16);
-       const outMat = new THREE.MeshBasicMaterial({ color: 0x1a1a2e });
-       const outline = new THREE.Mesh(outGeo, outMat);
-       outline.position.set(x, y, 2.8);
-       outline.userData = { lines: mappedLines, isActive: true };
+    // Check if new format { stations, routes } or old format [ ... ]
+    const stationList = Array.isArray(data) ? data : data.stations;
+    const routes = data.routes || {};
 
-       stationsGroup.add(circle);
-       stationsGroup.add(outline);
-       
-       // Also add to transitStore.allStations if we want labels
-       transitStore.allStations.push({
-           name: s.name, lat: s.lat, lng: s.lng, lines: mappedLines, id: s.name
-       });
+    // Process Routes
+    Object.entries(routes).forEach(([lineName, points]: [string, any[]]) => {
+         if (points && points.length > 1) {
+             const pointsVec = points.map(p => {
+                 const { x, y } = latLngToScene(p[0], p[1]);
+                 return new THREE.Vector3(x, y, 0);
+             });
+    // Update store (reactive)
+             transitStore.lineRoutes[lineName] = pointsVec;
+         }
+    });
+
+    // Capture station coordinates for route alignment
+    const stationCoords: Record<string, {lat: number, lng: number}> = {};
+    
+    // Process Stations - Merge into map
+    stationList.forEach((s: any) => {
+        stationCoords[s.name] = { lat: s.lat, lng: s.lng };
+        
+        const key = `${s.lat.toFixed(4)}-${s.lng.toFixed(4)}`;
+        const mappedLines = s.lines.map((l: string) => l.replace(/^Train /, ''));
+        
+        if (!stationDataMap.has(key)) {
+            stationDataMap.set(key, {
+                name: s.name,
+                lat: s.lat,
+                lng: s.lng,
+                lines: new Set(mappedLines)
+            });
+        } else {
+            const existing = stationDataMap.get(key)!;
+            mappedLines.forEach((l: string) => existing.lines.add(l));
+        }
     });
     
-    // Refresh labels
-    if (labelsGroup) {
-        labelsGroup.clear();
-        addStationLabels();
-    }
+    // Update store routes using new coordinates
+    transitStore.updateRouteCoordinates(stationCoords);
+    transitStore.buildLineRoutes(); // Rebuild with updated coords
     
-    updateVisibility();
+    // Re-run line adder for these new routes
+    addTransitLines();
+
   } catch (e) {
     console.error("Failed to load generated stations", e);
   }
@@ -734,6 +770,9 @@ async function loadGeneratedStations() {
 
 function addTransitLines() {
   console.log("Adding Transit Lines...");
+  backgroundLinesGroup.clear();
+  activeLinesGroup.clear();
+
   Object.entries(allLineColors).forEach(([name, color]) => {
     const route = transitStore.lineRoutes[name];
     if (route && route.length >= 2) {
@@ -753,26 +792,109 @@ function addTransitLines() {
   });
 }
 
-function addStations() {
-  const addedStations = new Set<string>();
+// Helper to normalize station names for matching
+function normalizeStationName(name: string): string {
+    return name
+        .replace(/^Berlin\s+/, '') // Remove "Berlin " prefix
+        .replace(/^S\+U\s+/, '')    // Remove "S+U " prefix
+        .replace(/\s+\(Berlin\)$/, '') // Remove " (Berlin)" suffix
+        .replace('Hauptbahnhof', 'Hbf') // Standardize Hbf
+        .replace('Zoologischer Garten', 'Zoo') // Standardize Zoo
+        .trim();
+}
 
+// Helper to calculate distance between two lat/lng points (in meters approx)
+function getDistance(lat1: number, lng1: number, lat2: number, lng2: number): number {
+    const R = 6371e3; // meters
+    const φ1 = lat1 * Math.PI/180;
+    const φ2 = lat2 * Math.PI/180;
+    const Δφ = (lat2-lat1) * Math.PI/180;
+    const Δλ = (lng2-lng1) * Math.PI/180;
+
+    const a = Math.sin(Δφ/2) * Math.sin(Δφ/2) +
+            Math.cos(φ1) * Math.cos(φ2) *
+            Math.sin(Δλ/2) * Math.sin(Δλ/2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+
+    return R * c;
+}
+
+function mergeStaticStations() {
   transitStore.allStations.forEach(station => {
+    // 1. Try exact key match (fastest)
     const key = `${station.lat.toFixed(4)}-${station.lng.toFixed(4)}`;
-    if (addedStations.has(key)) return;
-    addedStations.add(key);
+    if (stationDataMap.has(key)) {
+        const existing = stationDataMap.get(key)!;
+        station.lines.forEach(l => existing.lines.add(l));
+        return;
+    }
 
+    // 2. Fuzzy match: Check for existing stations with similar name AND reasonably close location
+    let bestMatchKey: string | null = null;
+    let minDistance = 500; // Search radius in meters (increased to catch Hbf offset)
+
+    const normalizedStaticName = normalizeStationName(station.name).toLowerCase();
+
+    for (const [existingKey, existingStation] of stationDataMap.entries()) {
+        const dist = getDistance(station.lat, station.lng, existingStation.lat, existingStation.lng);
+        
+        if (dist < minDistance) {
+            const normalizedExistingName = normalizeStationName(existingStation.name).toLowerCase();
+            
+            // Check for name similarity (substring or exact match after normalization)
+            if (normalizedStaticName === normalizedExistingName || 
+                normalizedStaticName.includes(normalizedExistingName) || 
+                normalizedExistingName.includes(normalizedStaticName)) {
+                
+                minDistance = dist;
+                bestMatchKey = existingKey;
+            }
+        }
+    }
+
+    if (bestMatchKey) {
+        // Merge into the existing station (Visuals will use the existing station's position)
+        const existing = stationDataMap.get(bestMatchKey)!;
+        station.lines.forEach(l => existing.lines.add(l));
+        
+        // IMPORTANT: We must also update the route coordinates for this station name 
+        // to point to the MERGED position, so the track snaps to the existing dot.
+        transitStore.updateRouteCoordinates({
+            [station.name]: { lat: existing.lat, lng: existing.lng } // Map static name to merged coords
+        });
+    } else {
+        // No match found, add as new independent station
+        stationDataMap.set(key, {
+            name: station.name,
+            lat: station.lat,
+            lng: station.lng,
+            lines: new Set(station.lines)
+        });
+    }
+  });
+  
+  // Rebuild lines after merging to ensure they snap to the merged positions
+  transitStore.buildLineRoutes();
+  addTransitLines();
+}
+
+function renderStations() {
+  stationsGroup.clear(); // Ensure clean slate
+  
+  stationDataMap.forEach((station) => {
     const { x, y } = latLngToScene(station.lat, station.lng);
+    const lines = Array.from(station.lines);
 
     // Background circle
     const bgGeom = new THREE.CircleGeometry(BG_STATION_RADIUS, 16);
     const bgMat = new THREE.MeshBasicMaterial({ color: 0x555577 });
     const bgCircle = new THREE.Mesh(bgGeom, bgMat);
     bgCircle.position.set(x, y, 0.5);
-    bgCircle.userData = { stationName: station.name, lines: station.lines, isActive: false };
+    bgCircle.userData = { stationName: station.name, lines: lines, isActive: false };
     stationsGroup.add(bgCircle);
 
     // Get active lines for this station
-    const activeLines = station.lines.filter(l => transitStore.enabledLines[l]);
+    const activeLines = lines.filter(l => transitStore.enabledLines[l]);
     const hasMultipleActiveLines = activeLines.length > 1;
 
     if (hasMultipleActiveLines) {
@@ -796,7 +918,7 @@ function addStations() {
         slice.position.set(x, y, 3);
         slice.userData = { 
           stationName: station.name, 
-          lines: station.lines, 
+          lines: lines, 
           type: 'station-fill', 
           isActive: true, 
           baseRadius: STATION_RADIUS,
@@ -813,7 +935,7 @@ function addStations() {
       const material = new THREE.MeshBasicMaterial({ color: new THREE.Color(fillColor) });
       const circle = new THREE.Mesh(geometry, material);
       circle.position.set(x, y, 3);
-      circle.userData = { stationName: station.name, lines: station.lines, type: 'station-fill', isActive: true, baseRadius: STATION_RADIUS };
+      circle.userData = { stationName: station.name, lines: lines, type: 'station-fill', isActive: true, baseRadius: STATION_RADIUS };
       circle.visible = activeLines.length > 0;
       stationsGroup.add(circle);
     }
@@ -823,8 +945,8 @@ function addStations() {
     const outlineMat = new THREE.MeshBasicMaterial({ color: 0x000000 });
     const outline = new THREE.Mesh(outlineGeom, outlineMat);
     outline.position.set(x, y, 3.1);
-    outline.userData = { stationName: station.name, lines: station.lines, isActive: true };
-    outline.visible = station.lines.some(l => transitStore.enabledLines[l]);
+    outline.userData = { stationName: station.name, lines: lines, isActive: true };
+    outline.visible = activeLines.length > 0; // Only visible if at least one line enabled
     stationsGroup.add(outline);
   });
 }
@@ -970,7 +1092,7 @@ function onMouseMove(e: MouseEvent) {
   raycaster.setFromCamera(mouse, camera);
 
   // Trains - delayed hover
-  const trainHits = raycaster.intersectObjects(trainsGroup.children);
+  const trainHits = raycaster.intersectObjects(trainsGroup.children.filter(c => c.visible));
   if (trainHits.length > 0) {
     const hit = trainHits[0].object;
     if (hit !== hoveredObject) {
@@ -991,7 +1113,7 @@ function onMouseMove(e: MouseEvent) {
   }
 
   // Stations - delayed hover
-  const stationHits = raycaster.intersectObjects(stationsGroup.children.filter(c => c.userData.isActive && c.userData.type === 'station-fill'));
+  const stationHits = raycaster.intersectObjects(stationsGroup.children.filter(c => c.userData.isActive && c.userData.type === 'station-fill' && c.visible));
   if (stationHits.length > 0) {
     const hit = stationHits[0].object;
     if (hit !== hoveredObject) {
