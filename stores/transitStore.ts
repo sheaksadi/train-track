@@ -147,7 +147,7 @@ export const useTransitStore = defineStore('transit', {
             return { x: closestX, y: closestY };
         },
 
-        // Fetch trains (with rate limiting)
+        // Fetch trains directly from BVG API (client-side for per-client rate limiting)
         async fetchTrains() {
             const { useApiStore } = await import('./apiStore');
             const apiStore = useApiStore();
@@ -156,8 +156,42 @@ export const useTransitStore = defineStore('transit', {
             const priority = apiStore.lastHoveredLine ? 'normal' : 'low';
 
             const result = await apiStore.executeRequest('trains', async () => {
-                const response = await fetch('/api/u5-positions');
-                return response.json();
+                // Bounding box covering full RE1: Magdeburg to Frankfurt (Oder)
+                const north = 52.65;
+                const south = 52.05;
+                const west = 11.50;
+                const east = 14.60;
+
+                const url = `https://v6.bvg.transport.rest/radar?north=${north}&west=${west}&south=${south}&east=${east}&results=512&duration=30&frames=1`;
+                const response = await fetch(url);
+
+                if (!response.ok) {
+                    throw new Error(`BVG API error: ${response.status}`);
+                }
+
+                const data = await response.json();
+
+                // Filter for U-Bahn subway lines (U1-U9) and RE1 regional
+                const allowedLines = ['U1', 'U2', 'U3', 'U4', 'U5', 'U6', 'U7', 'U8', 'U9', 'RE1'];
+
+                const trains = data.movements
+                    .filter((m: any) =>
+                        allowedLines.includes(m.line?.name) &&
+                        (m.line?.product === 'subway' || m.line?.product === 'regional') &&
+                        m.location?.latitude &&
+                        m.location?.longitude
+                    )
+                    .map((m: any) => ({
+                        tripId: m.tripId,
+                        latitude: m.location.latitude,
+                        longitude: m.location.longitude,
+                        direction: m.direction,
+                        lineName: m.line.name,
+                        product: m.line.product,
+                        delay: m.nextStopovers?.[0]?.departureDelay || 0
+                    }));
+
+                return { trains };
             }, priority);
 
             if (result?.trains && Array.isArray(result.trains)) {
@@ -175,7 +209,7 @@ export const useTransitStore = defineStore('transit', {
             this.loading = false;
         },
 
-        // Fetch departures (with priority for hovered station)
+        // Fetch departures directly from BVG API (client-side for per-client rate limiting)
         async fetchDepartures(stationName: string, isHovered: boolean = false) {
             const cached = this.departuresCache.get(stationName);
             if (cached) return cached;
@@ -187,8 +221,72 @@ export const useTransitStore = defineStore('transit', {
             const priority = isHovered || apiStore.lastHoveredStation === stationName ? 'high' : 'normal';
 
             const result = await apiStore.executeRequest('departures', async () => {
-                const response = await fetch(`/api/station-departures?station=${encodeURIComponent(stationName)}`);
-                return response.json();
+                // Search for the station
+                const searchUrl = `https://v6.bvg.transport.rest/locations?query=${encodeURIComponent(stationName)}&results=5`;
+                const searchResponse = await fetch(searchUrl);
+                const searchData = await searchResponse.json();
+
+                if (!searchData || searchData.length === 0) {
+                    return { departures: [], stationId: null, grouped: {} };
+                }
+
+                // Find best match (prefer stops over addresses)
+                const station = searchData.find((s: any) => s.type === 'stop') || searchData[0];
+                const stationId = station.id;
+
+                // Fetch departures
+                const departuresUrl = `https://v6.bvg.transport.rest/stops/${stationId}/departures?duration=60&results=30`;
+                const depsResponse = await fetch(departuresUrl);
+                const depsData = await depsResponse.json();
+
+                const allDepartures = (depsData.departures || []).map((d: any) => {
+                    const product = d.line?.product;
+                    let category = 'other';
+
+                    if (product === 'subway' || d.line?.name?.startsWith('U')) {
+                        category = 'U-Bahn';
+                    } else if (product === 'suburban' || d.line?.name?.startsWith('S')) {
+                        category = 'S-Bahn';
+                    } else if (product === 'regional' || d.line?.name?.startsWith('RE') || d.line?.name?.startsWith('RB')) {
+                        category = 'Regional';
+                    } else if (product === 'tram') {
+                        category = 'Tram';
+                    } else if (product === 'bus') {
+                        category = 'Bus';
+                    }
+
+                    return {
+                        line: d.line?.name || 'Unknown',
+                        destination: d.destination?.name || d.direction || 'Unknown',
+                        plannedTime: d.plannedWhen,
+                        actualTime: d.when,
+                        delay: d.delay || 0,
+                        platform: d.platform || d.plannedPlatform || null,
+                        product: d.line?.product,
+                        category
+                    };
+                });
+
+                // Group by category with priority order: U-Bahn, Regional, S-Bahn, Tram, Bus
+                const grouped: Record<string, any[]> = {};
+                const categoryOrder = ['U-Bahn', 'Regional', 'S-Bahn', 'Tram', 'Bus', 'other'];
+
+                categoryOrder.forEach(cat => {
+                    const deps = allDepartures
+                        .filter((d: any) => d.category === cat)
+                        .slice(0, 5); // Max 5 per category
+
+                    if (deps.length > 0) {
+                        grouped[cat] = deps;
+                    }
+                });
+
+                return {
+                    stationId,
+                    stationName: station.name,
+                    departures: allDepartures.slice(0, 15),
+                    grouped
+                };
             }, priority);
 
             if (result) {
