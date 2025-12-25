@@ -147,51 +147,62 @@ export const useTransitStore = defineStore('transit', {
             return { x: closestX, y: closestY };
         },
 
-        // Fetch trains
+        // Fetch trains (with rate limiting)
         async fetchTrains() {
-            try {
-                this.loading = true;
-                const response = await fetch('/api/u5-positions');
-                const data = await response.json();
+            const { useApiStore } = await import('./apiStore');
+            const apiStore = useApiStore();
 
-                if (data?.trains && Array.isArray(data.trains)) {
-                    this.trains = data.trains.map((t: any) => ({
-                        tripId: t.tripId,
-                        lat: t.latitude,
-                        lng: t.longitude,
-                        lineName: t.lineName,
-                        direction: t.direction,
-                        delay: t.delay
-                    }));
-                    this.trainCount = this.visibleTrains.length;
-                }
-            } catch (error) {
-                console.error('Failed to fetch trains:', error);
-            } finally {
-                this.loading = false;
+            // Use priority based on last hovered line
+            const priority = apiStore.lastHoveredLine ? 'normal' : 'low';
+
+            const result = await apiStore.executeRequest('trains', async () => {
+                const response = await fetch('/api/u5-positions');
+                return response.json();
+            }, priority);
+
+            if (result?.trains && Array.isArray(result.trains)) {
+                this.trains = result.trains.map((t: any) => ({
+                    tripId: t.tripId,
+                    lat: t.latitude,
+                    lng: t.longitude,
+                    lineName: t.lineName,
+                    direction: t.direction,
+                    delay: t.delay
+                }));
+                this.trainCount = this.visibleTrains.length;
             }
+
+            this.loading = false;
         },
 
-        // Fetch departures
-        async fetchDepartures(stationName: string) {
+        // Fetch departures (with priority for hovered station)
+        async fetchDepartures(stationName: string, isHovered: boolean = false) {
             const cached = this.departuresCache.get(stationName);
             if (cached) return cached;
 
-            try {
+            const { useApiStore } = await import('./apiStore');
+            const apiStore = useApiStore();
+
+            // High priority if this is the hovered station
+            const priority = isHovered || apiStore.lastHoveredStation === stationName ? 'high' : 'normal';
+
+            const result = await apiStore.executeRequest('departures', async () => {
                 const response = await fetch(`/api/station-departures?station=${encodeURIComponent(stationName)}`);
-                const result = await response.json();
+                return response.json();
+            }, priority);
+
+            if (result) {
                 this.departuresCache.set(stationName, result);
                 setTimeout(() => this.departuresCache.delete(stationName), 60000);
                 return result;
-            } catch (error) {
-                console.error('Failed to fetch departures:', error);
-                return { grouped: {} };
             }
+
+            return { grouped: {} };
         },
 
         prefetchDepartures(stationName: string) {
             if (!this.departuresCache.has(stationName)) {
-                this.fetchDepartures(stationName);
+                this.fetchDepartures(stationName, false);
             }
         },
 

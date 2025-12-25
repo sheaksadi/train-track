@@ -118,17 +118,22 @@
     <div class="rate-monitor">
       <div class="rate-title">API RATE</div>
       <div class="rate-stats">
-        <span :class="{ warning: requestsPerMin > 80, danger: requestsPerMin > 95 }">
-          {{ requestsPerMin }}/100 req/min
+        <span :class="{ warning: apiStore.isWarning, danger: apiStore.isDanger }">
+          {{ apiStore.requestsPerMin }}/100 req/min
         </span>
       </div>
-      <div class="rate-interval">refresh: {{ (refreshInterval / 1000).toFixed(1) }}s</div>
+      <div class="rate-interval">refresh: {{ (apiStore.refreshInterval / 1000).toFixed(1) }}s</div>
+      <div class="rate-available">slots: {{ apiStore.availableSlots }}</div>
+      <div v-if="apiStore.blockedRequests > 0" class="rate-blocked">
+        ⚠ {{ apiStore.blockedRequests }} blocked
+      </div>
     </div>
     
     <!-- Status bar - Terminal Style -->
     <div class="status-bar">
-      <span v-if="transitStore.loading" class="loading">█</span>
+      <span v-if="transitStore.loading || apiStore.departuresLoading" class="loading">█</span>
       <span>trains: {{ transitStore.trainCount }} | zoom: {{ Math.round(mapStore.currentZoom * 100) }}%</span>
+      <span v-if="apiStore.departuresLoading" class="loading-text"> | loading departures...</span>
     </div>
     
     <!-- Zoom controls -->
@@ -166,6 +171,25 @@ function toggleLegendSection(section: string) {
   collapsedLegend.value[section] = !collapsedLegend.value[section];
 }
 
+// API Store for rate limiting
+import { useApiStore, startApiMonitoring, stopApiMonitoring } from '~/stores/apiStore';
+const apiStore = useApiStore();
+
+// Refresh interval management
+let refreshIntervalId: ReturnType<typeof setInterval> | null = null;
+
+function restartRefreshInterval() {
+  if (refreshIntervalId) clearInterval(refreshIntervalId);
+  refreshIntervalId = setInterval(() => {
+    transitStore.fetchTrains().then(updateTrainMarkers);
+  }, apiStore.refreshInterval);
+}
+
+// Watch for refresh interval changes
+watch(() => apiStore.refreshInterval, () => {
+  restartRefreshInterval();
+});
+
 // Refs
 const canvasContainer = ref<HTMLElement | null>(null);
 
@@ -187,7 +211,8 @@ let labelsGroup: THREE.Group;
 // Hover tracking
 let hoveredObject: THREE.Object3D | null = null;
 let prefetchTimeout: ReturnType<typeof setTimeout> | null = null;
-let refreshInterval: ReturnType<typeof setInterval> | null = null;
+let hoverShowTimeout: ReturnType<typeof setTimeout> | null = null;
+const HOVER_DELAY_MS = 300; // Time to hover before showing info
 
 // Watch for line toggle
 watch(() => transitStore.enabledLines, () => {
@@ -465,7 +490,7 @@ function updateTrainMarkers() {
     const geometry = new THREE.PlaneGeometry(TRAIN_SIZE, TRAIN_SIZE);
     const material = new THREE.MeshBasicMaterial({ color: 0xffffff });
     const marker = new THREE.Mesh(geometry, material);
-    marker.position.set(snapped.x, snapped.y, 2);
+    marker.position.set(snapped.x, snapped.y, 5); // z=5 to render above stations (z=3)
     marker.userData = { type: 'train', tripId: train.tripId, lineName: train.lineName, direction: train.direction, delay: train.delay, baseSize: TRAIN_SIZE };
     trainsGroup.add(marker);
   });
@@ -554,19 +579,28 @@ function onMouseMove(e: MouseEvent) {
   mouse.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
   raycaster.setFromCamera(mouse, camera);
 
-  // Trains
+  // Trains - delayed hover
   const trainHits = raycaster.intersectObjects(trainsGroup.children);
   if (trainHits.length > 0) {
     const hit = trainHits[0].object;
-    if (hit !== hoveredObject) { resetHoveredObject(); hoveredObject = hit; scaleObject(hit, 1.5); }
-    if (!mapStore.infoPanel.locked) {
-      mapStore.showTrainInfo(hit.userData.lineName, hit.userData.direction || 'Unknown', Math.round((hit.userData.delay || 0) / 60), transitStore.getLineColor(hit.userData.lineName), e.clientX, e.clientY);
+    if (hit !== hoveredObject) {
+      resetHoveredObject();
+      hoveredObject = hit;
+      scaleObject(hit, 1.5);
+      
+      // Delayed info panel
+      if (hoverShowTimeout) clearTimeout(hoverShowTimeout);
+      hoverShowTimeout = setTimeout(() => {
+        if (!mapStore.infoPanel.locked && hoveredObject === hit) {
+          mapStore.showTrainInfo(hit.userData.lineName, hit.userData.direction || 'Unknown', Math.round((hit.userData.delay || 0) / 60), transitStore.getLineColor(hit.userData.lineName), e.clientX, e.clientY);
+        }
+      }, HOVER_DELAY_MS);
     }
     renderer.domElement.style.cursor = 'pointer';
     return;
   }
 
-  // Stations
+  // Stations - delayed hover
   const stationHits = raycaster.intersectObjects(stationsGroup.children.filter(c => c.userData.isActive && c.userData.type === 'station-fill'));
   if (stationHits.length > 0) {
     const hit = stationHits[0].object;
@@ -574,23 +608,38 @@ function onMouseMove(e: MouseEvent) {
       resetHoveredObject();
       hoveredObject = hit;
       scaleObject(hit, 1.4);
+      
+      // Delayed fetch and info panel
+      if (hoverShowTimeout) clearTimeout(hoverShowTimeout);
       if (prefetchTimeout) clearTimeout(prefetchTimeout);
-      prefetchTimeout = setTimeout(() => transitStore.prefetchDepartures(hit.userData.stationName), 200);
-    }
-    if (!mapStore.infoPanel.locked) {
-      handleShowStation(hit.userData, e.clientX, e.clientY, false);
+      
+      hoverShowTimeout = setTimeout(() => {
+        if (hoveredObject === hit) {
+          apiStore.setHoveredStation(hit.userData.stationName);
+          transitStore.prefetchDepartures(hit.userData.stationName);
+          if (!mapStore.infoPanel.locked) {
+            handleShowStation(hit.userData, e.clientX, e.clientY, false);
+          }
+        }
+      }, HOVER_DELAY_MS);
     }
     renderer.domElement.style.cursor = 'pointer';
     return;
   }
 
   resetHoveredObject();
+  apiStore.setHoveredStation(null);
   mapStore.hideInfo();
   renderer.domElement.style.cursor = 'grab';
 }
 
 function onMouseUp() { isPanning = false; renderer.domElement.style.cursor = 'grab'; }
-function onMouseLeave() { isPanning = false; resetHoveredObject(); mapStore.hideInfo(); }
+function onMouseLeave() { 
+  isPanning = false; 
+  resetHoveredObject(); 
+  if (hoverShowTimeout) clearTimeout(hoverShowTimeout);
+  mapStore.hideInfo(); 
+}
 
 async function onClick(e: MouseEvent) {
   if (mapStore.infoPanel.locked) { mapStore.closeInfo(); return; }
@@ -634,16 +683,18 @@ function animate() {
 
 onMounted(async () => {
   await nextTick();
+  startApiMonitoring(); // Start tracking requests per minute
   setTimeout(() => {
     initThreeJS();
     transitStore.fetchTrains().then(updateTrainMarkers);
-    refreshInterval = setInterval(() => transitStore.fetchTrains().then(updateTrainMarkers), 5000);
+    restartRefreshInterval();
   }, 100);
 });
 
 onUnmounted(() => {
+  stopApiMonitoring();
   if (animationId) cancelAnimationFrame(animationId);
-  if (refreshInterval) clearInterval(refreshInterval);
+  if (refreshIntervalId) clearInterval(refreshIntervalId);
   if (renderer) { renderer.dispose(); window.removeEventListener('resize', onResize); }
 });
 </script>
@@ -1041,5 +1092,62 @@ onUnmounted(() => {
 
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(100, 120, 150, 0.6);
+}
+
+/* Rate Monitor */
+.rate-monitor {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(15, 20, 35, 0.95);
+  padding: 8px 12px;
+  z-index: 1000;
+  border: 1px solid rgba(100, 120, 150, 0.3);
+  border-left: 3px solid #4a5a6a;
+  font-size: 10px;
+}
+
+.rate-title {
+  font-size: 9px;
+  color: #5a6a7a;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+
+.rate-stats {
+  color: #4ade80;
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+
+.rate-stats .warning {
+  color: #fbbf24;
+}
+
+.rate-stats .danger {
+  color: #f87171;
+}
+
+.rate-interval {
+  color: #6a7a8a;
+  font-size: 9px;
+}
+
+.rate-available {
+  color: #5a6a7a;
+  font-size: 9px;
+}
+
+.rate-blocked {
+  color: #f87171;
+  font-size: 9px;
+  font-weight: 500;
+  margin-top: 4px;
+  animation: blink 0.5s infinite;
+}
+
+.loading-text {
+  color: #6a7a8a;
+  font-size: 10px;
 }
 </style>
