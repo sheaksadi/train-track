@@ -20,6 +20,9 @@ export const useMapStore = defineStore('map', {
             color: '#fff',
             direction: '',
             delay: 0,
+            nextStation: '',
+            nextStationTime: '',
+            platform: '',
             grouped: {} as Record<string, any>,
         },
     }),
@@ -88,7 +91,7 @@ export const useMapStore = defineStore('map', {
             this.infoPanel.loading = false;
         },
 
-        showTrainInfo(lineName: string, direction: string, delay: number, color: string, x: number, y: number, lock = false) {
+        showTrainInfo(lineName: string, direction: string, delay: number, color: string, x: number, y: number, nextStation?: string, nextStationTime?: string, platform?: string, lock = false) {
             this.infoPanel.visible = true;
             this.infoPanel.locked = lock;
             this.infoPanel.loading = false;
@@ -99,6 +102,9 @@ export const useMapStore = defineStore('map', {
             this.infoPanel.color = color;
             this.infoPanel.direction = direction;
             this.infoPanel.delay = delay;
+            this.infoPanel.nextStation = nextStation || '';
+            this.infoPanel.nextStationTime = nextStationTime || '';
+            this.infoPanel.platform = platform || '';
             this.infoPanel.grouped = {};
         },
 

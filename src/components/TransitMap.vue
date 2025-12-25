@@ -69,9 +69,17 @@
         <div v-else-if="mapStore.infoPanel.type === 'train'" class="train-info">
           <div class="train-line" :style="{ backgroundColor: mapStore.infoPanel.color }">{{ mapStore.infoPanel.title }}</div>
           <div class="train-row">→ {{ mapStore.infoPanel.direction }}</div>
-          <div class="train-row">Platform: {{ Math.floor(Math.random() * 4 + 1) }}</div>
-          <div class="train-row" :class="{ delay: mapStore.infoPanel.delay > 0 }">
-            {{ mapStore.infoPanel.delay > 0 ? `+${mapStore.infoPanel.delay} min` : 'On time' }}
+          
+          <div v-if="mapStore.infoPanel.nextStation" class="train-row mt-2" style="color: #fff; font-weight: bold;">
+             Next: {{ mapStore.infoPanel.nextStation }}
+          </div>
+          <div v-if="mapStore.infoPanel.nextStation" class="train-row">
+             In: {{ mapStore.infoPanel.nextStationTime }} 
+             <span v-if="mapStore.infoPanel.platform" style="opacity: 0.7"> (Pl. {{ mapStore.infoPanel.platform }})</span>
+          </div>
+
+          <div class="train-row mt-2 border-t border-gray-700 pt-1" :class="{ delay: mapStore.infoPanel.delay > 0 }">
+            {{ mapStore.infoPanel.delay > 0 ? `+${mapStore.infoPanel.delay} min delay` : 'On time' }}
           </div>
         </div>
       </div>
@@ -88,7 +96,7 @@
           class="flex items-center justify-between w-full text-left font-bold text-gray-300 mb-2 text-sm hover:text-white transition-colors"
         >
           <span>REGIONAL</span>
-          <Icon :name="collapsedLegend['regional'] ? 'i-heroicons-chevron-down' : 'i-heroicons-chevron-up'" class="w-4 h-4" />
+          <Icon :icon="collapsedLegend['regional'] ? 'heroicons:chevron-down' : 'heroicons:chevron-up'" class="w-4 h-4" />
         </button>
         <div v-show="!collapsedLegend['regional']" class="grid grid-cols-4 gap-2">
           <button
@@ -115,7 +123,7 @@
           class="flex items-center justify-between w-full text-left font-bold text-gray-300 mb-2 text-sm hover:text-white transition-colors"
         >
           <span>S-BAHN</span>
-          <Icon :name="collapsedLegend['sbahn'] ? 'i-heroicons-chevron-down' : 'i-heroicons-chevron-up'" class="w-4 h-4" />
+          <Icon :icon="collapsedLegend['sbahn'] ? 'heroicons:chevron-down' : 'heroicons:chevron-up'" class="w-4 h-4" />
         </button>
         <div v-show="!collapsedLegend['sbahn']" class="grid grid-cols-4 gap-2">
           <button
@@ -142,7 +150,7 @@
           class="flex items-center justify-between w-full text-left font-bold text-gray-300 mb-2 text-sm hover:text-white transition-colors"
         >
           <span>TRAM</span>
-          <Icon :name="collapsedLegend['tram'] ? 'i-heroicons-chevron-down' : 'i-heroicons-chevron-up'" class="w-4 h-4" />
+          <Icon :icon="collapsedLegend['tram'] ? 'heroicons:chevron-down' : 'heroicons:chevron-up'" class="w-4 h-4" />
         </button>
         <div v-show="!collapsedLegend['tram']" class="grid grid-cols-4 gap-2">
           <button
@@ -222,8 +230,8 @@
     
     <!-- Zoom controls -->
     <div class="zoom-controls">
-      <button @click="handleZoomIn" class="zoom-btn">[+]</button>
-      <button @click="handleZoomOut" class="zoom-btn">[-]</button>
+      <button @click="() => handleZoomIn()" class="zoom-btn">[+]</button>
+      <button @click="() => handleZoomOut()" class="zoom-btn">[-]</button>
       <button @click="handleResetView" class="zoom-btn">[R]</button>
     </div>
   </div>
@@ -237,6 +245,7 @@ import { regionalColors } from '~/data/regional';
 import { sbahnColors } from '~/data/sbahn';
 import { tramColors } from '~/data/tram';
 import { majorCities } from '~/data/cities';
+import { Icon } from '@iconify/vue';
 import { useTransitStore, latLngToScene, allLineColors, LINE_THICKNESS, BG_LINE_THICKNESS, STATION_RADIUS, BG_STATION_RADIUS, TRAIN_SIZE } from '~/stores/transitStore';
 import { useMapStore } from '~/stores/mapStore';
 
@@ -722,8 +731,8 @@ async function loadGeneratedStations() {
     const routes = data.routes || {};
 
     // Process Routes
-    Object.entries(routes).forEach(([lineName, points]: [string, any[]]) => {
-         if (points && points.length > 1) {
+    Object.entries(routes).forEach(([lineName, points]) => {
+         if (points && Array.isArray(points) && points.length > 1) {
              const pointsVec = points.map(p => {
                  const { x, y } = latLngToScene(p[0], p[1]);
                  return new THREE.Vector3(x, y, 0);
@@ -995,11 +1004,32 @@ function updateTrainMarkers() {
 
   transitStore.visibleTrains.forEach(train => {
     const snapped = transitStore.snapToTrack(train.lat, train.lng, train.lineName);
+    
+    // Train Border (Darker Line Color)
+    const lineColor = transitStore.getLineColor(train.lineName);
+    const borderColor = new THREE.Color(lineColor).multiplyScalar(0.4); // 40% brightness of original
+    const borderGeo = new THREE.PlaneGeometry(TRAIN_SIZE + 1.2, TRAIN_SIZE + 1.2);
+    const borderMat = new THREE.MeshBasicMaterial({ color: borderColor });
+    const border = new THREE.Mesh(borderGeo, borderMat);
+    border.position.set(snapped.x, snapped.y, 4.9); // Just below marker
+    border.userData = { isBorder: true }; // Ignore in raycast
+    trainsGroup.add(border);
+
     const geometry = new THREE.PlaneGeometry(TRAIN_SIZE, TRAIN_SIZE);
     const material = new THREE.MeshBasicMaterial({ color: 0xffffff });
     const marker = new THREE.Mesh(geometry, material);
     marker.position.set(snapped.x, snapped.y, 5); // z=5 to render above stations (z=3)
-    marker.userData = { type: 'train', tripId: train.tripId, lineName: train.lineName, direction: train.direction, delay: train.delay, baseSize: TRAIN_SIZE };
+    marker.userData = { 
+        type: 'train', 
+        tripId: train.tripId, 
+        lineName: train.lineName, 
+        direction: train.direction, 
+        delay: train.delay, 
+        baseSize: TRAIN_SIZE,
+        nextStation: train.nextStation,
+        nextStationTime: train.nextStationTime,
+        platform: train.platform
+    };
     trainsGroup.add(marker);
   });
 }
@@ -1104,7 +1134,8 @@ function onMouseMove(e: MouseEvent) {
       if (hoverShowTimeout) clearTimeout(hoverShowTimeout);
       hoverShowTimeout = setTimeout(() => {
         if (!mapStore.infoPanel.locked && hoveredObject === hit) {
-          mapStore.showTrainInfo(hit.userData.lineName, hit.userData.direction || 'Unknown', Math.round((hit.userData.delay || 0) / 60), transitStore.getLineColor(hit.userData.lineName), e.clientX, e.clientY);
+          const t = hit.userData;
+          mapStore.showTrainInfo(t.lineName, t.direction || 'Unknown', Math.round((t.delay || 0) / 60), transitStore.getLineColor(t.lineName), e.clientX, e.clientY, t.nextStation, t.nextStationTime, t.platform);
         }
       }, HOVER_DELAY_MS);
     }
@@ -1161,10 +1192,10 @@ async function onClick(e: MouseEvent) {
   mouse.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
   raycaster.setFromCamera(mouse, camera);
 
-  const trainHits = raycaster.intersectObjects(trainsGroup.children);
+  const trainHits = raycaster.intersectObjects(trainsGroup.children.filter(c => !c.userData.isBorder));
   if (trainHits.length > 0) {
     const t = trainHits[0].object.userData;
-    mapStore.showTrainInfo(t.lineName, t.direction || 'Unknown', Math.round((t.delay || 0) / 60), transitStore.getLineColor(t.lineName), e.clientX, e.clientY, true);
+    mapStore.showTrainInfo(t.lineName, t.direction || 'Unknown', Math.round((t.delay || 0) / 60), transitStore.getLineColor(t.lineName), e.clientX, e.clientY, t.nextStation, t.nextStationTime, t.platform, true);
     return;
   }
 

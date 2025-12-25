@@ -14,6 +14,9 @@ export interface Train {
     lineName: string;
     direction: string;
     delay: number;
+    nextStation?: string;
+    nextStationTime?: string;
+    platform?: string;
 }
 
 export interface Departure {
@@ -117,8 +120,7 @@ export const useTransitStore = defineStore('transit', {
 
             // U-Bahn lines
             Object.keys(ubahnColors).forEach(name => {
-                const stations = getUbahnRoute(name); // returns [lat, lng] array? 
-                // Wait, getUbahnRoute returns [lat, lng][]. It doesn't give names.
+                // Returns [lat, lng][]. It doesn't give names.
                 // We need the station objects to match names.
                 // Let's use getStationsForLine from data/ubahn.ts and sort them.
                 // Re-implementing route building with coordinate lookup:
@@ -126,8 +128,8 @@ export const useTransitStore = defineStore('transit', {
                 const lineStations = ubahnStations.filter(s => s.lines.includes(name));
                 const lowerName = name.toLowerCase();
                 const ordered = lineStations.sort((a, b) => {
-                    const idA = parseInt(a.id.split('-')[1] || '0');
-                    const idB = parseInt(b.id.split('-')[1] || '0');
+                    const idA = parseInt(a.id?.split('-')[1] || '0');
+                    const idB = parseInt(b.id?.split('-')[1] || '0');
                     return idA - idB;
                 });
 
@@ -209,15 +211,34 @@ export const useTransitStore = defineStore('transit', {
                         m.location?.latitude &&
                         m.location?.longitude
                     )
-                    .map((m: any) => ({
-                        tripId: m.tripId,
-                        latitude: m.location.latitude,
-                        longitude: m.location.longitude,
-                        direction: m.direction,
-                        lineName: m.line.name,
-                        product: m.line.product,
-                        delay: m.nextStopovers?.[0]?.departureDelay || 0
-                    }));
+                    .map((m: any) => {
+                        const nextStop = m.nextStopovers?.[0];
+                        const delayBytes = nextStop?.departureDelay || 0;
+
+                        // Calculate time to next station
+                        let timeStr = '';
+                        if (nextStop?.arrival) {
+                            const arrivalTime = new Date(nextStop.arrival).getTime();
+                            const now = Date.now();
+                            const diffMins = Math.max(0, Math.round((arrivalTime - now) / 60000));
+                            timeStr = `${diffMins} min`;
+                        } else {
+                            timeStr = '?';
+                        }
+
+                        return {
+                            tripId: m.tripId,
+                            latitude: m.location.latitude,
+                            longitude: m.location.longitude,
+                            direction: m.direction,
+                            lineName: m.line.name,
+                            product: m.line.product,
+                            delay: delayBytes,
+                            nextStation: nextStop?.stop?.name,
+                            nextStationTime: timeStr,
+                            platform: nextStop?.arrivalPlatform || nextStop?.departurePlatform
+                        };
+                    });
 
                 return { trains };
             }, priority);
@@ -229,7 +250,10 @@ export const useTransitStore = defineStore('transit', {
                     lng: t.longitude,
                     lineName: t.lineName,
                     direction: t.direction,
-                    delay: t.delay
+                    delay: t.delay,
+                    nextStation: t.nextStation,
+                    nextStationTime: t.nextStationTime,
+                    platform: t.platform
                 }));
                 this.trainCount = this.visibleTrains.length;
             }

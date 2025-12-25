@@ -1,7 +1,9 @@
 <template>
   <div class="map-container w-screen h-screen bg-neutral-900 overflow-hidden">
-    <ClientOnly>
-      <TransitMap />
+    <Suspense>
+      <template #default>
+        <TransitMap />
+      </template>
       <template #fallback>
         <div class="loading-screen">
           <div class="loading-content">
@@ -10,12 +12,12 @@
           </div>
         </div>
       </template>
-    </ClientOnly>
+    </Suspense>
   </div>
 </template>
 
-<script setup>
-// Three.js Transit Map - Berlin Public Transport Visualization
+<script setup lang="ts">
+import TransitMap from '@/components/TransitMap.vue'
 </script>
 
 <style scoped>
