@@ -15,33 +15,50 @@
           <div v-if="mapStore.infoPanel.loading" class="info-loading">Loading...</div>
           <div v-else class="departures-container">
             <div class="info-label">Next departures:</div>
-            <!-- Grid of collapsible transport type cards -->
-            <div 
-              class="transport-grid"
-              :class="{ 
-                'single-type': Object.keys(mapStore.infoPanel.grouped).length === 1,
-                'multi-type': Object.keys(mapStore.infoPanel.grouped).length > 1
-              }"
-            >
-              <div 
-                v-for="(deps, category) in mapStore.infoPanel.grouped" 
-                :key="category" 
-                class="transport-card"
-                :class="{ collapsed: collapsedCategories[category as string] }"
-              >
+            <!-- Grid of collapsible transport type cards (Split Columns) -->
+            <div class="transport-grid">
+              <!-- Column 1 -->
+              <div class="grid-column left">
                 <div 
-                  class="transport-header" 
-                  @click="toggleCategory(category as string)"
+                  v-for="item in splitDepartures.left" 
+                  :key="item.key" 
+                  class="transport-card"
+                  :class="{ collapsed: collapsedCategories[item.key] }"
                 >
-                  <span class="transport-name">{{ category }}</span>
-                  <span class="transport-count">{{ deps.length }}</span>
-                  <span class="transport-toggle">{{ collapsedCategories[category as string] ? '[+]' : '[-]' }}</span>
+                  <div class="transport-header" @click="toggleCategory(item.key)">
+                    <span class="transport-name">{{ item.key }}</span>
+                    <span class="transport-count">{{ item.data.length }}</span>
+                    <span class="transport-toggle">{{ collapsedCategories[item.key] ? '[+]' : '[-]' }}</span>
+                  </div>
+                  <div v-if="!collapsedCategories[item.key]" class="transport-deps">
+                    <div v-for="(dep, i) in item.data" :key="i" class="departure-row">
+                      <span class="dep-line" :style="{ backgroundColor: dep.color }">{{ dep.line }}</span>
+                      <span class="dep-dest">→ {{ dep.destination }}</span>
+                      <span class="dep-time" :class="{ delay: dep.delay > 0 }">{{ dep.delay > 0 ? `+${dep.delay}m` : dep.time }}</span>
+                    </div>
+                  </div>
                 </div>
-                <div v-if="!collapsedCategories[category as string]" class="transport-deps">
-                  <div v-for="(dep, i) in deps" :key="i" class="departure-row">
-                    <span class="dep-line" :style="{ backgroundColor: dep.color }">{{ dep.line }}</span>
-                    <span class="dep-dest">→ {{ dep.destination }}</span>
-                    <span class="dep-time" :class="{ delay: dep.delay > 0 }">{{ dep.delay > 0 ? `+${dep.delay}m` : dep.time }}</span>
+              </div>
+
+              <!-- Column 2 (Only if needed) -->
+              <div v-if="splitDepartures.right.length > 0" class="grid-column right">
+                 <div 
+                  v-for="item in splitDepartures.right" 
+                  :key="item.key" 
+                  class="transport-card"
+                  :class="{ collapsed: collapsedCategories[item.key] }"
+                >
+                  <div class="transport-header" @click="toggleCategory(item.key)">
+                    <span class="transport-name">{{ item.key }}</span>
+                    <span class="transport-count">{{ item.data.length }}</span>
+                    <span class="transport-toggle">{{ collapsedCategories[item.key] ? '[+]' : '[-]' }}</span>
+                  </div>
+                  <div v-if="!collapsedCategories[item.key]" class="transport-deps">
+                    <div v-for="(dep, i) in item.data" :key="i" class="departure-row">
+                      <span class="dep-line" :style="{ backgroundColor: dep.color }">{{ dep.line }}</span>
+                      <span class="dep-dest">→ {{ dep.destination }}</span>
+                      <span class="dep-time" :class="{ delay: dep.delay > 0 }">{{ dep.delay > 0 ? `+${dep.delay}m` : dep.time }}</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -155,7 +172,7 @@
 
 <script setup lang="ts">
 import * as THREE from 'three';
-import { ref, onMounted, onUnmounted, nextTick, watch } from 'vue';
+import { ref, computed, onMounted, onUnmounted, nextTick, watch } from 'vue';
 import { ubahnColors } from '~/data/ubahn';
 import { regionalColors } from '~/data/regional';
 import { useTransitStore, latLngToScene, allLineColors, LINE_THICKNESS, BG_LINE_THICKNESS, STATION_RADIUS, BG_STATION_RADIUS, TRAIN_SIZE } from '~/stores/transitStore';
@@ -171,6 +188,36 @@ const collapsedCategories = ref<Record<string, boolean>>({});
 function toggleCategory(category: string) {
   collapsedCategories.value[category] = !collapsedCategories.value[category];
 }
+
+// Compute split columns for layout (Left: 0,1, 4,5... Right: 2,3, 6,7...)
+const splitDepartures = computed(() => {
+  const grouped = mapStore.infoPanel.grouped || {};
+  const keys = Object.keys(grouped);
+  const left: { key: string; data: any[] }[] = [];
+  const right: { key: string; data: any[] }[] = [];
+
+  keys.forEach((key, index) => {
+    // Pair index: 0 for items 0,1; 1 for items 2,3; etc.
+    const pairIndex = Math.floor(index / 2);
+    // Even pairs go Left, Odd pairs go Right
+    if (pairIndex % 2 === 0) {
+      left.push({ key, data: grouped[key] });
+    } else {
+      right.push({ key, data: grouped[key] });
+    }
+  });
+
+  // Check if all items in the right column are collapsed
+  const allRightCollapsed = right.every(item => collapsedCategories.value[item.key]);
+
+  // If all right items are collapsed, move them to the bottom of the left column
+  if (right.length > 0 && allRightCollapsed) {
+    left.push(...right);
+    return { left, right: [] };
+  }
+
+  return { left, right };
+});
 
 // Collapsible legend sections
 const collapsedLegend = ref<Record<string, boolean>>({});
@@ -237,6 +284,38 @@ async function handleManualRefresh() {
 // Watch for refresh interval changes
 watch(() => apiStore.refreshInterval, () => {
   restartRefreshInterval();
+});
+
+// Auto-refresh for station info panel
+let stationRefreshInterval: ReturnType<typeof setInterval> | null = null;
+
+watch(
+  [() => mapStore.infoPanel.visible, () => mapStore.infoPanel.title, () => mapStore.infoPanel.type],
+  ([visible, title, type]) => {
+    // Clear existing interval
+    if (stationRefreshInterval) {
+      clearInterval(stationRefreshInterval);
+      stationRefreshInterval = null;
+    }
+
+    // Start new interval if panel is visible and is a station
+    if (visible && type === 'station' && title) {
+      stationRefreshInterval = setInterval(() => {
+        if (mapStore.infoPanel.visible && mapStore.infoPanel.type === 'station') {
+          // No need to show loading state for auto-refresh
+          transitStore.fetchDepartures(title); 
+        }
+      }, 10000); // 10 seconds refresh for open panel
+    }
+  },
+  { immediate: true }
+);
+
+// Clean up station refresh on unmount
+onUnmounted(() => {
+  if (stationRefreshInterval) clearInterval(stationRefreshInterval);
+  if (refreshIntervalId) clearInterval(refreshIntervalId);
+  if (progressIntervalId) clearInterval(progressIntervalId);
 });
 
 // Refs
@@ -826,33 +905,34 @@ onUnmounted(() => {
   51%, 100% { opacity: 0.3; }
 }
 
-/* Transport Type Grid */
+/* Transport Type Grid (Split Columns) */
 .departures-container {
   padding-top: 4px;
 }
 
 .transport-grid {
   display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.grid-column {
+  flex: 1;
+  display: flex;
   flex-direction: column;
   gap: 8px;
+  min-width: 0; /* Prevent flex overflow */
 }
 
-/* Single type: keep compact */
-.transport-grid.single-type {
-  max-width: 320px;
-}
-
-/* Multiple types: expand to 2-column grid when panel is wide enough */
-.transport-grid.multi-type {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(160px, 1fr));
-  gap: 6px;
-}
+/* If only left column exists, it will take full width (flex: 1) */
 
 .transport-card {
+  margin-bottom: 0;
   border: 1px solid rgba(100, 120, 150, 0.2);
   background: rgba(20, 25, 40, 0.5);
+  break-inside: avoid;
 }
+
 
 .transport-header {
   display: flex;

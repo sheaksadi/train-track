@@ -1,9 +1,15 @@
-// API Rate Limiting Store with Request Queue
+// API Rate Limiting Store with Smart Frequency-Based Throttling
 import { defineStore } from 'pinia';
 
 const MAX_REQUESTS_PER_MIN = 100;
 const MIN_REFRESH_INTERVAL = 3000;
 const MAX_REFRESH_INTERVAL = 30000;
+const FREQUENCY_WINDOW_MS = 15000; // 15 second window for frequency calculation
+
+interface EndpointCall {
+    endpoint: 'trains' | 'departures' | 'locations';
+    timestamp: number;
+}
 
 interface QueuedRequest {
     id: string;
@@ -15,9 +21,12 @@ interface QueuedRequest {
 
 export const useApiStore = defineStore('api', {
     state: () => ({
-        // Request tracking
+        // Request tracking (per minute)
         requestTimestamps: [] as number[],
         requestsPerMin: 0,
+
+        // Endpoint frequency tracking (last 15 seconds)
+        endpointCalls: [] as EndpointCall[],
 
         // Queue management
         requestQueue: [] as QueuedRequest[],
@@ -59,9 +68,48 @@ export const useApiStore = defineStore('api', {
         availableSlots(): number {
             return Math.max(0, MAX_REQUESTS_PER_MIN - this.requestsPerMin);
         },
+
+        // Get call frequency per endpoint (calls per 15 seconds)
+        endpointFrequency(): Record<string, number> {
+            const now = Date.now();
+            const windowStart = now - FREQUENCY_WINDOW_MS;
+            const recentCalls = this.endpointCalls.filter(c => c.timestamp > windowStart);
+
+            const freq: Record<string, number> = { trains: 0, departures: 0, locations: 0 };
+            recentCalls.forEach(c => {
+                freq[c.endpoint] = (freq[c.endpoint] || 0) + 1;
+            });
+            return freq;
+        },
+
+        // Calculate recommended minimum interval based on recent activity
+        recommendedInterval(): number {
+            const freq = this.endpointFrequency;
+            const totalCalls = freq.trains + freq.departures + freq.locations;
+
+            // If high frequency in last 15 seconds, slow down
+            if (totalCalls > 20) {
+                return 15000; // Very active - slow to 15s
+            } else if (totalCalls > 10) {
+                return 8000; // Moderately active - 8s
+            } else if (totalCalls > 5) {
+                return 5000; // Some activity - 5s
+            }
+            return MIN_REFRESH_INTERVAL; // Low activity - fast refresh
+        },
     },
 
     actions: {
+        // Record an endpoint call for frequency tracking
+        recordEndpointCall(endpoint: 'trains' | 'departures' | 'locations') {
+            const now = Date.now();
+            this.endpointCalls.push({ endpoint, timestamp: now });
+
+            // Clean up old entries (older than frequency window)
+            const windowStart = now - FREQUENCY_WINDOW_MS;
+            this.endpointCalls = this.endpointCalls.filter(c => c.timestamp > windowStart);
+        },
+
         // Update request count (called every second)
         updateRequestCount() {
             const now = Date.now();
@@ -69,7 +117,11 @@ export const useApiStore = defineStore('api', {
             this.requestTimestamps = this.requestTimestamps.filter(t => t > oneMinuteAgo);
             this.requestsPerMin = this.requestTimestamps.length;
 
-            // Update refresh interval based on usage
+            // Clean up endpoint calls
+            const windowStart = now - FREQUENCY_WINDOW_MS;
+            this.endpointCalls = this.endpointCalls.filter(c => c.timestamp > windowStart);
+
+            // Update refresh interval based on both usage and frequency
             this.calculateRefreshInterval();
         },
 
@@ -79,23 +131,24 @@ export const useApiStore = defineStore('api', {
             this.requestsPerMin = this.requestTimestamps.length;
         },
 
-        // Calculate optimal refresh interval
+        // Calculate optimal refresh interval (considers both rate limit and frequency)
         calculateRefreshInterval() {
             const available = this.availableSlots;
+            const recommended = this.recommendedInterval;
 
+            let baseInterval: number;
             if (available < 10) {
-                // Almost at limit - slow down a lot
-                this.refreshInterval = MAX_REFRESH_INTERVAL;
+                baseInterval = MAX_REFRESH_INTERVAL;
             } else if (available < 30) {
-                // Getting close - slow down
-                this.refreshInterval = 15000;
+                baseInterval = 15000;
             } else if (available < 50) {
-                // Moderate usage
-                this.refreshInterval = 8000;
+                baseInterval = 8000;
             } else {
-                // Plenty of room
-                this.refreshInterval = MIN_REFRESH_INTERVAL;
+                baseInterval = MIN_REFRESH_INTERVAL;
             }
+
+            // Use the higher of the two to be safe
+            this.refreshInterval = Math.max(baseInterval, recommended);
         },
 
         // Set hovered station (for priority)
@@ -110,20 +163,16 @@ export const useApiStore = defineStore('api', {
 
         // Queue a request with priority
         queueRequest(request: Omit<QueuedRequest, 'id' | 'timestamp'>): boolean {
-            // Check if we can make the request immediately
             if (this.canMakeRequest) {
-                return true; // Proceed immediately
+                return true;
             }
 
-            // Queue is full - drop the request
             this.blockedRequests++;
-
-            // Clear blocked count after a second
             setTimeout(() => {
                 if (this.blockedRequests > 0) this.blockedRequests--;
             }, 1000);
 
-            return false; // Request was blocked
+            return false;
         },
 
         // Execute a request if allowed
@@ -132,7 +181,6 @@ export const useApiStore = defineStore('api', {
             fetchFn: () => Promise<T>,
             priority: 'high' | 'normal' | 'low' = 'normal'
         ): Promise<T | null> {
-            // High priority (hovered station) can use more slots
             const threshold = priority === 'high' ? 98 : priority === 'normal' ? 90 : 80;
 
             if (this.requestsPerMin >= threshold) {
@@ -144,6 +192,7 @@ export const useApiStore = defineStore('api', {
             }
 
             this.recordRequest();
+            this.recordEndpointCall(type);
 
             if (type === 'departures') {
                 this.departuresLoading = true;

@@ -162,7 +162,7 @@ export const useTransitStore = defineStore('transit', {
                 const west = 11.50;
                 const east = 14.60;
 
-                const url = `https://v6.bvg.transport.rest/radar?north=${north}&west=${west}&south=${south}&east=${east}&results=512&duration=30&frames=1`;
+                const url = `https://v6.bvg.transport.rest/radar?north=${north}&west=${west}&south=${south}&east=${east}&results=512&duration=30&frames=1&_t=${Date.now()}`;
                 const response = await fetch(url);
 
                 if (!response.ok) {
@@ -222,20 +222,27 @@ export const useTransitStore = defineStore('transit', {
 
             const result = await apiStore.executeRequest('departures', async () => {
                 // Search for the station
-                const searchUrl = `https://v6.bvg.transport.rest/locations?query=${encodeURIComponent(stationName)}&results=5`;
+                const searchUrl = `https://v6.bvg.transport.rest/locations?query=${encodeURIComponent(stationName)}&results=5&addresses=false&poi=false&_t=${Date.now()}`;
                 const searchResponse = await fetch(searchUrl);
                 const searchData = await searchResponse.json();
 
-                if (!searchData || searchData.length === 0) {
+                if (!searchData || !Array.isArray(searchData) || searchData.length === 0) {
+                    console.warn('No station found for:', stationName);
                     return { departures: [], stationId: null, grouped: {} };
                 }
 
                 // Find best match (prefer stops over addresses)
                 const station = searchData.find((s: any) => s.type === 'stop') || searchData[0];
+
+                if (!station || !station.id) {
+                    console.warn('Station found but no ID:', station);
+                    return { departures: [], stationId: null, grouped: {} };
+                }
+
                 const stationId = station.id;
 
                 // Fetch departures
-                const departuresUrl = `https://v6.bvg.transport.rest/stops/${stationId}/departures?duration=60&results=30`;
+                const departuresUrl = `https://v6.bvg.transport.rest/stops/${stationId}/departures?duration=60&results=30&_t=${Date.now()}`;
                 const depsResponse = await fetch(departuresUrl);
                 const depsData = await depsResponse.json();
 

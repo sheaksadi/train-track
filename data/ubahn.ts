@@ -97,7 +97,7 @@ export const ubahnStations: UbahnStation[] = [
     { id: 'u5-10', name: 'Frankfurter Tor', lat: 52.5160, lng: 13.4535, lines: ['U5'] },
     { id: 'u5-11', name: 'Samariterstraße', lat: 52.5134, lng: 13.4616, lines: ['U5'] },
     { id: 'u5-12', name: 'Frankfurter Allee', lat: 52.5141, lng: 13.4716, lines: ['U5'] },
-    { id: 'u5-13', name: 'Magdalenenstraße', lat: 52.5131, lng: 13.4829, lines: ['U5'] },
+    { id: 'u5-13', name: 'U Magdalenenstr.', lat: 52.5131, lng: 13.4829, lines: ['U5'] },
     { id: 'u5-14', name: 'Lichtenberg', lat: 52.5116, lng: 13.4979, lines: ['U5'] },
     { id: 'u5-15', name: 'Friedrichsfelde', lat: 52.5107, lng: 13.5165, lines: ['U5'] },
     { id: 'u5-16', name: 'Tierpark', lat: 52.4997, lng: 13.5278, lines: ['U5'] },
