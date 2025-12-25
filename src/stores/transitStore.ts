@@ -1,8 +1,9 @@
+
 // Transit Data Store - Lines, Stations, Trains
 import { defineStore } from 'pinia';
 import * as THREE from 'three';
-import { ubahnColors, ubahnStations, getLineRoute as getUbahnRoute } from '~/data/ubahn';
-import { regionalColors, re1Stations, getRE1Route } from '~/data/regional';
+import { ubahnColors, ubahnStations } from '~/data/ubahn';
+import { regionalColors, re1Stations } from '~/data/regional';
 import { sbahnColors } from '~/data/sbahn';
 import { tramColors } from '~/data/tram';
 
@@ -84,17 +85,33 @@ export const useTransitStore = defineStore('transit', {
         lineRoutes: {} as Record<string, THREE.Vector3[]>,
 
         // Canonical station coordinates (from generated/live data)
-        canonicalCoordinates: {} as Record<string, { lat: number, lng: number }>,
+        // Initialize from static data for better first paint
+        canonicalCoordinates: [...ubahnStations, ...re1Stations].reduce((acc, s) => {
+            acc[s.name] = { lat: s.lat, lng: s.lng };
+            return acc;
+        }, {} as Record<string, { lat: number, lng: number }>),
+
+        // Dynamic stations list derived from topology
+        dynamicStations: [] as Station[],
 
         // Departures cache
         departuresCache: new Map<string, any>(),
 
         // Station ID cache (permanent for session)
         stationIdCache: new Map<string, string>(),
+
+        // Transit Data (JSON)
+        transitData: null as any,
     }),
 
     getters: {
         allStations(): Station[] {
+            // If we have dynamic stations from the fetched topology, use them!
+            // This ensures every station on a track is rendered as a dot.
+            if (this.dynamicStations.length > 0) {
+                return this.dynamicStations;
+            }
+            // Fallback to static if data hasn't loaded
             return [...ubahnStations, ...re1Stations];
         },
 
@@ -108,6 +125,58 @@ export const useTransitStore = defineStore('transit', {
     },
 
     actions: {
+        async loadTransitData() {
+            try {
+                const res = await fetch('/data/transit_data.json');
+                if (!res.ok) throw new Error('Failed to load transit data');
+                this.transitData = await res.json();
+
+                // 1. Process Stations and Lines from Topology
+                const stationMap: Record<string, Station> = {};
+
+                if (this.transitData.stations) {
+                    // Initialize from station dictionary
+                    Object.values(this.transitData.stations).forEach((s: any) => {
+                        stationMap[s.name] = {
+                            name: s.name,
+                            id: s.id,
+                            lat: s.lat,
+                            lng: s.lng,
+                            lines: [] // Will populate next
+                        };
+                    });
+                }
+
+                // 2. Populate 'lines' array for each station based on the tracks
+                if (this.transitData.lines) {
+                    Object.entries(this.transitData.lines).forEach(([lineName, stations]: [string, any]) => {
+                        (stations as string[]).forEach(stationName => {
+                            if (stationMap[stationName]) {
+                                if (!stationMap[stationName].lines.includes(lineName)) {
+                                    stationMap[stationName].lines.push(lineName);
+                                }
+                            }
+                        });
+                    });
+                }
+
+                // 3. Update State
+                this.dynamicStations = Object.values(stationMap);
+
+                // 4. Update Canonical Coordinates (for fallback or other lookups)
+                const updates: Record<string, { lat: number, lng: number }> = {};
+                this.dynamicStations.forEach(s => {
+                    updates[s.name] = { lat: s.lat, lng: s.lng };
+                });
+                this.updateRouteCoordinates(updates);
+
+                // 5. Rebuild routes
+                this.buildLineRoutes();
+            } catch (e) {
+                console.error('Transit data load error:', e);
+            }
+        },
+
         toggleLine(line: string) {
             this.enabledLines[line] = !this.enabledLines[line];
         },
@@ -131,18 +200,52 @@ export const useTransitStore = defineStore('transit', {
                 return canon ? [canon.lat, canon.lng] : [fallbackLat, fallbackLng];
             };
 
-            // U-Bahn lines
+            // 1. TOPOLOGY BASED RENDERING (Node -> Edge)
+            // Use lines from transit_data.json which now contains ordered station names
+            if (this.transitData?.lines) {
+                Object.entries(this.transitData.lines).forEach(([name, stationNames]: [string, any]) => {
+                    // stationNames is string[]
+                    if (!Array.isArray(stationNames) || stationNames.length < 2) return;
+
+                    const points = stationNames.map((stationName: string) => {
+                        let lat, lng;
+                        // Priority: 1. Canonical (Live/Updated), 2. Transit Data (Static Fetch)
+                        if (this.canonicalCoordinates[stationName]) {
+                            ({ lat, lng } = this.canonicalCoordinates[stationName]);
+                        } else if (this.transitData.stations && this.transitData.stations[stationName]) {
+                            ({ lat, lng } = this.transitData.stations[stationName]);
+                        } else {
+                            // Try to find in existing static data?
+                            const staticU = ubahnStations.find(s => s.name === stationName);
+                            if (staticU) {
+                                ({ lat, lng } = staticU);
+                            } else {
+                                const staticR = re1Stations.find(s => s.name === stationName);
+                                if (staticR) {
+                                    ({ lat, lng } = staticR);
+                                } else {
+                                    return null;
+                                }
+                            }
+                        }
+
+                        const { x, y } = latLngToScene(lat, lng);
+                        return new THREE.Vector3(x, y, 0);
+                    }).filter((p): p is THREE.Vector3 => p !== null);
+
+                    if (points.length >= 2) {
+                        this.lineRoutes[name] = points;
+                    }
+                });
+            }
+
+            // 2. Fallback for U-Bahn lines not in JSON (or if JSON failed)
             Object.keys(ubahnColors).forEach(name => {
-                // Check if we already have a high-quality route from generated data
                 if (this.lineRoutes[name] && this.lineRoutes[name].length > 2) {
-                    return; // Skip rebuilding, preserve generated route
+                    return; // Already built from topology
                 }
 
-                // Returns [lat, lng][]. It doesn't give names.
-                // We need the station objects to match names.
-                // Let's use getStationsForLine from data/ubahn.ts and sort them.
-                // Re-implementing route building with coordinate lookup:
-
+                // Fallback logic
                 const lineStations = ubahnStations.filter(s => s.lines.includes(name));
                 const lowerName = name.toLowerCase();
                 const ordered = lineStations.sort((a, b) => {
@@ -160,10 +263,9 @@ export const useTransitStore = defineStore('transit', {
                 }
             });
 
-            // RE1
-            // Check if RE1 already exists (unlikely from generated U/S-Bahn data, but good practice)
+            // RE1 Fallback logic
             if (!this.lineRoutes['RE1'] || this.lineRoutes['RE1'].length < 2) {
-                const re1Ordered = re1Stations; // Already ordered list in re1Stations
+                const re1Ordered = re1Stations;
                 if (re1Ordered.length >= 2) {
                     this.lineRoutes['RE1'] = re1Ordered.map(s => {
                         const [lat, lng] = getCoords(s.name, s.lat, s.lng);
@@ -200,17 +302,14 @@ export const useTransitStore = defineStore('transit', {
             return { x: closestX, y: closestY };
         },
 
-        // Fetch trains directly from BVG API (client-side for per-client rate limiting)
+        // Fetch trains directly from BVG API
         async fetchTrains(bounds?: { north: number, south: number, west: number, east: number }) {
             const { useApiStore } = await import('./apiStore');
             const apiStore = useApiStore();
 
-            // Use priority based on last hovered line
             const priority = apiStore.lastHoveredLine ? 'normal' : 'low';
 
             const result = await apiStore.executeRequest('trains', async () => {
-                // Default bounding box covering full RE1: Magdeburg to Frankfurt (Oder)
-                // If bounds passed, use them (with some padding preferably)
                 let north = 52.65;
                 let south = 52.05;
                 let west = 11.50;
@@ -222,7 +321,6 @@ export const useTransitStore = defineStore('transit', {
                     west = bounds.west;
                     east = bounds.east;
 
-                    // Add buffer to avoid popping
                     const latBuffer = 0.1;
                     const lngBuffer = 0.2;
                     north += latBuffer;
@@ -240,11 +338,10 @@ export const useTransitStore = defineStore('transit', {
 
                 const data = await response.json();
 
-                // Filter for supported products
                 const trains = data.movements
                     .filter((m: any) =>
                         ['subway', 'suburban', 'regional', 'tram'].includes(m.line?.product) &&
-                        allLineColors[m.line?.name] && // Only lines we have colors for (controlled list)
+                        allLineColors[m.line?.name] &&
                         m.location?.latitude &&
                         m.location?.longitude
                     )
@@ -252,7 +349,6 @@ export const useTransitStore = defineStore('transit', {
                         const nextStop = m.nextStopovers?.[0];
                         const delayBytes = nextStop?.departureDelay || 0;
 
-                        // Calculate time to next station
                         let timeStr = '';
                         if (nextStop?.arrival) {
                             const arrivalTime = new Date(nextStop.arrival).getTime();
@@ -298,7 +394,6 @@ export const useTransitStore = defineStore('transit', {
             this.loading = false;
         },
 
-        // Helper to get or search station ID
         async getStationId(stationName: string, apiStore: any): Promise<string | null> {
             if (this.stationIdCache.has(stationName)) {
                 return this.stationIdCache.get(stationName) || null;
@@ -315,7 +410,6 @@ export const useTransitStore = defineStore('transit', {
                 return null;
             }
 
-            // Find best match (prefer stops over addresses)
             const station = searchResult.find((s: any) => s.type === 'stop') || searchResult[0];
 
             if (station && station.id) {
@@ -326,7 +420,6 @@ export const useTransitStore = defineStore('transit', {
             return null;
         },
 
-        // Fetch departures directly from BVG API (client-side for per-client rate limiting)
         async fetchDepartures(stationName: string, isHovered: boolean = false) {
             const cached = this.departuresCache.get(stationName);
             if (cached) return cached;
@@ -334,16 +427,13 @@ export const useTransitStore = defineStore('transit', {
             const { useApiStore } = await import('./apiStore');
             const apiStore = useApiStore();
 
-            // High priority if this is the hovered station
             const priority = isHovered || apiStore.lastHoveredStation === stationName ? 'high' : 'normal';
 
-            // 1. Get Station ID (Cached or Search)
             const stationId = await this.getStationId(stationName, apiStore);
             if (!stationId) {
                 return { grouped: {} };
             }
 
-            // 2. Fetch Departures using ID
             const result = await apiStore.executeRequest('departures', async () => {
                 const departuresUrl = `https://v6.bvg.transport.rest/stops/${stationId}/departures?duration=60&results=30&_t=${Date.now()}`;
                 const depsResponse = await fetch(departuresUrl);
@@ -377,14 +467,13 @@ export const useTransitStore = defineStore('transit', {
                     };
                 });
 
-                // Group by category with priority order: U-Bahn, Regional, S-Bahn, Tram, Bus
                 const grouped: Record<string, any[]> = {};
                 const categoryOrder = ['U-Bahn', 'Regional', 'S-Bahn', 'Tram', 'Bus', 'other'];
 
                 categoryOrder.forEach(cat => {
                     const deps = allDepartures
                         .filter((d: any) => d.category === cat)
-                        .slice(0, 5); // Max 5 per category
+                        .slice(0, 5);
 
                     if (deps.length > 0) {
                         grouped[cat] = deps;

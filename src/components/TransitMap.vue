@@ -575,36 +575,38 @@ function updateVisibility() {
   citiesGroup.visible = !showDistricts; // Hide simple city dots when detailed districts appear
   
   // Toggle Transit Layers
-  backgroundLinesGroup.visible = showTracksAndStations;
+  // Groups are always "visible" technically, we control children visibility now to allow mixed states (Regional vs Local)
+  activeLinesGroup.visible = true; 
+  backgroundLinesGroup.visible = true;
   
-  // Trains and Active Lines also need zoom threshold now
-  // Keep activeLines visible always? No, user requested they vanish when zoomed out.
-  // "when zoomed out the trains also should vanish with their track"
-  // So we tie them to showTracksAndStations or a similar threshold.
-  
-  activeLinesGroup.visible = showTracksAndStations;
+  // Trains obey the general rule for now (or we can make regional trains visible too?)
+  // User said "trains also should vanish with their track".
+  // So if track is visible, train should be?
+  // Let's keep trains tied to general zoom for now to avoid clutter, or make them follow same logic.
+  // Converting trainsGroup to mixed visibility is harder as trains change often.
+  // Let's stick to tracks first.
   trainsGroup.visible = showTracksAndStations;
   
-  // Update Child Visibility
+  // Update Child Visibility (Active Lines)
   activeLinesGroup.children.forEach(child => {
     const name = child.userData.lineName;
     const isRegional = name.startsWith('RE') || name.startsWith('RB') || name === 'FEX';
     const isEnabled = transitStore.enabledLines[name] ?? false;
     
-    // Regional always visible if enabled, others depend on zoom
-    // User request overrides: "trains also should vanish with their track"
-    // So we respect the parent group visibility (showTracksAndStations) 
-    // but still need to toggle based on enabledLines.
-    
-    child.visible = isEnabled; 
+    // Visible if enabled AND (high zoom OR is regional)
+    child.visible = isEnabled && (showTracksAndStations || isRegional);
   });
-
-  // Background lines visibility - NEW: Hide phantom tracks
+  
+  // Update Child Visibility (Background Lines - Phantom)
   backgroundLinesGroup.children.forEach(child => {
       const name = child.userData.lineName;
+      const isRegional = name.startsWith('RE') || name.startsWith('RB') || name === 'FEX';
       const isEnabled = transitStore.enabledLines[name] ?? false;
-      child.visible = isEnabled && showTracksAndStations;
+      
+      child.visible = isEnabled && (showTracksAndStations || isRegional);
   });
+
+
 
   stationsGroup.children.forEach(child => {
     // Only show stations if zoomed in enough
@@ -1272,6 +1274,7 @@ onMounted(async () => {
   startApiMonitoring(); // Start tracking requests per minute
   setTimeout(() => {
     initThreeJS();
+    transitStore.loadTransitData(); // Load accurate track data
     const bounds = getMapBounds();
     transitStore.fetchTrains(bounds).then(updateTrainMarkers);
     restartRefreshInterval();

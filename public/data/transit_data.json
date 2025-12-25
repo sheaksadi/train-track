@@ -1,0 +1,1811 @@
+{
+  "lines": {
+    "U1": [
+      "U Uhlandstr. (Berlin)",
+      "U Kurfürstendamm (Berlin)",
+      "U Wittenbergplatz (Berlin)",
+      "U Nollendorfplatz (Berlin)"
+    ],
+    "U2": [
+      "U Ruhleben (Berlin)",
+      "U Olympia-Stadion (Berlin)",
+      "U Neu-Westend (Berlin)",
+      "U Theodor-Heuss-Platz (Berlin)",
+      "U Kaiserdamm (Berlin)",
+      "U Sophie-Charlotte-Platz (Berlin)",
+      "U Bismarckstr. (Berlin)",
+      "U Deutsche Oper (Berlin)",
+      "U Ernst-Reuter-Platz (Berlin)",
+      "S+U Zoologischer Garten Bhf (Berlin)",
+      "U Wittenbergplatz (Berlin)",
+      "U Nollendorfplatz (Berlin)",
+      "U Bülowstr. (Berlin)",
+      "U Gleisdreieck (Berlin)",
+      "U Mendelssohn-Bartholdy-Park (Berlin)",
+      "S+U Potsdamer Platz Bhf (Berlin)",
+      "U Anton-Wilhelm-Amo-Str. (Berlin)",
+      "U Stadtmitte (Berlin)",
+      "U Hausvogteiplatz (Berlin)",
+      "U Spittelmarkt (Berlin)",
+      "U Märkisches Museum (Berlin)",
+      "U Klosterstr. (Berlin)",
+      "S+U Alexanderplatz Bhf (Berlin)",
+      "U Rosa-Luxemburg-Platz (Berlin)",
+      "U Eberswalder Str. (Berlin)",
+      "S+U Schönhauser Allee (Berlin)",
+      "U Vinetastr. (Berlin)",
+      "S+U Pankow (Berlin)"
+    ],
+    "U3": [
+      "U Krumme Lanke (Berlin)",
+      "U Onkel Toms Hütte (Berlin)",
+      "U Oskar-Helene-Heim (Berlin)",
+      "U Freie Universität (Thielplatz) (Berlin)",
+      "U Dahlem-Dorf (Berlin)",
+      "U Podbielskiallee (Berlin)",
+      "U Breitenbachplatz (Berlin)",
+      "U Rüdesheimer Platz (Berlin)",
+      "S+U Heidelberger Platz (Berlin)",
+      "U Fehrbelliner Platz (Berlin)",
+      "U Hohenzollernplatz (Berlin)",
+      "U Spichernstr. (Berlin)",
+      "U Augsburger Str. (Berlin)",
+      "U Wittenbergplatz (Berlin)",
+      "U Nollendorfplatz (Berlin)",
+      "U Kurfürstenstr. (Berlin)",
+      "U Gleisdreieck (Berlin)",
+      "U Möckernbrücke (Berlin)",
+      "U Hallesches Tor (Berlin)",
+      "U Prinzenstr. (Berlin)",
+      "U Kottbusser Tor (Berlin)",
+      "U Görlitzer Bahnhof (Berlin)",
+      "U Schlesisches Tor (Berlin)",
+      "S+U Warschauer Str. (Berlin)"
+    ],
+    "U4": [
+      "U Nollendorfplatz (Berlin)",
+      "U Viktoria-Luise-Platz (Berlin)",
+      "U Bayerischer Platz (Berlin)",
+      "U Rathaus Schöneberg (Berlin)",
+      "S+U Innsbrucker Platz (Berlin)"
+    ],
+    "U5": [
+      "U Hönow (Berlin)",
+      "U Louis-Lewin-Str. (Berlin)",
+      "U Hellersdorf (Berlin)",
+      "U Cottbusser Platz (Berlin)",
+      "U Kienberg (Gärten der Welt) (Berlin)",
+      "U Kaulsdorf-Nord (Berlin)",
+      "S+U Wuhletal (Berlin)",
+      "U Elsterwerdaer Platz (Berlin)",
+      "U Biesdorf-Süd (Berlin)",
+      "U Tierpark (Berlin)",
+      "U Friedrichsfelde (Berlin)",
+      "S+U Lichtenberg Bhf (Berlin)",
+      "U Magdalenenstr. (Berlin)",
+      "S+U Frankfurter Allee (Berlin)",
+      "U Samariterstr. (Berlin)",
+      "U Frankfurter Tor (Berlin)",
+      "U Weberwiese (Berlin)",
+      "U Strausberger Platz (Berlin)",
+      "U Schillingstr. (Berlin)",
+      "S+U Alexanderplatz Bhf (Berlin)",
+      "U Rotes Rathaus (Berlin)",
+      "U Museumsinsel (Berlin)",
+      "U Unter den Linden (Berlin)",
+      "S+U Brandenburger Tor (Berlin)",
+      "U Bundestag (Berlin)",
+      "S+U Berlin Hauptbahnhof"
+    ],
+    "U7": [
+      "U Rudow (Berlin)",
+      "U Zwickauer Damm (Berlin)",
+      "U Wutzkyallee (Berlin)",
+      "U Lipschitzallee (Berlin)",
+      "U Johannisthaler Chaussee (Berlin)",
+      "U Britz-Süd (Berlin)",
+      "U Parchimer Allee (Berlin)",
+      "U Blaschkoallee (Berlin)",
+      "U Grenzallee (Berlin)",
+      "S+U Neukölln (Berlin)",
+      "U Karl-Marx-Str. (Berlin)",
+      "U Rathaus Neukölln (Berlin)",
+      "U Hermannplatz (Berlin)",
+      "U Südstern (Berlin)",
+      "U Gneisenaustr. (Berlin)",
+      "U Mehringdamm (Berlin)",
+      "U Möckernbrücke (Berlin)",
+      "S+U Yorckstr. (Berlin)",
+      "U Kleistpark (Berlin)",
+      "U Eisenacher Str. (Berlin)",
+      "U Bayerischer Platz (Berlin)",
+      "U Berliner Str. (Berlin)",
+      "U Blissestr. (Berlin)",
+      "U Fehrbelliner Platz (Berlin)",
+      "U Konstanzer Str. (Berlin)",
+      "U Adenauerplatz (Berlin)",
+      "U Wilmersdorfer Str. (Berlin)",
+      "U Bismarckstr. (Berlin)",
+      "U Richard-Wagner-Platz (Berlin)",
+      "U Mierendorffplatz (Berlin)",
+      "S+U Jungfernheide Bhf (Berlin)",
+      "U Jakob-Kaiser-Platz (Berlin)",
+      "U Halemweg (Berlin)",
+      "U Siemensdamm (Berlin)",
+      "U Rohrdamm (Berlin)",
+      "U Paulsternstr. (Berlin)",
+      "U Haselhorst (Berlin)",
+      "U Zitadelle (Berlin)",
+      "U Altstadt Spandau (Berlin)",
+      "S+U Rathaus Spandau (Berlin)"
+    ],
+    "U8": [
+      "S+U Hermannstr. (Berlin)",
+      "U Leinestr. (Berlin)",
+      "U Boddinstr. (Berlin)",
+      "U Hermannplatz (Berlin)",
+      "U Schönleinstr. (Berlin)",
+      "U Kottbusser Tor (Berlin)",
+      "U Moritzplatz (Berlin)",
+      "U Heinrich-Heine-Str. (Berlin)",
+      "S+U Jannowitzbrücke (Berlin)",
+      "S+U Alexanderplatz Bhf (Berlin)",
+      "U Weinmeisterstr. (Berlin)",
+      "U Rosenthaler Platz (Berlin)",
+      "U Bernauer Str. (Berlin)",
+      "U Voltastr. (Berlin)",
+      "S+U Gesundbrunnen Bhf (Berlin)",
+      "U Pankstr. (Berlin)",
+      "U Osloer Str. (Berlin)",
+      "U Franz-Neumann-Platz (Am Schäfersee) (Berlin)",
+      "U Residenzstr. (Berlin)",
+      "U Paracelsus-Bad (Berlin)",
+      "U Lindauer Allee (Berlin)",
+      "S+U Karl-Bonhoeffer-Nervenklinik (Berlin)",
+      "U Rathaus Reinickendorf (Berlin)",
+      "S+U Wittenau (Berlin)"
+    ],
+    "U9": [
+      "S+U Bundesplatz (Berlin)",
+      "U Berliner Str. (Berlin)",
+      "U Spichernstr. (Berlin)",
+      "U Kurfürstendamm (Berlin)",
+      "S+U Zoologischer Garten Bhf (Berlin)",
+      "U Hansaplatz (Berlin)",
+      "U Turmstr. (Berlin)",
+      "U Birkenstr. (Berlin)",
+      "S+U Westhafen (Berlin)",
+      "U Amrumer Str. (Berlin)",
+      "U Leopoldplatz (Berlin)",
+      "U Nauener Platz (Berlin)",
+      "U Osloer Str. (Berlin)"
+    ],
+    "S3": [
+      "S Spandau Bhf (Berlin)",
+      "S Stresow (Berlin)",
+      "S Pichelsberg (Berlin)",
+      "S Olympiastadion (Berlin)",
+      "S Heerstr. (Berlin)",
+      "S Messe Süd (Berlin)",
+      "S Westkreuz (Berlin)",
+      "S Charlottenburg Bhf (Berlin)",
+      "S Savignyplatz (Berlin)",
+      "S+U Zoologischer Garten Bhf (Berlin)",
+      "S Tiergarten (Berlin)",
+      "S Bellevue (Berlin)",
+      "S+U Berlin Hauptbahnhof",
+      "S+U Friedrichstr. Bhf (Berlin)",
+      "S Hackescher Markt (Berlin)",
+      "S+U Alexanderplatz Bhf (Berlin)",
+      "S+U Jannowitzbrücke (Berlin)",
+      "S Ostbahnhof (Berlin)",
+      "S+U Warschauer Str. (Berlin)",
+      "S Ostkreuz Bhf (Berlin)",
+      "S Rummelsburg (Berlin)",
+      "S Betriebsbahnhof Rummelsburg (Berlin)",
+      "S Karlshorst (Berlin)",
+      "S Wuhlheide (Berlin)",
+      "S Köpenick (Berlin)",
+      "S Friedrichshagen (Berlin)",
+      "S Rahnsdorf (Berlin)",
+      "S Wilhelmshagen (Berlin)",
+      "S Erkner Bhf"
+    ],
+    "S5": [
+      "S Westkreuz (Berlin)",
+      "S Charlottenburg Bhf (Berlin)",
+      "S Savignyplatz (Berlin)",
+      "S+U Zoologischer Garten Bhf (Berlin)",
+      "S Tiergarten (Berlin)",
+      "S Bellevue (Berlin)",
+      "S+U Berlin Hauptbahnhof",
+      "S+U Friedrichstr. Bhf (Berlin)",
+      "S Hackescher Markt (Berlin)",
+      "S+U Alexanderplatz Bhf (Berlin)",
+      "S+U Jannowitzbrücke (Berlin)",
+      "S Ostbahnhof (Berlin)",
+      "S+U Warschauer Str. (Berlin)",
+      "S Ostkreuz Bhf (Berlin)",
+      "S Nöldnerplatz (Berlin)",
+      "S+U Lichtenberg Bhf (Berlin)",
+      "S Friedrichsfelde Ost (Berlin)",
+      "S Biesdorf (Berlin)",
+      "S+U Wuhletal (Berlin)",
+      "S Kaulsdorf (Berlin)",
+      "S Mahlsdorf Bhf (Berlin)"
+    ],
+    "S7": [
+      "S Potsdam Hauptbahnhof",
+      "S Babelsberg",
+      "S Griebnitzsee Bhf",
+      "S Wannsee Bhf (Berlin)",
+      "S Nikolassee (Berlin)",
+      "S Grunewald (Berlin)",
+      "S Westkreuz (Berlin)",
+      "S Charlottenburg Bhf (Berlin)",
+      "S Savignyplatz (Berlin)",
+      "S+U Zoologischer Garten Bhf (Berlin)",
+      "S Tiergarten (Berlin)",
+      "S Bellevue (Berlin)",
+      "S+U Berlin Hauptbahnhof",
+      "S+U Friedrichstr. Bhf (Berlin)",
+      "S Hackescher Markt (Berlin)",
+      "S+U Alexanderplatz Bhf (Berlin)",
+      "S+U Jannowitzbrücke (Berlin)",
+      "S Ostbahnhof (Berlin)",
+      "S+U Warschauer Str. (Berlin)",
+      "S Ostkreuz Bhf (Berlin)",
+      "S Nöldnerplatz (Berlin)",
+      "S+U Lichtenberg Bhf (Berlin)",
+      "S Friedrichsfelde Ost (Berlin)",
+      "S Springpfuhl (Berlin)",
+      "S Poelchaustr. (Berlin)",
+      "S Marzahn (Berlin)",
+      "S Raoul-Wallenberg-Str. (Berlin)",
+      "S Mehrower Allee (Berlin)",
+      "S Ahrensfelde Bhf (Berlin)"
+    ],
+    "S9": [
+      "S Spandau Bhf (Berlin)",
+      "S Stresow (Berlin)",
+      "S Pichelsberg (Berlin)",
+      "S Olympiastadion (Berlin)",
+      "S Heerstr. (Berlin)",
+      "S Messe Süd (Berlin)",
+      "S Westkreuz (Berlin)",
+      "S Charlottenburg Bhf (Berlin)",
+      "S Savignyplatz (Berlin)",
+      "S+U Zoologischer Garten Bhf (Berlin)",
+      "S Tiergarten (Berlin)",
+      "S Bellevue (Berlin)",
+      "S+U Berlin Hauptbahnhof",
+      "S+U Friedrichstr. Bhf (Berlin)",
+      "S Hackescher Markt (Berlin)",
+      "S+U Alexanderplatz Bhf (Berlin)",
+      "S+U Jannowitzbrücke (Berlin)",
+      "S Ostbahnhof (Berlin)",
+      "S+U Warschauer Str. (Berlin)",
+      "S Treptower Park (Berlin)",
+      "S Plänterwald (Berlin)",
+      "S Baumschulenweg (Berlin)",
+      "S Schöneweide Bhf (Berlin)",
+      "S Johannisthal (Berlin)",
+      "S Adlershof (Berlin)",
+      "S Altglienicke (Berlin)",
+      "S Grünbergallee (Berlin)",
+      "S Schönefeld (bei Berlin)",
+      "S Waßmannsdorf",
+      "Flughafen BER"
+    ],
+    "RE1": [
+      "Magdeburg, Hauptbahnhof",
+      "Magdeburg-Neustadt, Bahnhof",
+      "Magdeburg, Herrenkrug Bhf",
+      "Biederitz",
+      "Gerwisch, Bahnhof",
+      "Möser, Bahnhof",
+      "Burg (bei Magdeburg), Bahnhof",
+      "Güsen (b. Genthin), Bahnhof",
+      "Genthin, Bahnhof",
+      "Wusterwitz, Bahnhof",
+      "Brandenburg, Kirchmöser Bhf",
+      "Brandenburg, Hauptbahnhof",
+      "Götz, Bahnhof",
+      "Groß Kreutz, Bahnhof",
+      "Werder (Havel), Bahnhof",
+      "Potsdam, Park Sanssouci Bhf",
+      "Potsdam, Charlottenhof Bhf",
+      "S Potsdam Hauptbahnhof",
+      "S Wannsee Bhf (Berlin)",
+      "S Charlottenburg Bhf (Berlin)",
+      "S+U Zoologischer Garten Bhf (Berlin)",
+      "S+U Berlin Hauptbahnhof",
+      "S+U Friedrichstr. Bhf (Berlin)",
+      "S+U Alexanderplatz Bhf (Berlin)",
+      "S Ostbahnhof (Berlin)",
+      "S Ostkreuz Bhf (Berlin)",
+      "S Erkner Bhf",
+      "Grünheide, Fangschleuse Bhf",
+      "Hangelsberg, Bahnhof",
+      "Fürstenwalde, Bahnhof",
+      "Berkenbrück (LOS), Bahnhof",
+      "Briesen (Mark), Bahnhof",
+      "Jacobsdorf (Mark), Bahnhof",
+      "Pillgram, Bahnhof",
+      "Frankfurt (Oder), Rosengarten Bhf",
+      "Frankfurt (Oder), Bahnhof"
+    ],
+    "RE7": [
+      "S Ostbahnhof (Berlin)",
+      "S+U Alexanderplatz Bhf (Berlin)",
+      "S+U Friedrichstr. Bhf (Berlin)",
+      "S+U Berlin Hauptbahnhof",
+      "S+U Zoologischer Garten Bhf (Berlin)",
+      "S Charlottenburg Bhf (Berlin)",
+      "S Wannsee Bhf (Berlin)",
+      "Potsdam, Medienstadt Babelsberg Bhf",
+      "Potsdam, Rehbrücke Bhf",
+      "Wilhelmshorst, Bahnhof",
+      "Michendorf, Bahnhof",
+      "Seddin (PM), Bahnhof",
+      "Beelitz-Heilstätten, Bahnhof",
+      "Borkheide, Bahnhof",
+      "Brück, Bahnhof",
+      "Baitz, Bahnhof",
+      "Bad Belzig, Bahnhof",
+      "Wiesenburg, Bahnhof",
+      "Medewitz, Bahnhof",
+      "Jeber-Bergfrieden, Bahnhof",
+      "Roßlau, Bahnhof",
+      "Dessau, Hauptbahnhof"
+    ],
+    "FEX": [
+      "S+U Berlin Hauptbahnhof [Gleis 1-8]",
+      "S+U Potsdamer Platz Bhf (Berlin)",
+      "S Südkreuz Bhf (Berlin)",
+      "Flughafen BER"
+    ]
+  },
+  "stations": {
+    "U Uhlandstr. (Berlin)": {
+      "name": "U Uhlandstr. (Berlin)",
+      "id": "900023301",
+      "lat": 52.502739,
+      "lng": 13.32623
+    },
+    "U Kurfürstendamm (Berlin)": {
+      "name": "U Kurfürstendamm (Berlin)",
+      "id": "900023203",
+      "lat": 52.503763,
+      "lng": 13.331416
+    },
+    "U Wittenbergplatz (Berlin)": {
+      "name": "U Wittenbergplatz (Berlin)",
+      "id": "900056101",
+      "lat": 52.502109,
+      "lng": 13.342563
+    },
+    "U Nollendorfplatz (Berlin)": {
+      "name": "U Nollendorfplatz (Berlin)",
+      "id": "900056102",
+      "lat": 52.499646,
+      "lng": 13.353826
+    },
+    "U Ruhleben (Berlin)": {
+      "name": "U Ruhleben (Berlin)",
+      "id": "900025202",
+      "lat": 52.525589,
+      "lng": 13.241902
+    },
+    "U Olympia-Stadion (Berlin)": {
+      "name": "U Olympia-Stadion (Berlin)",
+      "id": "900025203",
+      "lat": 52.51705,
+      "lng": 13.250504
+    },
+    "U Neu-Westend (Berlin)": {
+      "name": "U Neu-Westend (Berlin)",
+      "id": "900026101",
+      "lat": 52.516411,
+      "lng": 13.259907
+    },
+    "U Theodor-Heuss-Platz (Berlin)": {
+      "name": "U Theodor-Heuss-Platz (Berlin)",
+      "id": "900026201",
+      "lat": 52.509795,
+      "lng": 13.272977
+    },
+    "U Kaiserdamm (Berlin)": {
+      "name": "U Kaiserdamm (Berlin)",
+      "id": "900026202",
+      "lat": 52.509984,
+      "lng": 13.281697
+    },
+    "U Sophie-Charlotte-Platz (Berlin)": {
+      "name": "U Sophie-Charlotte-Platz (Berlin)",
+      "id": "900022101",
+      "lat": 52.510973,
+      "lng": 13.297464
+    },
+    "U Bismarckstr. (Berlin)": {
+      "name": "U Bismarckstr. (Berlin)",
+      "id": "900024201",
+      "lat": 52.511539,
+      "lng": 13.305339
+    },
+    "U Deutsche Oper (Berlin)": {
+      "name": "U Deutsche Oper (Berlin)",
+      "id": "900022201",
+      "lat": 52.511827,
+      "lng": 13.30942
+    },
+    "U Ernst-Reuter-Platz (Berlin)": {
+      "name": "U Ernst-Reuter-Platz (Berlin)",
+      "id": "900023101",
+      "lat": 52.511584,
+      "lng": 13.32258
+    },
+    "S+U Zoologischer Garten Bhf (Berlin)": {
+      "name": "S+U Zoologischer Garten Bhf (Berlin)",
+      "id": "900023201",
+      "lat": 52.506919,
+      "lng": 13.332711
+    },
+    "U Bülowstr. (Berlin)": {
+      "name": "U Bülowstr. (Berlin)",
+      "id": "900056104",
+      "lat": 52.497624,
+      "lng": 13.362456
+    },
+    "U Gleisdreieck (Berlin)": {
+      "name": "U Gleisdreieck (Berlin)",
+      "id": "900017103",
+      "lat": 52.499583,
+      "lng": 13.374295
+    },
+    "U Mendelssohn-Bartholdy-Park (Berlin)": {
+      "name": "U Mendelssohn-Bartholdy-Park (Berlin)",
+      "id": "900005252",
+      "lat": 52.503188,
+      "lng": 13.374681
+    },
+    "S+U Potsdamer Platz Bhf (Berlin)": {
+      "name": "S+U Potsdamer Platz Bhf (Berlin)",
+      "id": "900100020",
+      "lat": 52.509355,
+      "lng": 13.376551
+    },
+    "U Anton-Wilhelm-Amo-Str. (Berlin)": {
+      "name": "U Anton-Wilhelm-Amo-Str. (Berlin)",
+      "id": "900100010",
+      "lat": 52.511521,
+      "lng": 13.383796
+    },
+    "U Stadtmitte (Berlin)": {
+      "name": "U Stadtmitte (Berlin)",
+      "id": "900100011",
+      "lat": 52.511494,
+      "lng": 13.38972
+    },
+    "U Hausvogteiplatz (Berlin)": {
+      "name": "U Hausvogteiplatz (Berlin)",
+      "id": "900100012",
+      "lat": 52.513364,
+      "lng": 13.395348
+    },
+    "U Spittelmarkt (Berlin)": {
+      "name": "U Spittelmarkt (Berlin)",
+      "id": "900100013",
+      "lat": 52.511413,
+      "lng": 13.402027
+    },
+    "U Märkisches Museum (Berlin)": {
+      "name": "U Märkisches Museum (Berlin)",
+      "id": "900100014",
+      "lat": 52.512007,
+      "lng": 13.408768
+    },
+    "U Klosterstr. (Berlin)": {
+      "name": "U Klosterstr. (Berlin)",
+      "id": "900100015",
+      "lat": 52.517229,
+      "lng": 13.412454
+    },
+    "S+U Alexanderplatz Bhf (Berlin)": {
+      "name": "S+U Alexanderplatz Bhf (Berlin)",
+      "id": "900100003",
+      "lat": 52.521508,
+      "lng": 13.411267
+    },
+    "U Rosa-Luxemburg-Platz (Berlin)": {
+      "name": "U Rosa-Luxemburg-Platz (Berlin)",
+      "id": "900100016",
+      "lat": 52.528529,
+      "lng": 13.41009
+    },
+    "U Eberswalder Str. (Berlin)": {
+      "name": "U Eberswalder Str. (Berlin)",
+      "id": "900110006",
+      "lat": 52.541024,
+      "lng": 13.412157
+    },
+    "S+U Schönhauser Allee (Berlin)": {
+      "name": "S+U Schönhauser Allee (Berlin)",
+      "id": "900110001",
+      "lat": 52.549339,
+      "lng": 13.415142
+    },
+    "U Vinetastr. (Berlin)": {
+      "name": "U Vinetastr. (Berlin)",
+      "id": "900130011",
+      "lat": 52.559515,
+      "lng": 13.413766
+    },
+    "S+U Pankow (Berlin)": {
+      "name": "S+U Pankow (Berlin)",
+      "id": "900130002",
+      "lat": 52.567281,
+      "lng": 13.412283
+    },
+    "U Krumme Lanke (Berlin)": {
+      "name": "U Krumme Lanke (Berlin)",
+      "id": "900050201",
+      "lat": 52.442619,
+      "lng": 13.240356
+    },
+    "U Onkel Toms Hütte (Berlin)": {
+      "name": "U Onkel Toms Hütte (Berlin)",
+      "id": "900050282",
+      "lat": 52.450143,
+      "lng": 13.254019
+    },
+    "U Oskar-Helene-Heim (Berlin)": {
+      "name": "U Oskar-Helene-Heim (Berlin)",
+      "id": "900051301",
+      "lat": 52.450421,
+      "lng": 13.268914
+    },
+    "U Freie Universität (Thielplatz) (Berlin)": {
+      "name": "U Freie Universität (Thielplatz) (Berlin)",
+      "id": "900051201",
+      "lat": 52.450997,
+      "lng": 13.281652
+    },
+    "U Dahlem-Dorf (Berlin)": {
+      "name": "U Dahlem-Dorf (Berlin)",
+      "id": "900051303",
+      "lat": 52.457694,
+      "lng": 13.290012
+    },
+    "U Podbielskiallee (Berlin)": {
+      "name": "U Podbielskiallee (Berlin)",
+      "id": "900051302",
+      "lat": 52.464175,
+      "lng": 13.295199
+    },
+    "U Breitenbachplatz (Berlin)": {
+      "name": "U Breitenbachplatz (Berlin)",
+      "id": "900051202",
+      "lat": 52.467339,
+      "lng": 13.309276
+    },
+    "U Rüdesheimer Platz (Berlin)": {
+      "name": "U Rüdesheimer Platz (Berlin)",
+      "id": "900045101",
+      "lat": 52.472463,
+      "lng": 13.314391
+    },
+    "S+U Heidelberger Platz (Berlin)": {
+      "name": "S+U Heidelberger Platz (Berlin)",
+      "id": "900045102",
+      "lat": 52.480122,
+      "lng": 13.312287
+    },
+    "U Fehrbelliner Platz (Berlin)": {
+      "name": "U Fehrbelliner Platz (Berlin)",
+      "id": "900041101",
+      "lat": 52.490361,
+      "lng": 13.314409
+    },
+    "U Hohenzollernplatz (Berlin)": {
+      "name": "U Hohenzollernplatz (Berlin)",
+      "id": "900043101",
+      "lat": 52.49383,
+      "lng": 13.324054
+    },
+    "U Spichernstr. (Berlin)": {
+      "name": "U Spichernstr. (Berlin)",
+      "id": "900042101",
+      "lat": 52.496581,
+      "lng": 13.330616
+    },
+    "U Augsburger Str. (Berlin)": {
+      "name": "U Augsburger Str. (Berlin)",
+      "id": "900023202",
+      "lat": 52.500446,
+      "lng": 13.336459
+    },
+    "U Kurfürstenstr. (Berlin)": {
+      "name": "U Kurfürstenstr. (Berlin)",
+      "id": "900005201",
+      "lat": 52.499781,
+      "lng": 13.362861
+    },
+    "U Möckernbrücke (Berlin)": {
+      "name": "U Möckernbrücke (Berlin)",
+      "id": "900017104",
+      "lat": 52.498945,
+      "lng": 13.383257
+    },
+    "U Hallesches Tor (Berlin)": {
+      "name": "U Hallesches Tor (Berlin)",
+      "id": "900012103",
+      "lat": 52.497777,
+      "lng": 13.391761
+    },
+    "U Prinzenstr. (Berlin)": {
+      "name": "U Prinzenstr. (Berlin)",
+      "id": "900013103",
+      "lat": 52.498325,
+      "lng": 13.406548
+    },
+    "U Kottbusser Tor (Berlin)": {
+      "name": "U Kottbusser Tor (Berlin)",
+      "id": "900013102",
+      "lat": 52.499044,
+      "lng": 13.417749
+    },
+    "U Görlitzer Bahnhof (Berlin)": {
+      "name": "U Görlitzer Bahnhof (Berlin)",
+      "id": "900014101",
+      "lat": 52.499143,
+      "lng": 13.427142
+    },
+    "U Schlesisches Tor (Berlin)": {
+      "name": "U Schlesisches Tor (Berlin)",
+      "id": "900014102",
+      "lat": 52.501148,
+      "lng": 13.441795
+    },
+    "S+U Warschauer Str. (Berlin)": {
+      "name": "S+U Warschauer Str. (Berlin)",
+      "id": "900120004",
+      "lat": 52.505768,
+      "lng": 13.449157
+    },
+    "U Viktoria-Luise-Platz (Berlin)": {
+      "name": "U Viktoria-Luise-Platz (Berlin)",
+      "id": "900055101",
+      "lat": 52.496168,
+      "lng": 13.343264
+    },
+    "U Bayerischer Platz (Berlin)": {
+      "name": "U Bayerischer Platz (Berlin)",
+      "id": "900055102",
+      "lat": 52.488653,
+      "lng": 13.340235
+    },
+    "U Rathaus Schöneberg (Berlin)": {
+      "name": "U Rathaus Schöneberg (Berlin)",
+      "id": "900054101",
+      "lat": 52.483331,
+      "lng": 13.341988
+    },
+    "S+U Innsbrucker Platz (Berlin)": {
+      "name": "S+U Innsbrucker Platz (Berlin)",
+      "id": "900054105",
+      "lat": 52.478099,
+      "lng": 13.342878
+    },
+    "U Hönow (Berlin)": {
+      "name": "U Hönow (Berlin)",
+      "id": "900175010",
+      "lat": 52.538102,
+      "lng": 13.634542
+    },
+    "U Louis-Lewin-Str. (Berlin)": {
+      "name": "U Louis-Lewin-Str. (Berlin)",
+      "id": "900175015",
+      "lat": 52.539136,
+      "lng": 13.619709
+    },
+    "U Hellersdorf (Berlin)": {
+      "name": "U Hellersdorf (Berlin)",
+      "id": "900175007",
+      "lat": 52.536331,
+      "lng": 13.605327
+    },
+    "U Cottbusser Platz (Berlin)": {
+      "name": "U Cottbusser Platz (Berlin)",
+      "id": "900175006",
+      "lat": 52.533967,
+      "lng": 13.596895
+    },
+    "U Kienberg (Gärten der Welt) (Berlin)": {
+      "name": "U Kienberg (Gärten der Welt) (Berlin)",
+      "id": "900175005",
+      "lat": 52.528484,
+      "lng": 13.590539
+    },
+    "U Kaulsdorf-Nord (Berlin)": {
+      "name": "U Kaulsdorf-Nord (Berlin)",
+      "id": "900175004",
+      "lat": 52.521436,
+      "lng": 13.588759
+    },
+    "S+U Wuhletal (Berlin)": {
+      "name": "S+U Wuhletal (Berlin)",
+      "id": "900175001",
+      "lat": 52.512726,
+      "lng": 13.574539
+    },
+    "U Elsterwerdaer Platz (Berlin)": {
+      "name": "U Elsterwerdaer Platz (Berlin)",
+      "id": "900171006",
+      "lat": 52.50513,
+      "lng": 13.56065
+    },
+    "U Biesdorf-Süd (Berlin)": {
+      "name": "U Biesdorf-Süd (Berlin)",
+      "id": "900171005",
+      "lat": 52.499521,
+      "lng": 13.547328
+    },
+    "U Tierpark (Berlin)": {
+      "name": "U Tierpark (Berlin)",
+      "id": "900161002",
+      "lat": 52.497237,
+      "lng": 13.523624
+    },
+    "U Friedrichsfelde (Berlin)": {
+      "name": "U Friedrichsfelde (Berlin)",
+      "id": "900161512",
+      "lat": 52.505462,
+      "lng": 13.513547
+    },
+    "S+U Lichtenberg Bhf (Berlin)": {
+      "name": "S+U Lichtenberg Bhf (Berlin)",
+      "id": "900160004",
+      "lat": 52.510676,
+      "lng": 13.498355
+    },
+    "U Magdalenenstr. (Berlin)": {
+      "name": "U Magdalenenstr. (Berlin)",
+      "id": "900160005",
+      "lat": 52.512456,
+      "lng": 13.487496
+    },
+    "S+U Frankfurter Allee (Berlin)": {
+      "name": "S+U Frankfurter Allee (Berlin)",
+      "id": "900120001",
+      "lat": 52.51358,
+      "lng": 13.475846
+    },
+    "U Samariterstr. (Berlin)": {
+      "name": "U Samariterstr. (Berlin)",
+      "id": "900120009",
+      "lat": 52.514658,
+      "lng": 13.465347
+    },
+    "U Frankfurter Tor (Berlin)": {
+      "name": "U Frankfurter Tor (Berlin)",
+      "id": "900120008",
+      "lat": 52.515773,
+      "lng": 13.454083
+    },
+    "U Weberwiese (Berlin)": {
+      "name": "U Weberwiese (Berlin)",
+      "id": "900120025",
+      "lat": 52.516852,
+      "lng": 13.443278
+    },
+    "U Strausberger Platz (Berlin)": {
+      "name": "U Strausberger Platz (Berlin)",
+      "id": "900120006",
+      "lat": 52.518029,
+      "lng": 13.432212
+    },
+    "U Schillingstr. (Berlin)": {
+      "name": "U Schillingstr. (Berlin)",
+      "id": "900100017",
+      "lat": 52.520313,
+      "lng": 13.421893
+    },
+    "U Rotes Rathaus (Berlin)": {
+      "name": "U Rotes Rathaus (Berlin)",
+      "id": "900100045",
+      "lat": 52.518461,
+      "lng": 13.407061
+    },
+    "U Museumsinsel (Berlin)": {
+      "name": "U Museumsinsel (Berlin)",
+      "id": "900100537",
+      "lat": 52.517391,
+      "lng": 13.399195
+    },
+    "U Unter den Linden (Berlin)": {
+      "name": "U Unter den Linden (Berlin)",
+      "id": "900100513",
+      "lat": 52.516996,
+      "lng": 13.388875
+    },
+    "S+U Brandenburger Tor (Berlin)": {
+      "name": "S+U Brandenburger Tor (Berlin)",
+      "id": "900100025",
+      "lat": 52.51651,
+      "lng": 13.381936
+    },
+    "U Bundestag (Berlin)": {
+      "name": "U Bundestag (Berlin)",
+      "id": "900003254",
+      "lat": 52.520106,
+      "lng": 13.372955
+    },
+    "S+U Berlin Hauptbahnhof": {
+      "name": "S+U Berlin Hauptbahnhof",
+      "id": "900003201",
+      "lat": 52.525607,
+      "lng": 13.369072
+    },
+    "U Rudow (Berlin)": {
+      "name": "U Rudow (Berlin)",
+      "id": "900083201",
+      "lat": 52.415714,
+      "lng": 13.49653
+    },
+    "U Zwickauer Damm (Berlin)": {
+      "name": "U Zwickauer Damm (Berlin)",
+      "id": "900083101",
+      "lat": 52.423031,
+      "lng": 13.484368
+    },
+    "U Wutzkyallee (Berlin)": {
+      "name": "U Wutzkyallee (Berlin)",
+      "id": "900083102",
+      "lat": 52.423148,
+      "lng": 13.474821
+    },
+    "U Lipschitzallee (Berlin)": {
+      "name": "U Lipschitzallee (Berlin)",
+      "id": "900082201",
+      "lat": 52.424649,
+      "lng": 13.463108
+    },
+    "U Johannisthaler Chaussee (Berlin)": {
+      "name": "U Johannisthaler Chaussee (Berlin)",
+      "id": "900082202",
+      "lat": 52.429252,
+      "lng": 13.453849
+    },
+    "U Britz-Süd (Berlin)": {
+      "name": "U Britz-Süd (Berlin)",
+      "id": "900080402",
+      "lat": 52.437073,
+      "lng": 13.447665
+    },
+    "U Parchimer Allee (Berlin)": {
+      "name": "U Parchimer Allee (Berlin)",
+      "id": "900080401",
+      "lat": 52.445298,
+      "lng": 13.449966
+    },
+    "U Blaschkoallee (Berlin)": {
+      "name": "U Blaschkoallee (Berlin)",
+      "id": "900080201",
+      "lat": 52.452741,
+      "lng": 13.448977
+    },
+    "U Grenzallee (Berlin)": {
+      "name": "U Grenzallee (Berlin)",
+      "id": "900080202",
+      "lat": 52.463519,
+      "lng": 13.444824
+    },
+    "S+U Neukölln (Berlin)": {
+      "name": "S+U Neukölln (Berlin)",
+      "id": "900078201",
+      "lat": 52.469137,
+      "lng": 13.442011
+    },
+    "U Karl-Marx-Str. (Berlin)": {
+      "name": "U Karl-Marx-Str. (Berlin)",
+      "id": "900078103",
+      "lat": 52.476427,
+      "lng": 13.439808
+    },
+    "U Rathaus Neukölln (Berlin)": {
+      "name": "U Rathaus Neukölln (Berlin)",
+      "id": "900078102",
+      "lat": 52.481147,
+      "lng": 13.43481
+    },
+    "U Hermannplatz (Berlin)": {
+      "name": "U Hermannplatz (Berlin)",
+      "id": "900078101",
+      "lat": 52.486954,
+      "lng": 13.424724
+    },
+    "U Südstern (Berlin)": {
+      "name": "U Südstern (Berlin)",
+      "id": "900016202",
+      "lat": 52.489219,
+      "lng": 13.407681
+    },
+    "U Gneisenaustr. (Berlin)": {
+      "name": "U Gneisenaustr. (Berlin)",
+      "id": "900016101",
+      "lat": 52.49125,
+      "lng": 13.395384
+    },
+    "U Mehringdamm (Berlin)": {
+      "name": "U Mehringdamm (Berlin)",
+      "id": "900017101",
+      "lat": 52.49357,
+      "lng": 13.388138
+    },
+    "S+U Yorckstr. (Berlin)": {
+      "name": "S+U Yorckstr. (Berlin)",
+      "id": "900058103",
+      "lat": 52.492356,
+      "lng": 13.372209
+    },
+    "U Kleistpark (Berlin)": {
+      "name": "U Kleistpark (Berlin)",
+      "id": "900054102",
+      "lat": 52.490684,
+      "lng": 13.360541
+    },
+    "U Eisenacher Str. (Berlin)": {
+      "name": "U Eisenacher Str. (Berlin)",
+      "id": "900054103",
+      "lat": 52.48948,
+      "lng": 13.350285
+    },
+    "U Berliner Str. (Berlin)": {
+      "name": "U Berliner Str. (Berlin)",
+      "id": "900044201",
+      "lat": 52.487044,
+      "lng": 13.331353
+    },
+    "U Blissestr. (Berlin)": {
+      "name": "U Blissestr. (Berlin)",
+      "id": "900041102",
+      "lat": 52.486477,
+      "lng": 13.320548
+    },
+    "U Konstanzer Str. (Berlin)": {
+      "name": "U Konstanzer Str. (Berlin)",
+      "id": "900041201",
+      "lat": 52.49357,
+      "lng": 13.310085
+    },
+    "U Adenauerplatz (Berlin)": {
+      "name": "U Adenauerplatz (Berlin)",
+      "id": "900023302",
+      "lat": 52.500087,
+      "lng": 13.307352
+    },
+    "U Wilmersdorfer Str. (Berlin)": {
+      "name": "U Wilmersdorfer Str. (Berlin)",
+      "id": "900024202",
+      "lat": 52.506415,
+      "lng": 13.306777
+    },
+    "U Richard-Wagner-Platz (Berlin)": {
+      "name": "U Richard-Wagner-Platz (Berlin)",
+      "id": "900022202",
+      "lat": 52.517157,
+      "lng": 13.307217
+    },
+    "U Mierendorffplatz (Berlin)": {
+      "name": "U Mierendorffplatz (Berlin)",
+      "id": "900019204",
+      "lat": 52.525787,
+      "lng": 13.305707
+    },
+    "S+U Jungfernheide Bhf (Berlin)": {
+      "name": "S+U Jungfernheide Bhf (Berlin)",
+      "id": "900020201",
+      "lat": 52.530452,
+      "lng": 13.300125
+    },
+    "U Jakob-Kaiser-Platz (Berlin)": {
+      "name": "U Jakob-Kaiser-Platz (Berlin)",
+      "id": "900018101",
+      "lat": 52.536988,
+      "lng": 13.293662
+    },
+    "U Halemweg (Berlin)": {
+      "name": "U Halemweg (Berlin)",
+      "id": "900018102",
+      "lat": 52.5367,
+      "lng": 13.286578
+    },
+    "U Siemensdamm (Berlin)": {
+      "name": "U Siemensdamm (Berlin)",
+      "id": "900035101",
+      "lat": 52.537024,
+      "lng": 13.273319
+    },
+    "U Rohrdamm (Berlin)": {
+      "name": "U Rohrdamm (Berlin)",
+      "id": "900036101",
+      "lat": 52.536907,
+      "lng": 13.262874
+    },
+    "U Paulsternstr. (Berlin)": {
+      "name": "U Paulsternstr. (Berlin)",
+      "id": "900034101",
+      "lat": 52.538129,
+      "lng": 13.248068
+    },
+    "U Haselhorst (Berlin)": {
+      "name": "U Haselhorst (Berlin)",
+      "id": "900034102",
+      "lat": 52.538687,
+      "lng": 13.231942
+    },
+    "U Zitadelle (Berlin)": {
+      "name": "U Zitadelle (Berlin)",
+      "id": "900033101",
+      "lat": 52.537518,
+      "lng": 13.217622
+    },
+    "U Altstadt Spandau (Berlin)": {
+      "name": "U Altstadt Spandau (Berlin)",
+      "id": "900029301",
+      "lat": 52.539163,
+      "lng": 13.206763
+    },
+    "S+U Rathaus Spandau (Berlin)": {
+      "name": "S+U Rathaus Spandau (Berlin)",
+      "id": "900029302",
+      "lat": 52.535639,
+      "lng": 13.199841
+    },
+    "S+U Hermannstr. (Berlin)": {
+      "name": "S+U Hermannstr. (Berlin)",
+      "id": "900079221",
+      "lat": 52.467546,
+      "lng": 13.431295
+    },
+    "U Leinestr. (Berlin)": {
+      "name": "U Leinestr. (Berlin)",
+      "id": "900079201",
+      "lat": 52.472877,
+      "lng": 13.428401
+    },
+    "U Boddinstr. (Berlin)": {
+      "name": "U Boddinstr. (Berlin)",
+      "id": "900079202",
+      "lat": 52.479744,
+      "lng": 13.425785
+    },
+    "U Schönleinstr. (Berlin)": {
+      "name": "U Schönleinstr. (Berlin)",
+      "id": "900016201",
+      "lat": 52.493345,
+      "lng": 13.421911
+    },
+    "U Moritzplatz (Berlin)": {
+      "name": "U Moritzplatz (Berlin)",
+      "id": "900013101",
+      "lat": 52.503737,
+      "lng": 13.410944
+    },
+    "U Heinrich-Heine-Str. (Berlin)": {
+      "name": "U Heinrich-Heine-Str. (Berlin)",
+      "id": "900100008",
+      "lat": 52.510559,
+      "lng": 13.416122
+    },
+    "S+U Jannowitzbrücke (Berlin)": {
+      "name": "S+U Jannowitzbrücke (Berlin)",
+      "id": "900100004",
+      "lat": 52.515503,
+      "lng": 13.418027
+    },
+    "U Weinmeisterstr. (Berlin)": {
+      "name": "U Weinmeisterstr. (Berlin)",
+      "id": "900100051",
+      "lat": 52.525374,
+      "lng": 13.405308
+    },
+    "U Rosenthaler Platz (Berlin)": {
+      "name": "U Rosenthaler Platz (Berlin)",
+      "id": "900100023",
+      "lat": 52.529778,
+      "lng": 13.401397
+    },
+    "U Bernauer Str. (Berlin)": {
+      "name": "U Bernauer Str. (Berlin)",
+      "id": "900007110",
+      "lat": 52.537994,
+      "lng": 13.396229
+    },
+    "U Voltastr. (Berlin)": {
+      "name": "U Voltastr. (Berlin)",
+      "id": "900007103",
+      "lat": 52.541932,
+      "lng": 13.393154
+    },
+    "S+U Gesundbrunnen Bhf (Berlin)": {
+      "name": "S+U Gesundbrunnen Bhf (Berlin)",
+      "id": "900007102",
+      "lat": 52.548638,
+      "lng": 13.388372
+    },
+    "U Pankstr. (Berlin)": {
+      "name": "U Pankstr. (Berlin)",
+      "id": "900009203",
+      "lat": 52.552278,
+      "lng": 13.381441
+    },
+    "U Osloer Str. (Berlin)": {
+      "name": "U Osloer Str. (Berlin)",
+      "id": "900009202",
+      "lat": 52.557105,
+      "lng": 13.373279
+    },
+    "U Franz-Neumann-Platz (Am Schäfersee) (Berlin)": {
+      "name": "U Franz-Neumann-Platz (Am Schäfersee) (Berlin)",
+      "id": "900085202",
+      "lat": 52.563856,
+      "lng": 13.364281
+    },
+    "U Residenzstr. (Berlin)": {
+      "name": "U Residenzstr. (Berlin)",
+      "id": "900085203",
+      "lat": 52.570841,
+      "lng": 13.360631
+    },
+    "U Paracelsus-Bad (Berlin)": {
+      "name": "U Paracelsus-Bad (Berlin)",
+      "id": "900085104",
+      "lat": 52.574428,
+      "lng": 13.3473
+    },
+    "U Lindauer Allee (Berlin)": {
+      "name": "U Lindauer Allee (Berlin)",
+      "id": "900086160",
+      "lat": 52.57539,
+      "lng": 13.339039
+    },
+    "S+U Karl-Bonhoeffer-Nervenklinik (Berlin)": {
+      "name": "S+U Karl-Bonhoeffer-Nervenklinik (Berlin)",
+      "id": "900096458",
+      "lat": 52.578167,
+      "lng": 13.332917
+    },
+    "U Rathaus Reinickendorf (Berlin)": {
+      "name": "U Rathaus Reinickendorf (Berlin)",
+      "id": "900096410",
+      "lat": 52.588217,
+      "lng": 13.325564
+    },
+    "S+U Wittenau (Berlin)": {
+      "name": "S+U Wittenau (Berlin)",
+      "id": "900096101",
+      "lat": 52.596451,
+      "lng": 13.335524
+    },
+    "S+U Bundesplatz (Berlin)": {
+      "name": "S+U Bundesplatz (Berlin)",
+      "id": "900044202",
+      "lat": 52.477668,
+      "lng": 13.32863
+    },
+    "U Hansaplatz (Berlin)": {
+      "name": "U Hansaplatz (Berlin)",
+      "id": "900003101",
+      "lat": 52.518092,
+      "lng": 13.342095
+    },
+    "U Turmstr. (Berlin)": {
+      "name": "U Turmstr. (Berlin)",
+      "id": "900003104",
+      "lat": 52.52594,
+      "lng": 13.341421
+    },
+    "U Birkenstr. (Berlin)": {
+      "name": "U Birkenstr. (Berlin)",
+      "id": "900002201",
+      "lat": 52.532268,
+      "lng": 13.341421
+    },
+    "S+U Westhafen (Berlin)": {
+      "name": "S+U Westhafen (Berlin)",
+      "id": "900001201",
+      "lat": 52.536179,
+      "lng": 13.343839
+    },
+    "U Amrumer Str. (Berlin)": {
+      "name": "U Amrumer Str. (Berlin)",
+      "id": "900009101",
+      "lat": 52.542201,
+      "lng": 13.34953
+    },
+    "U Leopoldplatz (Berlin)": {
+      "name": "U Leopoldplatz (Berlin)",
+      "id": "900009102",
+      "lat": 52.546489,
+      "lng": 13.359391
+    },
+    "U Nauener Platz (Berlin)": {
+      "name": "U Nauener Platz (Berlin)",
+      "id": "900009201",
+      "lat": 52.551523,
+      "lng": 13.367364
+    },
+    "S Spandau Bhf (Berlin)": {
+      "name": "S Spandau Bhf (Berlin)",
+      "id": "900029101",
+      "lat": 52.534794,
+      "lng": 13.197477
+    },
+    "S Stresow (Berlin)": {
+      "name": "S Stresow (Berlin)",
+      "id": "900030202",
+      "lat": 52.531972,
+      "lng": 13.2091
+    },
+    "S Pichelsberg (Berlin)": {
+      "name": "S Pichelsberg (Berlin)",
+      "id": "900025424",
+      "lat": 52.50993,
+      "lng": 13.228256
+    },
+    "S Olympiastadion (Berlin)": {
+      "name": "S Olympiastadion (Berlin)",
+      "id": "900025321",
+      "lat": 52.511135,
+      "lng": 13.241111
+    },
+    "S Heerstr. (Berlin)": {
+      "name": "S Heerstr. (Berlin)",
+      "id": "900026105",
+      "lat": 52.508501,
+      "lng": 13.258442
+    },
+    "S Messe Süd (Berlin)": {
+      "name": "S Messe Süd (Berlin)",
+      "id": "900025423",
+      "lat": 52.498774,
+      "lng": 13.270451
+    },
+    "S Westkreuz (Berlin)": {
+      "name": "S Westkreuz (Berlin)",
+      "id": "900024102",
+      "lat": 52.501148,
+      "lng": 13.283036
+    },
+    "S Charlottenburg Bhf (Berlin)": {
+      "name": "S Charlottenburg Bhf (Berlin)",
+      "id": "900024101",
+      "lat": 52.504734,
+      "lng": 13.303864
+    },
+    "S Savignyplatz (Berlin)": {
+      "name": "S Savignyplatz (Berlin)",
+      "id": "900024203",
+      "lat": 52.50522,
+      "lng": 13.319002
+    },
+    "S Tiergarten (Berlin)": {
+      "name": "S Tiergarten (Berlin)",
+      "id": "900003103",
+      "lat": 52.513957,
+      "lng": 13.336244
+    },
+    "S Bellevue (Berlin)": {
+      "name": "S Bellevue (Berlin)",
+      "id": "900003102",
+      "lat": 52.520034,
+      "lng": 13.3481
+    },
+    "S+U Friedrichstr. Bhf (Berlin)": {
+      "name": "S+U Friedrichstr. Bhf (Berlin)",
+      "id": "900100001",
+      "lat": 52.520304,
+      "lng": 13.387257
+    },
+    "S Hackescher Markt (Berlin)": {
+      "name": "S Hackescher Markt (Berlin)",
+      "id": "900100002",
+      "lat": 52.522605,
+      "lng": 13.402359
+    },
+    "S Ostbahnhof (Berlin)": {
+      "name": "S Ostbahnhof (Berlin)",
+      "id": "900120005",
+      "lat": 52.510335,
+      "lng": 13.435089
+    },
+    "S Ostkreuz Bhf (Berlin)": {
+      "name": "S Ostkreuz Bhf (Berlin)",
+      "id": "900120003",
+      "lat": 52.503116,
+      "lng": 13.469221
+    },
+    "S Rummelsburg (Berlin)": {
+      "name": "S Rummelsburg (Berlin)",
+      "id": "900160001",
+      "lat": 52.501211,
+      "lng": 13.478696
+    },
+    "S Betriebsbahnhof Rummelsburg (Berlin)": {
+      "name": "S Betriebsbahnhof Rummelsburg (Berlin)",
+      "id": "900160002",
+      "lat": 52.493597,
+      "lng": 13.498148
+    },
+    "S Karlshorst (Berlin)": {
+      "name": "S Karlshorst (Berlin)",
+      "id": "900162001",
+      "lat": 52.481111,
+      "lng": 13.525853
+    },
+    "S Wuhlheide (Berlin)": {
+      "name": "S Wuhlheide (Berlin)",
+      "id": "900180002",
+      "lat": 52.469056,
+      "lng": 13.553531
+    },
+    "S Köpenick (Berlin)": {
+      "name": "S Köpenick (Berlin)",
+      "id": "900180001",
+      "lat": 52.458692,
+      "lng": 13.579546
+    },
+    "S Friedrichshagen (Berlin)": {
+      "name": "S Friedrichshagen (Berlin)",
+      "id": "900182002",
+      "lat": 52.45719,
+      "lng": 13.62548
+    },
+    "S Rahnsdorf (Berlin)": {
+      "name": "S Rahnsdorf (Berlin)",
+      "id": "900183001",
+      "lat": 52.451446,
+      "lng": 13.691578
+    },
+    "S Wilhelmshagen (Berlin)": {
+      "name": "S Wilhelmshagen (Berlin)",
+      "id": "900183002",
+      "lat": 52.439122,
+      "lng": 13.721422
+    },
+    "S Erkner Bhf": {
+      "name": "S Erkner Bhf",
+      "id": "900310004",
+      "lat": 52.42696,
+      "lng": 13.75266
+    },
+    "S Nöldnerplatz (Berlin)": {
+      "name": "S Nöldnerplatz (Berlin)",
+      "id": "900160003",
+      "lat": 52.50344,
+      "lng": 13.484296
+    },
+    "S Friedrichsfelde Ost (Berlin)": {
+      "name": "S Friedrichsfelde Ost (Berlin)",
+      "id": "900171002",
+      "lat": 52.513535,
+      "lng": 13.519075
+    },
+    "S Biesdorf (Berlin)": {
+      "name": "S Biesdorf (Berlin)",
+      "id": "900171001",
+      "lat": 52.513058,
+      "lng": 13.555032
+    },
+    "S Kaulsdorf (Berlin)": {
+      "name": "S Kaulsdorf (Berlin)",
+      "id": "900175002",
+      "lat": 52.512123,
+      "lng": 13.589029
+    },
+    "S Mahlsdorf Bhf (Berlin)": {
+      "name": "S Mahlsdorf Bhf (Berlin)",
+      "id": "900176001",
+      "lat": 52.512043,
+      "lng": 13.610693
+    },
+    "S Potsdam Hauptbahnhof": {
+      "name": "S Potsdam Hauptbahnhof",
+      "id": "900230999",
+      "lat": 52.391443,
+      "lng": 13.06716
+    },
+    "S Babelsberg": {
+      "name": "S Babelsberg",
+      "id": "900230000",
+      "lat": 52.391425,
+      "lng": 13.092402
+    },
+    "S Griebnitzsee Bhf": {
+      "name": "S Griebnitzsee Bhf",
+      "id": "900230003",
+      "lat": 52.393942,
+      "lng": 13.128808
+    },
+    "S Wannsee Bhf (Berlin)": {
+      "name": "S Wannsee Bhf (Berlin)",
+      "id": "900053301",
+      "lat": 52.421728,
+      "lng": 13.178932
+    },
+    "S Nikolassee (Berlin)": {
+      "name": "S Nikolassee (Berlin)",
+      "id": "900052201",
+      "lat": 52.431212,
+      "lng": 13.193297
+    },
+    "S Grunewald (Berlin)": {
+      "name": "S Grunewald (Berlin)",
+      "id": "900048101",
+      "lat": 52.48868,
+      "lng": 13.261948
+    },
+    "S Springpfuhl (Berlin)": {
+      "name": "S Springpfuhl (Berlin)",
+      "id": "900171003",
+      "lat": 52.526147,
+      "lng": 13.536874
+    },
+    "S Poelchaustr. (Berlin)": {
+      "name": "S Poelchaustr. (Berlin)",
+      "id": "900170005",
+      "lat": 52.534749,
+      "lng": 13.536011
+    },
+    "S Marzahn (Berlin)": {
+      "name": "S Marzahn (Berlin)",
+      "id": "900170001",
+      "lat": 52.543271,
+      "lng": 13.541521
+    },
+    "S Raoul-Wallenberg-Str. (Berlin)": {
+      "name": "S Raoul-Wallenberg-Str. (Berlin)",
+      "id": "900170002",
+      "lat": 52.55075,
+      "lng": 13.548389
+    },
+    "S Mehrower Allee (Berlin)": {
+      "name": "S Mehrower Allee (Berlin)",
+      "id": "900170003",
+      "lat": 52.557816,
+      "lng": 13.554394
+    },
+    "S Ahrensfelde Bhf (Berlin)": {
+      "name": "S Ahrensfelde Bhf (Berlin)",
+      "id": "900170004",
+      "lat": 52.571335,
+      "lng": 13.565648
+    },
+    "S Treptower Park (Berlin)": {
+      "name": "S Treptower Park (Berlin)",
+      "id": "900190001",
+      "lat": 52.493426,
+      "lng": 13.461283
+    },
+    "S Plänterwald (Berlin)": {
+      "name": "S Plänterwald (Berlin)",
+      "id": "900191002",
+      "lat": 52.47872,
+      "lng": 13.47403
+    },
+    "S Baumschulenweg (Berlin)": {
+      "name": "S Baumschulenweg (Berlin)",
+      "id": "900191001",
+      "lat": 52.467582,
+      "lng": 13.489501
+    },
+    "S Schöneweide Bhf (Berlin)": {
+      "name": "S Schöneweide Bhf (Berlin)",
+      "id": "900192001",
+      "lat": 52.45461,
+      "lng": 13.510149
+    },
+    "S Johannisthal (Berlin)": {
+      "name": "S Johannisthal (Berlin)",
+      "id": "900193001",
+      "lat": 52.446691,
+      "lng": 13.524028
+    },
+    "S Adlershof (Berlin)": {
+      "name": "S Adlershof (Berlin)",
+      "id": "900193002",
+      "lat": 52.435104,
+      "lng": 13.54055
+    },
+    "S Altglienicke (Berlin)": {
+      "name": "S Altglienicke (Berlin)",
+      "id": "900195510",
+      "lat": 52.407795,
+      "lng": 13.559598
+    },
+    "S Grünbergallee (Berlin)": {
+      "name": "S Grünbergallee (Berlin)",
+      "id": "900196001",
+      "lat": 52.399543,
+      "lng": 13.54322
+    },
+    "S Schönefeld (bei Berlin)": {
+      "name": "S Schönefeld (bei Berlin)",
+      "id": "900260005",
+      "lat": 52.390904,
+      "lng": 13.513043
+    },
+    "S Waßmannsdorf": {
+      "name": "S Waßmannsdorf",
+      "id": "900260080",
+      "lat": 52.368287,
+      "lng": 13.463432
+    },
+    "Flughafen BER": {
+      "name": "Flughafen BER",
+      "id": "900260009",
+      "lat": 52.36461,
+      "lng": 13.50987
+    },
+    "Magdeburg, Hauptbahnhof": {
+      "name": "Magdeburg, Hauptbahnhof",
+      "id": "900550094",
+      "lat": 52.130199,
+      "lng": 11.627439
+    },
+    "Magdeburg-Neustadt, Bahnhof": {
+      "name": "Magdeburg-Neustadt, Bahnhof",
+      "id": "900550255",
+      "lat": 52.148923,
+      "lng": 11.641804
+    },
+    "Magdeburg, Herrenkrug Bhf": {
+      "name": "Magdeburg, Herrenkrug Bhf",
+      "id": "900550256",
+      "lat": 52.145265,
+      "lng": 11.677006
+    },
+    "Biederitz": {
+      "name": "Biederitz",
+      "id": "900550257",
+      "lat": 52.153085,
+      "lng": 11.716873
+    },
+    "Gerwisch, Bahnhof": {
+      "name": "Gerwisch, Bahnhof",
+      "id": "900550258",
+      "lat": 52.177293,
+      "lng": 11.741683
+    },
+    "Möser, Bahnhof": {
+      "name": "Möser, Bahnhof",
+      "id": "900550259",
+      "lat": 52.219129,
+      "lng": 11.784786
+    },
+    "Burg (bei Magdeburg), Bahnhof": {
+      "name": "Burg (bei Magdeburg), Bahnhof",
+      "id": "900550062",
+      "lat": 52.274889,
+      "lng": 11.841724
+    },
+    "Güsen (b. Genthin), Bahnhof": {
+      "name": "Güsen (b. Genthin), Bahnhof",
+      "id": "900550078",
+      "lat": 52.335261,
+      "lng": 11.978612
+    },
+    "Genthin, Bahnhof": {
+      "name": "Genthin, Bahnhof",
+      "id": "900550073",
+      "lat": 52.403237,
+      "lng": 12.156535
+    },
+    "Wusterwitz, Bahnhof": {
+      "name": "Wusterwitz, Bahnhof",
+      "id": "900220249",
+      "lat": 52.385277,
+      "lng": 12.372995
+    },
+    "Brandenburg, Kirchmöser Bhf": {
+      "name": "Brandenburg, Kirchmöser Bhf",
+      "id": "900275719",
+      "lat": 52.375353,
+      "lng": 12.422418
+    },
+    "Brandenburg, Hauptbahnhof": {
+      "name": "Brandenburg, Hauptbahnhof",
+      "id": "900275110",
+      "lat": 52.400792,
+      "lng": 12.566039
+    },
+    "Götz, Bahnhof": {
+      "name": "Götz, Bahnhof",
+      "id": "900220182",
+      "lat": 52.41104,
+      "lng": 12.727143
+    },
+    "Groß Kreutz, Bahnhof": {
+      "name": "Groß Kreutz, Bahnhof",
+      "id": "900220699",
+      "lat": 52.411004,
+      "lng": 12.776674
+    },
+    "Werder (Havel), Bahnhof": {
+      "name": "Werder (Havel), Bahnhof",
+      "id": "900220009",
+      "lat": 52.392702,
+      "lng": 12.926461
+    },
+    "Potsdam, Park Sanssouci Bhf": {
+      "name": "Potsdam, Park Sanssouci Bhf",
+      "id": "900230007",
+      "lat": 52.39405,
+      "lng": 13.015167
+    },
+    "Potsdam, Charlottenhof Bhf": {
+      "name": "Potsdam, Charlottenhof Bhf",
+      "id": "900230006",
+      "lat": 52.392765,
+      "lng": 13.03568
+    },
+    "Grünheide, Fangschleuse Bhf": {
+      "name": "Grünheide, Fangschleuse Bhf",
+      "id": "900310003",
+      "lat": 52.406779,
+      "lng": 13.823432
+    },
+    "Hangelsberg, Bahnhof": {
+      "name": "Hangelsberg, Bahnhof",
+      "id": "900310002",
+      "lat": 52.400046,
+      "lng": 13.921531
+    },
+    "Fürstenwalde, Bahnhof": {
+      "name": "Fürstenwalde, Bahnhof",
+      "id": "900310001",
+      "lat": 52.367029,
+      "lng": 14.059614
+    },
+    "Berkenbrück (LOS), Bahnhof": {
+      "name": "Berkenbrück (LOS), Bahnhof",
+      "id": "900310005",
+      "lat": 52.357185,
+      "lng": 14.165229
+    },
+    "Briesen (Mark), Bahnhof": {
+      "name": "Briesen (Mark), Bahnhof",
+      "id": "900310006",
+      "lat": 52.346497,
+      "lng": 14.281342
+    },
+    "Jacobsdorf (Mark), Bahnhof": {
+      "name": "Jacobsdorf (Mark), Bahnhof",
+      "id": "900310007",
+      "lat": 52.332672,
+      "lng": 14.355674
+    },
+    "Pillgram, Bahnhof": {
+      "name": "Pillgram, Bahnhof",
+      "id": "900310008",
+      "lat": 52.336906,
+      "lng": 14.397959
+    },
+    "Frankfurt (Oder), Rosengarten Bhf": {
+      "name": "Frankfurt (Oder), Rosengarten Bhf",
+      "id": "900360004",
+      "lat": 52.338002,
+      "lng": 14.473163
+    },
+    "Frankfurt (Oder), Bahnhof": {
+      "name": "Frankfurt (Oder), Bahnhof",
+      "id": "900360000",
+      "lat": 52.336708,
+      "lng": 14.547144
+    },
+    "Potsdam, Medienstadt Babelsberg Bhf": {
+      "name": "Potsdam, Medienstadt Babelsberg Bhf",
+      "id": "900230001",
+      "lat": 52.382886,
+      "lng": 13.121941
+    },
+    "Potsdam, Rehbrücke Bhf": {
+      "name": "Potsdam, Rehbrücke Bhf",
+      "id": "900220008",
+      "lat": 52.358138,
+      "lng": 13.098002
+    },
+    "Wilhelmshorst, Bahnhof": {
+      "name": "Wilhelmshorst, Bahnhof",
+      "id": "900220006",
+      "lat": 52.331773,
+      "lng": 13.068176
+    },
+    "Michendorf, Bahnhof": {
+      "name": "Michendorf, Bahnhof",
+      "id": "900220003",
+      "lat": 52.316365,
+      "lng": 13.030619
+    },
+    "Seddin (PM), Bahnhof": {
+      "name": "Seddin (PM), Bahnhof",
+      "id": "900220004",
+      "lat": 52.29178,
+      "lng": 12.984756
+    },
+    "Beelitz-Heilstätten, Bahnhof": {
+      "name": "Beelitz-Heilstätten, Bahnhof",
+      "id": "900220005",
+      "lat": 52.262259,
+      "lng": 12.925769
+    },
+    "Borkheide, Bahnhof": {
+      "name": "Borkheide, Bahnhof",
+      "id": "900222030",
+      "lat": 52.230842,
+      "lng": 12.854628
+    },
+    "Brück, Bahnhof": {
+      "name": "Brück, Bahnhof",
+      "id": "900220141",
+      "lat": 52.187136,
+      "lng": 12.758336
+    },
+    "Baitz, Bahnhof": {
+      "name": "Baitz, Bahnhof",
+      "id": "900220142",
+      "lat": 52.164061,
+      "lng": 12.684615
+    },
+    "Bad Belzig, Bahnhof": {
+      "name": "Bad Belzig, Bahnhof",
+      "id": "900220143",
+      "lat": 52.136257,
+      "lng": 12.595227
+    },
+    "Wiesenburg, Bahnhof": {
+      "name": "Wiesenburg, Bahnhof",
+      "id": "900220152",
+      "lat": 52.098871,
+      "lng": 12.429627
+    },
+    "Medewitz, Bahnhof": {
+      "name": "Medewitz, Bahnhof",
+      "id": "900222245",
+      "lat": 52.060667,
+      "lng": 12.392205
+    },
+    "Jeber-Bergfrieden, Bahnhof": {
+      "name": "Jeber-Bergfrieden, Bahnhof",
+      "id": "900550084",
+      "lat": 51.984663,
+      "lng": 12.349605
+    },
+    "Roßlau, Bahnhof": {
+      "name": "Roßlau, Bahnhof",
+      "id": "900550108",
+      "lat": 51.883984,
+      "lng": 12.236935
+    },
+    "Dessau, Hauptbahnhof": {
+      "name": "Dessau, Hauptbahnhof",
+      "id": "900550065",
+      "lat": 51.838921,
+      "lng": 12.234148
+    },
+    "S+U Berlin Hauptbahnhof [Gleis 1-8]": {
+      "name": "S+U Berlin Hauptbahnhof [Gleis 1-8]",
+      "id": "900003200",
+      "lat": 52.525041,
+      "lng": 13.369387
+    },
+    "S Südkreuz Bhf (Berlin)": {
+      "name": "S Südkreuz Bhf (Berlin)",
+      "id": "900058101",
+      "lat": 52.475501,
+      "lng": 13.365548
+    }
+  }
+}
