@@ -7,6 +7,13 @@ export const useMapStore = defineStore('map', {
         // Zoom
         currentZoom: 1, // Start zoom
 
+        // SVG Map Overlay
+        svgMapEnabled: true,
+        svgMapOpacity: 0.85,
+        // Camera position for SVG sync (set by TransitMap)
+        cameraX: 0,
+        cameraY: 0,
+
         // Info panel
         infoPanel: {
             visible: false,

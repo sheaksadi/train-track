@@ -22,6 +22,15 @@ export const tramColors: Record<string, string> = {
     '68': '#DA2C38',
 };
 
+export const magdeburgTramColors: Record<string, string> = {
+    '1': '#4CAF50',
+    '2': '#4CAF50',
+    '4': '#4CAF50',
+    '6': '#4CAF50',
+    '9': '#4CAF50',
+    '10': '#4CAF50',
+};
+
 // Route data placeholder
 export function getTramRoute(line: string): [number, number][] {
     return [];

@@ -5,7 +5,7 @@ import * as THREE from 'three';
 import { ubahnColors, ubahnStations } from '~/data/ubahn';
 import { regionalColors, re1Stations } from '~/data/regional';
 import { sbahnColors } from '~/data/sbahn';
-import { tramColors } from '~/data/tram';
+import { tramColors, magdeburgTramColors } from '~/data/tram';
 
 // Types
 export interface Train {
@@ -45,7 +45,7 @@ export const BG_STATION_RADIUS = 1.5;
 export const TRAIN_SIZE = 2.5;
 
 // All line colors
-export const allLineColors: Record<string, string> = { ...ubahnColors, ...regionalColors, ...sbahnColors, ...tramColors };
+export const allLineColors: Record<string, string> = { ...ubahnColors, ...regionalColors, ...sbahnColors, ...tramColors, ...magdeburgTramColors };
 
 // Coordinate conversion
 export function latLngToScene(lat: number, lng: number): { x: number; y: number } {

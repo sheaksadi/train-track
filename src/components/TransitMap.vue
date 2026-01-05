@@ -1,5 +1,8 @@
 <template>
   <div class="transit-map-root">
+    <!-- BVG SVG Map Overlay (behind canvas) -->
+    <BvgMapOverlay />
+    
     <div ref="canvasContainer" class="canvas-container"></div>
     
     <!-- Info Panel - Terminal Style -->
@@ -170,6 +173,33 @@
         </div>
       </div> 
       
+      <!-- Legend: Magdeburg -->
+      <div class="mb-4">
+        <button 
+          @click="toggleLegendSection('magdeburg')" 
+          class="flex items-center justify-between w-full text-left font-bold text-gray-300 mb-2 text-sm hover:text-white transition-colors"
+        >
+          <span>MAGDEBURG</span>
+          <Icon :icon="collapsedLegend['magdeburg'] ? 'heroicons:chevron-down' : 'heroicons:chevron-up'" class="w-4 h-4" />
+        </button>
+        <div v-show="!collapsedLegend['magdeburg']" class="grid grid-cols-4 gap-2">
+          <button
+            v-for="(color, line) in magdeburgTramColors"
+            :key="line"
+            @click="transitStore.toggleLine(line as string)"
+            :class="[
+              'px-2 py-1 rounded text-xs font-bold transition-all duration-200 border border-transparent shadow-sm',
+              transitStore.enabledLines[line as string] 
+                ? 'bg-green-600 text-white shadow-green-900/50' 
+                : 'bg-gray-800/50 text-gray-500 hover:bg-gray-700 hover:text-gray-300'
+            ]"
+            :style="transitStore.enabledLines[line as string] ? { backgroundColor: color, borderColor: color } : {}"
+          >
+            {{ line }}
+          </button>
+        </div>
+      </div>
+
       <!-- U-Bahn Section -->
       <div 
         class="legend-section" 
@@ -234,6 +264,12 @@
       <button @click="() => handleZoomIn()" class="zoom-btn">[+]</button>
       <button @click="() => handleZoomOut()" class="zoom-btn">[-]</button>
       <button @click="handleResetView" class="zoom-btn">[R]</button>
+      <button 
+        @click="mapStore.svgMapEnabled = !mapStore.svgMapEnabled" 
+        class="zoom-btn"
+        :class="{ active: mapStore.svgMapEnabled }"
+        title="Toggle BVG Map"
+      >[M]</button>
     </div>
   </div>
 </template>
@@ -241,10 +277,11 @@
 <script setup lang="ts">
 import * as THREE from 'three';
 import { ref, computed, onMounted, onUnmounted, nextTick, watch } from 'vue';
+import BvgMapOverlay from './BvgMapOverlay.vue';
 import { ubahnColors } from '~/data/ubahn';
 import { regionalColors } from '~/data/regional';
 import { sbahnColors } from '~/data/sbahn';
-import { tramColors } from '~/data/tram';
+import { tramColors, magdeburgTramColors } from '~/data/tram';
 import { majorCities } from '~/data/cities';
 import { Icon } from '@iconify/vue';
 import { useTransitStore, latLngToScene, sceneToLatLng, allLineColors, LINE_THICKNESS, BG_LINE_THICKNESS, STATION_RADIUS, BG_STATION_RADIUS, TRAIN_SIZE } from '~/stores/transitStore';
@@ -1107,6 +1144,9 @@ function handleZoomOut(amount = 0.3) {
 function handleResetView() {
   mapStore.resetZoom();
   camera.position.set(0, 0, 100);
+  // Sync camera position for SVG overlay
+  mapStore.cameraX = 0;
+  mapStore.cameraY = 0;
   updateCamera();
   updateVisibility();
 }
@@ -1157,6 +1197,9 @@ function onMouseMove(e: MouseEvent) {
     const dy = (e.clientY - panStart.y) / mapStore.currentZoom;
     camera.position.x -= dx * 0.3;
     camera.position.y += dy * 0.3;
+    // Sync camera position for SVG overlay
+    mapStore.cameraX = camera.position.x;
+    mapStore.cameraY = camera.position.y;
     panStart = { x: e.clientX, y: e.clientY };
     return;
   }
@@ -1683,6 +1726,12 @@ onUnmounted(() => {
 .zoom-btn:hover {
   background: rgba(100, 120, 150, 0.2);
   color: #c8c8d0;
+}
+
+.zoom-btn.active {
+  background: rgba(40, 120, 200, 0.4);
+  color: #8bddff;
+  border-color: rgba(100, 180, 255, 0.5);
 }
 
 /* Scrollbar */

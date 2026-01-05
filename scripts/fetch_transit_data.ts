@@ -26,6 +26,7 @@ const LINES = {
     ubahn: ['U1', 'U2', 'U3', 'U4', 'U5', 'U6', 'U7', 'U8', 'U9', 'U55'],
     sbahn: ['S1', 'S2', 'S3', 'S5', 'S7', 'S9', 'S41', 'S42', 'S8', 'S85'],
     tram: ['M10', 'M13', 'M17'], // Example explicit trams
+    magdeburg: ['1', '2', '4', '6', '9', '10'], // Magdeburg Trams
     regional: ['RE1', 'RE2', 'RE7', 'RB14', 'FEX'] // Key regional lines
 };
 
@@ -42,15 +43,19 @@ async function fetchWithRetry(url: string, retries = 3): Promise<any> {
             if (!res.ok) throw new Error(`Status ${res.status}`);
             return await res.json();
         } catch (e) {
-            console.error(`Fetch error ${url}: ${e.message}. Retrying...`);
+            console.error(`Fetch error ${url}: ${(e as Error).message}. Retrying...`);
             await sleep(1000 * (i + 1));
         }
     }
     return null;
 }
 
-async function processLine(lineName: string, product: string) {
+const BASE_URL_BVG = 'https://v6.bvg.transport.rest';
+const BASE_URL_DB = 'https://v6.db.transport.rest';
+
+async function processLine(lineName: string, product: string, useDbApi = false) {
     console.log(`Processing ${lineName}...`);
+    const baseUrl = useDbApi ? BASE_URL_DB : BASE_URL_BVG;
 
     // 1. Search for a trip for this line to get the full route
     // Hubs to check for different modes
@@ -59,6 +64,7 @@ async function processLine(lineName: string, product: string) {
         'suburban': '900100003', // Alexanderplatz
         'tram': '900100003', // Alexanderplatz
         'regional': '900003201', // Hauptbahnhof (Berlin)
+        'magdeburg_tram': '953332', // Alter Markt, Magdeburg (found via DB API)
         'regional_magdeburg': '900550094' // Magdeburg Hbf
     };
 
@@ -83,8 +89,14 @@ async function processLine(lineName: string, product: string) {
         if (lineName === 'RE1') startStationId = hubs['regional_magdeburg']; // Start RE1 from Magdeburg
     }
 
+    // Magdeburg Trams
+    if (LINES.magdeburg.includes(lineName)) {
+        startStationId = hubs['magdeburg_tram'];
+        product = 'tram'; // Ensure product is tram
+    }
+
     // 2. Fetch departures to find a tripId
-    const depUrl = `https://v6.bvg.transport.rest/stops/${startStationId}/departures?duration=120&results=50&linesOfStops=false`;
+    const depUrl = `${baseUrl}/stops/${startStationId}/departures?duration=120&results=50&linesOfStops=false`;
     const depData = await fetchWithRetry(depUrl);
 
     if (!depData || !depData.departures) {
@@ -93,7 +105,13 @@ async function processLine(lineName: string, product: string) {
     }
 
     // Find a departure for our line
-    const departure = depData.departures.find((d: any) => d.line?.name === lineName);
+    const departure = depData.departures.find((d: any) => {
+        if (useDbApi) {
+            // DB API uses "STR 6" for "6"
+            return d.line?.name === lineName || d.line?.name === `STR ${lineName}`;
+        }
+        return d.line?.name === lineName;
+    });
 
     if (!departure) {
         console.warn(`No active trip found for ${lineName} at start hub. Trying to search...`);
@@ -105,7 +123,7 @@ async function processLine(lineName: string, product: string) {
     console.log(`Found trip ${tripId} for ${lineName} -> ${direction}`);
 
     // 3. Fetch Trip Details (Stopovers) - Encode tripId!
-    const tripUrl = `https://v6.bvg.transport.rest/trips/${encodeURIComponent(tripId)}?stopovers=true&polyline=false`; // No Polyline needed
+    const tripUrl = `${baseUrl}/trips/${encodeURIComponent(tripId)}?stopovers=true&polyline=false`; // No Polyline needed
     const tripData = await fetchWithRetry(tripUrl);
 
     // Verify structure - JSON response might be { trip: { ... } } or directly { ... }
@@ -152,7 +170,10 @@ async function main() {
     // Tram (M lines)
     for (const line of LINES.tram) await processLine(line, 'tram');
     // Regional
+    // Regional
     for (const line of LINES.regional) await processLine(line, 'regional');
+    // Magdeburg Trams (Use DB API)
+    for (const line of LINES.magdeburg) await processLine(line, 'tram', true);
 
     const outputPath = path.resolve(__dirname, '../public/data/transit_data.json');
     fs.writeFileSync(outputPath, JSON.stringify(data, null, 2));
