@@ -1,108 +1,141 @@
 <template>
-  <div class="geojson-map">
-    <div ref="mapContainer" class="map-container"></div>
+  <div class="alignment-map">
+    <!-- SVG Background Container -->
+    <div 
+      ref="mapContainer" 
+      class="map-container"
+      @wheel.prevent="onWheel"
+      @mousedown="onMouseDown"
+      @mousemove="onMouseMove"
+      @mouseup="onMouseUp"
+      @mouseleave="onMouseUp"
+    >
+      <div 
+        class="svg-wrapper"
+        :style="{
+          transform: `translate(${pan.x}px, ${pan.y}px) scale(${zoom})`,
+          transformOrigin: '50% 50%'
+        }"
+      >
+        <!-- BVG Map Background -->
+        <img 
+          :src="svgUrl" 
+          class="bvg-svg"
+          alt="BVG Map"
+        />
+        
+        <!-- GeoJSON Overlay Canvas -->
+        <canvas 
+          ref="overlayCanvas" 
+          class="overlay-canvas"
+          :style="{ opacity: overlayOpacity }"
+        ></canvas>
+      </div>
+    </div>
     
-    <!-- Legend Panel -->
-    <div class="legend-panel">
-      <div class="legend-header">
-        <h3>Berlin Transit Map</h3>
-        <div class="legend-meta">{{ metadata.lineCount }} lines</div>
+    <!-- Control Panel -->
+    <div class="control-panel">
+      <h3>GeoJSON Overlay Alignment</h3>
+      
+      <div class="control-group">
+        <label>Overlay Opacity</label>
+        <input type="range" v-model.number="overlayOpacity" min="0" max="1" step="0.1" />
+        <span>{{ Math.round(overlayOpacity * 100) }}%</span>
       </div>
       
-      <div class="legend-section">
-        <div class="section-title" @click="toggleSection('sbahn')">
-          <span>S-Bahn</span>
-          <span class="toggle">{{ sections.sbahn ? '−' : '+' }}</span>
-        </div>
-        <div v-if="sections.sbahn" class="legend-items">
-          <button
-            v-for="line in sbahnLines"
-            :key="line"
-            @click="toggleLine(line)"
-            class="line-btn"
-            :class="{ active: enabledLines[line] }"
-            :style="enabledLines[line] ? { backgroundColor: lineColors[line], borderColor: lineColors[line] } : {}"
-          >{{ line }}</button>
-        </div>
+      <div class="control-group">
+        <label>Scale</label>
+        <input type="range" v-model.number="transform.scale" min="0.1" max="5" step="0.01" />
+        <span>{{ transform.scale.toFixed(2) }}</span>
       </div>
       
-      <div class="legend-section">
-        <div class="section-title" @click="toggleSection('ubahn')">
-          <span>U-Bahn</span>
-          <span class="toggle">{{ sections.ubahn ? '−' : '+' }}</span>
-        </div>
-        <div v-if="sections.ubahn" class="legend-items">
-          <button
-            v-for="line in ubahnLines"
-            :key="line"
-            @click="toggleLine(line)"
-            class="line-btn"
-            :class="{ active: enabledLines[line] }"
-            :style="enabledLines[line] ? { backgroundColor: lineColors[line], borderColor: lineColors[line] } : {}"
-          >{{ line }}</button>
-        </div>
+      <div class="control-group">
+        <label>Offset X</label>
+        <input type="range" v-model.number="transform.offsetX" min="-1000" max="1000" step="1" />
+        <span>{{ transform.offsetX }}</span>
       </div>
       
-      <div class="legend-section">
-        <div class="section-title" @click="toggleSection('regional')">
-          <span>Regional</span>
-          <span class="toggle">{{ sections.regional ? '−' : '+' }}</span>
-        </div>
-        <div v-if="sections.regional" class="legend-items">
-          <button
-            v-for="line in regionalLines"
-            :key="line"
-            @click="toggleLine(line)"
-            class="line-btn small"
-            :class="{ active: enabledLines[line] }"
-            :style="enabledLines[line] ? { backgroundColor: lineColors[line] || '#666', borderColor: lineColors[line] || '#666' } : {}"
-          >{{ line }}</button>
+      <div class="control-group">
+        <label>Offset Y</label>
+        <input type="range" v-model.number="transform.offsetY" min="-1000" max="1000" step="1" />
+        <span>{{ transform.offsetY }}</span>
+      </div>
+      
+      <div class="control-group">
+        <label>Rotation</label>
+        <input type="range" v-model.number="transform.rotation" min="-180" max="180" step="1" />
+        <span>{{ transform.rotation }}°</span>
+      </div>
+      
+      <div class="line-filters">
+        <label>Show Lines:</label>
+        <div class="filter-btns">
+          <button 
+            :class="{ active: showSbahn }" 
+            @click="showSbahn = !showSbahn"
+            style="background: #E52E12"
+          >S-Bahn</button>
+          <button 
+            :class="{ active: showUbahn }" 
+            @click="showUbahn = !showUbahn"
+            style="background: #528DBA"
+          >U-Bahn</button>
+          <button 
+            :class="{ active: showRegional }" 
+            @click="showRegional = !showRegional"
+            style="background: #666"
+          >Regional</button>
         </div>
       </div>
       
-      <div class="legend-actions">
-        <button @click="showAll" class="action-btn">Show All</button>
-        <button @click="showNone" class="action-btn">Hide All</button>
+      <div class="actions">
+        <button @click="resetTransform">Reset Transform</button>
+        <button @click="redrawOverlay">Redraw</button>
+      </div>
+      
+      <div class="info-text">
+        <strong>Note:</strong> GeoJSON uses real lat/lng coordinates. The BVG schematic map is geographically distorted for readability, so perfect alignment is not possible.<br><br>
+        Use the controls to roughly align and verify data coverage.
       </div>
     </div>
     
     <!-- Zoom Controls -->
     <div class="zoom-controls">
-      <button @click="zoomIn" class="zoom-btn">+</button>
-      <button @click="zoomOut" class="zoom-btn">−</button>
-      <button @click="resetView" class="zoom-btn">⌂</button>
+      <button @click="zoomIn">+</button>
+      <button @click="zoomOut">−</button>
+      <button @click="resetView">⌂</button>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted, reactive, watch } from 'vue';
-import L from 'leaflet';
-import 'leaflet/dist/leaflet.css';
+import { ref, reactive, onMounted, watch, nextTick } from 'vue';
 
-// Types
-interface LineData {
-  name: string;
-  product: string;
-  color?: string;
-  segments: Array<{
-    id: string;
-    name: string;
-    coordinates: number[][][];
-  }>;
-}
+// SVG background
+const svgUrl = '/bvg_subahn_2025.svg';
+const mapContainer = ref<HTMLElement | null>(null);
+const overlayCanvas = ref<HTMLCanvasElement | null>(null);
 
-interface TransitMapData {
-  lines: Record<string, LineData>;
-  stops: Record<string, any>;
-  geojson: any;
-  metadata: {
-    fetchedAt: string;
-    source: string;
-    lineCount: number;
-    stopCount: number;
-  };
-}
+// View state
+const zoom = ref(1);
+const pan = reactive({ x: 0, y: 0 });
+const isPanning = ref(false);
+const panStart = reactive({ x: 0, y: 0 });
+const panOffset = reactive({ x: 0, y: 0 });
+
+// Overlay settings
+const overlayOpacity = ref(0.7);
+const showSbahn = ref(true);
+const showUbahn = ref(true);
+const showRegional = ref(false);
+
+// Transform for alignment
+const transform = reactive({
+  scale: 0.55,
+  offsetX: 580,
+  offsetY: 380,
+  rotation: 0,
+});
 
 // Line colors
 const lineColors: Record<string, string> = {
@@ -114,195 +147,205 @@ const lineColors: Record<string, string> = {
   'U1': '#7DAD4C', 'U2': '#DA421E', 'U3': '#007A5B', 'U4': '#F0D722',
   'U5': '#7E5330', 'U55': '#7E5330', 'U6': '#8C6DAB',
   'U7': '#528DBA', 'U8': '#224F86', 'U9': '#F3791D',
-  'RE1': '#E62E12', 'RE2': '#E62E12', 'RE3': '#E62E12', 'RE4': '#E62E12',
-  'RE5': '#E62E12', 'RE6': '#E62E12', 'RE7': '#E62E12', 'RE8': '#E62E12',
-  'FEX': '#E62E12',
 };
 
-// Refs
-const mapContainer = ref<HTMLElement | null>(null);
-let map: L.Map | null = null;
-let geoJsonLayer: L.GeoJSON | null = null;
+// Transit data
+interface LineData {
+  name: string;
+  product: string;
+  color?: string;
+  segments: Array<{ coordinates: number[][][] }>;
+}
+let transitData: { lines: Record<string, LineData> } | null = null;
 
-// State
-const transitData = ref<TransitMapData | null>(null);
-const metadata = reactive({ lineCount: 0, stopCount: 0 });
-const sections = reactive({ sbahn: true, ubahn: true, regional: false });
-const enabledLines = reactive<Record<string, boolean>>({});
+// Berlin bounds for coordinate transformation
+const BERLIN_BOUNDS = {
+  minLng: 13.08,
+  maxLng: 13.76,
+  minLat: 52.34,
+  maxLat: 52.68,
+};
 
-// Computed line lists
-const sbahnLines = ref<string[]>([]);
-const ubahnLines = ref<string[]>([]);
-const regionalLines = ref<string[]>([]);
+// Canvas dimensions (match SVG)
+const CANVAS_WIDTH = 1191;
+const CANVAS_HEIGHT = 842;
 
-// Load GeoJSON data
+function lngToX(lng: number): number {
+  const normalized = (lng - BERLIN_BOUNDS.minLng) / (BERLIN_BOUNDS.maxLng - BERLIN_BOUNDS.minLng);
+  return normalized * CANVAS_WIDTH * transform.scale + transform.offsetX;
+}
+
+function latToY(lat: number): number {
+  // Flip Y because canvas 0,0 is top-left
+  const normalized = 1 - (lat - BERLIN_BOUNDS.minLat) / (BERLIN_BOUNDS.maxLat - BERLIN_BOUNDS.minLat);
+  return normalized * CANVAS_HEIGHT * transform.scale + transform.offsetY;
+}
+
 async function loadTransitData() {
   try {
     const response = await fetch('/data/sbahn_map_data.json');
-    if (!response.ok) throw new Error('Failed to load transit data');
-    transitData.value = await response.json();
-    
-    if (transitData.value) {
-      metadata.lineCount = transitData.value.metadata.lineCount;
-      metadata.stopCount = transitData.value.metadata.stopCount;
-      
-      // Categorize lines
-      const lines = Object.keys(transitData.value.lines);
-      sbahnLines.value = lines.filter(l => l.startsWith('S')).sort();
-      ubahnLines.value = lines.filter(l => l.startsWith('U')).sort();
-      regionalLines.value = lines.filter(l => l.startsWith('R') || l === 'FEX').sort();
-      
-      // Enable all by default
-      lines.forEach(line => {
-        enabledLines[line] = true;
-      });
-      
-      updateMap();
-    }
+    if (!response.ok) throw new Error('Failed to load');
+    transitData = await response.json();
+    await nextTick();
+    redrawOverlay();
   } catch (error) {
     console.error('Error loading transit data:', error);
   }
 }
 
-// Initialize Leaflet map
-function initMap() {
-  if (!mapContainer.value) return;
+function redrawOverlay() {
+  const canvas = overlayCanvas.value;
+  if (!canvas || !transitData) return;
   
-  // Create map centered on Berlin
-  map = L.map(mapContainer.value, {
-    center: [52.52, 13.405],
-    zoom: 11,
-    zoomControl: false,
-  });
+  canvas.width = CANVAS_WIDTH;
+  canvas.height = CANVAS_HEIGHT;
   
-  // Add tile layer (dark style for contrast)
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
-    maxZoom: 19,
-  }).addTo(map);
+  const ctx = canvas.getContext('2d');
+  if (!ctx) return;
   
-  // Initialize GeoJSON layer
-  geoJsonLayer = L.geoJSON(undefined, {
-    style: (feature) => {
-      const line = feature?.properties?.line || '';
-      const color = lineColors[line] || feature?.properties?.color || '#888';
-      return {
-        color,
-        weight: line.startsWith('U') ? 4 : line.startsWith('S') ? 3 : 2,
-        opacity: 0.9,
-        lineCap: 'round',
-        lineJoin: 'round',
-      };
-    },
-    onEachFeature: (feature, layer) => {
-      const props = feature.properties || {};
-      layer.bindTooltip(`<strong>${props.line}</strong><br>${props.segmentName || ''}`, {
-        sticky: true,
-        className: 'transit-tooltip'
-      });
-    },
-  }).addTo(map);
+  ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
   
-  loadTransitData();
-}
-
-// Update map with current filter
-function updateMap() {
-  if (!geoJsonLayer || !transitData.value) return;
+  // Apply rotation if any
+  if (transform.rotation !== 0) {
+    ctx.save();
+    ctx.translate(CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2);
+    ctx.rotate((transform.rotation * Math.PI) / 180);
+    ctx.translate(-CANVAS_WIDTH / 2, -CANVAS_HEIGHT / 2);
+  }
   
-  geoJsonLayer.clearLayers();
-  
-  // Build filtered GeoJSON
-  const features: any[] = [];
-  
-  for (const [lineName, line] of Object.entries(transitData.value.lines)) {
-    if (!enabledLines[lineName]) continue;
+  // Draw each line
+  for (const [lineName, line] of Object.entries(transitData.lines)) {
+    // Filter by type
+    if (lineName.startsWith('S') && !showSbahn.value) continue;
+    if (lineName.startsWith('U') && !showUbahn.value) continue;
+    if ((lineName.startsWith('R') || lineName === 'FEX') && !showRegional.value) continue;
+    
+    const color = lineColors[lineName] || line.color || '#888';
+    const lineWidth = lineName.startsWith('U') ? 4 : lineName.startsWith('S') ? 3 : 2;
+    
+    ctx.strokeStyle = color;
+    ctx.lineWidth = lineWidth;
+    ctx.lineCap = 'round';
+    ctx.lineJoin = 'round';
     
     for (const segment of line.segments) {
-      features.push({
-        type: 'Feature',
-        properties: {
-          line: lineName,
-          product: line.product,
-          color: line.color || lineColors[lineName],
-          segmentId: segment.id,
-          segmentName: segment.name,
-        },
-        geometry: {
-          type: 'MultiLineString',
-          coordinates: segment.coordinates,
-        },
-      });
+      for (const coordSet of segment.coordinates) {
+        if (coordSet.length < 2) continue;
+        
+        ctx.beginPath();
+        const [startLng, startLat] = coordSet[0];
+        ctx.moveTo(lngToX(startLng), latToY(startLat));
+        
+        for (let i = 1; i < coordSet.length; i++) {
+          const [lng, lat] = coordSet[i];
+          ctx.lineTo(lngToX(lng), latToY(lat));
+        }
+        ctx.stroke();
+      }
     }
   }
   
-  geoJsonLayer.addData({
-    type: 'FeatureCollection',
-    features,
-  } as any);
+  if (transform.rotation !== 0) {
+    ctx.restore();
+  }
 }
 
-// Watch for filter changes
-watch(enabledLines, updateMap, { deep: true });
+// Watch for changes
+watch([transform, showSbahn, showUbahn, showRegional], redrawOverlay, { deep: true });
 
-// Toggle functions
-function toggleLine(line: string) {
-  enabledLines[line] = !enabledLines[line];
+function resetTransform() {
+  transform.scale = 0.55;
+  transform.offsetX = 580;
+  transform.offsetY = 380;
+  transform.rotation = 0;
 }
 
-function toggleSection(section: 'sbahn' | 'ubahn' | 'regional') {
-  sections[section] = !sections[section];
-}
-
-function showAll() {
-  Object.keys(enabledLines).forEach(line => {
-    enabledLines[line] = true;
-  });
-}
-
-function showNone() {
-  Object.keys(enabledLines).forEach(line => {
-    enabledLines[line] = false;
-  });
-}
-
-// Zoom controls
+// Pan/Zoom handlers
 function zoomIn() {
-  map?.zoomIn();
+  zoom.value = Math.min(5, zoom.value * 1.2);
 }
 
 function zoomOut() {
-  map?.zoomOut();
+  zoom.value = Math.max(0.3, zoom.value / 1.2);
 }
 
 function resetView() {
-  map?.setView([52.52, 13.405], 11);
+  zoom.value = 1;
+  pan.x = 0;
+  pan.y = 0;
 }
 
-// Lifecycle
-onMounted(() => {
-  initMap();
-});
+function onWheel(e: WheelEvent) {
+  const delta = e.deltaY < 0 ? 1.1 : 0.9;
+  zoom.value = Math.max(0.3, Math.min(5, zoom.value * delta));
+}
 
-onUnmounted(() => {
-  map?.remove();
+function onMouseDown(e: MouseEvent) {
+  isPanning.value = true;
+  panStart.x = e.clientX;
+  panStart.y = e.clientY;
+  panOffset.x = pan.x;
+  panOffset.y = pan.y;
+}
+
+function onMouseMove(e: MouseEvent) {
+  if (isPanning.value) {
+    pan.x = panOffset.x + (e.clientX - panStart.x);
+    pan.y = panOffset.y + (e.clientY - panStart.y);
+  }
+}
+
+function onMouseUp() {
+  isPanning.value = false;
+}
+
+onMounted(() => {
+  loadTransitData();
 });
 </script>
 
 <style scoped>
-.geojson-map {
+.alignment-map {
   width: 100vw;
   height: 100vh;
-  position: relative;
+  background: #f5f5f5;
   overflow: hidden;
+  position: relative;
 }
 
 .map-container {
   width: 100%;
   height: 100%;
+  cursor: grab;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.legend-panel {
+.map-container:active {
+  cursor: grabbing;
+}
+
+.svg-wrapper {
+  position: relative;
+  transition: transform 0.1s ease-out;
+  will-change: transform;
+}
+
+.bvg-svg {
+  width: 1191px;
+  height: 842px;
+  pointer-events: none;
+}
+
+.overlay-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.control-panel {
   position: fixed;
   left: 16px;
   top: 16px;
@@ -312,98 +355,87 @@ onUnmounted(() => {
   color: #fff;
   font-family: 'Inter', -apple-system, sans-serif;
   z-index: 1000;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  width: 280px;
   max-height: calc(100vh - 100px);
   overflow-y: auto;
-  min-width: 200px;
-  max-width: 280px;
 }
 
-.legend-header {
-  margin-bottom: 16px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-}
-
-.legend-header h3 {
-  margin: 0 0 4px 0;
-  font-size: 16px;
+.control-panel h3 {
+  margin: 0 0 16px 0;
+  font-size: 14px;
   font-weight: 700;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  padding-bottom: 10px;
 }
 
-.legend-meta {
-  font-size: 12px;
-  color: rgba(255,255,255,0.5);
-}
-
-.legend-section {
+.control-group {
   margin-bottom: 12px;
 }
 
-.section-title {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 13px;
-  font-weight: 600;
-  color: rgba(255,255,255,0.8);
-  cursor: pointer;
-  padding: 6px 0;
-  user-select: none;
-}
-
-.section-title:hover {
-  color: #fff;
-}
-
-.toggle {
-  font-size: 16px;
-  font-weight: 400;
-  color: rgba(255,255,255,0.5);
-}
-
-.legend-items {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-top: 8px;
-}
-
-.line-btn {
-  padding: 4px 10px;
-  border: 2px solid rgba(255,255,255,0.2);
-  border-radius: 4px;
+.control-group label {
+  display: block;
   font-size: 11px;
-  font-weight: 700;
-  cursor: pointer;
-  background: transparent;
-  color: rgba(255,255,255,0.5);
-  transition: all 0.15s ease;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
-.line-btn.small {
-  padding: 3px 6px;
-  font-size: 10px;
+.control-group input[type="range"] {
+  width: calc(100% - 50px);
+  margin-right: 8px;
+  vertical-align: middle;
 }
 
-.line-btn.active {
-  color: #fff;
-  border-color: transparent;
+.control-group span {
+  font-size: 12px;
+  color: rgba(255,255,255,0.8);
+  font-family: monospace;
 }
 
-.line-btn:hover {
-  border-color: rgba(255,255,255,0.4);
-}
-
-.legend-actions {
-  display: flex;
-  gap: 8px;
-  margin-top: 16px;
+.line-filters {
+  margin: 16px 0;
   padding-top: 12px;
   border-top: 1px solid rgba(255,255,255,0.1);
 }
 
-.action-btn {
+.line-filters label {
+  font-size: 11px;
+  color: rgba(255,255,255,0.6);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.filter-btns {
+  display: flex;
+  gap: 6px;
+}
+
+.filter-btns button {
+  flex: 1;
+  padding: 6px 8px;
+  border: none;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  opacity: 0.3;
+  color: #fff;
+  transition: opacity 0.2s;
+}
+
+.filter-btns button.active {
+  opacity: 1;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.actions button {
   flex: 1;
   padding: 8px;
   border: none;
@@ -413,11 +445,20 @@ onUnmounted(() => {
   cursor: pointer;
   background: rgba(255,255,255,0.1);
   color: #fff;
-  transition: all 0.15s;
+  transition: background 0.15s;
 }
 
-.action-btn:hover {
+.actions button:hover {
   background: rgba(255,255,255,0.2);
+}
+
+.info-text {
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  font-size: 11px;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.5;
 }
 
 .zoom-controls {
@@ -430,47 +471,20 @@ onUnmounted(() => {
   z-index: 1000;
 }
 
-.zoom-btn {
+.zoom-controls button {
   width: 40px;
   height: 40px;
   border: none;
   border-radius: 8px;
   font-size: 20px;
-  font-weight: 400;
   cursor: pointer;
   background: rgba(30, 30, 35, 0.95);
   color: #fff;
-  transition: all 0.2s;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+  transition: background 0.2s;
 }
 
-.zoom-btn:hover {
+.zoom-controls button:hover {
   background: rgba(50, 50, 55, 0.95);
 }
-
-/* Custom tooltip */
-:deep(.transit-tooltip) {
-  background: rgba(30, 30, 35, 0.95);
-  border: none;
-  border-radius: 6px;
-  color: #fff;
-  font-family: 'Inter', -apple-system, sans-serif;
-  font-size: 12px;
-  padding: 8px 10px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-}
-
-:deep(.transit-tooltip::before) {
-  border-top-color: rgba(30, 30, 35, 0.95);
-}
-
-/* Hide default Leaflet attribution on mobile */
-@media (max-width: 600px) {
-  .legend-panel {
-    left: 8px;
-    top: 8px;
-    padding: 12px;
-    max-width: 220px;
-  }
-}
 </style>
+
