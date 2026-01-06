@@ -1,33 +1,26 @@
 # Train Track API Documentation
 
-This document describes all API calls made by the Train Track application.
+All API calls are made **directly from the client-side** to the BVG REST API.
 
-## Overview
-
-All API calls are made **directly from the client-side** to the BVG REST API. This ensures each user's IP address is used for rate limiting instead of a central server IP.
-
-**Base API:** `https://v6.bvg.transport.rest/`
+**Base URL:** `https://v6.bvg.transport.rest/`
 
 ---
 
-## API Calls
+## Endpoints
 
 ### 1. Train Positions (Radar)
-
-Fetches real-time positions of U-Bahn and RE1 trains.
-
 ```
-GET https://v6.bvg.transport.rest/radar?north=52.65&west=11.50&south=52.05&east=14.60&results=512&duration=30&frames=1
+GET /radar?north={n}&west={w}&south={s}&east={e}&results=512&duration=30&frames=1
 ```
 
 | Parameter | Value | Description |
 |-----------|-------|-------------|
-| north/south/west/east | coords | Bounding box (Berlin to Magdeburg) |
-| results | 512 | Max train results |
-| duration | 30 | Time window in minutes |
-| frames | 1 | Single snapshot |
+| `north/south/west/east` | float | Bounding box coordinates |
+| `results` | 512 | Max train results |
+| `duration` | 30 | Time window in minutes |
+| `frames` | 1 | Single snapshot |
 
-**Response (filtered for U1-U9, RE1):**
+**Response:**
 ```json
 {
   "movements": [
@@ -44,13 +37,17 @@ GET https://v6.bvg.transport.rest/radar?north=52.65&west=11.50&south=52.05&east=
 
 ---
 
-### 2. Station Search
-
-Finds station ID by name.
-
+### 2. Station Search (Locations)
 ```
-GET https://v6.bvg.transport.rest/locations?query=Alexanderplatz&results=5
+GET /locations?query={stationName}&results=5&addresses=false&poi=false
 ```
+
+| Parameter | Value | Description |
+|-----------|-------|-------------|
+| `query` | string | Station name to search |
+| `results` | 5 | Max results |
+| `addresses` | false | Exclude addresses |
+| `poi` | false | Exclude POI |
 
 **Response:**
 ```json
@@ -62,12 +59,15 @@ GET https://v6.bvg.transport.rest/locations?query=Alexanderplatz&results=5
 ---
 
 ### 3. Station Departures
-
-Fetches departures for a specific station.
-
 ```
-GET https://v6.bvg.transport.rest/stops/{stationId}/departures?duration=60&results=30
+GET /stops/{stationId}/departures?duration=60&results=30
 ```
+
+| Parameter | Value | Description |
+|-----------|-------|-------------|
+| `stationId` | string | Station ID from search |
+| `duration` | 60 | Lookahead in minutes |
+| `results` | 30 | Max departures |
 
 **Response:**
 ```json
@@ -91,17 +91,15 @@ GET https://v6.bvg.transport.rest/stops/{stationId}/departures?duration=60&resul
 ## Rate Limiting
 
 - **BVG Limit:** ~100 requests/minute per IP
-- **Client-side tracking:** Each browser tracks its own usage
-- **Auto-throttle:** Refresh interval adjusts (3s-30s) based on usage
-- **Priority queue:** Hovered items get higher priority
+- **Recommended refresh:** 3-30 seconds based on usage
 
 ---
 
 ## Category Order
 
-Departures are grouped and sorted:
+Departures grouped by:
 1. U-Bahn
-2. Regional
-3. S-Bahn  
+2. Regional (RE/RB)
+3. S-Bahn
 4. Tram
 5. Bus
