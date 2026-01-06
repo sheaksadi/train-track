@@ -12,6 +12,11 @@ const routes = [
         name: 'edit',
         component: () => import('@/pages/edit.vue'),
     },
+    {
+        path: '/map',
+        name: 'map',
+        component: () => import('@/pages/map.vue'),
+    },
 ];
 
 const router = createRouter({
@@ -20,3 +25,4 @@ const router = createRouter({
 });
 
 export default router;
+

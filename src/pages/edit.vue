@@ -93,7 +93,8 @@
           ref="canvasContainer"
           class="canvas-container"
           :class="{ 
-            'move-cursor': editorStore.selectedTool === 'move' || isRightMousePanning, 
+            'pan-cursor': editorStore.selectedTool === 'pan' || isRightMousePanning, 
+            'move-cursor': editorStore.selectedTool === 'move',
             'grabbing': isPanning 
           }"
           @wheel.prevent="handleWheel"
@@ -224,16 +225,43 @@
                 />
               </g>
               
-              <!-- Label -->
-              <text
+              <!-- Label (positioned with offset, draggable when selected) -->
+              <g 
                 v-if="zoom > 0.4"
-                :x="0"
-                :y="station.length && station.length > 10 ? -stationHeight / 2 - 4 : -stationRadius - 4"
-                text-anchor="middle"
-                class="station-label"
-                :style="{ fontSize: `${labelFontSize}px` }"
-                :transform="`rotate(${-(station.rotation || 0)})`"
-              >{{ station.name }}</text>
+                :transform="`rotate(${-(station.rotation || 0)}) translate(${station.labelOffsetX || 0}, ${station.labelOffsetY ?? -15})`"
+              >
+                <!-- Connector line when selected -->
+                <line
+                  v-if="editorStore.selectedStationId === station.id"
+                  :x1="-(station.labelOffsetX || 0)"
+                  :y1="-(station.labelOffsetY ?? -15)"
+                  x2="0"
+                  y2="0"
+                  stroke="rgba(79, 70, 229, 0.5)"
+                  stroke-width="1"
+                  stroke-dasharray="2,2"
+                  class="label-connector"
+                />
+                <text
+                  x="0"
+                  y="0"
+                  text-anchor="middle"
+                  class="station-label"
+                  :class="{ 'label-draggable': editorStore.selectedStationId === station.id }"
+                  :style="{ fontSize: `${station.labelFontSize || 8}px` }"
+                  @mousedown.stop="handleLabelMouseDown($event, station)"
+                >{{ station.name }}</text>
+                
+                <!-- Resize handle (when selected) -->
+                <circle
+                  v-if="editorStore.selectedStationId === station.id"
+                  :cx="measureTextWidth(station.name, station.labelFontSize || 8) / 2 + 4"
+                  cy="0"
+                  r="4"
+                  class="label-resize-handle"
+                  @mousedown.stop="handleLabelResizeMouseDown($event, station)"
+                />
+              </g>
             </g>
 
             <!-- Multi-connect preview line -->
@@ -328,6 +356,22 @@
               step="5"
               class="length-slider"
             />
+          </div>
+
+          <div class="property-group">
+            <label>Label Font Size: {{ editorStore.selectedStation.labelFontSize || 8 }}px</label>
+            <input 
+              type="range" 
+              :value="editorStore.selectedStation.labelFontSize || 8"
+              @input="updateLabelFontSize($event)"
+              min="6" 
+              max="24" 
+              step="1"
+              class="length-slider"
+            />
+            <button @click="resetLabelPosition" class="btn btn-small btn-secondary">
+              Reset Label Position
+            </button>
           </div>
 
           <div class="property-group">
@@ -429,6 +473,8 @@ const mousePosition = ref<{ x: number; y: number } | null>(null);
 const draggingStationId = ref<string | null>(null);
 const draggingWaypoint = ref<{ trackId: string; waypointId: string } | null>(null);
 const draggingEndpoint = ref<{ trackId: string; endpoint: 1 | 2; stationId: string } | null>(null);
+const draggingLabel = ref<{ stationId: string; startX: number; startY: number; startOffsetX: number; startOffsetY: number } | null>(null);
+const resizingLabel = ref<{ stationId: string; startX: number; startFontSize: number } | null>(null);
 
 // UI refs
 const canvasContainer = ref<HTMLElement | null>(null);
@@ -480,7 +526,8 @@ const endpointRadius = computed(() => Math.max(4, 5 / zoom.value));
 // Tool definitions
 const tools = [
   { id: 'select', icon: '👆', label: 'Select', shortcut: 'V' },
-  { id: 'move', icon: '✋', label: 'Move', shortcut: 'H' },
+  { id: 'pan', icon: '✋', label: 'Pan', shortcut: 'H' },
+  { id: 'move', icon: '↔️', label: 'Move', shortcut: 'G' },
   { id: 'station', icon: '📍', label: 'Station', shortcut: 'S' },
   { id: 'track', icon: '🔗', label: 'Track', shortcut: 'T' },
   { id: 'bend', icon: '〰️', label: 'Bend', shortcut: 'B' },
@@ -493,6 +540,11 @@ const trackStartStation = ref<string | null>(null);
 // Helpers
 function getStationById(id: string): EditorStation | undefined {
   return editorStore.stations.find(s => s.id === id);
+}
+
+// Helper to measure text width (approximate)
+function measureTextWidth(text: string, fontSize: number): number {
+  return text.length * fontSize * 0.6;
 }
 
 function getStationFill(station: EditorStation): string {
@@ -664,7 +716,8 @@ function handleMouseDown(e: MouseEvent) {
     return;
   }
   
-  const shouldPan = editorStore.selectedTool === 'move' ? e.button === 0 : e.button === 1;
+  // Pan tool: left click pans camera
+  const shouldPan = editorStore.selectedTool === 'pan' ? e.button === 0 : e.button === 1;
   if (shouldPan) {
     isPanning.value = true;
     panStart.x = e.clientX;
@@ -681,6 +734,29 @@ function handleMouseMove(e: MouseEvent) {
     const x = (e.clientX - rect.left - pan.x) / zoom.value;
     const y = (e.clientY - rect.top - pan.y) / zoom.value;
     mousePosition.value = { x, y };
+  }
+
+  // Handle label dragging
+  if (draggingLabel.value) {
+    const dx = (e.clientX - draggingLabel.value.startX) / zoom.value;
+    const dy = (e.clientY - draggingLabel.value.startY) / zoom.value;
+    
+    editorStore.updateStation(draggingLabel.value.stationId, {
+      labelOffsetX: draggingLabel.value.startOffsetX + dx,
+      labelOffsetY: draggingLabel.value.startOffsetY + dy,
+    });
+    return;
+  }
+
+  // Handle label resizing
+  if (resizingLabel.value) {
+    const dx = (e.clientX - resizingLabel.value.startX) / zoom.value;
+    const newFontSize = Math.max(6, Math.min(48, resizingLabel.value.startFontSize + dx * 0.2));
+    
+    editorStore.updateStation(resizingLabel.value.stationId, {
+      labelFontSize: newFontSize,
+    });
+    return;
   }
 
   if (draggingWaypoint.value && canvasContainer.value) {
@@ -731,11 +807,13 @@ function handleMouseMove(e: MouseEvent) {
 }
 
 function handleMouseUp(e: MouseEvent) {
-  if (draggingStationId.value || draggingWaypoint.value || draggingEndpoint.value) showSaveStatus();
+  if (draggingStationId.value || draggingWaypoint.value || draggingEndpoint.value || draggingLabel.value || resizingLabel.value) showSaveStatus();
   
   draggingStationId.value = null;
   draggingWaypoint.value = null;
   draggingEndpoint.value = null;
+  draggingLabel.value = null;
+  resizingLabel.value = null;
   
   if (e.button === 2) isRightMousePanning.value = false;
   isPanning.value = false;
@@ -772,6 +850,33 @@ function handleEndpointMouseDown(e: MouseEvent, track: EditorTrack, endpoint: nu
       stationId 
     };
     editorStore.selectTrack(track.id);
+    e.preventDefault();
+  }
+}
+
+function handleLabelMouseDown(e: MouseEvent, station: EditorStation) {
+  if (e.button === 0 && editorStore.selectedStationId === station.id) {
+    const rect = canvasContainer.value?.getBoundingClientRect();
+    if (!rect) return;
+    
+    draggingLabel.value = {
+      stationId: station.id,
+      startX: e.clientX,
+      startY: e.clientY,
+      startOffsetX: station.labelOffsetX || 0,
+      startOffsetY: station.labelOffsetY ?? -15,
+    };
+    e.preventDefault();
+  }
+}
+
+function handleLabelResizeMouseDown(e: MouseEvent, station: EditorStation) {
+  if (e.button === 0 && editorStore.selectedStationId === station.id) {
+    resizingLabel.value = {
+      stationId: station.id,
+      startX: e.clientX,
+      startFontSize: station.labelFontSize || 8,
+    };
     e.preventDefault();
   }
 }
@@ -914,6 +1019,24 @@ function updateStationLength(e: Event) {
   }
 }
 
+function updateLabelFontSize(e: Event) {
+  const value = parseInt((e.target as HTMLInputElement).value);
+  if (editorStore.selectedStationId && !isNaN(value)) {
+    editorStore.updateStation(editorStore.selectedStationId, { labelFontSize: value });
+    showSaveStatus();
+  }
+}
+
+function resetLabelPosition() {
+  if (editorStore.selectedStationId) {
+    editorStore.updateStation(editorStore.selectedStationId, { 
+      labelOffsetX: 0, 
+      labelOffsetY: -15 
+    });
+    showSaveStatus();
+  }
+}
+
 function toggleStationLine(line: string) {
   if (!editorStore.selectedStation) return;
   
@@ -1007,6 +1130,8 @@ function handleKeyDown(e: KeyboardEvent) {
   } else if (key === 'v' || key === '1') {
     editorStore.selectedTool = 'select';
   } else if (key === 'h' || key === '2') {
+    editorStore.selectedTool = 'pan';
+  } else if (key === 'g') {
     editorStore.selectedTool = 'move';
   } else if (key === 's' || key === '3') {
     editorStore.selectedTool = 'station';
@@ -1110,7 +1235,8 @@ onUnmounted(() => { window.removeEventListener('keydown', handleKeyDown); });
 
 .canvas-area { flex: 1; position: relative; overflow: hidden; background: #0d0d1a; }
 .canvas-container { width: 100%; height: 100%; cursor: crosshair; position: relative; overflow: hidden; }
-.canvas-container.move-cursor { cursor: grab; }
+.canvas-container.pan-cursor { cursor: grab; }
+.canvas-container.move-cursor { cursor: move; }
 .canvas-container.grabbing { cursor: grabbing !important; }
 
 .map-background { position: absolute; top: 0; left: 0; transform-origin: 0 0; pointer-events: none; }
@@ -1138,6 +1264,10 @@ onUnmounted(() => { window.removeEventListener('keydown', handleKeyDown); });
 .line-segment { pointer-events: none; }
 
 .station-label { fill: #fff; font-weight: 500; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.95); pointer-events: none; }
+.station-label.label-draggable { pointer-events: auto; cursor: move; }
+.label-connector { pointer-events: none; }
+.label-resize-handle { fill: #4f46e5; stroke: #fff; stroke-width: 1; cursor: ew-resize; }
+.label-resize-handle:hover { fill: #6366f1; r: 5; }
 .preview-line { pointer-events: none; }
 
 .zoom-controls { position: absolute; bottom: 12px; right: 12px; display: flex; flex-direction: column; gap: 2px; }

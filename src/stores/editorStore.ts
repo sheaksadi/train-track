@@ -9,6 +9,9 @@ export interface EditorStation {
     lines: string[];
     rotation: number;  // Rotation in degrees
     length: number;    // Length of the pill shape
+    labelOffsetX: number;  // Label X offset from station center
+    labelOffsetY: number;  // Label Y offset from station center
+    labelFontSize: number; // Label font size (resizable)
 }
 
 export interface Waypoint {
@@ -38,7 +41,7 @@ export const useEditorStore = defineStore('editor', () => {
     // State
     const stations = ref<EditorStation[]>([]);
     const tracks = ref<EditorTrack[]>([]);
-    const selectedTool = ref<'select' | 'move' | 'station' | 'track' | 'multiConnect' | 'bend'>('select');
+    const selectedTool = ref<'select' | 'pan' | 'move' | 'station' | 'track' | 'multiConnect' | 'bend'>('select');
     const selectedStationId = ref<string | null>(null);
     const selectedTrackId = ref<string | null>(null);
     const selectedWaypointId = ref<string | null>(null);
@@ -74,6 +77,9 @@ export const useEditorStore = defineStore('editor', () => {
             lines: [currentLine.value],
             rotation: 0,
             length: 0,  // 0 = circle, > 10 = pill shape
+            labelOffsetX: 0,
+            labelOffsetY: -15,  // Default: above station
+            labelFontSize: 8,
         };
         stations.value.push(station);
         saveToLocalStorage();
@@ -250,6 +256,9 @@ export const useEditorStore = defineStore('editor', () => {
                         ...s,
                         rotation: s.rotation ?? 0,
                         length: newLength,
+                        labelOffsetX: s.labelOffsetX ?? 0,
+                        labelOffsetY: s.labelOffsetY ?? -15,
+                        labelFontSize: s.labelFontSize ?? 8,
                     };
                 });
                 // Migrate old tracks that don't have waypoints
@@ -291,6 +300,9 @@ export const useEditorStore = defineStore('editor', () => {
                         ...s,
                         rotation: s.rotation ?? 0,
                         length: s.length !== undefined ? s.length : (s.lines && s.lines.length > 1 ? 20 : 0),
+                        labelOffsetX: s.labelOffsetX ?? 0,
+                        labelOffsetY: s.labelOffsetY ?? -15,
+                        labelFontSize: s.labelFontSize ?? 8,
                     }));
                     // Migrate old tracks that don't have waypoints
                     tracks.value = (data.tracks || []).map(t => ({
