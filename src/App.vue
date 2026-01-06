@@ -1,11 +1,10 @@
 <template>
   <div class="w-screen h-screen bg-neutral-900 text-white overflow-hidden">
-    <IndexPage />
+    <router-view />
   </div>
 </template>
 
 <script setup lang="ts">
-import IndexPage from '@/pages/index.vue'
 </script>
 
 <style>
