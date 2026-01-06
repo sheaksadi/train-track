@@ -22,6 +22,8 @@ export interface EditorTrack {
     stationIds: [string, string];
     line: string;
     waypoints: Waypoint[];  // Control points for bending the track
+    offset1?: number;  // Custom offset along station 1 (relative to station length)
+    offset2?: number;  // Custom offset along station 2 (relative to station length)
 }
 
 export interface MapData {
@@ -105,10 +107,12 @@ export const useEditorStore = defineStore('editor', () => {
         const s2 = stations.value.find(s => s.id === stationId2);
         if (!s1 || !s2 || stationId1 === stationId2) return null;
 
-        // Check if track already exists
+        // Check if track with same line already exists between these stations
         const existingTrack = tracks.value.find(
-            t => (t.stationIds[0] === stationId1 && t.stationIds[1] === stationId2) ||
+            t => t.line === line && (
+                (t.stationIds[0] === stationId1 && t.stationIds[1] === stationId2) ||
                 (t.stationIds[0] === stationId2 && t.stationIds[1] === stationId1)
+            )
         );
         if (existingTrack) return null;
 
@@ -130,6 +134,18 @@ export const useEditorStore = defineStore('editor', () => {
             selectedWaypointId.value = null;
         }
         saveToLocalStorage();
+    }
+
+    function updateTrackOffset(trackId: string, endpoint: 1 | 2, offset: number): void {
+        const track = tracks.value.find(t => t.id === trackId);
+        if (track) {
+            if (endpoint === 1) {
+                track.offset1 = offset;
+            } else {
+                track.offset2 = offset;
+            }
+            saveToLocalStorage();
+        }
     }
 
     function addWaypoint(trackId: string, x: number, y: number, insertIndex?: number): Waypoint | null {
@@ -329,6 +345,7 @@ export const useEditorStore = defineStore('editor', () => {
         updateStation,
         addTrack,
         removeTrack,
+        updateTrackOffset,
         addWaypoint,
         updateWaypoint,
         removeWaypoint,

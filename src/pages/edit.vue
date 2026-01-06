@@ -156,6 +156,20 @@
                   @click.stop="handleWaypointClick(track, waypoint)"
                 />
               </g>
+              
+              <!-- Endpoint handles (visible when track is selected) -->
+              <g v-if="editorStore.selectedTrackId === track.id">
+                <circle
+                  v-for="(endpoint, idx) in getTrackEndpoints(track)"
+                  :key="`ep-${idx}`"
+                  :cx="endpoint.x"
+                  :cy="endpoint.y"
+                  :r="endpointRadius"
+                  class="track-endpoint"
+                  :class="{ dragging: draggingEndpoint?.trackId === track.id && draggingEndpoint?.endpoint === idx + 1 }"
+                  @mousedown.stop="handleEndpointMouseDown($event, track, idx + 1)"
+                />
+              </g>
             </g>
 
             <!-- Stations -->
@@ -414,6 +428,7 @@ const mousePosition = ref<{ x: number; y: number } | null>(null);
 // Dragging state
 const draggingStationId = ref<string | null>(null);
 const draggingWaypoint = ref<{ trackId: string; waypointId: string } | null>(null);
+const draggingEndpoint = ref<{ trackId: string; endpoint: 1 | 2; stationId: string } | null>(null);
 
 // UI refs
 const canvasContainer = ref<HTMLElement | null>(null);
@@ -460,6 +475,7 @@ const stationStrokeWidth = computed(() => Math.max(1, 1.5 / zoom.value));
 const trackWidth = computed(() => Math.max(2, 3 / zoom.value));
 const labelFontSize = computed(() => Math.max(6, 8 / zoom.value));
 const waypointRadius = computed(() => Math.max(3, 4 / zoom.value));
+const endpointRadius = computed(() => Math.max(4, 5 / zoom.value));
 
 // Tool definitions
 const tools = [
@@ -492,24 +508,31 @@ function getTrackConnectionPoint(station: EditorStation, track: EditorTrack, isS
     return { x: station.x, y: station.y };
   }
   
-  // For pill stations, calculate offset along the station
-  // Find all tracks connected to this station
-  const connectedTracks = editorStore.tracks.filter(
-    t => t.stationIds[0] === station.id || t.stationIds[1] === station.id
-  );
+  // Check for custom offset
+  const customOffset = isStart ? track.offset1 : track.offset2;
   
-  if (connectedTracks.length <= 1) {
-    return { x: station.x, y: station.y };
+  let offset: number;
+  
+  if (customOffset !== undefined) {
+    // Use custom offset (stored as value between -1 and 1)
+    offset = customOffset * (station.length / 2 - 4);
+  } else {
+    // Auto-calculate offset based on track index
+    const connectedTracks = editorStore.tracks.filter(
+      t => t.stationIds[0] === station.id || t.stationIds[1] === station.id
+    );
+    
+    if (connectedTracks.length <= 1) {
+      return { x: station.x, y: station.y };
+    }
+    
+    const trackIndex = connectedTracks.findIndex(t => t.id === track.id);
+    if (trackIndex === -1) return { x: station.x, y: station.y };
+    
+    const usableLength = station.length - 8;
+    const spacing = usableLength / Math.max(connectedTracks.length - 1, 1);
+    offset = -usableLength / 2 + trackIndex * spacing;
   }
-  
-  // Find index of current track among connected tracks
-  const trackIndex = connectedTracks.findIndex(t => t.id === track.id);
-  if (trackIndex === -1) return { x: station.x, y: station.y };
-  
-  // Calculate spacing along the station length
-  const usableLength = station.length - 8; // Leave padding at ends
-  const spacing = usableLength / Math.max(connectedTracks.length - 1, 1);
-  const offset = -usableLength / 2 + trackIndex * spacing;
   
   // Apply rotation to get final position
   const rotation = (station.rotation || 0) * Math.PI / 180;
@@ -520,6 +543,18 @@ function getTrackConnectionPoint(station: EditorStation, track: EditorTrack, isS
     x: station.x + offsetX,
     y: station.y + offsetY,
   };
+}
+
+// Get the two endpoints of a track for rendering handles
+function getTrackEndpoints(track: EditorTrack): [{ x: number; y: number }, { x: number; y: number }] {
+  const s1 = getStationById(track.stationIds[0]);
+  const s2 = getStationById(track.stationIds[1]);
+  if (!s1 || !s2) return [{ x: 0, y: 0 }, { x: 0, y: 0 }];
+  
+  return [
+    getTrackConnectionPoint(s1, track, true),
+    getTrackConnectionPoint(s2, track, false),
+  ];
 }
 
 function getTrackPath(track: EditorTrack): string {
@@ -656,6 +691,31 @@ function handleMouseMove(e: MouseEvent) {
     return;
   }
 
+  // Handle endpoint dragging - calculate offset along station
+  if (draggingEndpoint.value && canvasContainer.value) {
+    const rect = canvasContainer.value.getBoundingClientRect();
+    const x = (e.clientX - rect.left - pan.x) / zoom.value;
+    const y = (e.clientY - rect.top - pan.y) / zoom.value;
+    
+    const station = getStationById(draggingEndpoint.value.stationId);
+    if (station && station.length && station.length > 10) {
+      // Calculate offset relative to station center
+      const rotation = (station.rotation || 0) * Math.PI / 180;
+      const dx = x - station.x;
+      const dy = y - station.y;
+      
+      // Project onto station axis
+      const projectedOffset = dx * Math.cos(rotation) + dy * Math.sin(rotation);
+      
+      // Normalize to -1 to 1 range
+      const maxOffset = station.length / 2 - 4;
+      const normalizedOffset = Math.max(-1, Math.min(1, projectedOffset / maxOffset));
+      
+      editorStore.updateTrackOffset(draggingEndpoint.value.trackId, draggingEndpoint.value.endpoint, normalizedOffset);
+    }
+    return;
+  }
+
   if (draggingStationId.value && canvasContainer.value) {
     const rect = canvasContainer.value.getBoundingClientRect();
     const x = (e.clientX - rect.left - pan.x) / zoom.value;
@@ -671,10 +731,11 @@ function handleMouseMove(e: MouseEvent) {
 }
 
 function handleMouseUp(e: MouseEvent) {
-  if (draggingStationId.value || draggingWaypoint.value) showSaveStatus();
+  if (draggingStationId.value || draggingWaypoint.value || draggingEndpoint.value) showSaveStatus();
   
   draggingStationId.value = null;
   draggingWaypoint.value = null;
+  draggingEndpoint.value = null;
   
   if (e.button === 2) isRightMousePanning.value = false;
   isPanning.value = false;
@@ -700,6 +761,19 @@ function handleWaypointMouseDown(e: MouseEvent, track: EditorTrack, waypoint: Wa
 function handleWaypointClick(track: EditorTrack, waypoint: Waypoint) {
   editorStore.selectTrack(track.id);
   editorStore.selectWaypoint(waypoint.id);
+}
+
+function handleEndpointMouseDown(e: MouseEvent, track: EditorTrack, endpoint: number) {
+  if (e.button === 0) {
+    const stationId = track.stationIds[endpoint - 1];
+    draggingEndpoint.value = { 
+      trackId: track.id, 
+      endpoint: endpoint as 1 | 2,
+      stationId 
+    };
+    editorStore.selectTrack(track.id);
+    e.preventDefault();
+  }
 }
 
 function handleTrackClick(track: EditorTrack) {
@@ -1051,6 +1125,10 @@ onUnmounted(() => { window.removeEventListener('keydown', handleKeyDown); });
 .waypoint { fill: #fff; stroke: #4f46e5; stroke-width: 2; cursor: move; }
 .waypoint:hover { r: 6; }
 .waypoint.selected { fill: #4f46e5; stroke: #fff; }
+
+.track-endpoint { fill: #22c55e; stroke: #fff; stroke-width: 2; cursor: ew-resize; }
+.track-endpoint:hover { r: 7; fill: #16a34a; }
+.track-endpoint.dragging { fill: #16a34a; r: 7; }
 
 .station-group { cursor: pointer; }
 .station-pill { transition: filter 0.15s; }
