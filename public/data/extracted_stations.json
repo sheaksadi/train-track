@@ -1,0 +1,1765 @@
+{
+  "stations": [
+    {
+      "name": "adlershof",
+      "displayName": "Adlershof",
+      "lng": 13.421675,
+      "lat": 52.522929,
+      "lines": [
+        "S9",
+        "S8",
+        "S85",
+        "S46"
+      ]
+    },
+    {
+      "name": "ahrensfelde",
+      "displayName": "Ahrensfelde",
+      "lng": 13.447434,
+      "lat": 52.584314,
+      "lines": [
+        "S7"
+      ]
+    },
+    {
+      "name": "alexanderplatz",
+      "displayName": "Alexanderplatz",
+      "lng": 13.367618,
+      "lat": 52.568406,
+      "lines": [
+        "S9",
+        "S7",
+        "S5",
+        "S3"
+      ]
+    },
+    {
+      "name": "altglienicke",
+      "displayName": "Altglienicke",
+      "lng": 13.431133,
+      "lat": 52.533307,
+      "lines": [
+        "S9",
+        "S85"
+      ]
+    },
+    {
+      "name": "altreinickendorf",
+      "displayName": "Altreinickendorf",
+      "lng": 13.327462,
+      "lat": 52.600288,
+      "lines": [
+        "S25"
+      ]
+    },
+    {
+      "name": "anhalterbahnhof",
+      "displayName": "Anhalterbahnhof",
+      "lng": 13.339577,
+      "lat": 52.557577,
+      "lines": [
+        "S25",
+        "S26",
+        "S2",
+        "S1"
+      ]
+    },
+    {
+      "name": "attilastrasse",
+      "displayName": "Attilastrasse",
+      "lng": 13.34362,
+      "lat": 52.52917,
+      "lines": [
+        "S2"
+      ]
+    },
+    {
+      "name": "babelsberg",
+      "displayName": "Babelsberg",
+      "lng": 13.229302,
+      "lat": 52.516915,
+      "lines": [
+        "S7"
+      ]
+    },
+    {
+      "name": "baumschulenweg",
+      "displayName": "Baumschulenweg",
+      "lng": 13.418963,
+      "lat": 52.540673,
+      "lines": [
+        "S9",
+        "S8",
+        "S85",
+        "S47",
+        "S46"
+      ]
+    },
+    {
+      "name": "bellevue",
+      "displayName": "Bellevue",
+      "lng": 13.322832,
+      "lat": 52.568105,
+      "lines": [
+        "S9",
+        "S7",
+        "S5",
+        "S3"
+      ]
+    },
+    {
+      "name": "bergfelde",
+      "displayName": "Bergfelde",
+      "lng": 13.33372,
+      "lat": 52.609125,
+      "lines": [
+        "S8"
+      ]
+    },
+    {
+      "name": "berlin hermsdorf berlin",
+      "displayName": "Berlin Hermsdorf Berlin",
+      "lng": 13.324332,
+      "lat": 52.607037,
+      "lines": [
+        "S85"
+      ]
+    },
+    {
+      "name": "bernau bernau",
+      "displayName": "Bernau Bernau",
+      "lng": 13.395712,
+      "lat": 52.61233,
+      "lines": [
+        "S2"
+      ]
+    },
+    {
+      "name": "bernau friedenstal",
+      "displayName": "Bernau Friedenstal",
+      "lng": 13.393289,
+      "lat": 52.610862,
+      "lines": [
+        "S2"
+      ]
+    },
+    {
+      "name": "betriebsbahnhofrummelsburg",
+      "displayName": "Betriebsbahnhofrummelsburg",
+      "lng": 13.416969,
+      "lat": 52.554513,
+      "lines": [
+        "S3"
+      ]
+    },
+    {
+      "name": "beusselstrasse",
+      "displayName": "Beusselstrasse",
+      "lng": 13.317266,
+      "lat": 52.582203,
+      "lines": [
+        "S42",
+        "S41"
+      ]
+    },
+    {
+      "name": "biesdorf",
+      "displayName": "Biesdorf",
+      "lng": 13.44401,
+      "lat": 52.565075,
+      "lines": [
+        "S5"
+      ]
+    },
+    {
+      "name": "birkenstein",
+      "displayName": "Birkenstein",
+      "lng": 13.476545,
+      "lat": 52.567049,
+      "lines": [
+        "S5"
+      ]
+    },
+    {
+      "name": "birkenwerder",
+      "displayName": "Birkenwerder",
+      "lng": 13.318222,
+      "lat": 52.610733,
+      "lines": [
+        "S8",
+        "S1"
+      ]
+    },
+    {
+      "name": "blankenburg",
+      "displayName": "Blankenburg",
+      "lng": 13.37748,
+      "lat": 52.60067,
+      "lines": [
+        "S8",
+        "S26",
+        "S2"
+      ]
+    },
+    {
+      "name": "blankenfelde",
+      "displayName": "Blankenfelde",
+      "lng": 13.348574,
+      "lat": 52.509235,
+      "lines": [
+        "S2"
+      ]
+    },
+    {
+      "name": "borgsdorf",
+      "displayName": "Borgsdorf",
+      "lng": 13.313798,
+      "lat": 52.612829,
+      "lines": [
+        "S1"
+      ]
+    },
+    {
+      "name": "bornholmerstrasse",
+      "displayName": "Bornholmerstrasse",
+      "lng": 13.354546,
+      "lat": 52.586774,
+      "lines": [
+        "S8",
+        "S85",
+        "S25",
+        "S26",
+        "S2",
+        "S1"
+      ]
+    },
+    {
+      "name": "botanischergarten",
+      "displayName": "Botanischergarten",
+      "lng": 13.297104,
+      "lat": 52.523576,
+      "lines": [
+        "S1"
+      ]
+    },
+    {
+      "name": "brandenburgertor",
+      "displayName": "Brandenburgertor",
+      "lng": 13.339576,
+      "lat": 52.565901,
+      "lines": [
+        "S25",
+        "S26",
+        "S2",
+        "S1"
+      ]
+    },
+    {
+      "name": "buch",
+      "displayName": "Buch",
+      "lng": 13.386124,
+      "lat": 52.606518,
+      "lines": [
+        "S2"
+      ]
+    },
+    {
+      "name": "buckowerchaussee",
+      "displayName": "Buckowerchaussee",
+      "lng": 13.348574,
+      "lat": 52.523151,
+      "lines": [
+        "S2"
+      ]
+    },
+    {
+      "name": "bundesplatz",
+      "displayName": "Bundesplatz",
+      "lng": 13.319551,
+      "lat": 52.54082,
+      "lines": [
+        "S46",
+        "S42",
+        "S41"
+      ]
+    },
+    {
+      "name": "charlottenburg",
+      "displayName": "Charlottenburg",
+      "lng": 13.292129,
+      "lat": 52.558757,
+      "lines": [
+        "S9",
+        "S7",
+        "S5",
+        "S3"
+      ]
+    },
+    {
+      "name": "eichborndamm",
+      "displayName": "Eichborndamm",
+      "lng": 13.306457,
+      "lat": 52.600281,
+      "lines": [
+        "S25"
+      ]
+    },
+    {
+      "name": "eichwalde",
+      "displayName": "Eichwalde",
+      "lng": 13.444003,
+      "lat": 52.524804,
+      "lines": [
+        "S8",
+        "S46"
+      ]
+    },
+    {
+      "name": "erkner",
+      "displayName": "Erkner",
+      "lng": 13.462877,
+      "lat": 52.536237,
+      "lines": [
+        "S3"
+      ]
+    },
+    {
+      "name": "feuerbachstrasse",
+      "displayName": "Feuerbachstrasse",
+      "lng": 13.306543,
+      "lat": 52.529287,
+      "lines": [
+        "S1"
+      ]
+    },
+    {
+      "name": "flughafen ber",
+      "displayName": "Flughafen Ber",
+      "lng": 13.403911,
+      "lat": 52.512122,
+      "lines": [
+        "S9",
+        "S85"
+      ]
+    },
+    {
+      "name": "frankfurterallee",
+      "displayName": "Frankfurterallee",
+      "lng": 13.404421,
+      "lat": 52.5621,
+      "lines": [
+        "S8",
+        "S85",
+        "S42",
+        "S41"
+      ]
+    },
+    {
+      "name": "fredersdorf",
+      "displayName": "Fredersdorf",
+      "lng": 13.479742,
+      "lat": 52.572204,
+      "lines": [
+        "S5"
+      ]
+    },
+    {
+      "name": "friedenau",
+      "displayName": "Friedenau",
+      "lng": 13.326291,
+      "lat": 52.541237,
+      "lines": [
+        "S1"
+      ]
+    },
+    {
+      "name": "friedenstal",
+      "displayName": "Friedenstal",
+      "lng": 13.393289,
+      "lat": 52.610862,
+      "lines": [
+        "S2"
+      ]
+    },
+    {
+      "name": "friedrichsfeldeost",
+      "displayName": "Friedrichsfeldeost",
+      "lng": 13.41742,
+      "lat": 52.562078,
+      "lines": [
+        "S75",
+        "S7",
+        "S5"
+      ]
+    },
+    {
+      "name": "friedrichshagen",
+      "displayName": "Friedrichshagen",
+      "lng": 13.451568,
+      "lat": 52.543114,
+      "lines": [
+        "S3"
+      ]
+    },
+    {
+      "name": "friedrichstrasse",
+      "displayName": "Friedrichstrasse",
+      "lng": 13.34714,
+      "lat": 52.569882,
+      "lines": [
+        "S9",
+        "S7",
+        "S5",
+        "S3",
+        "S25",
+        "S26",
+        "S2",
+        "S1"
+      ]
+    },
+    {
+      "name": "frohnau",
+      "displayName": "Frohnau",
+      "lng": 13.326088,
+      "lat": 52.605971,
+      "lines": [
+        "S85",
+        "S1"
+      ]
+    },
+    {
+      "name": "gehrenseestrasse",
+      "displayName": "Gehrenseestrasse",
+      "lng": 13.43105,
+      "lat": 52.571524,
+      "lines": [
+        "S75"
+      ]
+    },
+    {
+      "name": "gesundbrunnen",
+      "displayName": "Gesundbrunnen",
+      "lng": 13.349212,
+      "lat": 52.581938,
+      "lines": [
+        "S25",
+        "S26",
+        "S2",
+        "S1",
+        "S42",
+        "S41"
+      ]
+    },
+    {
+      "name": "greifswalderstrasse",
+      "displayName": "Greifswalderstrasse",
+      "lng": 13.39512,
+      "lat": 52.580268,
+      "lines": [
+        "S8",
+        "S85",
+        "S42",
+        "S41"
+      ]
+    },
+    {
+      "name": "gruenau",
+      "displayName": "Gruenau",
+      "lng": 13.43787,
+      "lat": 52.528535,
+      "lines": [
+        "S8",
+        "S46"
+      ]
+    },
+    {
+      "name": "gruenbergallee",
+      "displayName": "Gruenbergallee",
+      "lng": 13.413937,
+      "lat": 52.518219,
+      "lines": [
+        "S9",
+        "S85"
+      ]
+    },
+    {
+      "name": "grunewald",
+      "displayName": "Grunewald",
+      "lng": 13.251589,
+      "lat": 52.523056,
+      "lines": [
+        "S7"
+      ]
+    },
+    {
+      "name": "hackeschermarkt",
+      "displayName": "Hackeschermarkt",
+      "lng": 13.356756,
+      "lat": 52.569882,
+      "lines": [
+        "S9",
+        "S7",
+        "S5",
+        "S3"
+      ]
+    },
+    {
+      "name": "halensee",
+      "displayName": "Halensee",
+      "lng": 13.280256,
+      "lat": 52.555108,
+      "lines": [
+        "S46",
+        "S42",
+        "S41"
+      ]
+    },
+    {
+      "name": "hauptbahnhof",
+      "displayName": "Hauptbahnhof",
+      "lng": 13.332256,
+      "lat": 52.569882,
+      "lines": [
+        "S9",
+        "S7",
+        "S5",
+        "S3"
+      ]
+    },
+    {
+      "name": "heerstrasse",
+      "displayName": "Heerstrasse",
+      "lng": 13.258714,
+      "lat": 52.563545,
+      "lines": [
+        "S9",
+        "S3"
+      ]
+    },
+    {
+      "name": "hegermuehle",
+      "displayName": "Hegermuehle",
+      "lng": 13.479728,
+      "lat": 52.580919,
+      "lines": [
+        "S5"
+      ]
+    },
+    {
+      "name": "heidelbergerplatz",
+      "displayName": "Heidelbergerplatz",
+      "lng": 13.290679,
+      "lat": 52.541019,
+      "lines": [
+        "S46",
+        "S42",
+        "S41"
+      ]
+    },
+    {
+      "name": "heiligensee",
+      "displayName": "Heiligensee",
+      "lng": 13.29051,
+      "lat": 52.606149,
+      "lines": [
+        "S25"
+      ]
+    },
+    {
+      "name": "hennigsdorf",
+      "displayName": "Hennigsdorf",
+      "lng": 13.287398,
+      "lat": 52.608035,
+      "lines": [
+        "S25"
+      ]
+    },
+    {
+      "name": "hermannstrasse",
+      "displayName": "Hermannstrasse",
+      "lng": 13.353004,
+      "lat": 52.540834,
+      "lines": [
+        "S47",
+        "S46",
+        "S42",
+        "S41"
+      ]
+    },
+    {
+      "name": "hermsdorf",
+      "displayName": "Hermsdorf",
+      "lng": 13.327845,
+      "lat": 52.604904,
+      "lines": [
+        "S85",
+        "S1"
+      ]
+    },
+    {
+      "name": "hirschgarten",
+      "displayName": "Hirschgarten",
+      "lng": 13.447148,
+      "lat": 52.545802,
+      "lines": [
+        "S3"
+      ]
+    },
+    {
+      "name": "hohenneuendorf",
+      "displayName": "Hohenneuendorf",
+      "lng": 13.320969,
+      "lat": 52.609066,
+      "lines": [
+        "S8",
+        "S1"
+      ]
+    },
+    {
+      "name": "hohenschoenhausen",
+      "displayName": "Hohenschoenhausen",
+      "lng": 13.405667,
+      "lat": 52.589412,
+      "lines": [
+        "S75"
+      ]
+    },
+    {
+      "name": "hohenzollerndamm",
+      "displayName": "Hohenzollerndamm",
+      "lng": 13.282475,
+      "lat": 52.546007,
+      "lines": [
+        "S46",
+        "S42",
+        "S41"
+      ]
+    },
+    {
+      "name": "hoppegartenmark",
+      "displayName": "Hoppegartenmark",
+      "lng": 13.47852,
+      "lat": 52.568254,
+      "lines": [
+        "S5"
+      ]
+    },
+    {
+      "name": "humboldthain",
+      "displayName": "Humboldthain",
+      "lng": 13.34921,
+      "lat": 52.579642,
+      "lines": [
+        "S25",
+        "S26",
+        "S2",
+        "S1"
+      ]
+    },
+    {
+      "name": "innsbruckerplatz",
+      "displayName": "Innsbruckerplatz",
+      "lng": 13.325614,
+      "lat": 52.540822,
+      "lines": [
+        "S46",
+        "S42",
+        "S41"
+      ]
+    },
+    {
+      "name": "jannowitzbruecke",
+      "displayName": "Jannowitzbruecke",
+      "lng": 13.375639,
+      "lat": 52.563531,
+      "lines": [
+        "S9",
+        "S7",
+        "S5",
+        "S3"
+      ]
+    },
+    {
+      "name": "johannisthal",
+      "displayName": "Johannisthal",
+      "lng": 13.427653,
+      "lat": 52.535416,
+      "lines": [
+        "S9",
+        "S8",
+        "S85",
+        "S46"
+      ]
+    },
+    {
+      "name": "juliusleberbruecke",
+      "displayName": "Juliusleberbruecke",
+      "lng": 13.326291,
+      "lat": 52.541237,
+      "lines": [
+        "S1"
+      ]
+    },
+    {
+      "name": "jungfernheide",
+      "displayName": "Jungfernheide",
+      "lng": 13.280943,
+      "lat": 52.57106,
+      "lines": [
+        "S42",
+        "S41"
+      ]
+    },
+    {
+      "name": "karlbonhoeffernervenklinik",
+      "displayName": "Karlbonhoeffernervenklinik",
+      "lng": 13.318651,
+      "lat": 52.600285,
+      "lines": [
+        "S25"
+      ]
+    },
+    {
+      "name": "karlshorst",
+      "displayName": "Karlshorst",
+      "lng": 13.427601,
+      "lat": 52.552146,
+      "lines": [
+        "S3"
+      ]
+    },
+    {
+      "name": "karow",
+      "displayName": "Karow",
+      "lng": 13.384085,
+      "lat": 52.605282,
+      "lines": [
+        "S2"
+      ]
+    },
+    {
+      "name": "kaulsdorf",
+      "displayName": "Kaulsdorf",
+      "lng": 13.459318,
+      "lat": 52.565079,
+      "lines": [
+        "S5"
+      ]
+    },
+    {
+      "name": "koellnischeheide",
+      "displayName": "Koellnischeheide",
+      "lng": 13.403977,
+      "lat": 52.540855,
+      "lines": [
+        "S47",
+        "S46"
+      ]
+    },
+    {
+      "name": "koenigswusterhausen",
+      "displayName": "Koenigswusterhausen",
+      "lng": 13.451955,
+      "lat": 52.519355,
+      "lines": [
+        "S46"
+      ]
+    },
+    {
+      "name": "koepenick",
+      "displayName": "Koepenick",
+      "lng": 13.442818,
+      "lat": 52.548436,
+      "lines": [
+        "S3"
+      ]
+    },
+    {
+      "name": "landsbergerallee",
+      "displayName": "Landsbergerallee",
+      "lng": 13.404433,
+      "lat": 52.571567,
+      "lines": [
+        "S8",
+        "S85",
+        "S42",
+        "S41"
+      ]
+    },
+    {
+      "name": "lankwitz",
+      "displayName": "Lankwitz",
+      "lng": 13.330878,
+      "lat": 52.526582,
+      "lines": [
+        "S25",
+        "S26"
+      ]
+    },
+    {
+      "name": "lehnitz",
+      "displayName": "Lehnitz",
+      "lng": 13.31216,
+      "lat": 52.613825,
+      "lines": [
+        "S1"
+      ]
+    },
+    {
+      "name": "lichtenberg",
+      "displayName": "Lichtenberg",
+      "lng": 13.412544,
+      "lat": 52.559114,
+      "lines": [
+        "S75",
+        "S7",
+        "S5"
+      ]
+    },
+    {
+      "name": "lichtenrade",
+      "displayName": "Lichtenrade",
+      "lng": 13.348574,
+      "lat": 52.516233,
+      "lines": [
+        "S2"
+      ]
+    },
+    {
+      "name": "lichterfeldeost",
+      "displayName": "Lichterfeldeost",
+      "lng": 13.325269,
+      "lat": 52.523161,
+      "lines": [
+        "S25",
+        "S26"
+      ]
+    },
+    {
+      "name": "lichterfeldesued",
+      "displayName": "Lichterfeldesued",
+      "lng": 13.312312,
+      "lat": 52.515259,
+      "lines": [
+        "S25",
+        "S26"
+      ]
+    },
+    {
+      "name": "lichterfeldewest",
+      "displayName": "Lichterfeldewest",
+      "lng": 13.284706,
+      "lat": 52.522142,
+      "lines": [
+        "S1"
+      ]
+    },
+    {
+      "name": "mahlow",
+      "displayName": "Mahlow",
+      "lng": 13.348574,
+      "lat": 52.51281,
+      "lines": [
+        "S2"
+      ]
+    },
+    {
+      "name": "mahlsdorf",
+      "displayName": "Mahlsdorf",
+      "lng": 13.450895,
+      "lat": 52.565077,
+      "lines": [
+        "S5"
+      ]
+    },
+    {
+      "name": "marienfelde",
+      "displayName": "Marienfelde",
+      "lng": 13.34773,
+      "lat": 52.526669,
+      "lines": [
+        "S2"
+      ]
+    },
+    {
+      "name": "marzahn",
+      "displayName": "Marzahn",
+      "lng": 13.433058,
+      "lat": 52.57557,
+      "lines": [
+        "S7"
+      ]
+    },
+    {
+      "name": "marzahn raoul wallenberg",
+      "displayName": "Marzahn Raoul Wallenberg",
+      "lng": 13.442648,
+      "lat": 52.581403,
+      "lines": [
+        "S7"
+      ]
+    },
+    {
+      "name": "mehrowerallee",
+      "displayName": "Mehrowerallee",
+      "lng": 13.442648,
+      "lat": 52.581403,
+      "lines": [
+        "S7"
+      ]
+    },
+    {
+      "name": "messenordicc",
+      "displayName": "Messenordicc",
+      "lng": 13.280256,
+      "lat": 52.559417,
+      "lines": [
+        "S46",
+        "S42",
+        "S41"
+      ]
+    },
+    {
+      "name": "messesued",
+      "displayName": "Messesued",
+      "lng": 13.268725,
+      "lat": 52.558757,
+      "lines": [
+        "S9",
+        "S3"
+      ]
+    },
+    {
+      "name": "mexikoplatz",
+      "displayName": "Mexikoplatz",
+      "lng": 13.261869,
+      "lat": 52.526664,
+      "lines": [
+        "S1"
+      ]
+    },
+    {
+      "name": "muehlenbeckmoenchmuehle",
+      "displayName": "Muehlenbeckmoenchmuehle",
+      "lng": 13.361084,
+      "lat": 52.609133,
+      "lines": [
+        "S8"
+      ]
+    },
+    {
+      "name": "neuenhagen",
+      "displayName": "Neuenhagen",
+      "lng": 13.476545,
+      "lat": 52.567049,
+      "lines": [
+        "S5"
+      ]
+    },
+    {
+      "name": "neukoelln",
+      "displayName": "Neukoelln",
+      "lng": 13.38588,
+      "lat": 52.540847,
+      "lines": [
+        "S47",
+        "S46",
+        "S42",
+        "S41"
+      ]
+    },
+    {
+      "name": "nikolassee",
+      "displayName": "Nikolassee",
+      "lng": 13.248467,
+      "lat": 52.521164,
+      "lines": [
+        "S7",
+        "S1"
+      ]
+    },
+    {
+      "name": "noeldnerplatz",
+      "displayName": "Noeldnerplatz",
+      "lng": 13.403946,
+      "lat": 52.558153,
+      "lines": [
+        "S75",
+        "S7",
+        "S5"
+      ]
+    },
+    {
+      "name": "nordbahnhof",
+      "displayName": "Nordbahnhof",
+      "lng": 13.349208,
+      "lat": 52.577808,
+      "lines": [
+        "S25",
+        "S26",
+        "S2",
+        "S1"
+      ]
+    },
+    {
+      "name": "oberspree",
+      "displayName": "Oberspree",
+      "lng": 13.428299,
+      "lat": 52.537028,
+      "lines": [
+        "S47"
+      ]
+    },
+    {
+      "name": "olympiastadion",
+      "displayName": "Olympiastadion",
+      "lng": 13.253938,
+      "lat": 52.566444,
+      "lines": [
+        "S9",
+        "S3"
+      ]
+    },
+    {
+      "name": "oranienburg",
+      "displayName": "Oranienburg",
+      "lng": 13.313798,
+      "lat": 52.612829,
+      "lines": [
+        "S1"
+      ]
+    },
+    {
+      "name": "oranienburgerstrasse",
+      "displayName": "Oranienburgerstrasse",
+      "lng": 13.349206,
+      "lat": 52.575384,
+      "lines": [
+        "S25",
+        "S26",
+        "S2",
+        "S1"
+      ]
+    },
+    {
+      "name": "osdorferstrasse",
+      "displayName": "Osdorferstrasse",
+      "lng": 13.318282,
+      "lat": 52.5189,
+      "lines": [
+        "S25",
+        "S26"
+      ]
+    },
+    {
+      "name": "ostbahnhof",
+      "displayName": "Ostbahnhof",
+      "lng": 13.38031,
+      "lat": 52.560691,
+      "lines": [
+        "S9",
+        "S7",
+        "S5",
+        "S3"
+      ]
+    },
+    {
+      "name": "ostkreuz",
+      "displayName": "Ostkreuz",
+      "lng": 13.404416,
+      "lat": 52.557912,
+      "lines": [
+        "S8",
+        "S85",
+        "S75",
+        "S7",
+        "S5",
+        "S3",
+        "S42",
+        "S41"
+      ]
+    },
+    {
+      "name": "pankow",
+      "displayName": "Pankow",
+      "lng": 13.366202,
+      "lat": 52.593837,
+      "lines": [
+        "S8",
+        "S85",
+        "S26",
+        "S2"
+      ]
+    },
+    {
+      "name": "pankowheinersdorf",
+      "displayName": "Pankowheinersdorf",
+      "lng": 13.373021,
+      "lat": 52.597969,
+      "lines": [
+        "S8",
+        "S26",
+        "S2"
+      ]
+    },
+    {
+      "name": "petershagennord",
+      "displayName": "Petershagennord",
+      "lng": 13.479739,
+      "lat": 52.574184,
+      "lines": [
+        "S5"
+      ]
+    },
+    {
+      "name": "pichelsberg",
+      "displayName": "Pichelsberg",
+      "lng": 13.248032,
+      "lat": 52.570026,
+      "lines": [
+        "S9",
+        "S3"
+      ]
+    },
+    {
+      "name": "plaenterwald",
+      "displayName": "Plaenterwald",
+      "lng": 13.410776,
+      "lat": 52.545626,
+      "lines": [
+        "S9",
+        "S8",
+        "S85"
+      ]
+    },
+    {
+      "name": "poelchaustrasse",
+      "displayName": "Poelchaustrasse",
+      "lng": 13.43105,
+      "lat": 52.571524,
+      "lines": [
+        "S7"
+      ]
+    },
+    {
+      "name": "potsdamerplatz",
+      "displayName": "Potsdamerplatz",
+      "lng": 13.339576,
+      "lat": 52.56186,
+      "lines": [
+        "S25",
+        "S26",
+        "S2",
+        "S1"
+      ]
+    },
+    {
+      "name": "potsdamgriebnitzsee",
+      "displayName": "Potsdamgriebnitzsee",
+      "lng": 13.248467,
+      "lat": 52.521164,
+      "lines": [
+        "S7"
+      ]
+    },
+    {
+      "name": "potsdamhbf",
+      "displayName": "Potsdamhbf",
+      "lng": 13.233898,
+      "lat": 52.516908,
+      "lines": [
+        "S7"
+      ]
+    },
+    {
+      "name": "prenzlauerallee",
+      "displayName": "Prenzlauerallee",
+      "lng": 13.385649,
+      "lat": 52.582608,
+      "lines": [
+        "S8",
+        "S85",
+        "S42",
+        "S41"
+      ]
+    },
+    {
+      "name": "priesterweg",
+      "displayName": "Priesterweg",
+      "lng": 13.339579,
+      "lat": 52.541237,
+      "lines": [
+        "S25",
+        "S26",
+        "S2"
+      ]
+    },
+    {
+      "name": "rahnsdorf",
+      "displayName": "Rahnsdorf",
+      "lng": 13.455899,
+      "lat": 52.540481,
+      "lines": [
+        "S3"
+      ]
+    },
+    {
+      "name": "raoul wallenberg strasse",
+      "displayName": "Raoul Wallenberg Strasse",
+      "lng": 13.447434,
+      "lat": 52.584314,
+      "lines": [
+        "S7"
+      ]
+    },
+    {
+      "name": "rathaussteglitz",
+      "displayName": "Rathaussteglitz",
+      "lng": 13.31345,
+      "lat": 52.533467,
+      "lines": [
+        "S1"
+      ]
+    },
+    {
+      "name": "roentgental",
+      "displayName": "Roentgental",
+      "lng": 13.388692,
+      "lat": 52.608075,
+      "lines": [
+        "S2"
+      ]
+    },
+    {
+      "name": "rummelsburg",
+      "displayName": "Rummelsburg",
+      "lng": 13.413726,
+      "lat": 52.556491,
+      "lines": [
+        "S3"
+      ]
+    },
+    {
+      "name": "savignyplatz",
+      "displayName": "Savignyplatz",
+      "lng": 13.299881,
+      "lat": 52.558757,
+      "lines": [
+        "S9",
+        "S7",
+        "S5",
+        "S3"
+      ]
+    },
+    {
+      "name": "schichauweg",
+      "displayName": "Schichauweg",
+      "lng": 13.348574,
+      "lat": 52.51972,
+      "lines": [
+        "S2"
+      ]
+    },
+    {
+      "name": "schlachtensee",
+      "displayName": "Schlachtensee",
+      "lng": 13.268157,
+      "lat": 52.525776,
+      "lines": [
+        "S1"
+      ]
+    },
+    {
+      "name": "schoeneberg",
+      "displayName": "Schoeneberg",
+      "lng": 13.339949,
+      "lat": 52.540828,
+      "lines": [
+        "S46",
+        "S1",
+        "S42",
+        "S41"
+      ]
+    },
+    {
+      "name": "schoeneweide",
+      "displayName": "Schoeneweide",
+      "lng": 13.422021,
+      "lat": 52.538824,
+      "lines": [
+        "S9",
+        "S8",
+        "S85",
+        "S47",
+        "S46"
+      ]
+    },
+    {
+      "name": "schoenflies",
+      "displayName": "Schoenflies",
+      "lng": 13.345946,
+      "lat": 52.609129,
+      "lines": [
+        "S8"
+      ]
+    },
+    {
+      "name": "schoenhauserallee",
+      "displayName": "Schoenhauserallee",
+      "lng": 13.366345,
+      "lat": 52.582613,
+      "lines": [
+        "S8",
+        "S85",
+        "S42",
+        "S41"
+      ]
+    },
+    {
+      "name": "schoenholz",
+      "displayName": "Schoenholz",
+      "lng": 13.34892,
+      "lat": 52.592115,
+      "lines": [
+        "S85",
+        "S25",
+        "S1"
+      ]
+    },
+    {
+      "name": "schönefeld",
+      "displayName": "Schönefeld",
+      "lng": 13.403881,
+      "lat": 52.512099,
+      "lines": [
+        "S9",
+        "S85"
+      ]
+    },
+    {
+      "name": "schulzendorf",
+      "displayName": "Schulzendorf",
+      "lng": 13.293375,
+      "lat": 52.604412,
+      "lines": [
+        "S25"
+      ]
+    },
+    {
+      "name": "sonnenallee",
+      "displayName": "Sonnenallee",
+      "lng": 13.403735,
+      "lat": 52.550961,
+      "lines": [
+        "S42",
+        "S41"
+      ]
+    },
+    {
+      "name": "spandau",
+      "displayName": "Spandau",
+      "lng": 13.236777,
+      "lat": 52.576434,
+      "lines": [
+        "S9",
+        "S3"
+      ]
+    },
+    {
+      "name": "spindlersfeld",
+      "displayName": "Spindlersfeld",
+      "lng": 13.436598,
+      "lat": 52.537028,
+      "lines": [
+        "S47"
+      ]
+    },
+    {
+      "name": "springpfuhl",
+      "displayName": "Springpfuhl",
+      "lng": 13.424838,
+      "lat": 52.564664,
+      "lines": [
+        "S75",
+        "S7"
+      ]
+    },
+    {
+      "name": "storkowerstrasse",
+      "displayName": "Storkowerstrasse",
+      "lng": 13.404426,
+      "lat": 52.566536,
+      "lines": [
+        "S8",
+        "S85",
+        "S42",
+        "S41"
+      ]
+    },
+    {
+      "name": "strasse",
+      "displayName": "Strasse",
+      "lng": 13.437816,
+      "lat": 52.578464,
+      "lines": [
+        "S7"
+      ]
+    },
+    {
+      "name": "strausberg",
+      "displayName": "Strausberg",
+      "lng": 13.479742,
+      "lat": 52.572204,
+      "lines": [
+        "S5"
+      ]
+    },
+    {
+      "name": "strausberg stadt",
+      "displayName": "Strausberg Stadt",
+      "lng": 13.47973,
+      "lat": 52.579021,
+      "lines": [
+        "S5"
+      ]
+    },
+    {
+      "name": "strausbergnord",
+      "displayName": "Strausbergnord",
+      "lng": 13.479728,
+      "lat": 52.580919,
+      "lines": [
+        "S5"
+      ]
+    },
+    {
+      "name": "stresow",
+      "displayName": "Stresow",
+      "lng": 13.242688,
+      "lat": 52.573268,
+      "lines": [
+        "S9",
+        "S3"
+      ]
+    },
+    {
+      "name": "suedende",
+      "displayName": "Suedende",
+      "lng": 13.335605,
+      "lat": 52.529466,
+      "lines": [
+        "S25",
+        "S26"
+      ]
+    },
+    {
+      "name": "suedkreuz",
+      "displayName": "Suedkreuz",
+      "lng": 13.353004,
+      "lat": 52.540834,
+      "lines": [
+        "S47",
+        "S46",
+        "S25",
+        "S26",
+        "S2",
+        "S42",
+        "S41"
+      ]
+    },
+    {
+      "name": "sundgauerstrasse",
+      "displayName": "Sundgauerstrasse",
+      "lng": 13.274628,
+      "lat": 52.522144,
+      "lines": [
+        "S1"
+      ]
+    },
+    {
+      "name": "tegel",
+      "displayName": "Tegel",
+      "lng": 13.296843,
+      "lat": 52.602312,
+      "lines": [
+        "S25"
+      ]
+    },
+    {
+      "name": "teltowstadt",
+      "displayName": "Teltowstadt",
+      "lng": 13.296797,
+      "lat": 52.512732,
+      "lines": [
+        "S25",
+        "S26"
+      ]
+    },
+    {
+      "name": "tempelhof",
+      "displayName": "Tempelhof",
+      "lng": 13.339949,
+      "lat": 52.540828,
+      "lines": [
+        "S47",
+        "S46",
+        "S42",
+        "S41"
+      ]
+    },
+    {
+      "name": "tiergarten",
+      "displayName": "Tiergarten",
+      "lng": 13.315004,
+      "lat": 52.563346,
+      "lines": [
+        "S9",
+        "S7",
+        "S5",
+        "S3"
+      ]
+    },
+    {
+      "name": "treptowerpark",
+      "displayName": "Treptowerpark",
+      "lng": 13.405149,
+      "lat": 52.550949,
+      "lines": [
+        "S9",
+        "S8",
+        "S85",
+        "S42",
+        "S41"
+      ]
+    },
+    {
+      "name": "waidmannslust",
+      "displayName": "Waidmannslust",
+      "lng": 13.327821,
+      "lat": 52.604913,
+      "lines": [
+        "S85",
+        "S1"
+      ]
+    },
+    {
+      "name": "waidmannslust berlin",
+      "displayName": "Waidmannslust Berlin",
+      "lng": 13.326088,
+      "lat": 52.605971,
+      "lines": [
+        "S85"
+      ]
+    },
+    {
+      "name": "wannsee",
+      "displayName": "Wannsee",
+      "lng": 13.251589,
+      "lat": 52.523056,
+      "lines": [
+        "S7",
+        "S1"
+      ]
+    },
+    {
+      "name": "warschauerstrasse",
+      "displayName": "Warschauerstrasse",
+      "lng": 13.384364,
+      "lat": 52.558226,
+      "lines": [
+        "S9",
+        "S75",
+        "S7",
+        "S5",
+        "S3"
+      ]
+    },
+    {
+      "name": "wartenberg",
+      "displayName": "Wartenberg",
+      "lng": 13.413434,
+      "lat": 52.584692,
+      "lines": [
+        "S75"
+      ]
+    },
+    {
+      "name": "waßmannsdorf",
+      "displayName": "Waßmannsdorf",
+      "lng": 13.407632,
+      "lat": 52.51104,
+      "lines": [
+        "S9",
+        "S85"
+      ]
+    },
+    {
+      "name": "wedding",
+      "displayName": "Wedding",
+      "lng": 13.317266,
+      "lat": 52.582203,
+      "lines": [
+        "S42",
+        "S41"
+      ]
+    },
+    {
+      "name": "westend",
+      "displayName": "Westend",
+      "lng": 13.280256,
+      "lat": 52.57106,
+      "lines": [
+        "S46",
+        "S42",
+        "S41"
+      ]
+    },
+    {
+      "name": "westhafen",
+      "displayName": "Westhafen",
+      "lng": 13.302062,
+      "lat": 52.582204,
+      "lines": [
+        "S42",
+        "S41"
+      ]
+    },
+    {
+      "name": "westkreuz",
+      "displayName": "Westkreuz",
+      "lng": 13.280934,
+      "lat": 52.558757,
+      "lines": [
+        "S9",
+        "S7",
+        "S5",
+        "S46",
+        "S3",
+        "S42",
+        "S41"
+      ]
+    },
+    {
+      "name": "wildau",
+      "displayName": "Wildau",
+      "lng": 13.448967,
+      "lat": 52.521782,
+      "lines": [
+        "S8",
+        "S46"
+      ]
+    },
+    {
+      "name": "wilhelmshagen",
+      "displayName": "Wilhelmshagen",
+      "lng": 13.459754,
+      "lat": 52.538136,
+      "lines": [
+        "S3"
+      ]
+    },
+    {
+      "name": "wilhelmsruh",
+      "displayName": "Wilhelmsruh",
+      "lng": 13.332419,
+      "lat": 52.602124,
+      "lines": [
+        "S85",
+        "S1"
+      ]
+    },
+    {
+      "name": "wittenau",
+      "displayName": "Wittenau",
+      "lng": 13.329579,
+      "lat": 52.603848,
+      "lines": [
+        "S85",
+        "S1"
+      ]
+    },
+    {
+      "name": "wollankstrasse",
+      "displayName": "Wollankstrasse",
+      "lng": 13.354546,
+      "lat": 52.586774,
+      "lines": [
+        "S85",
+        "S25",
+        "S1"
+      ]
+    },
+    {
+      "name": "wuhletal",
+      "displayName": "Wuhletal",
+      "lng": 13.434454,
+      "lat": 52.565074,
+      "lines": [
+        "S5"
+      ]
+    },
+    {
+      "name": "wuhlheide",
+      "displayName": "Wuhlheide",
+      "lng": 13.438447,
+      "lat": 52.551094,
+      "lines": [
+        "S3"
+      ]
+    },
+    {
+      "name": "yorckstrasse",
+      "displayName": "Yorckstrasse",
+      "lng": 13.339578,
+      "lat": 52.547394,
+      "lines": [
+        "S25",
+        "S26",
+        "S2",
+        "S1"
+      ]
+    },
+    {
+      "name": "zehlendorf",
+      "displayName": "Zehlendorf",
+      "lng": 13.284706,
+      "lat": 52.522142,
+      "lines": [
+        "S1"
+      ]
+    },
+    {
+      "name": "zepernick",
+      "displayName": "Zepernick",
+      "lng": 13.391049,
+      "lat": 52.609504,
+      "lines": [
+        "S2"
+      ]
+    },
+    {
+      "name": "zeuthen",
+      "displayName": "Zeuthen",
+      "lng": 13.44679,
+      "lat": 52.52311,
+      "lines": [
+        "S8",
+        "S46"
+      ]
+    },
+    {
+      "name": "zoologischergarten",
+      "displayName": "Zoologischergarten",
+      "lng": 13.308609,
+      "lat": 52.559459,
+      "lines": [
+        "S9",
+        "S7",
+        "S5",
+        "S3"
+      ]
+    }
+  ],
+  "count": 172,
+  "extractedAt": "2026-01-09T16:17:30.322Z"
+}

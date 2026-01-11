@@ -264,6 +264,59 @@
               </g>
             </g>
 
+            <!-- Text Nodes -->
+            <g
+              v-for="textNode in editorStore.textNodes"
+              :key="textNode.id"
+              class="text-node-group"
+              :class="{ 
+                selected: editorStore.selectedTextNodeId === textNode.id,
+                editing: editingTextNodeId === textNode.id,
+              }"
+              :transform="`translate(${getTextNodePosition(textNode).x}, ${getTextNodePosition(textNode).y})`"
+              @mousedown.stop="handleTextNodeMouseDown($event, textNode)"
+              @click.stop="handleTextNodeClick(textNode)"
+              @dblclick.stop="handleTextNodeDoubleClick(textNode)"
+            >
+              <!-- Text background for better visibility -->
+              <rect
+                :x="-2"
+                :y="-textNode.fontSize * 0.8"
+                :width="measureTextWidth(textNode.text, textNode.fontSize) + 4"
+                :height="textNode.fontSize * 1.2"
+                fill="rgba(0, 0, 0, 0.6)"
+                rx="2"
+                class="text-bg"
+              />
+              <text
+                x="0"
+                y="0"
+                class="text-node-text"
+                :style="{ fontSize: `${textNode.fontSize}px` }"
+              >{{ textNode.text }}</text>
+              
+              <!-- Selection indicator and resize handle -->
+              <g v-if="editorStore.selectedTextNodeId === textNode.id">
+                <rect
+                  :x="-4"
+                  :y="-textNode.fontSize * 0.8 - 2"
+                  :width="measureTextWidth(textNode.text, textNode.fontSize) + 8"
+                  :height="textNode.fontSize * 1.2 + 4"
+                  fill="none"
+                  stroke="rgba(79, 70, 229, 0.8)"
+                  stroke-width="1"
+                  stroke-dasharray="3,2"
+                  rx="3"
+                />
+                <circle
+                  :cx="measureTextWidth(textNode.text, textNode.fontSize) + 4"
+                  :cy="-textNode.fontSize * 0.2"
+                  r="4"
+                  class="text-resize-handle"
+                  @mousedown.stop="handleTextNodeResizeMouseDown($event, textNode)"
+                />
+              </g>
+            </g>
             <!-- Multi-connect preview line -->
             <line
               v-if="editorStore.selectedTool === 'multiConnect' && editorStore.multiConnectStations.length > 0 && mousePosition"
@@ -437,10 +490,72 @@
           </button>
         </div>
 
+        <div v-else-if="editorStore.selectedTextNode" class="property-content">
+          <div class="property-group">
+            <label>Text Content</label>
+            <input 
+              type="text" 
+              :value="editorStore.selectedTextNode.text"
+              @input="updateTextNodeText($event)"
+              class="text-input"
+              placeholder="Enter text..."
+            />
+          </div>
+
+          <div class="property-group">
+            <label>Font Size: {{ editorStore.selectedTextNode.fontSize }}px</label>
+            <input 
+              type="range" 
+              :value="editorStore.selectedTextNode.fontSize"
+              @input="updateTextNodeFontSize($event)"
+              min="6" 
+              max="48" 
+              step="1"
+              class="length-slider"
+            />
+          </div>
+
+          <div class="property-group">
+            <label>Link to Station (optional)</label>
+            <select 
+              :value="editorStore.selectedTextNode.stationId || ''"
+              @change="updateTextNodeStation($event)"
+              class="line-select"
+            >
+              <option value="">None (standalone)</option>
+              <option v-for="station in editorStore.stations" :key="station.id" :value="station.id">
+                {{ station.name }}
+              </option>
+            </select>
+          </div>
+
+          <div class="property-group">
+            <label>Position</label>
+            <div class="position-inputs">
+              <input 
+                type="number" 
+                :value="Math.round(editorStore.selectedTextNode.x)"
+                @input="updateTextNodePosition('x', $event)"
+                placeholder="X"
+              />
+              <input 
+                type="number" 
+                :value="Math.round(editorStore.selectedTextNode.y)"
+                @input="updateTextNodePosition('y', $event)"
+                placeholder="Y"
+              />
+            </div>
+          </div>
+
+          <button @click="deleteSelectedTextNode" class="btn btn-danger delete-btn">
+            🗑 Delete Text
+          </button>
+        </div>
+
         <div v-else class="property-placeholder">
-          <p>Select a station or track</p>
+          <p>Select a station, track, or text</p>
           <p class="hint">Click existing station to add tracks</p>
-          <p class="hint">Use R to rotate selected station</p>
+          <p class="hint">Use X to add text nodes</p>
         </div>
       </aside>
     </div>
@@ -449,7 +564,7 @@
 
 <script setup lang="ts">
 import { ref, reactive, computed, onMounted, onUnmounted } from 'vue';
-import { useEditorStore, type EditorStation, type EditorTrack, type Waypoint } from '@/stores/editorStore';
+import { useEditorStore, type EditorStation, type EditorTrack, type Waypoint, type TextNode } from '@/stores/editorStore';
 import { allStationNames, allLines, getLineColor } from '@/data/stationNames';
 import { ubahnLines } from '@/data/ubahn';
 import { sbahnLines } from '@/data/sbahn';
@@ -475,6 +590,9 @@ const draggingWaypoint = ref<{ trackId: string; waypointId: string } | null>(nul
 const draggingEndpoint = ref<{ trackId: string; endpoint: 1 | 2; stationId: string } | null>(null);
 const draggingLabel = ref<{ stationId: string; startX: number; startY: number; startOffsetX: number; startOffsetY: number } | null>(null);
 const resizingLabel = ref<{ stationId: string; startX: number; startFontSize: number } | null>(null);
+const draggingTextNode = ref<{ id: string; startX: number; startY: number; startNodeX: number; startNodeY: number } | null>(null);
+const resizingTextNode = ref<{ id: string; startX: number; startFontSize: number } | null>(null);
+const editingTextNodeId = ref<string | null>(null);
 
 // UI refs
 const canvasContainer = ref<HTMLElement | null>(null);
@@ -532,6 +650,7 @@ const tools = [
   { id: 'track', icon: '🔗', label: 'Track', shortcut: 'T' },
   { id: 'bend', icon: '〰️', label: 'Bend', shortcut: 'B' },
   { id: 'multiConnect', icon: '⛓', label: 'Multi', shortcut: 'M' },
+  { id: 'text', icon: '📝', label: 'Text', shortcut: 'X' },
 ] as const;
 
 // Track connection state
@@ -607,6 +726,58 @@ function getTrackEndpoints(track: EditorTrack): [{ x: number; y: number }, { x: 
     getTrackConnectionPoint(s1, track, true),
     getTrackConnectionPoint(s2, track, false),
   ];
+}
+
+// Get text node position (supports station-linked text)
+function getTextNodePosition(textNode: TextNode): { x: number; y: number } {
+  if (textNode.stationId) {
+    const station = getStationById(textNode.stationId);
+    if (station) {
+      return {
+        x: station.x + textNode.x,
+        y: station.y + textNode.y,
+      };
+    }
+  }
+  return { x: textNode.x, y: textNode.y };
+}
+
+// Text node handlers
+function handleTextNodeMouseDown(e: MouseEvent, textNode: TextNode) {
+  if (e.button === 0 && (editorStore.selectedTool === 'select' || editorStore.selectedTool === 'text')) {
+    const pos = getTextNodePosition(textNode);
+    draggingTextNode.value = {
+      id: textNode.id,
+      startX: e.clientX,
+      startY: e.clientY,
+      startNodeX: pos.x,
+      startNodeY: pos.y,
+    };
+    editorStore.selectTextNode(textNode.id);
+    e.preventDefault();
+  }
+}
+
+function handleTextNodeClick(textNode: TextNode) {
+  if (editorStore.selectedTool === 'select' || editorStore.selectedTool === 'text') {
+    editorStore.selectTextNode(textNode.id);
+  }
+}
+
+function handleTextNodeDoubleClick(textNode: TextNode) {
+  editingTextNodeId.value = textNode.id;
+  editorStore.selectTextNode(textNode.id);
+}
+
+function handleTextNodeResizeMouseDown(e: MouseEvent, textNode: TextNode) {
+  if (e.button === 0) {
+    resizingTextNode.value = {
+      id: textNode.id,
+      startX: e.clientX,
+      startFontSize: textNode.fontSize,
+    };
+    e.preventDefault();
+  }
 }
 
 function getTrackPath(track: EditorTrack): string {
@@ -759,6 +930,29 @@ function handleMouseMove(e: MouseEvent) {
     return;
   }
 
+  // Handle text node dragging
+  if (draggingTextNode.value) {
+    const dx = (e.clientX - draggingTextNode.value.startX) / zoom.value;
+    const dy = (e.clientY - draggingTextNode.value.startY) / zoom.value;
+    
+    editorStore.updateTextNode(draggingTextNode.value.id, {
+      x: draggingTextNode.value.startNodeX + dx,
+      y: draggingTextNode.value.startNodeY + dy,
+    });
+    return;
+  }
+
+  // Handle text node resizing
+  if (resizingTextNode.value) {
+    const dx = (e.clientX - resizingTextNode.value.startX) / zoom.value;
+    const newFontSize = Math.max(6, Math.min(48, resizingTextNode.value.startFontSize + dx * 0.2));
+    
+    editorStore.updateTextNode(resizingTextNode.value.id, {
+      fontSize: newFontSize,
+    });
+    return;
+  }
+
   if (draggingWaypoint.value && canvasContainer.value) {
     const rect = canvasContainer.value.getBoundingClientRect();
     const x = (e.clientX - rect.left - pan.x) / zoom.value;
@@ -807,13 +1001,15 @@ function handleMouseMove(e: MouseEvent) {
 }
 
 function handleMouseUp(e: MouseEvent) {
-  if (draggingStationId.value || draggingWaypoint.value || draggingEndpoint.value || draggingLabel.value || resizingLabel.value) showSaveStatus();
+  if (draggingStationId.value || draggingWaypoint.value || draggingEndpoint.value || draggingLabel.value || resizingLabel.value || draggingTextNode.value || resizingTextNode.value) showSaveStatus();
   
   draggingStationId.value = null;
   draggingWaypoint.value = null;
   draggingEndpoint.value = null;
   draggingLabel.value = null;
   resizingLabel.value = null;
+  draggingTextNode.value = null;
+  resizingTextNode.value = null;
   
   if (e.button === 2) isRightMousePanning.value = false;
   isPanning.value = false;
@@ -922,8 +1118,15 @@ function handleCanvasClick(e: MouseEvent) {
     
     lastPlacedStationId.value = station.id;
     showSaveStatus();
+  } else if (editorStore.selectedTool === 'text') {
+    // Create a new text node
+    const textNode = editorStore.addTextNode(x, y, 'New Text');
+    editorStore.selectTextNode(textNode.id);
+    editingTextNodeId.value = textNode.id;
+    showSaveStatus();
   } else if (editorStore.selectedTool === 'select' || editorStore.selectedTool === 'bend') {
     editorStore.clearSelection();
+    editingTextNodeId.value = null;
     trackStartStation.value = null;
   }
 }
@@ -1056,6 +1259,49 @@ function deleteSelectedStation() {
   }
 }
 
+// Text node updates
+function updateTextNodeText(e: Event) {
+  const value = (e.target as HTMLInputElement).value;
+  if (editorStore.selectedTextNodeId) {
+    editorStore.updateTextNode(editorStore.selectedTextNodeId, { text: value });
+    showSaveStatus();
+  }
+}
+
+function updateTextNodeFontSize(e: Event) {
+  const value = parseInt((e.target as HTMLInputElement).value);
+  if (editorStore.selectedTextNodeId && !isNaN(value)) {
+    editorStore.updateTextNode(editorStore.selectedTextNodeId, { fontSize: value });
+    showSaveStatus();
+  }
+}
+
+function updateTextNodeStation(e: Event) {
+  const value = (e.target as HTMLSelectElement).value;
+  if (editorStore.selectedTextNodeId) {
+    editorStore.updateTextNode(editorStore.selectedTextNodeId, { 
+      stationId: value || undefined 
+    });
+    showSaveStatus();
+  }
+}
+
+function updateTextNodePosition(axis: 'x' | 'y', e: Event) {
+  const value = parseInt((e.target as HTMLInputElement).value);
+  if (editorStore.selectedTextNodeId && !isNaN(value)) {
+    editorStore.updateTextNode(editorStore.selectedTextNodeId, { [axis]: value });
+    showSaveStatus();
+  }
+}
+
+function deleteSelectedTextNode() {
+  if (editorStore.selectedTextNodeId) {
+    editorStore.removeTextNode(editorStore.selectedTextNodeId);
+    editingTextNodeId.value = null;
+    showSaveStatus();
+  }
+}
+
 // Track updates
 function updateTrackLine(e: Event) {
   const value = (e.target as HTMLSelectElement).value;
@@ -1142,6 +1388,8 @@ function handleKeyDown(e: KeyboardEvent) {
     editorStore.selectedTool = 'bend';
   } else if (key === 'm' || key === '6') {
     editorStore.selectedTool = 'multiConnect';
+  } else if (key === 'x' || key === '7') {
+    editorStore.selectedTool = 'text';
   } else if (key === '+' || key === '=') {
     zoomIn();
   } else if (key === '-') {
@@ -1294,4 +1542,14 @@ onUnmounted(() => { window.removeEventListener('keydown', handleKeyDown); });
 .position-inputs input { flex: 1; padding: 5px 6px; border-radius: 4px; border: 1px solid rgba(255, 255, 255, 0.2); background: rgba(255, 255, 255, 0.05); color: #fff; font-size: 12px; }
 
 .delete-btn { width: 100%; margin-top: 6px; }
+
+/* Text nodes */
+.text-node-group { cursor: pointer; }
+.text-node-group:hover .text-bg { fill: rgba(0, 0, 0, 0.8); }
+.text-node-group.selected .text-bg { fill: rgba(30, 30, 60, 0.9); }
+.text-node-text { fill: #fff; font-family: 'Inter', -apple-system, sans-serif; font-weight: 500; cursor: pointer; }
+.text-resize-handle { fill: #4f46e5; stroke: white; stroke-width: 1; cursor: ew-resize; }
+.text-resize-handle:hover { fill: #6366f1; }
+.text-input { width: 100%; padding: 6px 8px; border-radius: 4px; border: 1px solid rgba(255, 255, 255, 0.2); background: rgba(255, 255, 255, 0.08); color: #fff; font-size: 13px; }
+.text-input:focus { outline: none; border-color: #4f46e5; }
 </style>

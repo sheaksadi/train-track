@@ -1,70 +1,21 @@
 <template>
-  <div class="alignment-map">
-    <!-- SVG Background Container -->
-    <div 
-      ref="mapContainer" 
-      class="map-container"
-      @wheel.prevent="onWheel"
-      @mousedown="onMouseDown"
-      @mousemove="onMouseMove"
-      @mouseup="onMouseUp"
-      @mouseleave="onMouseUp"
-    >
-      <div 
-        class="svg-wrapper"
-        :style="{
-          transform: `translate(${pan.x}px, ${pan.y}px) scale(${zoom})`,
-          transformOrigin: '50% 50%'
-        }"
-      >
-        <!-- BVG Map Background -->
-        <img 
-          :src="svgUrl" 
-          class="bvg-svg"
-          alt="BVG Map"
-        />
-        
-        <!-- GeoJSON Overlay Canvas -->
-        <canvas 
-          ref="overlayCanvas" 
-          class="overlay-canvas"
-          :style="{ opacity: overlayOpacity }"
-        ></canvas>
-      </div>
-    </div>
-    
+  <div ref="container" class="threejs-map">
     <!-- Control Panel -->
     <div class="control-panel">
-      <h3>GeoJSON Overlay Alignment</h3>
+      <h3>S-Bahn Berlin 3D Map</h3>
       
       <div class="control-group">
-        <label>Overlay Opacity</label>
-        <input type="range" v-model.number="overlayOpacity" min="0" max="1" step="0.1" />
-        <span>{{ Math.round(overlayOpacity * 100) }}%</span>
+        <label>
+          <input type="checkbox" v-model="showStations" @change="updateScene" />
+          Show Stations
+        </label>
       </div>
       
       <div class="control-group">
-        <label>Scale</label>
-        <input type="range" v-model.number="transform.scale" min="0.1" max="5" step="0.01" />
-        <span>{{ transform.scale.toFixed(2) }}</span>
-      </div>
-      
-      <div class="control-group">
-        <label>Offset X</label>
-        <input type="range" v-model.number="transform.offsetX" min="-1000" max="1000" step="1" />
-        <span>{{ transform.offsetX }}</span>
-      </div>
-      
-      <div class="control-group">
-        <label>Offset Y</label>
-        <input type="range" v-model.number="transform.offsetY" min="-1000" max="1000" step="1" />
-        <span>{{ transform.offsetY }}</span>
-      </div>
-      
-      <div class="control-group">
-        <label>Rotation</label>
-        <input type="range" v-model.number="transform.rotation" min="-180" max="180" step="1" />
-        <span>{{ transform.rotation }}°</span>
+        <label>
+          <input type="checkbox" v-model="showLabels" @change="updateScene" />
+          Show Station Names
+        </label>
       </div>
       
       <div class="line-filters">
@@ -72,30 +23,37 @@
         <div class="filter-btns">
           <button 
             :class="{ active: showSbahn }" 
-            @click="showSbahn = !showSbahn"
+            @click="showSbahn = !showSbahn; updateScene()"
             style="background: #E52E12"
           >S-Bahn</button>
           <button 
             :class="{ active: showUbahn }" 
-            @click="showUbahn = !showUbahn"
+            @click="showUbahn = !showUbahn; updateScene()"
             style="background: #528DBA"
           >U-Bahn</button>
           <button 
             :class="{ active: showRegional }" 
-            @click="showRegional = !showRegional"
+            @click="showRegional = !showRegional; updateScene()"
             style="background: #666"
           >Regional</button>
         </div>
       </div>
       
-      <div class="actions">
-        <button @click="resetTransform">Reset Transform</button>
-        <button @click="redrawOverlay">Redraw</button>
+      <div class="stats">
+        <p>{{ stationCount }} stations | {{ lineCount }} lines</p>
       </div>
-      
-      <div class="info-text">
-        <strong>Note:</strong> GeoJSON uses real lat/lng coordinates. The BVG schematic map is geographically distorted for readability, so perfect alignment is not possible.<br><br>
-        Use the controls to roughly align and verify data coverage.
+    </div>
+    
+    <!-- Hovered Station Info -->
+    <div v-if="hoveredStation" class="station-info">
+      <h4>{{ hoveredStation.displayName }}</h4>
+      <div class="lines-list">
+        <span 
+          v-for="line in hoveredStation.lines" 
+          :key="line"
+          class="line-badge"
+          :style="{ background: lineColors[line] || '#888' }"
+        >{{ line }}</span>
       </div>
     </div>
     
@@ -109,45 +67,54 @@
 </template>
 
 <script setup lang="ts">
-import { ref, reactive, onMounted, watch, nextTick } from 'vue';
+import { ref, computed, onMounted, onUnmounted } from 'vue';
+import * as THREE from 'three';
+import { sbahnColors } from '../data/sbahn';
+import { ubahnColors } from '../data/ubahn';
 
-// SVG background
-const svgUrl = '/bvg_subahn_2025.svg';
-const mapContainer = ref<HTMLElement | null>(null);
-const overlayCanvas = ref<HTMLCanvasElement | null>(null);
+// Extracted station type
+interface ExtractedStation {
+  name: string;
+  displayName: string;
+  lat: number;
+  lng: number;
+  lines: string[];
+}
 
-// View state
-const zoom = ref(1);
-const pan = reactive({ x: 0, y: 0 });
-const isPanning = ref(false);
-const panStart = reactive({ x: 0, y: 0 });
-const panOffset = reactive({ x: 0, y: 0 });
+// Container ref
+const container = ref<HTMLElement | null>(null);
 
-// Overlay settings
-const overlayOpacity = ref(0.7);
+// UI state
+const showStations = ref(true);
+const showLabels = ref(false);
 const showSbahn = ref(true);
 const showUbahn = ref(true);
 const showRegional = ref(false);
+const hoveredStation = ref<ExtractedStation | null>(null);
 
-// Transform for alignment
-const transform = reactive({
-  scale: 0.55,
-  offsetX: 580,
-  offsetY: 380,
-  rotation: 0,
-});
-
-// Line colors
+// Merge line colors
 const lineColors: Record<string, string> = {
-  'S1': '#DE4DA4', 'S2': '#005F27', 'S25': '#005F27', 'S26': '#005F27',
-  'S3': '#0A4C99', 'S41': '#A23B1E', 'S42': '#C66D38',
-  'S45': '#C38737', 'S46': '#C38737', 'S47': '#C38737',
-  'S5': '#FF5900', 'S7': '#6F4E9C', 'S75': '#6F4E9C',
-  'S8': '#55A822', 'S85': '#55A822', 'S9': '#8B1C52',
-  'U1': '#7DAD4C', 'U2': '#DA421E', 'U3': '#007A5B', 'U4': '#F0D722',
-  'U5': '#7E5330', 'U55': '#7E5330', 'U6': '#8C6DAB',
-  'U7': '#528DBA', 'U8': '#224F86', 'U9': '#F3791D',
+  ...sbahnColors,
+  ...ubahnColors,
 };
+
+// Stats
+const stationCount = ref(0);
+const lineCount = ref(0);
+
+// Extracted stations data
+let extractedStations: ExtractedStation[] = [];
+
+// Three.js objects
+let renderer: THREE.WebGLRenderer;
+let scene: THREE.Scene;
+let camera: THREE.OrthographicCamera;
+let stationMeshes: THREE.Mesh[] = [];
+let lineMeshes: THREE.Line[] = [];
+let labelSprites: THREE.Sprite[] = [];
+let raycaster: THREE.Raycaster;
+let mouse: THREE.Vector2;
+let animationId: number;
 
 // Transit data
 interface LineData {
@@ -166,183 +133,329 @@ const BERLIN_BOUNDS = {
   maxLat: 52.68,
 };
 
-// Canvas dimensions (match SVG)
-const CANVAS_WIDTH = 1191;
-const CANVAS_HEIGHT = 842;
-
+// Map coordinates to scene coordinates
 function lngToX(lng: number): number {
-  const normalized = (lng - BERLIN_BOUNDS.minLng) / (BERLIN_BOUNDS.maxLng - BERLIN_BOUNDS.minLng);
-  return normalized * CANVAS_WIDTH * transform.scale + transform.offsetX;
+  return ((lng - BERLIN_BOUNDS.minLng) / (BERLIN_BOUNDS.maxLng - BERLIN_BOUNDS.minLng) - 0.5) * 100;
 }
 
 function latToY(lat: number): number {
-  // Flip Y because canvas 0,0 is top-left
-  const normalized = 1 - (lat - BERLIN_BOUNDS.minLat) / (BERLIN_BOUNDS.maxLat - BERLIN_BOUNDS.minLat);
-  return normalized * CANVAS_HEIGHT * transform.scale + transform.offsetY;
+  return ((lat - BERLIN_BOUNDS.minLat) / (BERLIN_BOUNDS.maxLat - BERLIN_BOUNDS.minLat) - 0.5) * 70;
 }
 
-async function loadTransitData() {
+// Color helper
+function hexToThreeColor(hex: string): THREE.Color {
+  return new THREE.Color(hex);
+}
+
+// Initialize Three.js scene
+function initScene() {
+  if (!container.value) return;
+  
+  // Scene
+  scene = new THREE.Scene();
+  scene.background = new THREE.Color(0x1a1a2e);
+  
+  // Camera (orthographic for 2D-like view)
+  const aspect = container.value.clientWidth / container.value.clientHeight;
+  const frustumSize = 60;
+  camera = new THREE.OrthographicCamera(
+    frustumSize * aspect / -2,
+    frustumSize * aspect / 2,
+    frustumSize / 2,
+    frustumSize / -2,
+    0.1,
+    1000
+  );
+  camera.position.set(0, 0, 100);
+  camera.lookAt(0, 0, 0);
+  
+  // Renderer
+  renderer = new THREE.WebGLRenderer({ antialias: true });
+  renderer.setSize(container.value.clientWidth, container.value.clientHeight);
+  renderer.setPixelRatio(window.devicePixelRatio);
+  container.value.appendChild(renderer.domElement);
+  
+  // Raycaster for mouse interaction
+  raycaster = new THREE.Raycaster();
+  mouse = new THREE.Vector2();
+  
+  // Event listeners
+  window.addEventListener('resize', onWindowResize);
+  container.value.addEventListener('wheel', onWheel);
+  container.value.addEventListener('mousemove', onMouseMove);
+  container.value.addEventListener('mousedown', onMouseDown);
+  container.value.addEventListener('mouseup', onMouseUp);
+}
+
+// Load transit data and build scene
+async function loadAndBuildScene() {
   try {
-    const response = await fetch('/data/sbahn_map_data.json');
-    if (!response.ok) throw new Error('Failed to load');
-    transitData = await response.json();
-    await nextTick();
-    redrawOverlay();
+    // Load line data
+    const linesRes = await fetch('/data/sbahn_map_data.json');
+    if (linesRes.ok) {
+      transitData = await linesRes.json();
+      lineCount.value = Object.keys(transitData?.lines || {}).length;
+    }
+    
+    // Load extracted stations
+    const stationsRes = await fetch('/data/extracted_stations.json');
+    if (stationsRes.ok) {
+      const data = await stationsRes.json();
+      extractedStations = data.stations || [];
+      stationCount.value = extractedStations.length;
+    }
   } catch (error) {
-    console.error('Error loading transit data:', error);
+    console.error('Error loading data:', error);
   }
+  
+  updateScene();
 }
 
-function redrawOverlay() {
-  const canvas = overlayCanvas.value;
-  if (!canvas || !transitData) return;
+// Build/update the 3D scene
+function updateScene() {
+  if (!scene) return;
   
-  canvas.width = CANVAS_WIDTH;
-  canvas.height = CANVAS_HEIGHT;
+  // Clear existing objects
+  stationMeshes.forEach(m => scene.remove(m));
+  lineMeshes.forEach(l => scene.remove(l));
+  labelSprites.forEach(s => scene.remove(s));
+  stationMeshes = [];
+  lineMeshes = [];
+  labelSprites = [];
   
-  const ctx = canvas.getContext('2d');
-  if (!ctx) return;
-  
-  ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-  
-  // Apply rotation if any
-  if (transform.rotation !== 0) {
-    ctx.save();
-    ctx.translate(CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2);
-    ctx.rotate((transform.rotation * Math.PI) / 180);
-    ctx.translate(-CANVAS_WIDTH / 2, -CANVAS_HEIGHT / 2);
-  }
-  
-  // Draw each line
-  for (const [lineName, line] of Object.entries(transitData.lines)) {
-    // Filter by type
-    if (lineName.startsWith('S') && !showSbahn.value) continue;
-    if (lineName.startsWith('U') && !showUbahn.value) continue;
-    if ((lineName.startsWith('R') || lineName === 'FEX') && !showRegional.value) continue;
-    
-    const color = lineColors[lineName] || line.color || '#888';
-    const lineWidth = lineName.startsWith('U') ? 4 : lineName.startsWith('S') ? 3 : 2;
-    
-    ctx.strokeStyle = color;
-    ctx.lineWidth = lineWidth;
-    ctx.lineCap = 'round';
-    ctx.lineJoin = 'round';
-    
-    for (const segment of line.segments) {
-      for (const coordSet of segment.coordinates) {
-        if (coordSet.length < 2) continue;
-        
-        ctx.beginPath();
-        const [startLng, startLat] = coordSet[0];
-        ctx.moveTo(lngToX(startLng), latToY(startLat));
-        
-        for (let i = 1; i < coordSet.length; i++) {
-          const [lng, lat] = coordSet[i];
-          ctx.lineTo(lngToX(lng), latToY(lat));
+  // Draw lines
+  if (transitData) {
+    for (const [lineName, line] of Object.entries(transitData.lines)) {
+      // Filter by type
+      if (lineName.startsWith('S') && !showSbahn.value) continue;
+      if (lineName.startsWith('U') && !showUbahn.value) continue;
+      if ((lineName.startsWith('R') || lineName === 'FEX') && !showRegional.value) continue;
+      
+      const color = hexToThreeColor(lineColors[lineName] || line.color || '#888888');
+      const material = new THREE.LineBasicMaterial({ color, linewidth: 2 });
+      
+      for (const segment of line.segments) {
+        for (const coordSet of segment.coordinates) {
+          if (coordSet.length < 2) continue;
+          
+          const points: THREE.Vector3[] = [];
+          for (const coord of coordSet) {
+            const [lng, lat] = coord;
+            points.push(new THREE.Vector3(lngToX(lng), latToY(lat), 0));
+          }
+          
+          const geometry = new THREE.BufferGeometry().setFromPoints(points);
+          const line3d = new THREE.Line(geometry, material);
+          scene.add(line3d);
+          lineMeshes.push(line3d);
         }
-        ctx.stroke();
       }
     }
   }
   
-  if (transform.rotation !== 0) {
-    ctx.restore();
+  // Draw stations from extracted data (aligned with line coordinates)
+  if (showStations.value && extractedStations.length > 0) {
+    for (const station of extractedStations) {
+      // Filter stations by visible lines
+      const hasSbahn = station.lines.some(l => l.startsWith('S'));
+      const hasUbahn = station.lines.some(l => l.startsWith('U'));
+      const hasRegional = station.lines.some(l => l.startsWith('R') || l === 'FEX');
+      
+      let show = false;
+      if (hasSbahn && showSbahn.value) show = true;
+      if (hasUbahn && showUbahn.value) show = true;
+      if (hasRegional && showRegional.value) show = true;
+      if (!show) continue;
+      
+      // Station circle
+      const x = lngToX(station.lng);
+      const y = latToY(station.lat);
+      const size = station.lines.length >= 4 ? 0.6 : station.lines.length >= 2 ? 0.5 : 0.4;
+      
+      const geometry = new THREE.CircleGeometry(size, 16);
+      const primaryLine = station.lines[0];
+      const color = hexToThreeColor(lineColors[primaryLine] || '#ffffff');
+      const material = new THREE.MeshBasicMaterial({ color });
+      
+      // Add white outline
+      const outlineGeometry = new THREE.RingGeometry(size, size + 0.1, 16);
+      const outlineMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff });
+      const outlineMesh = new THREE.Mesh(outlineGeometry, outlineMaterial);
+      outlineMesh.position.set(x, y, 0.5);
+      scene.add(outlineMesh);
+      stationMeshes.push(outlineMesh);
+      
+      const mesh = new THREE.Mesh(geometry, material);
+      mesh.position.set(x, y, 1);
+      mesh.userData = { station };
+      
+      scene.add(mesh);
+      stationMeshes.push(mesh);
+      
+      // Station label
+      if (showLabels.value) {
+        const sprite = createTextSprite(station.displayName);
+        sprite.position.set(x + 1, y, 2);
+        scene.add(sprite);
+        labelSprites.push(sprite);
+      }
+    }
   }
 }
 
-// Watch for changes
-watch([transform, showSbahn, showUbahn, showRegional], redrawOverlay, { deep: true });
-
-function resetTransform() {
-  transform.scale = 0.55;
-  transform.offsetX = 580;
-  transform.offsetY = 380;
-  transform.rotation = 0;
+// Create text sprite for station labels
+function createTextSprite(text: string): THREE.Sprite {
+  const canvas = document.createElement('canvas');
+  const context = canvas.getContext('2d')!;
+  canvas.width = 256;
+  canvas.height = 64;
+  
+  context.fillStyle = 'rgba(0, 0, 0, 0.7)';
+  context.fillRect(0, 0, canvas.width, canvas.height);
+  
+  context.font = 'bold 24px Inter, sans-serif';
+  context.fillStyle = '#ffffff';
+  context.textAlign = 'left';
+  context.textBaseline = 'middle';
+  context.fillText(text, 8, canvas.height / 2);
+  
+  const texture = new THREE.CanvasTexture(canvas);
+  const material = new THREE.SpriteMaterial({ map: texture });
+  const sprite = new THREE.Sprite(material);
+  sprite.scale.set(4, 1, 1);
+  
+  return sprite;
 }
 
-// Pan/Zoom handlers
-function zoomIn() {
-  zoom.value = Math.min(5, zoom.value * 1.2);
+// Event handlers
+function onWindowResize() {
+  if (!container.value || !camera || !renderer) return;
+  
+  const aspect = container.value.clientWidth / container.value.clientHeight;
+  const frustumSize = 60;
+  camera.left = frustumSize * aspect / -2;
+  camera.right = frustumSize * aspect / 2;
+  camera.top = frustumSize / 2;
+  camera.bottom = frustumSize / -2;
+  camera.updateProjectionMatrix();
+  
+  renderer.setSize(container.value.clientWidth, container.value.clientHeight);
 }
 
-function zoomOut() {
-  zoom.value = Math.max(0.3, zoom.value / 1.2);
-}
-
-function resetView() {
-  zoom.value = 1;
-  pan.x = 0;
-  pan.y = 0;
-}
+let isPanning = false;
+let panStart = { x: 0, y: 0 };
+let cameraStart = { x: 0, y: 0 };
 
 function onWheel(e: WheelEvent) {
-  const delta = e.deltaY < 0 ? 1.1 : 0.9;
-  zoom.value = Math.max(0.3, Math.min(5, zoom.value * delta));
+  e.preventDefault();
+  const zoomFactor = e.deltaY > 0 ? 1.1 : 0.9;
+  
+  camera.left *= zoomFactor;
+  camera.right *= zoomFactor;
+  camera.top *= zoomFactor;
+  camera.bottom *= zoomFactor;
+  camera.updateProjectionMatrix();
 }
 
 function onMouseDown(e: MouseEvent) {
-  isPanning.value = true;
-  panStart.x = e.clientX;
-  panStart.y = e.clientY;
-  panOffset.x = pan.x;
-  panOffset.y = pan.y;
-}
-
-function onMouseMove(e: MouseEvent) {
-  if (isPanning.value) {
-    pan.x = panOffset.x + (e.clientX - panStart.x);
-    pan.y = panOffset.y + (e.clientY - panStart.y);
-  }
+  isPanning = true;
+  panStart = { x: e.clientX, y: e.clientY };
+  cameraStart = { x: camera.position.x, y: camera.position.y };
 }
 
 function onMouseUp() {
-  isPanning.value = false;
+  isPanning = false;
 }
 
+function onMouseMove(e: MouseEvent) {
+  if (!container.value) return;
+  
+  if (isPanning) {
+    const dx = (e.clientX - panStart.x) * (camera.right - camera.left) / container.value.clientWidth;
+    const dy = (e.clientY - panStart.y) * (camera.top - camera.bottom) / container.value.clientHeight;
+    camera.position.x = cameraStart.x - dx;
+    camera.position.y = cameraStart.y + dy;
+    return;
+  }
+  
+  // Raycasting for hover
+  const rect = container.value.getBoundingClientRect();
+  mouse.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+  mouse.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
+  
+  raycaster.setFromCamera(mouse, camera);
+  const intersects = raycaster.intersectObjects(stationMeshes);
+  
+  if (intersects.length > 0) {
+    const obj = intersects[0].object;
+    const data = obj.userData;
+    if (data.station) {
+      hoveredStation.value = data.station;
+    }
+  } else {
+    hoveredStation.value = null;
+  }
+}
+
+// UI controls
+function zoomIn() {
+  camera.left *= 0.8;
+  camera.right *= 0.8;
+  camera.top *= 0.8;
+  camera.bottom *= 0.8;
+  camera.updateProjectionMatrix();
+}
+
+function zoomOut() {
+  camera.left *= 1.25;
+  camera.right *= 1.25;
+  camera.top *= 1.25;
+  camera.bottom *= 1.25;
+  camera.updateProjectionMatrix();
+}
+
+function resetView() {
+  if (!container.value) return;
+  const aspect = container.value.clientWidth / container.value.clientHeight;
+  const frustumSize = 60;
+  camera.left = frustumSize * aspect / -2;
+  camera.right = frustumSize * aspect / 2;
+  camera.top = frustumSize / 2;
+  camera.bottom = frustumSize / -2;
+  camera.position.set(0, 0, 100);
+  camera.updateProjectionMatrix();
+}
+
+// Animation loop
+function animate() {
+  animationId = requestAnimationFrame(animate);
+  renderer.render(scene, camera);
+}
+
+// Lifecycle
 onMounted(() => {
-  loadTransitData();
+  initScene();
+  loadAndBuildScene();
+  animate();
+});
+
+onUnmounted(() => {
+  cancelAnimationFrame(animationId);
+  window.removeEventListener('resize', onWindowResize);
+  if (container.value && renderer) {
+    container.value.removeChild(renderer.domElement);
+  }
+  renderer?.dispose();
 });
 </script>
 
 <style scoped>
-.alignment-map {
+.threejs-map {
   width: 100vw;
   height: 100vh;
-  background: #f5f5f5;
   overflow: hidden;
   position: relative;
-}
-
-.map-container {
-  width: 100%;
-  height: 100%;
-  cursor: grab;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.map-container:active {
-  cursor: grabbing;
-}
-
-.svg-wrapper {
-  position: relative;
-  transition: transform 0.1s ease-out;
-  will-change: transform;
-}
-
-.bvg-svg {
-  width: 1191px;
-  height: 842px;
-  pointer-events: none;
-}
-
-.overlay-canvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-  pointer-events: none;
+  background: #1a1a2e;
 }
 
 .control-panel {
@@ -355,9 +468,7 @@ onMounted(() => {
   color: #fff;
   font-family: 'Inter', -apple-system, sans-serif;
   z-index: 1000;
-  width: 280px;
-  max-height: calc(100vh - 100px);
-  overflow-y: auto;
+  width: 260px;
 }
 
 .control-panel h3 {
@@ -373,24 +484,18 @@ onMounted(() => {
 }
 
 .control-group label {
-  display: block;
-  font-size: 11px;
-  color: rgba(255,255,255,0.6);
-  margin-bottom: 4px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.control-group input[type="range"] {
-  width: calc(100% - 50px);
-  margin-right: 8px;
-  vertical-align: middle;
-}
-
-.control-group span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   font-size: 12px;
   color: rgba(255,255,255,0.8);
-  font-family: monospace;
+  cursor: pointer;
+}
+
+.control-group input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
 }
 
 .line-filters {
@@ -399,7 +504,7 @@ onMounted(() => {
   border-top: 1px solid rgba(255,255,255,0.1);
 }
 
-.line-filters label {
+.line-filters > label {
   font-size: 11px;
   color: rgba(255,255,255,0.6);
   text-transform: uppercase;
@@ -429,36 +534,49 @@ onMounted(() => {
   opacity: 1;
 }
 
-.actions {
-  display: flex;
-  gap: 8px;
-  margin-top: 16px;
-}
-
-.actions button {
-  flex: 1;
-  padding: 8px;
-  border: none;
-  border-radius: 6px;
-  font-size: 12px;
-  font-weight: 600;
-  cursor: pointer;
-  background: rgba(255,255,255,0.1);
-  color: #fff;
-  transition: background 0.15s;
-}
-
-.actions button:hover {
-  background: rgba(255,255,255,0.2);
-}
-
-.info-text {
-  margin-top: 16px;
+.stats {
+  margin-top: 12px;
   padding-top: 12px;
   border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.stats p {
+  margin: 0;
   font-size: 11px;
   color: rgba(255,255,255,0.5);
-  line-height: 1.5;
+}
+
+.station-info {
+  position: fixed;
+  bottom: 24px;
+  left: 16px;
+  background: rgba(30, 30, 35, 0.95);
+  border-radius: 10px;
+  padding: 12px 16px;
+  color: #fff;
+  font-family: 'Inter', -apple-system, sans-serif;
+  z-index: 1000;
+  min-width: 180px;
+}
+
+.station-info h4 {
+  margin: 0 0 8px 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.lines-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.line-badge {
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #fff;
 }
 
 .zoom-controls {
@@ -487,4 +605,3 @@ onMounted(() => {
   background: rgba(50, 50, 55, 0.95);
 }
 </style>
-

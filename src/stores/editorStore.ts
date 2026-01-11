@@ -29,10 +29,21 @@ export interface EditorTrack {
     offset2?: number;  // Custom offset along station 2 (relative to station length)
 }
 
+export interface TextNode {
+    id: string;
+    text: string;
+    x: number;
+    y: number;
+    fontSize: number;
+    width?: number;        // Optional: for text box width
+    stationId?: string;    // Optional: links text to a station
+}
+
 export interface MapData {
     version: string;
     stations: EditorStation[];
     tracks: EditorTrack[];
+    textNodes?: TextNode[];
 }
 
 const STORAGE_KEY = 'train-track-editor';
@@ -41,9 +52,11 @@ export const useEditorStore = defineStore('editor', () => {
     // State
     const stations = ref<EditorStation[]>([]);
     const tracks = ref<EditorTrack[]>([]);
-    const selectedTool = ref<'select' | 'pan' | 'move' | 'station' | 'track' | 'multiConnect' | 'bend'>('select');
+    const textNodes = ref<TextNode[]>([]);
+    const selectedTool = ref<'select' | 'pan' | 'move' | 'station' | 'track' | 'multiConnect' | 'bend' | 'text'>('select');
     const selectedStationId = ref<string | null>(null);
     const selectedTrackId = ref<string | null>(null);
+    const selectedTextNodeId = ref<string | null>(null);
     const selectedWaypointId = ref<string | null>(null);
     const mapOpacity = ref(50);
     const zoom = ref(1);
@@ -60,6 +73,10 @@ export const useEditorStore = defineStore('editor', () => {
 
     const selectedTrack = computed(() =>
         tracks.value.find(t => t.id === selectedTrackId.value) || null
+    );
+
+    const selectedTextNode = computed(() =>
+        textNodes.value.find(t => t.id === selectedTextNodeId.value) || null
     );
 
     // Generate unique ID
@@ -215,7 +232,45 @@ export const useEditorStore = defineStore('editor', () => {
     function clearSelection(): void {
         selectedStationId.value = null;
         selectedTrackId.value = null;
+        selectedTextNodeId.value = null;
         multiConnectStations.value = [];
+    }
+
+    // Text Node Actions
+    function addTextNode(x: number, y: number, text: string = 'New Text', stationId?: string): TextNode {
+        const textNode: TextNode = {
+            id: generateId(),
+            text,
+            x,
+            y,
+            fontSize: 10,
+            stationId,
+        };
+        textNodes.value.push(textNode);
+        saveToLocalStorage();
+        return textNode;
+    }
+
+    function removeTextNode(id: string): void {
+        textNodes.value = textNodes.value.filter(t => t.id !== id);
+        if (selectedTextNodeId.value === id) {
+            selectedTextNodeId.value = null;
+        }
+        saveToLocalStorage();
+    }
+
+    function updateTextNode(id: string, updates: Partial<Omit<TextNode, 'id'>>): void {
+        const textNode = textNodes.value.find(t => t.id === id);
+        if (textNode) {
+            Object.assign(textNode, updates);
+            saveToLocalStorage();
+        }
+    }
+
+    function selectTextNode(id: string | null): void {
+        selectedTextNodeId.value = id;
+        selectedStationId.value = null;
+        selectedTrackId.value = null;
     }
 
     function addToMultiConnect(stationId: string): void {
@@ -236,6 +291,7 @@ export const useEditorStore = defineStore('editor', () => {
             version: '1.0',
             stations: stations.value,
             tracks: tracks.value,
+            textNodes: textNodes.value,
         };
         localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
     }
@@ -266,6 +322,8 @@ export const useEditorStore = defineStore('editor', () => {
                     ...t,
                     waypoints: t.waypoints || [],
                 }));
+                // Load text nodes
+                textNodes.value = data.textNodes || [];
                 return true;
             } catch (e) {
                 console.error('Failed to load from localStorage:', e);
@@ -279,6 +337,7 @@ export const useEditorStore = defineStore('editor', () => {
             version: '1.0',
             stations: stations.value,
             tracks: tracks.value,
+            textNodes: textNodes.value,
         };
         const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
         const url = URL.createObjectURL(blob);
@@ -309,6 +368,8 @@ export const useEditorStore = defineStore('editor', () => {
                         ...t,
                         waypoints: t.waypoints || [],
                     }));
+                    // Load text nodes
+                    textNodes.value = data.textNodes || [];
                     saveToLocalStorage();
                     resolve(true);
                 } catch (err) {
@@ -324,8 +385,10 @@ export const useEditorStore = defineStore('editor', () => {
     function clearAll(): void {
         stations.value = [];
         tracks.value = [];
+        textNodes.value = [];
         selectedStationId.value = null;
         selectedTrackId.value = null;
+        selectedTextNodeId.value = null;
         multiConnectStations.value = [];
         saveToLocalStorage();
     }
@@ -337,9 +400,11 @@ export const useEditorStore = defineStore('editor', () => {
         // State
         stations,
         tracks,
+        textNodes,
         selectedTool,
         selectedStationId,
         selectedTrackId,
+        selectedTextNodeId,
         selectedWaypointId,
         mapOpacity,
         zoom,
@@ -350,6 +415,7 @@ export const useEditorStore = defineStore('editor', () => {
         // Computed
         selectedStation,
         selectedTrack,
+        selectedTextNode,
 
         // Actions
         addStation,
@@ -361,8 +427,12 @@ export const useEditorStore = defineStore('editor', () => {
         addWaypoint,
         updateWaypoint,
         removeWaypoint,
+        addTextNode,
+        removeTextNode,
+        updateTextNode,
         selectStation,
         selectTrack,
+        selectTextNode,
         selectWaypoint,
         clearSelection,
         addToMultiConnect,
