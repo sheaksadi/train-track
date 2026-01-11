@@ -28,11 +28,16 @@ export interface Waypoint {
 
 export interface EditorTrack {
     id: string;
-    stationIds: [string, string];
+    stationIds: [string, string]; // [start, end]
     line: string;
     waypoints: Waypoint[];  // Control points for bending the track
-    offset1?: number;  // Custom offset along station 1 (relative to station length)
-    offset2?: number;  // Custom offset along station 2 (relative to station length)
+    stationOffsets: {
+        start: number; // 0-1 offset along the station perimeter/length
+        end: number;
+        startLateral?: number; // -1 to 1 offset perpendicular to station length/width
+        endLateral?: number;
+    };
+    cornerRadius?: number;
 }
 
 export interface TextNode {
@@ -233,6 +238,11 @@ export const useEditorStore = defineStore('editor', () => {
             stationIds: [stationId1, stationId2],
             line,
             waypoints: [],
+            stationOffsets: {
+                start: 0,
+                end: 0
+            },
+            cornerRadius: 5,
         };
         tracks.value.push(track);
         saveToLocalStorage();
@@ -249,14 +259,16 @@ export const useEditorStore = defineStore('editor', () => {
         saveToLocalStorage();
     }
 
-    function updateTrackOffset(trackId: string, endpoint: 1 | 2, offset: number): void {
+    function updateTrackOffset(trackId: string, endpoint: 1 | 2, offset: number, lateralOffset?: number): void {
         pushHistory();
         const track = tracks.value.find(t => t.id === trackId);
         if (track) {
             if (endpoint === 1) {
-                track.offset1 = offset;
+                track.stationOffsets.start = offset;
+                if (lateralOffset !== undefined) track.stationOffsets.startLateral = lateralOffset;
             } else {
-                track.offset2 = offset;
+                track.stationOffsets.end = offset;
+                if (lateralOffset !== undefined) track.stationOffsets.endLateral = lateralOffset;
             }
             saveToLocalStorage();
         }
@@ -414,10 +426,16 @@ export const useEditorStore = defineStore('editor', () => {
                         labelFontSize: s.labelFontSize ?? 8,
                     };
                 });
-                // Migrate old tracks that don't have waypoints
-                tracks.value = (data.tracks || []).map(t => ({
+                // Migrate old tracks: ensure waypoints, stationOffsets, and cornerRadius exist
+                tracks.value = (data.tracks || []).map((t: any) => ({
                     ...t,
                     waypoints: t.waypoints || [],
+                    // Migrate offset1/offset2 to stationOffsets
+                    stationOffsets: t.stationOffsets || {
+                        start: t.offset1 ?? 0,
+                        end: t.offset2 ?? 0
+                    },
+                    cornerRadius: t.cornerRadius ?? 5,
                 }));
                 // Load text nodes
                 textNodes.value = data.textNodes || [];
@@ -462,10 +480,16 @@ export const useEditorStore = defineStore('editor', () => {
                         labelOffsetY: s.labelOffsetY ?? -15,
                         labelFontSize: s.labelFontSize ?? 8,
                     }));
-                    // Migrate old tracks that don't have waypoints
-                    tracks.value = (data.tracks || []).map(t => ({
+                    // Migrate old tracks: ensure waypoints, stationOffsets, and cornerRadius exist
+                    tracks.value = (data.tracks || []).map((t: any) => ({
                         ...t,
                         waypoints: t.waypoints || [],
+                        // Migrate offset1/offset2 to stationOffsets
+                        stationOffsets: t.stationOffsets || {
+                            start: t.offset1 ?? 0,
+                            end: t.offset2 ?? 0
+                        },
+                        cornerRadius: t.cornerRadius ?? 5,
                     }));
                     // Load text nodes
                     textNodes.value = data.textNodes || [];
@@ -490,6 +514,15 @@ export const useEditorStore = defineStore('editor', () => {
         selectedTextNodeId.value = null;
         multiConnectStations.value = [];
         saveToLocalStorage();
+    }
+
+    function updateTrackCornerRadius(trackId: string, radius: number): void {
+        pushHistory();
+        const track = tracks.value.find(t => t.id === trackId);
+        if (track) {
+            track.cornerRadius = radius;
+            saveToLocalStorage();
+        }
     }
 
     // Initialize from localStorage
@@ -528,6 +561,7 @@ export const useEditorStore = defineStore('editor', () => {
         addTrack,
         removeTrack,
         updateTrackOffset,
+        updateTrackCornerRadius,
         addWaypoint,
         updateWaypoint,
         removeWaypoint,

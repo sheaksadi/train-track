@@ -61,27 +61,64 @@
           </label>
         </div>
 
-        <div class="tools-section" v-if="autoConnect && nextStationSuggestion">
-          <h3>Next Station</h3>
-          <div class="suggestion-ui bg-gray-700 p-2 rounded text-sm">
-            <div class="text-xs text-gray-400 mb-1">Current: {{ nextStationSuggestion.current }}</div>
-            <div class="flex gap-2 justify-between">
-              <button 
-                v-if="nextStationSuggestion.prev"
-                @click="customStationName = nextStationSuggestion.prev"
-                class="px-2 py-1 bg-gray-600 hover:bg-gray-500 rounded text-xs flex-1 truncate"
-                title="Use Previous Station"
-              >
-                ← {{ nextStationSuggestion.prev }}
-              </button>
-              <button 
-                v-if="nextStationSuggestion.next"
-                @click="customStationName = nextStationSuggestion.next"
-                class="px-2 py-1 bg-blue-600 hover:bg-blue-500 rounded text-xs flex-1 truncate"
-                title="Use Next Station"
-              >
-                {{ nextStationSuggestion.next }} →
-              </button>
+        <div class="tools-section">
+          <h3>Track Builder</h3>
+          <div class="flex flex-col gap-2">
+            <select 
+              :value="trackBuilderLine" 
+              @change="startTrackBuilder(($event.target as HTMLSelectElement).value)"
+              class="line-select"
+            >
+              <option value="" disabled>Select Line to Build...</option>
+              <option v-for="line in allLines" :key="line" :value="line">
+                {{ line }}
+              </option>
+            </select>
+            
+            <div v-if="trackBuilderLine" class="builder-status mt-2">
+              <div class="text-xs text-gray-400">Next Target:</div>
+              <div class="text-sm font-bold text-green-400 mb-2 truncate">
+                {{ currentBuilderStation || 'Complete!' }}
+              </div>
+              
+              <div class="flex gap-2">
+                <button 
+                  @click="skipBuilderStation" 
+                  class="btn btn-secondary flex-1"
+                  :disabled="!currentBuilderStation"
+                >
+                  Skip
+                </button>
+                <button 
+                  @click="resetBuilder" 
+                  class="btn btn-danger flex-1"
+                >
+                  Reset
+                </button>
+              </div>
+            </div>
+            
+            <!-- Fallback / Manual Override (Smart Suggestion) -->
+            <div v-if="!trackBuilderLine && autoConnect && nextStationSuggestion" class="suggestion-ui bg-gray-700 p-2 rounded text-sm mt-2">
+               <div class="text-xs text-gray-400 mb-1">Suggestion: {{ nextStationSuggestion.current }}</div>
+                <div class="flex gap-2 justify-between">
+                  <button 
+                    v-if="nextStationSuggestion.prev"
+                    @click="customStationName = nextStationSuggestion.prev"
+                    class="px-2 py-1 bg-gray-600 hover:bg-gray-500 rounded text-xs flex-1 truncate"
+                    title="Use Previous Station"
+                  >
+                    ← {{ nextStationSuggestion.prev }}
+                  </button>
+                  <button 
+                    v-if="nextStationSuggestion.next"
+                    @click="customStationName = nextStationSuggestion.next"
+                    class="px-2 py-1 bg-blue-600 hover:bg-blue-500 rounded text-xs flex-1 truncate"
+                    title="Use Next Station"
+                  >
+                    {{ nextStationSuggestion.next }} →
+                  </button>
+                </div>
             </div>
           </div>
         </div>
@@ -131,6 +168,7 @@
           @mouseleave="handleMouseUp"
           @click="handleCanvasClick"
           @contextmenu.prevent
+          style="user-select: none;"
         >
           <!-- BVG Map Background -->
           <div 
@@ -185,19 +223,7 @@
                 />
               </g>
               
-              <!-- Endpoint handles (visible when track is selected) -->
-              <g v-if="editorStore.selectedTrackId === track.id">
-                <circle
-                  v-for="(endpoint, idx) in getTrackEndpoints(track)"
-                  :key="`ep-${idx}`"
-                  :cx="endpoint.x"
-                  :cy="endpoint.y"
-                  :r="endpointRadius"
-                  class="track-endpoint"
-                  :class="{ dragging: draggingEndpoint?.trackId === track.id && draggingEndpoint?.endpoint === idx + 1 }"
-                  @mousedown.stop="handleEndpointMouseDown($event, track, idx + 1)"
-                />
-              </g>
+              <!-- Endpoint handles moved to upper layer -->
             </g>
 
             <!-- Stations -->
@@ -216,7 +242,7 @@
             >
               <!-- Circle (default) or Pill shape (when length > 10) -->
               <circle
-                v-if="!station.length || station.length <= 10"
+                v-if="!station.length || station.length <= 6"
                 :r="stationRadius"
                 :fill="getStationFill(station)"
                 stroke="white"
@@ -238,7 +264,7 @@
               />
               
               <!-- Multiple line indicators (only for pill shape) -->
-              <g v-if="station.lines.length > 1 && station.length && station.length > 10">
+              <g v-if="station.lines.length > 1 && station.length && station.length > 6">
                 <rect
                   v-for="(line, index) in station.lines.slice(0, 4)"
                   :key="line"
@@ -357,6 +383,36 @@
                     rx="1"
                     class="label-resize-handle edge-handle-v"
                     @mousedown.stop="handleLabelBoxResize($event, station, 'b')"
+                  />
+                </g>
+              </g>
+            </g>
+
+            <!-- Endpoint Handles Layer (drawn on top of stations) -->
+            <g v-for="track in editorStore.tracks" :key="`ep-group-${track.id}`">
+              <g v-if="editorStore.selectedTrackId === track.id">
+                <g
+                  v-for="(endpoint, idx) in getTrackEndpoints(track)"
+                  :key="`ep-${idx}`"
+                >
+                  <!-- Visual Circle (Small) -->
+                  <circle
+                    :cx="endpoint.x"
+                    :cy="endpoint.y"
+                    :r="endpointVisualRadius"
+                    class="track-endpoint-visual"
+                    :class="{ dragging: draggingEndpoint?.trackId === track.id && draggingEndpoint?.endpoint === idx + 1 }"
+                    style="pointer-events: none;" 
+                  />
+                  <!-- Hit Area Circle (Large, Invisible but clickable) -->
+                  <circle
+                    :cx="endpoint.x"
+                    :cy="endpoint.y"
+                    :r="endpointHitRadius"
+                    fill="transparent"
+                    stroke="none"
+                    style="cursor: move; pointer-events: all;"
+                    @mousedown.stop="handleEndpointMouseDown($event, track, idx + 1)"
                   />
                 </g>
               </g>
@@ -538,9 +594,9 @@
               type="range" 
               :value="editorStore.selectedStation.length"
               @input="updateStationLength($event)"
-              min="10" 
+              min="5" 
               max="80" 
-              step="5"
+              step="1"
               class="length-slider"
             />
           </div>
@@ -630,12 +686,23 @@
             <select 
               :value="editorStore.selectedTrack.line"
               @change="updateTrackLine($event)"
-              class="line-select"
+              class="line-select mb-2"
             >
               <option v-for="line in allLines" :key="line" :value="line">
                 {{ line }}
               </option>
             </select>
+            
+            <label class="block text-gray-500 text-xs mb-1">Corner Radius: {{ editorStore.selectedTrack.cornerRadius ?? 20 }}</label>
+            <input 
+              type="range" 
+              min="0" 
+              max="100" 
+              step="5"
+              :value="editorStore.selectedTrack.cornerRadius ?? 20"
+              @input="editorStore.updateTrackCornerRadius(editorStore.selectedTrack.id, +($event.target as HTMLInputElement).value)"
+              class="w-full mb-2"
+            />
           </div>
           
           <div class="property-group">
@@ -928,7 +995,10 @@ const stationStrokeWidth = computed(() => Math.max(1, 1.5 / zoom.value));
 const trackWidth = computed(() => Math.max(2, 3 / zoom.value));
 const labelFontSize = computed(() => Math.max(6, 8 / zoom.value));
 const waypointRadius = computed(() => Math.max(3, 4 / zoom.value));
-const endpointRadius = computed(() => Math.max(4, 5 / zoom.value));
+// Small visual radius
+const endpointVisualRadius = computed(() => Math.max(3, 4 / zoom.value));
+// Large hit area radius
+const endpointHitRadius = computed(() => Math.max(8, 12 / zoom.value));
 
 // Tool definitions
 const tools = [
@@ -963,45 +1033,64 @@ function getStationFill(station: EditorStation): string {
 
 // Get connection point on a station for a specific track
 function getTrackConnectionPoint(station: EditorStation, track: EditorTrack, isStart: boolean): { x: number; y: number } {
-  // For circle stations (no length or length <= 10), always connect to center
-  if (!station.length || station.length <= 10) {
-    return { x: station.x, y: station.y };
-  }
-  
   // Check for custom offset
-  const customOffset = isStart ? track.offset1 : track.offset2;
+  const customOffset = isStart ? track.stationOffsets.start : track.stationOffsets.end;
+  const lateralOffset = isStart ? track.stationOffsets.startLateral : track.stationOffsets.endLateral;
   
-  let offset: number;
+  // Effective dimensions
+  // Use actual length or default to 20 for circles (to allow offset if desired)
+  const isPill = station.length && station.length > 6;
+  const effectiveLength = isPill ? station.length : 20;
+  const effectiveHeight = isPill ? stationHeight.value : stationRadius.value * 2; // Approximate height for lateral
+  
+  let offset = 0;
+  let latOffset = 0;
   
   if (customOffset !== undefined) {
-    // Use custom offset (stored as value between -1 and 1)
-    offset = customOffset * (station.length / 2 - 4);
-  } else {
-    // Auto-calculate offset based on track index
-    const connectedTracks = editorStore.tracks.filter(
-      t => t.stationIds[0] === station.id || t.stationIds[1] === station.id
-    );
-    
-    if (connectedTracks.length <= 1) {
-      return { x: station.x, y: station.y };
+    // Legacy fix: Treat 0.5 as 0 (center) for circles, as that was the old default
+    let effectiveCustomOffset = customOffset;
+    if (!isPill && customOffset === 0.5) {
+        effectiveCustomOffset = 0;
     }
+
+    // Use custom offset (stored as value between -1 and 1)
+    offset = effectiveCustomOffset * (effectiveLength / 2 - 1);
     
-    const trackIndex = connectedTracks.findIndex(t => t.id === track.id);
-    if (trackIndex === -1) return { x: station.x, y: station.y };
-    
-    const usableLength = station.length - 8;
-    const spacing = usableLength / Math.max(connectedTracks.length - 1, 1);
-    offset = -usableLength / 2 + trackIndex * spacing;
+    // Use lateral offset if available (stored as value between -1 and 1)
+    if (lateralOffset !== undefined) {
+        latOffset = lateralOffset * (effectiveHeight / 2); // Allow going to edge of height
+    }
+  } else {
+    // Auto-calculate offset based on track index - ONLY FOR PILLS
+    if (isPill) {
+        const connectedTracks = editorStore.tracks.filter(
+          t => t.stationIds[0] === station.id || t.stationIds[1] === station.id
+        );
+        
+        if (connectedTracks.length > 1) {
+             const trackIndex = connectedTracks.findIndex(t => t.id === track.id);
+             if (trackIndex !== -1) {
+                const usableLength = effectiveLength - 8;
+                const spacing = usableLength / Math.max(connectedTracks.length - 1, 1);
+                offset = -usableLength / 2 + trackIndex * spacing;
+             }
+        }
+    }
+    // For circles without custom offset, default to 0 (center)
   }
   
-  // Apply rotation to get final position
+  // Apply rotation to get final position (2D rotation)
   const rotation = (station.rotation || 0) * Math.PI / 180;
-  const offsetX = offset * Math.cos(rotation);
-  const offsetY = offset * Math.sin(rotation);
+  const cos = Math.cos(rotation);
+  const sin = Math.sin(rotation);
+  
+  // Longitudinal moves along X axis (rotated), Lateral moves along Y axis (rotated)
+  const finalX = offset * cos - latOffset * sin;
+  const finalY = offset * sin + latOffset * cos;
   
   return {
-    x: station.x + offsetX,
-    y: station.y + offsetY,
+    x: station.x + finalX,
+    y: station.y + finalY,
   };
 }
 
@@ -1087,30 +1176,89 @@ function handleTextNodeCornerResize(e: MouseEvent, textNode: TextNode, edge: 'br
   }
 }
 
+// Track Builder State
+const trackBuilderLine = ref('');
+const trackBuilderIndex = ref(0);
+
+const currentBuilderStation = computed(() => {
+  if (!trackBuilderLine.value) return null;
+  const stations = getStationsForLine(trackBuilderLine.value);
+  if (!stations || stations.length === 0) return null;
+  if (trackBuilderIndex.value >= stations.length) return 'End of Line';
+  return stations[trackBuilderIndex.value];
+});
+
+function startTrackBuilder(line: string) {
+  trackBuilderLine.value = line;
+  trackBuilderIndex.value = 0;
+  editorStore.currentLine = line;
+}
+
+function skipBuilderStation() {
+  trackBuilderIndex.value++;
+}
+
+function resetBuilder() {
+  trackBuilderLine.value = '';
+  trackBuilderIndex.value = 0;
+}
+
+function getRoundedPath(points: {x: number, y: number}[], cornerRadius: number = 5): string {
+  if (points.length < 2) return '';
+  if (points.length === 2) return `M ${points[0].x} ${points[0].y} L ${points[1].x} ${points[1].y}`;
+  
+  let d = `M ${points[0].x} ${points[0].y}`;
+  
+  for (let i = 1; i < points.length - 1; i++) {
+    const pPrev = points[i - 1];
+    const pCurr = points[i];
+    const pNext = points[i + 1];
+    
+    // Vectors to neighbor points
+    const vPrev = { x: pPrev.x - pCurr.x, y: pPrev.y - pCurr.y };
+    const vNext = { x: pNext.x - pCurr.x, y: pNext.y - pCurr.y };
+    
+    // Distances
+    const dPrev = Math.sqrt(vPrev.x * vPrev.x + vPrev.y * vPrev.y);
+    const dNext = Math.sqrt(vNext.x * vNext.x + vNext.y * vNext.y);
+    
+    // Clamp radius to half the shortest segment to avoid overlap
+    const radius = Math.min(cornerRadius, dPrev / 2, dNext / 2);
+    
+    // Normalize and scale vectors to find start/end of curve
+    const startX = pCurr.x + (vPrev.x / dPrev) * radius;
+    const startY = pCurr.y + (vPrev.y / dPrev) * radius;
+    
+    const endX = pCurr.x + (vNext.x / dNext) * radius;
+    const endY = pCurr.y + (vNext.y / dNext) * radius;
+    
+    // Draw line to start of corner, then curve around pCurr to end of corner
+    d += ` L ${startX} ${startY}`;
+    d += ` Q ${pCurr.x} ${pCurr.y} ${endX} ${endY}`;
+  }
+  
+  // Final line to end
+  const last = points[points.length - 1];
+  d += ` L ${last.x} ${last.y}`;
+  
+  return d;
+}
+
 function getTrackPath(track: EditorTrack): string {
   const s1 = getStationById(track.stationIds[0]);
   const s2 = getStationById(track.stationIds[1]);
+  
   if (!s1 || !s2) return '';
   
-  // Get connection points (offset for multi-track stations)
-  const p1 = getTrackConnectionPoint(s1, track, true);
-  const p2 = getTrackConnectionPoint(s2, track, false);
+  const start = getTrackConnectionPoint(s1, track, true);
+  const end = getTrackConnectionPoint(s2, track, false);
   
-  const points = [
-    p1,
-    ...track.waypoints,
-    p2,
-  ];
-  
-  if (points.length === 2) {
-    return `M ${points[0].x} ${points[0].y} L ${points[1].x} ${points[1].y}`;
+  if (!track.waypoints || track.waypoints.length === 0) {
+    return `M ${start.x} ${start.y} L ${end.x} ${end.y}`;
   }
   
-  let path = `M ${points[0].x} ${points[0].y}`;
-  for (let i = 1; i < points.length; i++) {
-    path += ` L ${points[i].x} ${points[i].y}`;
-  }
-  return path;
+  const points = [start, ...track.waypoints, end];
+  return getRoundedPath(points, track.cornerRadius);
 }
 
 function findWaypointInsertIndex(track: EditorTrack, x: number, y: number): number {
@@ -1320,27 +1468,44 @@ function handleMouseMove(e: MouseEvent) {
     return;
   }
 
-  // Handle endpoint dragging - calculate offset along station
+  // Handle endpoint dragging - calculate offset along station (2D)
   if (draggingEndpoint.value && canvasContainer.value) {
     const rect = canvasContainer.value.getBoundingClientRect();
     const x = (e.clientX - rect.left - pan.x) / zoom.value;
     const y = (e.clientY - rect.top - pan.y) / zoom.value;
     
     const station = getStationById(draggingEndpoint.value.stationId);
-    if (station && station.length && station.length > 10) {
+    if (station) {
+      const isPill = station.length && station.length > 6;
+      // Use actual length or default to 20 for circles
+      const effectiveLength = isPill ? station.length : 20;
+      const effectiveHeight = isPill ? stationHeight.value : stationRadius.value * 2;
+
       // Calculate offset relative to station center
       const rotation = (station.rotation || 0) * Math.PI / 180;
       const dx = x - station.x;
       const dy = y - station.y;
       
-      // Project onto station axis
-      const projectedOffset = dx * Math.cos(rotation) + dy * Math.sin(rotation);
+      // Project onto station axes (Longitudinal = Cos/Sin, Lateral = -Sin/Cos)
+      const cos = Math.cos(rotation);
+      const sin = Math.sin(rotation);
       
-      // Normalize to -1 to 1 range
-      const maxOffset = station.length / 2 - 4;
+      const projectedOffset = dx * cos + dy * sin;
+      const projectedLateral = -dx * sin + dy * cos;
+      
+      // Normalize
+      const maxOffset = effectiveLength / 2 - 1;
+      const maxLateral = effectiveHeight / 2;
+      
       const normalizedOffset = Math.max(-1, Math.min(1, projectedOffset / maxOffset));
+      const normalizedLateral = Math.max(-1, Math.min(1, projectedLateral / maxLateral));
       
-      editorStore.updateTrackOffset(draggingEndpoint.value.trackId, draggingEndpoint.value.endpoint, normalizedOffset);
+      editorStore.updateTrackOffset(
+          draggingEndpoint.value.trackId, 
+          draggingEndpoint.value.endpoint, 
+          normalizedOffset,
+          normalizedLateral
+      );
     }
     return;
   }
@@ -1492,10 +1657,15 @@ function handleCanvasClick(e: MouseEvent) {
 
   if (editorStore.selectedTool === 'station') {
     let stationName = 'New Station';
+    let isBuilderPlacement = false;
     
     if (customStationName.value) {
       stationName = customStationName.value;
       customStationName.value = '';
+    } else if (trackBuilderLine.value && currentBuilderStation.value) {
+      // Use Builder Target
+      stationName = currentBuilderStation.value;
+      isBuilderPlacement = true;
     } else if (autoConnect.value && nextStationSuggestion.value?.next) {
       stationName = nextStationSuggestion.value.next;
     }
@@ -1508,6 +1678,12 @@ function handleCanvasClick(e: MouseEvent) {
     }
     
     lastPlacedStationId.value = station.id;
+    
+    // Auto-advance builder
+    if (isBuilderPlacement) {
+        trackBuilderIndex.value++;
+    }
+    
     showSaveStatus();
   } else if (editorStore.selectedTool === 'text') {
     // Create a new text node
@@ -2016,6 +2192,19 @@ onUnmounted(() => { window.removeEventListener('keydown', handleKeyDown); });
 .waypoint { fill: #fff; stroke: #4f46e5; stroke-width: 2; cursor: move; }
 .waypoint:hover { r: 6; }
 .waypoint.selected { fill: #4f46e5; stroke: #fff; }
+
+.track-endpoint, .track-endpoint-visual {
+  fill: #fff;
+  stroke: #4f46e5;
+  stroke-width: 2px;
+  cursor: move;
+  transition: r 0.2s ease;
+}
+
+.track-endpoint.dragging, .track-endpoint-visual.dragging {
+  fill: #4f46e5;
+  stroke: #fff;
+}
 
 .track-endpoint { fill: #22c55e; stroke: #fff; stroke-width: 2; cursor: ew-resize; }
 .track-endpoint:hover { r: 7; fill: #16a34a; }
