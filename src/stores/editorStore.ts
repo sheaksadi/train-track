@@ -63,6 +63,11 @@ export const useEditorStore = defineStore('editor', () => {
     const stations = ref<EditorStation[]>([]);
     const tracks = ref<EditorTrack[]>([]);
     const textNodes = ref<TextNode[]>([]);
+
+    // History State
+    const history = ref<string[]>([]);
+    const historyIndex = ref(-1);
+    const isUndoing = ref(false); // Flag to prevent history push during undo/redo
     const selectedTool = ref<'select' | 'pan' | 'move' | 'station' | 'track' | 'multiConnect' | 'bend' | 'text'>('select');
     const selectedStationId = ref<string | null>(null);
     const selectedTrackId = ref<string | null>(null);
@@ -94,8 +99,68 @@ export const useEditorStore = defineStore('editor', () => {
         return `${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
     }
 
+    // History Actions
+    function pushHistory() {
+        if (isUndoing.value) return;
+
+        const snapshot = JSON.stringify({
+            stations: stations.value,
+            tracks: tracks.value,
+            textNodes: textNodes.value,
+        });
+
+        // If we have history ahead (we undid), chop it off
+        if (historyIndex.value < history.value.length - 1) {
+            history.value = history.value.slice(0, historyIndex.value + 1);
+        }
+
+        history.value.push(snapshot);
+        historyIndex.value++;
+
+        // Limit history size (optional, e.g. 50 steps)
+        if (history.value.length > 50) {
+            history.value.shift();
+            historyIndex.value--;
+        }
+    }
+
+    function undo() {
+        if (historyIndex.value > 0) {
+            // If we are at the tip, save current state first so we can redo back to it
+            // BUT actually, usually we push state BEFORE change. 
+            // So history[historyIndex] is the state AFTER the last change? 
+            // Let's adopt a simple strategy: History contains state SNAPSHOTS.
+
+            // Re-think: "Undo" means going back to previous state.
+            // If we are at index i, we want to go to i-1.
+
+            isUndoing.value = true;
+            historyIndex.value--;
+            const snapshot = JSON.parse(history.value[historyIndex.value]);
+            stations.value = snapshot.stations;
+            tracks.value = snapshot.tracks;
+            textNodes.value = snapshot.textNodes;
+            saveToLocalStorage();
+            isUndoing.value = false;
+        }
+    }
+
+    function redo() {
+        if (historyIndex.value < history.value.length - 1) {
+            isUndoing.value = true;
+            historyIndex.value++;
+            const snapshot = JSON.parse(history.value[historyIndex.value]);
+            stations.value = snapshot.stations;
+            tracks.value = snapshot.tracks;
+            textNodes.value = snapshot.textNodes;
+            saveToLocalStorage();
+            isUndoing.value = false;
+        }
+    }
+
     // Actions
     function addStation(x: number, y: number, name: string = 'New Station'): EditorStation {
+        pushHistory();
         const stationInfo = getStationInfo(name);
         const station: EditorStation = {
             id: generateId(),
@@ -117,6 +182,7 @@ export const useEditorStore = defineStore('editor', () => {
     }
 
     function removeStation(id: string): void {
+        pushHistory();
         // Remove connected tracks
         tracks.value = tracks.value.filter(
             t => t.stationIds[0] !== id && t.stationIds[1] !== id
@@ -130,6 +196,7 @@ export const useEditorStore = defineStore('editor', () => {
     }
 
     function updateStation(id: string, updates: Partial<Omit<EditorStation, 'id'>>): void {
+        pushHistory();
         const station = stations.value.find(s => s.id === id);
         if (station) {
             // If name is changing, look up new coordinates if not explicitly provided
@@ -146,6 +213,7 @@ export const useEditorStore = defineStore('editor', () => {
     }
 
     function addTrack(stationId1: string, stationId2: string, line: string): EditorTrack | null {
+        pushHistory();
         // Check if stations exist
         const s1 = stations.value.find(s => s.id === stationId1);
         const s2 = stations.value.find(s => s.id === stationId2);
@@ -172,6 +240,7 @@ export const useEditorStore = defineStore('editor', () => {
     }
 
     function removeTrack(id: string): void {
+        pushHistory();
         tracks.value = tracks.value.filter(t => t.id !== id);
         if (selectedTrackId.value === id) {
             selectedTrackId.value = null;
@@ -181,6 +250,7 @@ export const useEditorStore = defineStore('editor', () => {
     }
 
     function updateTrackOffset(trackId: string, endpoint: 1 | 2, offset: number): void {
+        pushHistory();
         const track = tracks.value.find(t => t.id === trackId);
         if (track) {
             if (endpoint === 1) {
@@ -193,6 +263,7 @@ export const useEditorStore = defineStore('editor', () => {
     }
 
     function addWaypoint(trackId: string, x: number, y: number, insertIndex?: number): Waypoint | null {
+        pushHistory();
         const track = tracks.value.find(t => t.id === trackId);
         if (!track) return null;
 
@@ -213,6 +284,7 @@ export const useEditorStore = defineStore('editor', () => {
     }
 
     function updateWaypoint(trackId: string, waypointId: string, x: number, y: number): void {
+        pushHistory();
         const track = tracks.value.find(t => t.id === trackId);
         if (!track) return;
 
@@ -225,6 +297,7 @@ export const useEditorStore = defineStore('editor', () => {
     }
 
     function removeWaypoint(trackId: string, waypointId: string): void {
+        pushHistory();
         const track = tracks.value.find(t => t.id === trackId);
         if (!track) return;
 
@@ -259,6 +332,7 @@ export const useEditorStore = defineStore('editor', () => {
 
     // Text Node Actions
     function addTextNode(x: number, y: number, text: string = 'New Text', stationId?: string): TextNode {
+        pushHistory();
         const textNode: TextNode = {
             id: generateId(),
             text,
@@ -273,6 +347,7 @@ export const useEditorStore = defineStore('editor', () => {
     }
 
     function removeTextNode(id: string): void {
+        pushHistory();
         textNodes.value = textNodes.value.filter(t => t.id !== id);
         if (selectedTextNodeId.value === id) {
             selectedTextNodeId.value = null;
@@ -281,6 +356,7 @@ export const useEditorStore = defineStore('editor', () => {
     }
 
     function updateTextNode(id: string, updates: Partial<Omit<TextNode, 'id'>>): void {
+        pushHistory();
         const textNode = textNodes.value.find(t => t.id === id);
         if (textNode) {
             Object.assign(textNode, updates);
@@ -434,6 +510,11 @@ export const useEditorStore = defineStore('editor', () => {
         pan,
         multiConnectStations,
         currentLine,
+
+        // History
+        undo,
+        redo,
+        pushHistory,
 
         // Computed
         selectedStation,

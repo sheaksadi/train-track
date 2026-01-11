@@ -1903,6 +1903,16 @@ function handleKeyDown(e: KeyboardEvent) {
     zoomOut();
   } else if (key === '0') {
     resetView();
+  } else if ((e.ctrlKey || e.metaKey)) {
+      if (key === 'z') {
+          if (e.shiftKey) {
+              editorStore.redo(); // Ctrl+Shift+Z
+          } else {
+              editorStore.undo(); // Ctrl+Z
+          }
+      } else if (key === 'y') {
+          editorStore.redo(); // Ctrl+Y (and Ctrl+Shift+Y implicitly covered)
+      }
   }
 }
 
