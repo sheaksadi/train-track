@@ -12,6 +12,9 @@ export interface EditorStation {
     labelOffsetX: number;  // Label X offset from station center
     labelOffsetY: number;  // Label Y offset from station center
     labelFontSize: number; // Label font size (resizable)
+    labelBold?: boolean;   // Label bold style
+    labelWidth?: number;   // Text box width for multi-line
+    labelHeight?: number;  // Text box height
 }
 
 export interface Waypoint {
@@ -35,12 +38,16 @@ export interface TextNode {
     x: number;
     y: number;
     fontSize: number;
-    width?: number;        // Optional: for text box width
+    width?: number;        // Text box width for multi-line
+    height?: number;       // Text box height
     stationId?: string;    // Optional: links text to a station
+    isBold?: boolean;      // Bold text style
 }
 
 export interface MapData {
     version: string;
+    createdAt?: string;
+    updatedAt?: string;
     stations: EditorStation[];
     tracks: EditorTrack[];
     textNodes?: TextNode[];
@@ -335,6 +342,8 @@ export const useEditorStore = defineStore('editor', () => {
     function exportToFile(): void {
         const data: MapData = {
             version: '1.0',
+            createdAt: new Date().toISOString(),
+            updatedAt: new Date().toISOString(),
             stations: stations.value,
             tracks: tracks.value,
             textNodes: textNodes.value,
@@ -343,7 +352,7 @@ export const useEditorStore = defineStore('editor', () => {
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url;
-        a.download = 'map-data.json';
+        a.download = `map-data-${new Date().toISOString().split('T')[0]}.json`;
         a.click();
         URL.revokeObjectURL(url);
     }

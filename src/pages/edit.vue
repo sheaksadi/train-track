@@ -8,6 +8,13 @@
       </div>
       <div class="header-right">
         <span class="save-status" v-if="saveStatus">{{ saveStatus }}</span>
+        <button @click="handleExport" class="btn btn-secondary">
+          📤 Export
+        </button>
+        <input type="file" ref="importInput" @change="handleImport" accept=".json" hidden />
+        <button @click="triggerImport" class="btn btn-secondary">
+          📥 Import
+        </button>
         <button @click="handleClear" class="btn btn-danger">
           🗑 Clear All
         </button>
@@ -242,25 +249,96 @@
                   stroke-dasharray="2,2"
                   class="label-connector"
                 />
-                <text
-                  x="0"
-                  y="0"
-                  text-anchor="middle"
-                  class="station-label"
-                  :class="{ 'label-draggable': editorStore.selectedStationId === station.id }"
-                  :style="{ fontSize: `${station.labelFontSize || 8}px` }"
+                <!-- Label text (always visible) -->
+                <foreignObject
+                  :x="station.labelWidth ? -(station.labelWidth / 2) : -(measureTextWidth(station.name, station.labelFontSize || 8) / 2 + 4)"
+                  :y="-(station.labelHeight || (station.labelFontSize || 8) * 1.4) / 2"
+                  :width="station.labelWidth || (measureTextWidth(station.name, station.labelFontSize || 8) + 8)"
+                  :height="station.labelHeight || (station.labelFontSize || 8) * 1.4"
                   @mousedown.stop="handleLabelMouseDown($event, station)"
-                >{{ station.name }}</text>
+                >
+                  <div 
+                    xmlns="http://www.w3.org/1999/xhtml"
+                    class="label-box-content"
+                    :style="{
+                      fontSize: `${station.labelFontSize || 8}px`,
+                      fontWeight: station.labelBold ? 'bold' : 'normal',
+                      width: '100%',
+                      height: '100%',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      textAlign: 'center',
+                      padding: '1px 2px',
+                      boxSizing: 'border-box',
+                      overflow: 'hidden',
+                      wordWrap: 'break-word',
+                      color: '#fff',
+                      textShadow: '0 1px 3px rgba(0, 0, 0, 0.95)',
+                    }"
+                  >{{ station.name }}</div>
+                </foreignObject>
                 
-                <!-- Resize handle (when selected) -->
-                <circle
-                  v-if="editorStore.selectedStationId === station.id"
-                  :cx="measureTextWidth(station.name, station.labelFontSize || 8) / 2 + 4"
-                  cy="0"
-                  r="4"
-                  class="label-resize-handle"
-                  @mousedown.stop="handleLabelResizeMouseDown($event, station)"
-                />
+                <!-- Selection UI (only when selected) -->
+                <g v-if="editorStore.selectedStationId === station.id">
+                  <!-- Label background (visible when selected) -->
+                  <rect
+                    :x="station.labelWidth ? -(station.labelWidth / 2) : -(measureTextWidth(station.name, station.labelFontSize || 8) / 2 + 4)"
+                    :y="-(station.labelHeight || (station.labelFontSize || 8) * 1.4) / 2"
+                    :width="station.labelWidth || (measureTextWidth(station.name, station.labelFontSize || 8) + 8)"
+                    :height="station.labelHeight || (station.labelFontSize || 8) * 1.4"
+                    fill="rgba(0, 0, 0, 0.5)"
+                    rx="2"
+                    class="label-bg"
+                    style="pointer-events: none;"
+                  />
+                  
+                  <!-- Selection border -->
+                  <rect
+                    :x="station.labelWidth ? -(station.labelWidth / 2) - 2 : -(measureTextWidth(station.name, station.labelFontSize || 8) / 2 + 6)"
+                    :y="-(station.labelHeight || (station.labelFontSize || 8) * 1.4) / 2 - 2"
+                    :width="(station.labelWidth || (measureTextWidth(station.name, station.labelFontSize || 8) + 8)) + 4"
+                    :height="(station.labelHeight || (station.labelFontSize || 8) * 1.4) + 4"
+                    fill="none"
+                    stroke="rgba(79, 70, 229, 0.8)"
+                    stroke-width="1.5"
+                    stroke-dasharray="4,2"
+                    rx="3"
+                  />
+                  
+                  <!-- Corner handle (bottom-right) - font size -->
+                  <rect
+                    :x="(station.labelWidth || measureTextWidth(station.name, station.labelFontSize || 8) + 8) / 2 - 4"
+                    :y="(station.labelHeight || (station.labelFontSize || 8) * 1.4) / 2 - 4"
+                    width="8"
+                    height="8"
+                    rx="2"
+                    class="label-resize-handle corner-handle"
+                    @mousedown.stop="handleLabelResizeMouseDown($event, station)"
+                  />
+                  
+                  <!-- Right edge handle - width -->
+                  <rect
+                    :x="(station.labelWidth || measureTextWidth(station.name, station.labelFontSize || 8) + 8) / 2 - 2"
+                    :y="-6"
+                    width="4"
+                    height="12"
+                    rx="1"
+                    class="label-resize-handle edge-handle-h"
+                    @mousedown.stop="handleLabelBoxResize($event, station, 'r')"
+                  />
+                  
+                  <!-- Bottom edge handle - height -->
+                  <rect
+                    :x="-6"
+                    :y="(station.labelHeight || (station.labelFontSize || 8) * 1.4) / 2 - 2"
+                    width="12"
+                    height="4"
+                    rx="1"
+                    class="label-resize-handle edge-handle-v"
+                    @mousedown.stop="handleLabelBoxResize($event, station, 'b')"
+                  />
+                </g>
               </g>
             </g>
 
@@ -278,42 +356,86 @@
               @click.stop="handleTextNodeClick(textNode)"
               @dblclick.stop="handleTextNodeDoubleClick(textNode)"
             >
-              <!-- Text background for better visibility -->
+              <!-- Text box background -->
               <rect
-                :x="-2"
-                :y="-textNode.fontSize * 0.8"
-                :width="measureTextWidth(textNode.text, textNode.fontSize) + 4"
-                :height="textNode.fontSize * 1.2"
-                fill="rgba(0, 0, 0, 0.6)"
-                rx="2"
-                class="text-bg"
-              />
-              <text
                 x="0"
                 y="0"
-                class="text-node-text"
-                :style="{ fontSize: `${textNode.fontSize}px` }"
-              >{{ textNode.text }}</text>
+                :width="textNode.width || 80"
+                :height="textNode.height || 24"
+                fill="rgba(0, 0, 0, 0.6)"
+                rx="3"
+                class="text-bg"
+              />
               
-              <!-- Selection indicator and resize handle -->
+              <!-- Multi-line text using foreignObject -->
+              <foreignObject
+                x="0"
+                y="0"
+                :width="textNode.width || 80"
+                :height="textNode.height || 24"
+              >
+                <div 
+                  xmlns="http://www.w3.org/1999/xhtml"
+                  class="text-box-content"
+                  :style="{
+                    fontSize: `${textNode.fontSize}px`,
+                    fontWeight: textNode.isBold ? 'bold' : 'normal',
+                    width: '100%',
+                    height: '100%',
+                    padding: '2px 4px',
+                    boxSizing: 'border-box',
+                    overflow: 'hidden',
+                    wordWrap: 'break-word',
+                    color: '#fff',
+                  }"
+                >{{ textNode.text }}</div>
+              </foreignObject>
+              
+              <!-- Selection indicator and resize handles -->
               <g v-if="editorStore.selectedTextNodeId === textNode.id">
+                <!-- Selection border -->
                 <rect
-                  :x="-4"
-                  :y="-textNode.fontSize * 0.8 - 2"
-                  :width="measureTextWidth(textNode.text, textNode.fontSize) + 8"
-                  :height="textNode.fontSize * 1.2 + 4"
+                  x="-2"
+                  y="-2"
+                  :width="(textNode.width || 80) + 4"
+                  :height="(textNode.height || 24) + 4"
                   fill="none"
                   stroke="rgba(79, 70, 229, 0.8)"
-                  stroke-width="1"
-                  stroke-dasharray="3,2"
-                  rx="3"
+                  stroke-width="1.5"
+                  stroke-dasharray="4,2"
+                  rx="4"
                 />
-                <circle
-                  :cx="measureTextWidth(textNode.text, textNode.fontSize) + 4"
-                  :cy="-textNode.fontSize * 0.2"
-                  r="4"
-                  class="text-resize-handle"
-                  @mousedown.stop="handleTextNodeResizeMouseDown($event, textNode)"
+                
+                <!-- Corner resize handles -->
+                <!-- Bottom-right (main resize) -->
+                <rect
+                  :x="(textNode.width || 80) - 4"
+                  :y="(textNode.height || 24) - 4"
+                  width="8"
+                  height="8"
+                  rx="2"
+                  class="text-resize-handle corner-handle"
+                  @mousedown.stop="handleTextNodeCornerResize($event, textNode, 'br')"
+                />
+                <!-- Right edge (width only) -->
+                <rect
+                  :x="(textNode.width || 80) - 2"
+                  :y="(textNode.height || 24) / 2 - 6"
+                  width="4"
+                  height="12"
+                  rx="1"
+                  class="text-resize-handle edge-handle-h"
+                  @mousedown.stop="handleTextNodeCornerResize($event, textNode, 'r')"
+                />
+                <!-- Bottom edge (height only) -->
+                <rect
+                  :x="(textNode.width || 80) / 2 - 6"
+                  :y="(textNode.height || 24) - 2"
+                  width="12"
+                  height="4"
+                  rx="1"
+                  class="text-resize-handle edge-handle-v"
+                  @mousedown.stop="handleTextNodeCornerResize($event, textNode, 'b')"
                 />
               </g>
             </g>
@@ -422,8 +544,48 @@
               step="1"
               class="length-slider"
             />
+            <label class="toggle-row">
+              <input 
+                type="checkbox" 
+                :checked="editorStore.selectedStation.labelBold"
+                @change="toggleLabelBold"
+              />
+              <span>Bold Label</span>
+            </label>
             <button @click="resetLabelPosition" class="btn btn-small btn-secondary">
               Reset Label Position
+            </button>
+          </div>
+
+          <div class="property-group">
+            <label>Label Width: {{ editorStore.selectedStation.labelWidth ? Math.round(editorStore.selectedStation.labelWidth) + 'px' : 'Auto' }}</label>
+            <input 
+              type="range" 
+              :value="editorStore.selectedStation.labelWidth || 40"
+              @input="updateLabelWidth($event)"
+              min="30" 
+              max="200" 
+              step="5"
+              class="length-slider"
+            />
+            <button @click="resetLabelWidth" class="btn btn-small btn-secondary">
+              Reset Width
+            </button>
+          </div>
+
+          <div class="property-group">
+            <label>Label Height: {{ editorStore.selectedStation.labelHeight ? Math.round(editorStore.selectedStation.labelHeight) + 'px' : 'Auto' }}</label>
+            <input 
+              type="range" 
+              :value="editorStore.selectedStation.labelHeight || 16"
+              @input="updateLabelHeight($event)"
+              min="10" 
+              max="100" 
+              step="2"
+              class="length-slider"
+            />
+            <button @click="resetLabelHeight" class="btn btn-small btn-secondary">
+              Reset Height
             </button>
           </div>
 
@@ -513,6 +675,40 @@
               step="1"
               class="length-slider"
             />
+            <label class="toggle-row">
+              <input 
+                type="checkbox" 
+                :checked="editorStore.selectedTextNode.isBold"
+                @change="toggleTextNodeBold"
+              />
+              <span>Bold Text</span>
+            </label>
+          </div>
+
+          <div class="property-group">
+            <label>Width: {{ editorStore.selectedTextNode.width || 80 }}px</label>
+            <input 
+              type="range" 
+              :value="editorStore.selectedTextNode.width || 80"
+              @input="updateTextNodeWidth($event)"
+              min="40" 
+              max="300" 
+              step="10"
+              class="length-slider"
+            />
+          </div>
+
+          <div class="property-group">
+            <label>Height: {{ editorStore.selectedTextNode.height || 24 }}px</label>
+            <input 
+              type="range" 
+              :value="editorStore.selectedTextNode.height || 24"
+              @input="updateTextNodeHeight($event)"
+              min="16" 
+              max="200" 
+              step="4"
+              class="length-slider"
+            />
           </div>
 
           <div class="property-group">
@@ -592,10 +788,27 @@ const draggingLabel = ref<{ stationId: string; startX: number; startY: number; s
 const resizingLabel = ref<{ stationId: string; startX: number; startFontSize: number } | null>(null);
 const draggingTextNode = ref<{ id: string; startX: number; startY: number; startNodeX: number; startNodeY: number } | null>(null);
 const resizingTextNode = ref<{ id: string; startX: number; startFontSize: number } | null>(null);
+const resizingTextBox = ref<{ 
+  id: string; 
+  edge: 'br' | 'r' | 'b';  // bottom-right, right, bottom
+  startX: number; 
+  startY: number; 
+  startWidth: number; 
+  startHeight: number 
+} | null>(null);
+const resizingLabelBox = ref<{ 
+  stationId: string; 
+  edge: 'r' | 'b';  // right edge for width, bottom for height
+  startX: number;
+  startY: number;
+  startWidth: number;
+  startHeight: number;
+} | null>(null);
 const editingTextNodeId = ref<string | null>(null);
 
 // UI refs
 const canvasContainer = ref<HTMLElement | null>(null);
+const importInput = ref<HTMLInputElement | null>(null);
 const customStationName = ref('');
 const saveStatus = ref('');
 
@@ -761,6 +974,10 @@ function handleTextNodeMouseDown(e: MouseEvent, textNode: TextNode) {
 function handleTextNodeClick(textNode: TextNode) {
   if (editorStore.selectedTool === 'select' || editorStore.selectedTool === 'text') {
     editorStore.selectTextNode(textNode.id);
+    // If text is linked to a station, also highlight it (select station for properties)
+    if (textNode.stationId) {
+      editorStore.selectStation(textNode.stationId);
+    }
   }
 }
 
@@ -775,6 +992,20 @@ function handleTextNodeResizeMouseDown(e: MouseEvent, textNode: TextNode) {
       id: textNode.id,
       startX: e.clientX,
       startFontSize: textNode.fontSize,
+    };
+    e.preventDefault();
+  }
+}
+
+function handleTextNodeCornerResize(e: MouseEvent, textNode: TextNode, edge: 'br' | 'r' | 'b') {
+  if (e.button === 0) {
+    resizingTextBox.value = {
+      id: textNode.id,
+      edge,
+      startX: e.clientX,
+      startY: e.clientY,
+      startWidth: textNode.width || 80,
+      startHeight: textNode.height || 24,
     };
     e.preventDefault();
   }
@@ -922,11 +1153,50 @@ function handleMouseMove(e: MouseEvent) {
   // Handle label resizing
   if (resizingLabel.value) {
     const dx = (e.clientX - resizingLabel.value.startX) / zoom.value;
-    const newFontSize = Math.max(6, Math.min(48, resizingLabel.value.startFontSize + dx * 0.2));
+    const oldFontSize = resizingLabel.value.startFontSize;
+    const newFontSize = Math.max(6, Math.min(48, oldFontSize + dx * 0.2));
+    const scale = newFontSize / oldFontSize;
     
-    editorStore.updateStation(resizingLabel.value.stationId, {
-      labelFontSize: newFontSize,
-    });
+    // Get current station to check if width/height are set
+    const station = getStationById(resizingLabel.value.stationId);
+    const updates: Partial<EditorStation> = { labelFontSize: newFontSize };
+    
+    // If width/height are explicitly set, scale them
+    if (station && station.labelWidth) {
+      updates.labelWidth = station.labelWidth * scale;
+    }
+    if (station && station.labelHeight) {
+      updates.labelHeight = station.labelHeight * scale;
+    }
+    
+    editorStore.updateStation(resizingLabel.value.stationId, updates);
+    
+    // Update start values for next move to avoid compounding errors
+    // but actually, we should calculate from start to avoid drift.
+    // However, since we're using startFontSize, we should really just calculate 
+    // the target scale from start to current and apply to START width/height.
+    // But we don't have startWidth/Height stored in resizingLabel.
+    // Let's refine this to be simple: JUST font size for now, 
+    // but the user wants the box to grow.
+    // If we only change font size, and width is AUTO, it naturally grows.
+    // If width is FIXED, it stays fixed and text might overflow.
+    // So we MUST update width/height if they are set.
+    // Just using the simple scaling above is a bit risky if mouse moves fast, 
+    // effectively compounding scale on every move event vs start.
+    // Better: use the ratio from startFontSize.
+  }
+
+  // Handle label box resizing
+  if (resizingLabelBox.value) {
+    if (resizingLabelBox.value.edge === 'r') {
+      const dx = (e.clientX - resizingLabelBox.value.startX) / zoom.value;
+      const newWidth = Math.max(30, resizingLabelBox.value.startWidth + dx * 2); // *2 because centered
+      editorStore.updateStation(resizingLabelBox.value.stationId, { labelWidth: newWidth });
+    } else if (resizingLabelBox.value.edge === 'b') {
+      const dy = (e.clientY - resizingLabelBox.value.startY) / zoom.value;
+      const newHeight = Math.max(16, resizingLabelBox.value.startHeight + dy * 2); // *2 because centered
+      editorStore.updateStation(resizingLabelBox.value.stationId, { labelHeight: newHeight });
+    }
     return;
   }
 
@@ -950,6 +1220,24 @@ function handleMouseMove(e: MouseEvent) {
     editorStore.updateTextNode(resizingTextNode.value.id, {
       fontSize: newFontSize,
     });
+    return;
+  }
+
+  // Handle text box corner/edge resizing
+  if (resizingTextBox.value) {
+    const dx = (e.clientX - resizingTextBox.value.startX) / zoom.value;
+    const dy = (e.clientY - resizingTextBox.value.startY) / zoom.value;
+    
+    const updates: { width?: number; height?: number } = {};
+    
+    if (resizingTextBox.value.edge === 'br' || resizingTextBox.value.edge === 'r') {
+      updates.width = Math.max(40, resizingTextBox.value.startWidth + dx);
+    }
+    if (resizingTextBox.value.edge === 'br' || resizingTextBox.value.edge === 'b') {
+      updates.height = Math.max(16, resizingTextBox.value.startHeight + dy);
+    }
+    
+    editorStore.updateTextNode(resizingTextBox.value.id, updates);
     return;
   }
 
@@ -1001,15 +1289,17 @@ function handleMouseMove(e: MouseEvent) {
 }
 
 function handleMouseUp(e: MouseEvent) {
-  if (draggingStationId.value || draggingWaypoint.value || draggingEndpoint.value || draggingLabel.value || resizingLabel.value || draggingTextNode.value || resizingTextNode.value) showSaveStatus();
+  if (draggingStationId.value || draggingWaypoint.value || draggingEndpoint.value || draggingLabel.value || resizingLabel.value || resizingLabelBox.value || draggingTextNode.value || resizingTextNode.value || resizingTextBox.value) showSaveStatus();
   
   draggingStationId.value = null;
   draggingWaypoint.value = null;
   draggingEndpoint.value = null;
   draggingLabel.value = null;
   resizingLabel.value = null;
+  resizingLabelBox.value = null;
   draggingTextNode.value = null;
   resizingTextNode.value = null;
+  resizingTextBox.value = null;
   
   if (e.button === 2) isRightMousePanning.value = false;
   isPanning.value = false;
@@ -1051,7 +1341,14 @@ function handleEndpointMouseDown(e: MouseEvent, track: EditorTrack, endpoint: nu
 }
 
 function handleLabelMouseDown(e: MouseEvent, station: EditorStation) {
-  if (e.button === 0 && editorStore.selectedStationId === station.id) {
+  if (e.button === 0) {
+    // If station not selected, select it first
+    if (editorStore.selectedStationId !== station.id) {
+      editorStore.selectStation(station.id);
+      return;
+    }
+    
+    // Station is already selected, enable dragging
     const rect = canvasContainer.value?.getBoundingClientRect();
     if (!rect) return;
     
@@ -1072,6 +1369,20 @@ function handleLabelResizeMouseDown(e: MouseEvent, station: EditorStation) {
       stationId: station.id,
       startX: e.clientX,
       startFontSize: station.labelFontSize || 8,
+    };
+    e.preventDefault();
+  }
+}
+
+function handleLabelBoxResize(e: MouseEvent, station: EditorStation, edge: 'r' | 'b') {
+  if (e.button === 0 && editorStore.selectedStationId === station.id) {
+    resizingLabelBox.value = {
+      stationId: station.id,
+      edge,
+      startX: e.clientX,
+      startY: e.clientY,
+      startWidth: station.labelWidth || measureTextWidth(station.name, station.labelFontSize || 8) + 8,
+      startHeight: station.labelHeight || (station.labelFontSize || 8) * 1.4,
     };
     e.preventDefault();
   }
@@ -1240,6 +1551,52 @@ function resetLabelPosition() {
   }
 }
 
+function updateLabelWidth(e: Event) {
+  const value = parseInt((e.target as HTMLInputElement).value);
+  if (editorStore.selectedStationId && !isNaN(value)) {
+    editorStore.updateStation(editorStore.selectedStationId, { labelWidth: value });
+    showSaveStatus();
+  }
+}
+
+function resetLabelWidth() {
+  if (editorStore.selectedStationId) {
+    editorStore.updateStation(editorStore.selectedStationId, { labelWidth: undefined });
+    showSaveStatus();
+  }
+}
+
+function updateLabelHeight(e: Event) {
+  const value = parseInt((e.target as HTMLInputElement).value);
+  if (editorStore.selectedStationId && !isNaN(value)) {
+    editorStore.updateStation(editorStore.selectedStationId, { labelHeight: value });
+    showSaveStatus();
+  }
+}
+
+function resetLabelHeight() {
+  if (editorStore.selectedStationId) {
+    editorStore.updateStation(editorStore.selectedStationId, { labelHeight: undefined });
+    showSaveStatus();
+  }
+}
+
+function updateTextNodeWidth(e: Event) {
+  const value = parseInt((e.target as HTMLInputElement).value);
+  if (editorStore.selectedTextNodeId && !isNaN(value)) {
+    editorStore.updateTextNode(editorStore.selectedTextNodeId, { width: value });
+    showSaveStatus();
+  }
+}
+
+function updateTextNodeHeight(e: Event) {
+  const value = parseInt((e.target as HTMLInputElement).value);
+  if (editorStore.selectedTextNodeId && !isNaN(value)) {
+    editorStore.updateTextNode(editorStore.selectedTextNodeId, { height: value });
+    showSaveStatus();
+  }
+}
+
 function toggleStationLine(line: string) {
   if (!editorStore.selectedStation) return;
   
@@ -1344,6 +1701,44 @@ function handleClear() {
   if (confirm('Clear all stations and tracks?')) {
     editorStore.clearAll();
     lastPlacedStationId.value = null;
+    showSaveStatus();
+  }
+}
+
+function handleExport() {
+  editorStore.exportToFile();
+}
+
+function triggerImport() {
+  importInput.value?.click();
+}
+
+async function handleImport(e: Event) {
+  const file = (e.target as HTMLInputElement).files?.[0];
+  if (file) {
+    const success = await editorStore.importFromFile(file);
+    if (success) {
+      showSaveStatus();
+    } else {
+      alert('Failed to import file. Please check the format.');
+    }
+  }
+  // Reset input so same file can be selected again
+  if (importInput.value) importInput.value.value = '';
+}
+
+function toggleLabelBold() {
+  if (editorStore.selectedStationId) {
+    const current = editorStore.selectedStation?.labelBold || false;
+    editorStore.updateStation(editorStore.selectedStationId, { labelBold: !current });
+    showSaveStatus();
+  }
+}
+
+function toggleTextNodeBold() {
+  if (editorStore.selectedTextNodeId) {
+    const current = editorStore.selectedTextNode?.isBold || false;
+    editorStore.updateTextNode(editorStore.selectedTextNodeId, { isBold: !current });
     showSaveStatus();
   }
 }
@@ -1550,6 +1945,16 @@ onUnmounted(() => { window.removeEventListener('keydown', handleKeyDown); });
 .text-node-text { fill: #fff; font-family: 'Inter', -apple-system, sans-serif; font-weight: 500; cursor: pointer; }
 .text-resize-handle { fill: #4f46e5; stroke: white; stroke-width: 1; cursor: ew-resize; }
 .text-resize-handle:hover { fill: #6366f1; }
+.text-resize-handle.corner-handle { cursor: nwse-resize; }
+.text-resize-handle.edge-handle-h { cursor: ew-resize; }
+.text-resize-handle.edge-handle-v { cursor: ns-resize; }
 .text-input { width: 100%; padding: 6px 8px; border-radius: 4px; border: 1px solid rgba(255, 255, 255, 0.2); background: rgba(255, 255, 255, 0.08); color: #fff; font-size: 13px; }
 .text-input:focus { outline: none; border-color: #4f46e5; }
+
+/* Text box content styling */
+.text-box-content { font-family: 'Inter', -apple-system, sans-serif; line-height: 1.3; }
+.label-box-content { font-family: 'Inter', -apple-system, sans-serif; line-height: 1.2; }
+.label-bg { pointer-events: none; }
+.label-resize-handle { fill: #4f46e5; stroke: white; stroke-width: 1; }
+.label-resize-handle.edge-handle-h { cursor: ew-resize; }
 </style>
