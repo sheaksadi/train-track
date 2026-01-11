@@ -63,7 +63,27 @@
 
         <div class="tools-section" v-if="autoConnect && nextStationSuggestion">
           <h3>Next Station</h3>
-          <div class="next-station-hint">{{ nextStationSuggestion }}</div>
+          <div class="suggestion-ui bg-gray-700 p-2 rounded text-sm">
+            <div class="text-xs text-gray-400 mb-1">Current: {{ nextStationSuggestion.current }}</div>
+            <div class="flex gap-2 justify-between">
+              <button 
+                v-if="nextStationSuggestion.prev"
+                @click="customStationName = nextStationSuggestion.prev"
+                class="px-2 py-1 bg-gray-600 hover:bg-gray-500 rounded text-xs flex-1 truncate"
+                title="Use Previous Station"
+              >
+                ← {{ nextStationSuggestion.prev }}
+              </button>
+              <button 
+                v-if="nextStationSuggestion.next"
+                @click="customStationName = nextStationSuggestion.next"
+                class="px-2 py-1 bg-blue-600 hover:bg-blue-500 rounded text-xs flex-1 truncate"
+                title="Use Next Station"
+              >
+                {{ nextStationSuggestion.next }} →
+              </button>
+            </div>
+          </div>
         </div>
 
         <div class="tools-section">
@@ -856,18 +876,49 @@ const nextStationSuggestion = computed(() => {
   if (!stationsOnLine || stationsOnLine.length === 0) return null;
   
   // 3. Find neighbor in list
-  // Normalize function (same as in StationSelector)
+  // Levenshtein distance for fuzzy matching
+  const levenshtein = (a: string, b: string): number => {
+    const matrix = [];
+    for (let i = 0; i <= b.length; i++) matrix[i] = [i];
+    for (let j = 0; j <= a.length; j++) matrix[0][j] = j;
+    for (let i = 1; i <= b.length; i++) {
+        for (let j = 1; j <= a.length; j++) {
+            if (b.charAt(i - 1) === a.charAt(j - 1)) {
+                matrix[i][j] = matrix[i - 1][j - 1];
+            } else {
+                matrix[i][j] = Math.min(matrix[i - 1][j - 1] + 1, Math.min(matrix[i][j - 1] + 1, matrix[i - 1][j] + 1));
+            }
+        }
+    }
+    return matrix[b.length][a.length];
+  };
+
   const clean = (n: string) => n.replace(/\s*\(Berlin\)\s*/i, '').replace(/^(S\+U|S|U)\s+/i, '').trim();
-  const cleanLastName = clean(lastStation.name);
-  
-  const idx = stationsOnLine.findIndex(s => clean(s) === cleanLastName);
-  
-  if (idx !== -1) {
-      if (idx + 1 < stationsOnLine.length) return clean(stationsOnLine[idx + 1]);
-      if (idx - 1 >= 0) return clean(stationsOnLine[idx - 1]);
+  const targetName = clean(lastStation.name);
+
+  // Find best match
+  let bestMatchIdx = -1;
+  let minDistance = Infinity;
+
+  stationsOnLine.forEach((stationName, index) => {
+      const dist = levenshtein(clean(stationName).toLowerCase(), targetName.toLowerCase());
+      if (dist < minDistance) {
+          minDistance = dist;
+          bestMatchIdx = index;
+      }
+  });
+
+  // Threshold for match (allow small typos or variations)
+  if (bestMatchIdx !== -1 && minDistance <= 5) {
+      return {
+          current: stationsOnLine[bestMatchIdx],
+          prev: bestMatchIdx > 0 ? stationsOnLine[bestMatchIdx - 1] : null,
+          next: bestMatchIdx < stationsOnLine.length - 1 ? stationsOnLine[bestMatchIdx + 1] : null
+      };
   }
   
-  return clean(stationsOnLine[0]);
+  // Fallback: just return first station if nothing matches well
+  return { current: 'Unknown', next: stationsOnLine[0], prev: null };
 });
 
 // Computed sizes
@@ -1440,9 +1491,14 @@ function handleCanvasClick(e: MouseEvent) {
   const y = (e.clientY - rect.top - pan.y) / zoom.value;
 
   if (editorStore.selectedTool === 'station') {
-    const stationName = autoConnect.value && nextStationSuggestion.value 
-      ? nextStationSuggestion.value 
-      : 'New Station';
+    let stationName = 'New Station';
+    
+    if (customStationName.value) {
+      stationName = customStationName.value;
+      customStationName.value = '';
+    } else if (autoConnect.value && nextStationSuggestion.value?.next) {
+      stationName = nextStationSuggestion.value.next;
+    }
     
     const station = editorStore.addStation(x, y, stationName);
     editorStore.selectStation(station.id);
