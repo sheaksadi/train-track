@@ -308,8 +308,8 @@
                   
                   <!-- Corner handle (bottom-right) - font size -->
                   <rect
-                    :x="(station.labelWidth || measureTextWidth(station.name, station.labelFontSize || 8) + 8) / 2 - 4"
-                    :y="(station.labelHeight || (station.labelFontSize || 8) * 1.4) / 2 - 4"
+                    :x="(station.labelWidth || measureTextWidth(station.name, station.labelFontSize || 8) + 8) / 2 + 2"
+                    :y="(station.labelHeight || (station.labelFontSize || 8) * 1.4) / 2 + 2"
                     width="8"
                     height="8"
                     rx="2"
@@ -469,13 +469,18 @@
         <div v-if="editorStore.selectedStation" class="property-content">
           <div class="property-group">
             <label>Station Name</label>
+            <div class="filter-controls" style="display: flex; gap: 10px; margin-bottom: 5px; font-size: 12px;">
+              <label><input type="checkbox" v-model="showS"> S-Bahn</label>
+              <label><input type="checkbox" v-model="showU"> U-Bahn</label>
+              <label><input type="checkbox" v-model="showOther"> Other</label>
+            </div>
             <select 
               :value="editorStore.selectedStation.name"
               @change="updateStationName($event)"
               class="name-select"
             >
               <option 
-                v-for="name in ['Custom...', ...allStationNames]" 
+                v-for="name in ['Custom...', ...filteredStationNames]" 
                 :key="name" 
                 :value="name"
               >{{ name }}</option>
@@ -761,11 +766,34 @@
 <script setup lang="ts">
 import { ref, reactive, computed, onMounted, onUnmounted } from 'vue';
 import { useEditorStore, type EditorStation, type EditorTrack, type Waypoint, type TextNode } from '@/stores/editorStore';
-import { allStationNames, allLines, getLineColor } from '@/data/stationNames';
+import { allStationNames, allLines, getLineColor, allBvgStations } from '@/data/stationNames';
 import { ubahnLines } from '@/data/ubahn';
 import { sbahnLines } from '@/data/sbahn';
 
 const editorStore = useEditorStore();
+
+// Station Filtering
+const params = new URLSearchParams(window.location.search);
+const showS = ref(true);
+const showU = ref(true);
+const showOther = ref(false); // Default hide bus/tram to reduce noise
+
+const filteredStationNames = computed(() => {
+  return allBvgStations.filter(s => {
+    if (s.products) {
+      if (s.products.s && !showS.value) return false;
+      if (s.products.u && !showU.value) return false;
+      if (!s.products.s && !s.products.u && !showOther.value) return false;
+      
+      // If filtering is active (some are unchecked), strictly show only what is checked.
+      // E.g. if only S is checked, show stations with s=true.
+      return (s.products.s && showS.value) || 
+             (s.products.u && showU.value) || 
+             (!s.products.s && !s.products.u && showOther.value);
+    }
+    return showOther.value;
+  }).map(s => s.name).sort();
+});
 
 // Canvas dimensions
 const canvasWidth = 1190;
@@ -785,7 +813,13 @@ const draggingStationId = ref<string | null>(null);
 const draggingWaypoint = ref<{ trackId: string; waypointId: string } | null>(null);
 const draggingEndpoint = ref<{ trackId: string; endpoint: 1 | 2; stationId: string } | null>(null);
 const draggingLabel = ref<{ stationId: string; startX: number; startY: number; startOffsetX: number; startOffsetY: number } | null>(null);
-const resizingLabel = ref<{ stationId: string; startX: number; startFontSize: number } | null>(null);
+const resizingLabel = ref<{ 
+  stationId: string; 
+  startX: number; 
+  startFontSize: number;
+  startWidth?: number;
+  startHeight?: number;
+} | null>(null);
 const draggingTextNode = ref<{ id: string; startX: number; startY: number; startNodeX: number; startNodeY: number } | null>(null);
 const resizingTextNode = ref<{ id: string; startX: number; startFontSize: number } | null>(null);
 const resizingTextBox = ref<{ 
@@ -1157,33 +1191,18 @@ function handleMouseMove(e: MouseEvent) {
     const newFontSize = Math.max(6, Math.min(48, oldFontSize + dx * 0.2));
     const scale = newFontSize / oldFontSize;
     
-    // Get current station to check if width/height are set
-    const station = getStationById(resizingLabel.value.stationId);
     const updates: Partial<EditorStation> = { labelFontSize: newFontSize };
     
-    // If width/height are explicitly set, scale them
-    if (station && station.labelWidth) {
-      updates.labelWidth = station.labelWidth * scale;
+    // If width/height were set at start, scale them proportionally
+    if (resizingLabel.value.startWidth) {
+      updates.labelWidth = resizingLabel.value.startWidth * scale;
     }
-    if (station && station.labelHeight) {
-      updates.labelHeight = station.labelHeight * scale;
+    if (resizingLabel.value.startHeight) {
+      updates.labelHeight = resizingLabel.value.startHeight * scale;
     }
     
     editorStore.updateStation(resizingLabel.value.stationId, updates);
-    
-    // Update start values for next move to avoid compounding errors
-    // but actually, we should calculate from start to avoid drift.
-    // However, since we're using startFontSize, we should really just calculate 
-    // the target scale from start to current and apply to START width/height.
-    // But we don't have startWidth/Height stored in resizingLabel.
-    // Let's refine this to be simple: JUST font size for now, 
-    // but the user wants the box to grow.
-    // If we only change font size, and width is AUTO, it naturally grows.
-    // If width is FIXED, it stays fixed and text might overflow.
-    // So we MUST update width/height if they are set.
-    // Just using the simple scaling above is a bit risky if mouse moves fast, 
-    // effectively compounding scale on every move event vs start.
-    // Better: use the ratio from startFontSize.
+    return;
   }
 
   // Handle label box resizing
@@ -1369,6 +1388,8 @@ function handleLabelResizeMouseDown(e: MouseEvent, station: EditorStation) {
       stationId: station.id,
       startX: e.clientX,
       startFontSize: station.labelFontSize || 8,
+      startWidth: station.labelWidth,
+      startHeight: station.labelHeight,
     };
     e.preventDefault();
   }

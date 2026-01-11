@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia';
 import { ref, computed, watch } from 'vue';
+import { getStationInfo } from '@/data/stationNames';
 
 export interface EditorStation {
     id: string;
@@ -15,6 +16,8 @@ export interface EditorStation {
     labelBold?: boolean;   // Label bold style
     labelWidth?: number;   // Text box width for multi-line
     labelHeight?: number;  // Text box height
+    lat?: number;
+    lng?: number;
 }
 
 export interface Waypoint {
@@ -93,11 +96,14 @@ export const useEditorStore = defineStore('editor', () => {
 
     // Actions
     function addStation(x: number, y: number, name: string = 'New Station'): EditorStation {
+        const stationInfo = getStationInfo(name);
         const station: EditorStation = {
             id: generateId(),
             name,
             x,
             y,
+            lat: stationInfo?.lat,
+            lng: stationInfo?.lng,
             lines: [currentLine.value],
             rotation: 0,
             length: 0,  // 0 = circle, > 10 = pill shape
@@ -126,6 +132,14 @@ export const useEditorStore = defineStore('editor', () => {
     function updateStation(id: string, updates: Partial<Omit<EditorStation, 'id'>>): void {
         const station = stations.value.find(s => s.id === id);
         if (station) {
+            // If name is changing, look up new coordinates if not explicitly provided
+            if (updates.name && updates.name !== station.name && !updates.lat && !updates.lng) {
+                const info = getStationInfo(updates.name);
+                if (info) {
+                    updates.lat = info.lat;
+                    updates.lng = info.lng;
+                }
+            }
             Object.assign(station, updates);
             saveToLocalStorage();
         }

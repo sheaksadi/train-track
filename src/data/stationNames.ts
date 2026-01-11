@@ -1,16 +1,27 @@
-// All available station names for the editor dropdown
-// Extracted from ubahn.ts and sbahn.ts
-
+import bvgStations from './bvg_stations.json';
 import { ubahnStations, ubahnColors } from './ubahn';
 import { sbahnStations, sbahnColors } from './sbahn';
 
-// Get all unique station names
-export const allStationNames: string[] = [
-    ...new Set([
-        ...Object.keys(ubahnStations),
-        ...Object.keys(sbahnStations),
-    ])
-].sort();
+export interface BvgStation {
+    id: string;
+    name: string;
+    lat: number;
+    lng: number;
+    products?: Record<string, boolean>;
+}
+
+// Map for fast lookup
+const stationMap = new Map<string, BvgStation>();
+(bvgStations as any[]).forEach((s: any) => stationMap.set(s.name, s));
+
+// Get all unique station names from the comprehensive BVG list
+export const allStationNames: string[] = (bvgStations as any[]).map((s: any) => s.name).sort();
+
+export const allBvgStations: BvgStation[] = bvgStations as unknown as BvgStation[];
+
+export function getStationInfo(name: string): BvgStation | undefined {
+    return stationMap.get(name);
+}
 
 // All line colors combined
 export const allLineColors: Record<string, string> = {
