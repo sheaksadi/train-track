@@ -192,7 +192,7 @@
               }"
               :transform="`translate(${station.x}, ${station.y}) rotate(${station.rotation || 0})`"
               @mousedown.stop="handleStationMouseDown($event, station)"
-              @click.stop="handleStationClick(station)"
+              @click.stop="handleStationClick($event, station)"
             >
               <!-- Circle (default) or Pill shape (when length > 10) -->
               <circle
@@ -474,23 +474,10 @@
               <label><input type="checkbox" v-model="showU"> U-Bahn</label>
               <label><input type="checkbox" v-model="showOther"> Other</label>
             </div>
-            <select 
-              :value="editorStore.selectedStation.name"
-              @change="updateStationName($event)"
-              class="name-select"
-            >
-              <option 
-                v-for="name in ['Custom...', ...filteredStationNames]" 
-                :key="name" 
-                :value="name"
-              >{{ name }}</option>
-            </select>
-            <input 
-              v-if="editorStore.selectedStation.name === 'Custom...'" 
-              v-model="customStationName"
-              @blur="applyCustomName"
-              placeholder="Enter station name"
-              class="custom-name-input"
+            <StationSelector
+              :modelValue="editorStore.selectedStation.name"
+              @update:modelValue="(val) => editorStore.selectedStationId && editorStore.updateStation(editorStore.selectedStationId, { name: val })"
+              @select="handleStationSelect"
             />
           </div>
 
@@ -766,34 +753,48 @@
 <script setup lang="ts">
 import { ref, reactive, computed, onMounted, onUnmounted } from 'vue';
 import { useEditorStore, type EditorStation, type EditorTrack, type Waypoint, type TextNode } from '@/stores/editorStore';
-import { allStationNames, allLines, getLineColor, allBvgStations } from '@/data/stationNames';
+import { allStationNames, allLines, getLineColor, allBvgStations, getStationsForLine } from '@/data/stationNames';
 import { ubahnLines } from '@/data/ubahn';
 import { sbahnLines } from '@/data/sbahn';
+import StationSelector from '@/components/StationSelector.vue';
 
 const editorStore = useEditorStore();
 
-// Station Filtering
+// Station Filtering (Manual List - no need for strict filters now as list is pre-filtered, but keeping if useful)
+// Actually, since the list is manual, we can simplify/remove filters or keep 'Other' for lines.
 const params = new URLSearchParams(window.location.search);
 const showS = ref(true);
 const showU = ref(true);
-const showOther = ref(false); // Default hide bus/tram to reduce noise
+const showOther = ref(true); 
 
+console.log('Edit.vue setup starting');
+
+// Filter logic (optional now, but good for searching)
 const filteredStationNames = computed(() => {
-  return allBvgStations.filter(s => {
-    if (s.products) {
-      if (s.products.s && !showS.value) return false;
-      if (s.products.u && !showU.value) return false;
-      if (!s.products.s && !s.products.u && !showOther.value) return false;
-      
-      // If filtering is active (some are unchecked), strictly show only what is checked.
-      // E.g. if only S is checked, show stations with s=true.
-      return (s.products.s && showS.value) || 
-             (s.products.u && showU.value) || 
-             (!s.products.s && !s.products.u && showOther.value);
-    }
-    return showOther.value;
-  }).map(s => s.name).sort();
+  try {
+    const list = allBvgStations || [];
+    return list.filter(s => {
+        // If we have line info, use it for filtering
+        if (s.lines && s.lines.length > 0) {
+            const hasS = s.lines.some(l => l && l.toString().startsWith('S'));
+            const hasU = s.lines.some(l => l && l.toString().startsWith('U'));
+            const hasOther = !hasS && !hasU;
+            
+            return (hasS && showS.value) || (hasU && showU.value) || (hasOther && showOther.value);
+        }
+        return true;
+    }).map(s => s.name).sort();
+  } catch (e) {
+    console.error('Error in filteredStationNames computed:', e);
+    return [];
+  }
 });
+
+const stationOptions = computed(() => {
+  return filteredStationNames.value;
+});
+
+console.log('Edit.vue setup continuing...');
 
 // Canvas dimensions
 const canvasWidth = 1190;
@@ -810,34 +811,15 @@ const mousePosition = ref<{ x: number; y: number } | null>(null);
 
 // Dragging state
 const draggingStationId = ref<string | null>(null);
-const draggingWaypoint = ref<{ trackId: string; waypointId: string } | null>(null);
+const draggingWaypoint = ref<{ trackId: string, index: number, waypointId?: string } | null>(null); // Index is typically used
 const draggingEndpoint = ref<{ trackId: string; endpoint: 1 | 2; stationId: string } | null>(null);
 const draggingLabel = ref<{ stationId: string; startX: number; startY: number; startOffsetX: number; startOffsetY: number } | null>(null);
-const resizingLabel = ref<{ 
-  stationId: string; 
-  startX: number; 
-  startFontSize: number;
-  startWidth?: number;
-  startHeight?: number;
-} | null>(null);
+const resizingLabel = ref<{ stationId: string, startFontSize: number, startX: number, startY: number, startWidth?: number, startHeight?: number } | null>(null);
+const resizingLabelBox = ref<{ stationId: string, startWidth: number, startHeight: number, startX: number, startY: number, edge: 'r' | 'b' } | null>(null);
+const resizingTextBox = ref<{ id: string, startWidth: number, startHeight: number, startX: number, startY: number, edge: string } | null>(null);
+
 const draggingTextNode = ref<{ id: string; startX: number; startY: number; startNodeX: number; startNodeY: number } | null>(null);
 const resizingTextNode = ref<{ id: string; startX: number; startFontSize: number } | null>(null);
-const resizingTextBox = ref<{ 
-  id: string; 
-  edge: 'br' | 'r' | 'b';  // bottom-right, right, bottom
-  startX: number; 
-  startY: number; 
-  startWidth: number; 
-  startHeight: number 
-} | null>(null);
-const resizingLabelBox = ref<{ 
-  stationId: string; 
-  edge: 'r' | 'b';  // right edge for width, bottom for height
-  startX: number;
-  startY: number;
-  startWidth: number;
-  startHeight: number;
-} | null>(null);
 const editingTextNodeId = ref<string | null>(null);
 
 // UI refs
@@ -846,7 +828,7 @@ const importInput = ref<HTMLInputElement | null>(null);
 const customStationName = ref('');
 const saveStatus = ref('');
 
-// Auto-connect feature
+// Auto-connect and last placed station
 const autoConnect = ref(true);
 const lastPlacedStationId = ref<string | null>(null);
 
@@ -858,25 +840,34 @@ const selectedWaypointTrack = computed(() => {
   ) || null;
 });
 
-// Compute next station suggestion
 const nextStationSuggestion = computed(() => {
-  if (!autoConnect.value) return null;
+  if (!lastPlacedStationId.value) return null;
   
-  const currentLine = editorStore.currentLine;
-  const lineStations = { ...ubahnLines, ...sbahnLines }[currentLine];
-  if (!lineStations) return null;
+  const lastStation = editorStore.stations.find(s => s.id === lastPlacedStationId.value);
+  if (!lastStation) return null;
+
+  // Smart Suggestion Strategy:
+  // 1. Get current active line (e.g. U8)
+  const line = editorStore.currentLine;
   
-  const placedNames = editorStore.stations
-    .filter(s => s.lines.includes(currentLine))
-    .map(s => s.name);
+  // 2. Get all stations on this line from our manual data
+  const stationsOnLine = getStationsForLine(line);
   
-  for (const stationName of lineStations) {
-    if (!placedNames.includes(stationName)) {
-      return stationName;
-    }
+  if (!stationsOnLine || stationsOnLine.length === 0) return null;
+  
+  // 3. Find neighbor in list
+  // Normalize function (same as in StationSelector)
+  const clean = (n: string) => n.replace(/\s*\(Berlin\)\s*/i, '').replace(/^(S\+U|S|U)\s+/i, '').trim();
+  const cleanLastName = clean(lastStation.name);
+  
+  const idx = stationsOnLine.findIndex(s => clean(s) === cleanLastName);
+  
+  if (idx !== -1) {
+      if (idx + 1 < stationsOnLine.length) return clean(stationsOnLine[idx + 1]);
+      if (idx - 1 >= 0) return clean(stationsOnLine[idx - 1]);
   }
   
-  return null;
+  return clean(stationsOnLine[0]);
 });
 
 // Computed sizes
@@ -1264,7 +1255,17 @@ function handleMouseMove(e: MouseEvent) {
     const rect = canvasContainer.value.getBoundingClientRect();
     const x = (e.clientX - rect.left - pan.x) / zoom.value;
     const y = (e.clientY - rect.top - pan.y) / zoom.value;
-    editorStore.updateWaypoint(draggingWaypoint.value.trackId, draggingWaypoint.value.waypointId, x, y);
+    if (draggingWaypoint.value.waypointId) {
+      editorStore.updateWaypoint(draggingWaypoint.value.trackId, draggingWaypoint.value.waypointId, x, y);
+    } else {
+      // Fallback if we only have index (legacy support or if logic changes)
+      // For now, we always set waypointId in handleWaypointMouseDown
+      const track = editorStore.tracks.find(t => t.id === draggingWaypoint.value!.trackId);
+      if (track) {
+         const wp = track.waypoints[draggingWaypoint.value.index];
+         if (wp) editorStore.updateWaypoint(track.id, wp.id, x, y);
+      }
+    }
     return;
   }
 
@@ -1334,7 +1335,8 @@ function handleStationMouseDown(e: MouseEvent, station: EditorStation) {
 
 function handleWaypointMouseDown(e: MouseEvent, track: EditorTrack, waypoint: Waypoint) {
   if (e.button === 0) {
-    draggingWaypoint.value = { trackId: track.id, waypointId: waypoint.id };
+    const index = track.waypoints.findIndex(w => w.id === waypoint.id);
+    draggingWaypoint.value = { trackId: track.id, index, waypointId: waypoint.id };
     editorStore.selectTrack(track.id);
     editorStore.selectWaypoint(waypoint.id);
     e.preventDefault();
@@ -1387,6 +1389,7 @@ function handleLabelResizeMouseDown(e: MouseEvent, station: EditorStation) {
     resizingLabel.value = {
       stationId: station.id,
       startX: e.clientX,
+      startY: e.clientY,
       startFontSize: station.labelFontSize || 8,
       startWidth: station.labelWidth,
       startHeight: station.labelHeight,
@@ -1463,12 +1466,24 @@ function handleCanvasClick(e: MouseEvent) {
   }
 }
 
-function handleStationClick(station: EditorStation) {
+function handleStationClick(e: MouseEvent, station: EditorStation) {
   if (editorStore.selectedTool === 'move') return;
   if (draggingStationId.value) return;
   
   if (editorStore.selectedTool === 'select' || editorStore.selectedTool === 'bend') {
     editorStore.selectStation(station.id);
+    
+    // Auto-switch line if current line is not served by this station
+    if (station.lines && station.lines.length > 0) {
+      if (!station.lines.includes(editorStore.currentLine)) {
+        editorStore.currentLine = station.lines[0];
+      }
+    }
+    
+    // Update last placed station for suggestion logic
+    lastPlacedStationId.value = station.id;
+    
+    e.stopPropagation();
   } else if (editorStore.selectedTool === 'station') {
     // Click existing station: add current line to it and set as last placed
     if (!station.lines.includes(editorStore.currentLine)) {
@@ -1507,9 +1522,29 @@ function resetView() { zoom.value = 1; pan.x = 0; pan.y = 0; }
 
 // Station property updates
 function updateStationName(e: Event) {
-  const value = (e.target as HTMLSelectElement).value;
+  const target = e.target as HTMLInputElement;
   if (editorStore.selectedStationId) {
-    editorStore.updateStation(editorStore.selectedStationId, { name: value });
+    editorStore.updateStation(editorStore.selectedStationId, { name: target.value });
+  }
+}
+
+function handleStationSelect(station: any) {
+  if (editorStore.selectedStationId) {
+    // Update station with new name and coordinates
+    editorStore.updateStation(editorStore.selectedStationId, { 
+      name: station.name,
+      lat: station.lat,
+      lng: station.lng
+    });
+    
+    // Auto-switch line if possible (though we might not know lines from API yet, usually we rely on existing lines)
+    // If the station has lines (from local update or if API provided them), switch
+    // Note: API 'lines' might be empty here, but if we updated the station, we can check.
+    const updatedStation = editorStore.stations.find(s => s.id === editorStore.selectedStationId);
+    if (updatedStation && updatedStation.lines.length > 0 && !updatedStation.lines.includes(editorStore.currentLine)) {
+       editorStore.currentLine = updatedStation.lines[0];
+    }
+    
     showSaveStatus();
   }
 }
@@ -1947,7 +1982,7 @@ onUnmounted(() => { window.removeEventListener('keydown', handleKeyDown); });
 .property-group { display: flex; flex-direction: column; gap: 5px; }
 .property-group label { font-size: 10px; font-weight: 500; color: rgba(255, 255, 255, 0.5); text-transform: uppercase; }
 
-.name-select, .custom-name-input { width: 100%; padding: 5px 6px; border-radius: 4px; border: 1px solid rgba(255, 255, 255, 0.2); background: rgba(255, 255, 255, 0.05); color: #fff; font-size: 12px; }
+.name-select, .custom-name-input, .name-input { width: 100%; padding: 5px 6px; border-radius: 4px; border: 1px solid rgba(255, 255, 255, 0.2); background: rgba(255, 255, 255, 0.05); color: #fff; font-size: 12px; }
 .lines-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3px; }
 .line-btn { padding: 3px 2px; border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 3px; background: rgba(255, 255, 255, 0.05); color: #fff; font-size: 9px; font-weight: 600; cursor: pointer; }
 .line-btn:hover { background: rgba(255, 255, 255, 0.15); }

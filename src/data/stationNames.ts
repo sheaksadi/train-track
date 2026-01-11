@@ -1,26 +1,46 @@
-import bvgStations from './bvg_stations.json';
-import { ubahnStations, ubahnColors } from './ubahn';
-import { sbahnStations, sbahnColors } from './sbahn';
+import manualData from './manual_stations.json';
+import { ubahnStations, ubahnColors, ubahnLines } from './ubahn';
+import { sbahnStations, sbahnColors, sbahnLines } from './sbahn';
 
 export interface BvgStation {
     id: string;
     name: string;
     lat: number;
     lng: number;
-    products?: Record<string, boolean>;
+    lines?: string[];
 }
 
+const rawData = manualData as any;
+const data = rawData.default || rawData;
+
+const { stationsByLine, stationDetails } = data as {
+    stationsByLine: Record<string, string[]>,
+    stationDetails: Record<string, BvgStation>
+};
+
+console.log('[stationNames] Loading manual data...', {
+    hasDefault: !!rawData.default,
+    keys: Object.keys(data || {}),
+    stationCount: Object.keys(stationDetails || {}).length
+});
+
 // Map for fast lookup
-const stationMap = new Map<string, BvgStation>();
-(bvgStations as any[]).forEach((s: any) => stationMap.set(s.name, s));
+const stationMap = new Map<string, BvgStation>(Object.entries(stationDetails || {}));
 
-// Get all unique station names from the comprehensive BVG list
-export const allStationNames: string[] = (bvgStations as any[]).map((s: any) => s.name).sort();
+// Get all unique station names from the manual list
+export const allStationNames: string[] = Object.keys(stationDetails || {}).sort();
 
-export const allBvgStations: BvgStation[] = bvgStations as unknown as BvgStation[];
+export const allBvgStations: BvgStation[] = Object.values(stationDetails || {});
 
 export function getStationInfo(name: string): BvgStation | undefined {
     return stationMap.get(name);
+}
+
+// Helper to get stations for a specific line
+export function getStationsForLine(line: string): string[] {
+    if (ubahnLines[line]) return ubahnLines[line];
+    if (sbahnLines[line]) return sbahnLines[line];
+    return (stationsByLine && stationsByLine[line]) || [];
 }
 
 // All line colors combined

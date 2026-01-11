@@ -1,0 +1,9012 @@
+{
+  "stationsByLine": {
+    "1": [
+      "Cottbus",
+      "Frankfurt (Oder)"
+    ],
+    "2": [
+      "Cottbus"
+    ],
+    "3": [
+      "Frankfurt (Oder)"
+    ],
+    "4": [
+      "Cottbus",
+      "Frankfurt (Oder)"
+    ],
+    "5": [
+      "Frankfurt (Oder)"
+    ],
+    "9": [
+      "Cottbus"
+    ],
+    "10": [
+      "Cottbus"
+    ],
+    "12": [
+      "Cottbus",
+      "Eberswalder Str.",
+      "Friedrichstr.",
+      "Naturkundemuseum",
+      "Nordbahnhof",
+      "Oranienburger Tor"
+    ],
+    "15": [
+      "Cottbus"
+    ],
+    "16": [
+      "Cottbus",
+      "Frankfurter",
+      "Marzahn"
+    ],
+    "18": [
+      "Hellersdorf",
+      "Landsberger Allee"
+    ],
+    "21": [
+      "Cottbus",
+      "Frankfurter Tor",
+      "Friedrichsfelde",
+      "Friedrichsfelde Ost",
+      "Karlshorst",
+      "Rummelsburg",
+      "Schöneweide",
+      "Tierpark"
+    ],
+    "22": [
+      "Cottbus"
+    ],
+    "23": [
+      "Cottbus"
+    ],
+    "25": [
+      "Cottbus"
+    ],
+    "26": [
+      "Cottbus"
+    ],
+    "27": [
+      "Friedrichsfelde",
+      "Friedrichsfelde Ost",
+      "Karlshorst",
+      "Marzahn",
+      "Tierpark"
+    ],
+    "29": [
+      "Cottbus"
+    ],
+    "32": [
+      "Cottbus"
+    ],
+    "33": [
+      "Cottbus"
+    ],
+    "35": [
+      "Cottbus"
+    ],
+    "37": [
+      "Cottbus",
+      "Friedrichsfelde",
+      "Friedrichsfelde Ost",
+      "Karlshorst",
+      "Schöneweide",
+      "Tierpark"
+    ],
+    "39": [
+      "Cottbus"
+    ],
+    "44": [
+      "Cottbus"
+    ],
+    "47": [
+      "Cottbus"
+    ],
+    "50": [
+      "Bornholmer",
+      "Osloer Str.",
+      "Pankow",
+      "Schönholz Pankow-Heinersdorf",
+      "Seestr.",
+      "Vinetastr."
+    ],
+    "60": [
+      "Friedrichshagen",
+      "Schöneweide"
+    ],
+    "61": [
+      "Adlershof",
+      "Friedrichshagen",
+      "Johannisthal",
+      "Schöneweide"
+    ],
+    "62": [
+      "Adlershof",
+      "Johannisthal",
+      "Schöneweide"
+    ],
+    "63": [
+      "Adlershof",
+      "Johannisthal",
+      "Schöneweide"
+    ],
+    "67": [
+      "Friedrichsfelde",
+      "Friedrichsfelde Ost",
+      "Karlshorst",
+      "Schöneweide",
+      "Tierpark"
+    ],
+    "68": [
+      "Nauen"
+    ],
+    "87": [
+      "Rahnsdorf"
+    ],
+    "88": [
+      "Friedrichshagen"
+    ],
+    "91": [
+      "Charlottenhof",
+      "Pirschheide",
+      "Rehbrücke"
+    ],
+    "93": [
+      "Rehbrücke"
+    ],
+    "94": [
+      "Babelsberg",
+      "Charlottenhof",
+      "Pirschheide"
+    ],
+    "98": [
+      "Rehbrücke"
+    ],
+    "99": [
+      "Babelsberg"
+    ],
+    "100": [
+      "Brandenburg/",
+      "Brandenburger Tor",
+      "Tor",
+      "Zoologischer Garten"
+    ],
+    "101": [
+      "Blissestr.",
+      "Breitenbachplatz",
+      "Fehrbelliner Platz",
+      "Konstanzer Str.",
+      "Lichterfelde West",
+      "Turmstr.",
+      "West",
+      "Zehlendorf"
+    ],
+    "106": [
+      "Beusselstr.",
+      "Hansaplatz",
+      "JuliusLeber-Brücke",
+      "Kurfürstenstr.",
+      "Seestr.",
+      "Str. Kleistpark"
+    ],
+    "108": [
+      "Elsterwerdaer Platz"
+    ],
+    "109": [
+      "Adenauerplatz",
+      "Bismarckstr.",
+      "Jakob-Kaiser-Platz",
+      "Jungfernheide",
+      "Kurfürstendamm",
+      "Uhlandstr.",
+      "Zoologischer Garten"
+    ],
+    "110": [
+      "Adenauerplatz",
+      "Dahlem-Dorf",
+      "Freie Universität",
+      "Kurfürstendamm",
+      "Thielplatz",
+      "Uhlandstr.",
+      "Zoologischer Garten"
+    ],
+    "112": [
+      "Nikolassee",
+      "Osdorfer Str.",
+      "Zehlendorf"
+    ],
+    "115": [
+      "Fehrbelliner Platz",
+      "Hohenzollerndamm",
+      "Zehlendorf"
+    ],
+    "118": [
+      "Mexikoplatz",
+      "Onkel Toms Hütte",
+      "Zehlendorf"
+    ],
+    "120": [
+      "Alt-Reinickendorf",
+      "Leopoldplatz",
+      "Paracelsus-Bad",
+      "Reinickendorfer Str. Humboldthain",
+      "Seestr.",
+      "Wedding",
+      "Wittenau"
+    ],
+    "122": [
+      "Alt-Reinickendorf",
+      "Kurt-Schumacher-Platz",
+      "Paracelsus-Bad",
+      "Residenzstr.",
+      "Wilhelmsruh",
+      "Wittenau"
+    ],
+    "123": [
+      "Beusselstr.",
+      "Halemweg",
+      "Jakob-Kaiser-Platz",
+      "Turmstr."
+    ],
+    "124": [
+      "Heiligensee",
+      "Schulzendorf",
+      "Tegel",
+      "Wittenau"
+    ],
+    "125": [
+      "Frohnau",
+      "Holzhauser Str.",
+      "Kurt-Schumacher-Platz",
+      "Osloer Str.",
+      "Otisstr.",
+      "Residenzstr.",
+      "Scharnweberstr.",
+      "Tegel"
+    ],
+    "128": [
+      "Am Schäfersee",
+      "Franz-Neumann-Platz",
+      "Kurt-Schumacher-Platz",
+      "Osloer Str."
+    ],
+    "130": [
+      "Rathaus Spandau",
+      "Spandau",
+      "Stresow"
+    ],
+    "133": [
+      "Borsigwerke",
+      "Tegel"
+    ],
+    "134": [
+      "Rathaus Spandau",
+      "Spandau"
+    ],
+    "135": [
+      "Rathaus Spandau",
+      "Spandau"
+    ],
+    "136": [
+      "Rathaus Spandau",
+      "Spandau"
+    ],
+    "137": [
+      "Rathaus Spandau",
+      "Spandau"
+    ],
+    "139": [
+      "Kaiserdamm",
+      "Messe",
+      "Messe ZOB",
+      "Nord"
+    ],
+    "140": [
+      "Gneisenaustr. Südstern",
+      "Kottbusser",
+      "Ostbahnhof",
+      "Prinzenstr.",
+      "Tempelhof"
+    ],
+    "142": [
+      "Amrumer Str.",
+      "Leopoldplatz",
+      "Ostbahnhof",
+      "Rosa-Luxemburg-Platz",
+      "Rosenthaler",
+      "Strausberger Platz"
+    ],
+    "143": [
+      "Berliner Str.",
+      "Blissestr.",
+      "Fehrbelliner Platz",
+      "Friedenau",
+      "Halensee",
+      "Kaiserdamm",
+      "Messe",
+      "Messe ZOB",
+      "Nord",
+      "Theodor-Heuss-Platz Messe Nord/"
+    ],
+    "147": [
+      "Friedrichstr.",
+      "Leopoldplatz",
+      "Museum",
+      "Märkisches",
+      "Ostbahnhof",
+      "Reinickendorfer Str. Humboldthain",
+      "Wedding"
+    ],
+    "150": [
+      "Buch",
+      "Osloer Str."
+    ],
+    "154": [
+      "Dessau",
+      "Elsterwerdaer Platz",
+      "Hohenschönhausen",
+      "Raoul-Wallenberg-Str."
+    ],
+    "155": [
+      "Pankow"
+    ],
+    "156": [
+      "Landsberger Allee",
+      "Storkower Str."
+    ],
+    "158": [
+      "Buch",
+      "Greifswalder Str."
+    ],
+    "160": [
+      "Altglienicke",
+      "Schöneweide"
+    ],
+    "161": [
+      "Rahnsdorf",
+      "Wilhelmshagen"
+    ],
+    "162": [
+      "Adlershof",
+      "Rudow"
+    ],
+    "163": [
+      "Adlershof",
+      "Grünbergallee",
+      "Nauen",
+      "Schönefeld",
+      "Schöneweide"
+    ],
+    "164": [
+      "Adlershof",
+      "Schönefeld"
+    ],
+    "165": [
+      "HeinrichHeine-Str.",
+      "Museum",
+      "Märkisches",
+      "Oberspree",
+      "Park",
+      "Plänterwald",
+      "Schlesisches Tor",
+      "Schöneweide"
+    ],
+    "166": [
+      "Baumschulenweg",
+      "Boddinstr.",
+      "Park",
+      "Plänterwald",
+      "Rathaus Neukölln",
+      "Schöneweide"
+    ],
+    "169": [
+      "Elsterwerdaer Platz"
+    ],
+    "170": [
+      "Baumschulenweg",
+      "Blaschkoallee",
+      "Priesterweg",
+      "Rathaus",
+      "Rathaus Steglitz",
+      "Ullsteinstr."
+    ],
+    "171": [
+      "Blaschkoallee",
+      "Grenzallee",
+      "Hermannplatz",
+      "Neukölln",
+      "Parchimer Allee",
+      "Rudow",
+      "Schönefeld",
+      "Sonnenallee",
+      "Zwickauer Damm"
+    ],
+    "172": [
+      "Johannisthaler Chaussee",
+      "Lichtenrade",
+      "Lipschitzallee",
+      "Rudow",
+      "Zwickauer Damm"
+    ],
+    "175": [
+      "Lichtenrade",
+      "Schichauweg"
+    ],
+    "179": [
+      "Alt-Mariendorf"
+    ],
+    "181": [
+      "Alt-Mariendorf",
+      "Feuerbachstr.",
+      "Lankwitz",
+      "Parchimer Allee"
+    ],
+    "184": [
+      "Attilastr.",
+      "Kaiserin-Augusta-Str.",
+      "Lichterfelde Ost",
+      "Tempelhof"
+    ],
+    "186": [
+      "Friedrich-Wilhelm-Platz",
+      "Lichterfelde Süd",
+      "Osdorfer Str.",
+      "Rathaus",
+      "Rathaus Steglitz",
+      "Rüdesheimer Platz",
+      "Schloßstr."
+    ],
+    "187": [
+      "Bellevue",
+      "Friedenau",
+      "Kurfürstenstr.",
+      "Lankwitz",
+      "Str. Kleistpark",
+      "Turmstr."
+    ],
+    "188": [
+      "Botanischer Garten",
+      "Lichterfelde West",
+      "Rathaus",
+      "Rathaus Steglitz",
+      "West"
+    ],
+    "190": [
+      "Elsterwerdaer Platz",
+      "Wuhlheide"
+    ],
+    "191": [
+      "Kaulsdorf-Nord",
+      "Marzahn"
+    ],
+    "192": [
+      "Friedrichsfelde",
+      "Friedrichsfelde Ost",
+      "Marzahn"
+    ],
+    "194": [
+      "Betriebsbahnhof Rummelsburg",
+      "Friedrichsfelde",
+      "Friedrichsfelde Ost",
+      "Hermannplatz",
+      "Nöldnerplatz",
+      "Park",
+      "Rummelsburg"
+    ],
+    "195": [
+      "Cottbusser Platz",
+      "Hellersdorf",
+      "Louis-Lewin-Str.",
+      "Marzahn"
+    ],
+    "197": [
+      "Gärten der Welt",
+      "Hohenschönhausen",
+      "Kaulsdorf-Nord",
+      "Kienberg",
+      "Mehrower Allee"
+    ],
+    "200": [
+      "AntonWilhelmAmo-Str.",
+      "Platz",
+      "Potsdamer",
+      "Spittelmarkt",
+      "Stadtmitte",
+      "Wittenberge",
+      "Zoologischer Garten"
+    ],
+    "204": [
+      "JuliusLeber-Brücke",
+      "Kurfürstendamm",
+      "Spichernstr.",
+      "Str. Kleistpark",
+      "Zoologischer Garten"
+    ],
+    "215": [
+      "Heidelberger Platz"
+    ],
+    "218": [
+      "Kaiserdamm",
+      "Messe",
+      "Messe ZOB",
+      "Nord",
+      "OlympiaStadion Neu-Westend",
+      "Olympiastadion",
+      "Pichelsberg",
+      "Theodor-Heuss-Platz Messe Nord/",
+      "ZOBHeerstr."
+    ],
+    "220": [
+      "Frohnau",
+      "Rathaus Reinickendorf",
+      "Tegel",
+      "Wittenau"
+    ],
+    "221": [
+      "Afrikanische Str.",
+      "Amrumer Str.",
+      "Eichborndamm",
+      "Kurt-Schumacher-Platz",
+      "Leopoldplatz",
+      "Rathaus Reinickendorf",
+      "Scharnweberstr.",
+      "Wittenau"
+    ],
+    "222": [
+      "Tegel"
+    ],
+    "237": [
+      "Albrechtshof",
+      "Rathaus Spandau",
+      "Spandau",
+      "Staaken"
+    ],
+    "240": [
+      "Magdalenenstr.",
+      "Nöldnerplatz",
+      "Ostbahnhof",
+      "Rummelsburg",
+      "Storkower Str."
+    ],
+    "245": [
+      "Bellevue",
+      "Ernst-ReuterPlatz",
+      "Friedrichstr.",
+      "Turmstr.",
+      "Zoologischer Garten"
+    ],
+    "246": [
+      "Friedrich-Wilhelm-Platz",
+      "Grenzallee",
+      "Hermannstr.",
+      "Köllnische Heide",
+      "Neukölln",
+      "Priesterweg"
+    ],
+    "247": [
+      "Bernauer",
+      "Gesundbrunnen",
+      "Leopoldplatz",
+      "Nauener",
+      "Nordbahnhof",
+      "Voltastr.",
+      "Wedding"
+    ],
+    "248": [
+      "Breitenbachplatz",
+      "Hallesches",
+      "Klosterstr.",
+      "Luftbrücke",
+      "Platz der",
+      "Schöneberg",
+      "Spittelmarkt",
+      "Stadtmitte"
+    ],
+    "249": [
+      "Blissestr.",
+      "Heidelberger Platz",
+      "Hohenzollernplatz",
+      "Kurfürstendamm",
+      "Zoologischer Garten"
+    ],
+    "250": [
+      "Am Schäfersee",
+      "Franz-Neumann-Platz",
+      "Pankow",
+      "Vinetastr.",
+      "Wollankstr."
+    ],
+    "255": [
+      "Osloer Str.",
+      "Pankow",
+      "Wollankstr."
+    ],
+    "256": [
+      "Hohenschönhausen"
+    ],
+    "259": [
+      "Buch"
+    ],
+    "260": [
+      "Adlershof",
+      "Rudow"
+    ],
+    "263": [
+      "Bahnhof",
+      "Flughafen BER",
+      "Nauen"
+    ],
+    "265": [
+      "Baumschulenweg",
+      "HeinrichHeine-Str.",
+      "Museum",
+      "Märkisches",
+      "Park",
+      "Schlesisches Tor",
+      "Schöneweide"
+    ],
+    "269": [
+      "Kaulsdorf-Nord"
+    ],
+    "271": [
+      "Rudow",
+      "Zwickauer Damm"
+    ],
+    "275": [
+      "Lichtenrade",
+      "Schichauweg"
+    ],
+    "277": [
+      "Alt-Mariendorf",
+      "Buckower Chaussee",
+      "Hermannstr.",
+      "Marienfelde"
+    ],
+    "282": [
+      "Attilastr.",
+      "Breitenbachplatz",
+      "Rathaus",
+      "Rathaus Steglitz",
+      "Schloßstr.",
+      "Südende",
+      "Westphalweg"
+    ],
+    "283": [
+      "Lankwitz",
+      "Marienfelde",
+      "Rathaus",
+      "Rathaus Steglitz"
+    ],
+    "284": [
+      "Lankwitz",
+      "Lichterfelde Ost",
+      "Lichterfelde Süd",
+      "Rathaus",
+      "Rathaus Steglitz"
+    ],
+    "285": [
+      "Rathaus",
+      "Rathaus Steglitz",
+      "Zehlendorf"
+    ],
+    "291": [
+      "Kaulsdorf-Nord",
+      "Marzahn",
+      "Poelchaustr."
+    ],
+    "294": [
+      "Gehrenseestr."
+    ],
+    "296": [
+      "Karlshorst",
+      "Tierpark"
+    ],
+    "300": [
+      "AntonWilhelmAmo-Str.",
+      "Jannowitzbrücke",
+      "Klosterstr.",
+      "Ostbahnhof",
+      "Platz",
+      "Potsdamer",
+      "Str."
+    ],
+    "309": [
+      "SophieCharlotte-Platz",
+      "Wilmersdorfer Str."
+    ],
+    "320": [
+      "Alt-Reinickendorf",
+      "Paracelsus-Bad"
+    ],
+    "322": [
+      "Alt-Reinickendorf",
+      "Eichborndamm",
+      "Holzhauser Str.",
+      "Lindauer Allee",
+      "Paracelsus-Bad",
+      "Rathaus Reinickendorf"
+    ],
+    "326": [
+      "Hermsdorf"
+    ],
+    "327": [
+      "Am Schäfersee",
+      "Franz-Neumann-Platz",
+      "Leopoldplatz",
+      "Nauener",
+      "Residenzstr."
+    ],
+    "337": [
+      "Rathaus Spandau",
+      "Spandau"
+    ],
+    "347": [
+      "Ostbahnhof",
+      "Str.",
+      "Weberwiese"
+    ],
+    "349": [
+      "Kaiserdamm",
+      "Messe",
+      "Messe ZOB",
+      "Nord",
+      "Süd",
+      "Theodor-Heuss-Platz Messe Nord/",
+      "ZOBHeerstr."
+    ],
+    "353": [
+      "Buch"
+    ],
+    "363": [
+      "Altglienicke",
+      "Nauen"
+    ],
+    "365": [
+      "Baumschulenweg"
+    ],
+    "371": [
+      "Rudow"
+    ],
+    "372": [
+      "Rudow"
+    ],
+    "377": [
+      "Hermannstr.",
+      "Köllnische Heide",
+      "Neukölln",
+      "Plänterwald"
+    ],
+    "380": [
+      "Rathaus",
+      "Rathaus Steglitz"
+    ],
+    "390": [
+      "Ahrensfelde Friedhof"
+    ],
+    "396": [
+      "Karlshorst",
+      "Nöldnerplatz"
+    ],
+    "398": [
+      "Elsterwerdaer Platz"
+    ],
+    "400": [
+      "Eisenhüttenstadt"
+    ],
+    "401": [
+      "Eisenhüttenstadt"
+    ],
+    "419": [
+      "Fangschleuse"
+    ],
+    "420": [
+      "Neuenhagen"
+    ],
+    "426": [
+      "Fangschleuse"
+    ],
+    "427": [
+      "Fangschleuse"
+    ],
+    "429": [
+      "Fangschleuse"
+    ],
+    "451": [
+      "Eisenhüttenstadt"
+    ],
+    "452": [
+      "Eisenhüttenstadt"
+    ],
+    "453": [
+      "Eisenhüttenstadt"
+    ],
+    "458": [
+      "Eisenhüttenstadt"
+    ],
+    "460": [
+      "Eisenhüttenstadt"
+    ],
+    "461": [
+      "Eisenhüttenstadt"
+    ],
+    "462": [
+      "Frankfurt (Oder)"
+    ],
+    "463": [
+      "Eisenhüttenstadt"
+    ],
+    "464": [
+      "Eisenhüttenstadt"
+    ],
+    "502": [
+      "Templin StadtStralsund/Rostock"
+    ],
+    "503": [
+      "Templin StadtStralsund/Rostock"
+    ],
+    "504": [
+      "Templin StadtStralsund/Rostock"
+    ],
+    "508": [
+      "Templin StadtStralsund/Rostock"
+    ],
+    "509": [
+      "Templin StadtStralsund/Rostock"
+    ],
+    "510": [
+      "Templin StadtStralsund/Rostock"
+    ],
+    "514": [
+      "Templin StadtStralsund/Rostock"
+    ],
+    "515": [
+      "Templin StadtStralsund/Rostock"
+    ],
+    "517": [
+      "Templin StadtStralsund/Rostock"
+    ],
+    "518": [
+      "Templin StadtStralsund/Rostock"
+    ],
+    "519": [
+      "Templin StadtStralsund/Rostock"
+    ],
+    "520": [
+      "Baruth/Elsterwerda"
+    ],
+    "531": [
+      "Templin StadtStralsund/Rostock"
+    ],
+    "549": [
+      "Jüterbog/Falkenberg"
+    ],
+    "555": [
+      "Bad Belzig/"
+    ],
+    "572": [
+      "Bad Belzig/"
+    ],
+    "579": [
+      "Baruth/Elsterwerda"
+    ],
+    "580": [
+      "Bad Belzig/",
+      "Charlottenhof",
+      "Pirschheide"
+    ],
+    "581": [
+      "Bad Belzig/",
+      "Baruth/Elsterwerda"
+    ],
+    "582": [
+      "Bad Belzig/"
+    ],
+    "584": [
+      "Baruth/Elsterwerda"
+    ],
+    "585": [
+      "Baruth/Elsterwerda"
+    ],
+    "586": [
+      "Bad Belzig/",
+      "Baruth/Elsterwerda"
+    ],
+    "587": [
+      "Baruth/Elsterwerda"
+    ],
+    "588": [
+      "Bad Belzig/"
+    ],
+    "590": [
+      "Bad Belzig/"
+    ],
+    "591": [
+      "Bad Belzig/"
+    ],
+    "592": [
+      "Bad Belzig/"
+    ],
+    "593": [
+      "Bad Belzig/"
+    ],
+    "599": [
+      "Senftenberg"
+    ],
+    "600": [
+      "Mahlow",
+      "Teltow",
+      "Waßmannsdorf"
+    ],
+    "601": [
+      "Babelsberg",
+      "Lübbenau/",
+      "Medienstadt Babelsberg",
+      "Teltow"
+    ],
+    "602": [
+      "Babelsberg",
+      "Lübbenau/",
+      "Rehbrücke"
+    ],
+    "603": [
+      "Lübbenau/"
+    ],
+    "604": [
+      "Falkensee",
+      "Lübbenau/"
+    ],
+    "605": [
+      "Charlottenhof",
+      "Golm",
+      "Sanssouci"
+    ],
+    "606": [
+      "Lübbenau/"
+    ],
+    "607": [
+      "CaputhSchwielowsee",
+      "Cottbus",
+      "Lübbenau/",
+      "Werder (Havel)"
+    ],
+    "608": [
+      "Michendorf",
+      "Wilhelmshorst"
+    ],
+    "609": [
+      "Marquardt"
+    ],
+    "610": [
+      "Charlottenhof",
+      "Sanssouci"
+    ],
+    "611": [
+      "Rehbrücke",
+      "Saarmund"
+    ],
+    "612": [
+      "Golm"
+    ],
+    "613": [
+      "CaputhSchwielowsee",
+      "Michendorf",
+      "Saarmund",
+      "Senftenberg",
+      "Wilhelmshorst"
+    ],
+    "614": [
+      "Marquardt"
+    ],
+    "616": [
+      "Babelsberg",
+      "Griebnitzsee"
+    ],
+    "617": [
+      "Senftenberg"
+    ],
+    "618": [
+      "Senftenberg"
+    ],
+    "619": [
+      "Marquardt",
+      "Senftenberg"
+    ],
+    "620": [
+      "Senftenberg"
+    ],
+    "621": [
+      "Ludwigsfelde",
+      "Ludwigsfelde-Struveshof",
+      "Senftenberg"
+    ],
+    "622": [
+      "Mexikoplatz",
+      "Senftenberg"
+    ],
+    "623": [
+      "Zehlendorf"
+    ],
+    "630": [
+      "Werder (Havel)"
+    ],
+    "631": [
+      "Charlottenhof",
+      "Pirschheide",
+      "Werder (Havel)"
+    ],
+    "632": [
+      "Werder (Havel)"
+    ],
+    "633": [
+      "Werder (Havel)"
+    ],
+    "634": [
+      "Werder (Havel)"
+    ],
+    "635": [
+      "Werder (Havel)"
+    ],
+    "638": [
+      "Rathaus Spandau",
+      "Spandau"
+    ],
+    "641": [
+      "Senftenberg",
+      "Werder (Havel)"
+    ],
+    "642": [
+      "Senftenberg"
+    ],
+    "643": [
+      "Michendorf",
+      "Senftenberg",
+      "Wilhelmshorst"
+    ],
+    "646": [
+      "Michendorf"
+    ],
+    "649": [
+      "Brieselang",
+      "Wustermark"
+    ],
+    "650": [
+      "Marquardt"
+    ],
+    "651": [
+      "Falkensee"
+    ],
+    "652": [
+      "Albrechtshof",
+      "Falkensee",
+      "Seegefeld"
+    ],
+    "653": [
+      "Falkensee",
+      "Finkenkrug"
+    ],
+    "654": [
+      "Falkensee",
+      "Finkenkrug"
+    ],
+    "655": [
+      "Falkensee",
+      "Seegefeld"
+    ],
+    "656": [
+      "Brieselang",
+      "Falkensee",
+      "Finkenkrug"
+    ],
+    "657": [
+      "Brieselang"
+    ],
+    "661": [
+      "Lübbenau/"
+    ],
+    "662": [
+      "Priort"
+    ],
+    "667": [
+      "Brieselang",
+      "Wustermark"
+    ],
+    "670": [
+      "Elstal DallgowDöberitz"
+    ],
+    "671": [
+      "Rathaus Spandau",
+      "Spandau"
+    ],
+    "672": [
+      "Rathenow/"
+    ],
+    "673": [
+      "Rathenow/"
+    ],
+    "674": [
+      "Rathenow/"
+    ],
+    "675": [
+      "Rathenow/"
+    ],
+    "676": [
+      "Rathenow/"
+    ],
+    "678": [
+      "Rathenow/"
+    ],
+    "679": [
+      "Rathenow/"
+    ],
+    "680": [
+      "Rathenow/"
+    ],
+    "681": [
+      "Rathenow/"
+    ],
+    "683": [
+      "Rathenow/"
+    ],
+    "684": [
+      "Rathenow/"
+    ],
+    "685": [
+      "Rathenow/"
+    ],
+    "686": [
+      "Brieselang"
+    ],
+    "687": [
+      "Rathenow/"
+    ],
+    "690": [
+      "Babelsberg",
+      "Medienstadt Babelsberg"
+    ],
+    "693": [
+      "Babelsberg",
+      "Rehbrücke"
+    ],
+    "694": [
+      "Babelsberg",
+      "Griebnitzsee"
+    ],
+    "695": [
+      "Golm"
+    ],
+    "696": [
+      "Griebnitzsee",
+      "Medienstadt Babelsberg"
+    ],
+    "697": [
+      "Pirschheide",
+      "Sanssouci"
+    ],
+    "698": [
+      "Golm"
+    ],
+    "699": [
+      "Rehbrücke"
+    ],
+    "701": [
+      "Birkengrund",
+      "Ludwigsfelde"
+    ],
+    "702": [
+      "Birkengrund",
+      "Ludwigsfelde"
+    ],
+    "703": [
+      "Birkengrund",
+      "Großbeeren"
+    ],
+    "704": [
+      "Teltow"
+    ],
+    "705": [
+      "Ludwigsfelde",
+      "Ludwigsfelde-Struveshof"
+    ],
+    "707": [
+      "RangsdorfThyrow"
+    ],
+    "708": [
+      "Ludwigsfelde",
+      "Ludwigsfelde-Struveshof"
+    ],
+    "709": [
+      "Birkengrund"
+    ],
+    "710": [
+      "Birkengrund",
+      "Buckower Chaussee",
+      "Ludwigsfelde"
+    ],
+    "711": [
+      "Buckower Chaussee",
+      "Großbeeren"
+    ],
+    "713": [
+      "Dahlewitz",
+      "RangsdorfThyrow"
+    ],
+    "714": [
+      "Ludwigsfelde"
+    ],
+    "715": [
+      "Babelsberg",
+      "Ludwigsfelde",
+      "Ludwigsfelde-Struveshof"
+    ],
+    "720": [
+      "Birkengrund",
+      "Ludwigsfelde"
+    ],
+    "721": [
+      "Ludwigsfelde",
+      "Ludwigsfelde-Struveshof"
+    ],
+    "723": [
+      "Kablow"
+    ],
+    "724": [
+      "Zeesen"
+    ],
+    "727": [
+      "Zeesen"
+    ],
+    "728": [
+      "RangsdorfThyrow"
+    ],
+    "731": [
+      "Eichwalde"
+    ],
+    "734": [
+      "Eichwalde"
+    ],
+    "735": [
+      "Bahnhof",
+      "Flughafen BER"
+    ],
+    "736": [
+      "Bahnhof",
+      "Flughafen BER",
+      "Wildau"
+    ],
+    "737": [
+      "Wildau"
+    ],
+    "738": [
+      "Eichwalde",
+      "Wildau"
+    ],
+    "741": [
+      "Bahnhof",
+      "Flughafen BER",
+      "Schönefeld"
+    ],
+    "742": [
+      "Schönefeld",
+      "Waßmannsdorf"
+    ],
+    "743": [
+      "Lichtenrade",
+      "Waßmannsdorf"
+    ],
+    "744": [
+      "Lipschitzallee",
+      "Rudow",
+      "Schönefeld"
+    ],
+    "750": [
+      "Ludwigsfelde"
+    ],
+    "751": [
+      "Ludwigsfelde",
+      "Ludwigsfelde-Struveshof"
+    ],
+    "753": [
+      "Jüterbog Beelitz Stadt",
+      "Jüterbog/Falkenberg"
+    ],
+    "754": [
+      "Jüterbog Beelitz Stadt"
+    ],
+    "758": [
+      "Jüterbog Beelitz Stadt",
+      "Jüterbog/Falkenberg"
+    ],
+    "761": [
+      "Jüterbog Beelitz Stadt"
+    ],
+    "763": [
+      "Jüterbog Beelitz Stadt"
+    ],
+    "765": [
+      "Jüterbog Beelitz Stadt"
+    ],
+    "768": [
+      "Jüterbog Beelitz Stadt"
+    ],
+    "769": [
+      "Jüterbog Beelitz Stadt"
+    ],
+    "792": [
+      "Dahlewitz"
+    ],
+    "794": [
+      "Mahlow"
+    ],
+    "797": [
+      "Dahlewitz",
+      "Mahlow"
+    ],
+    "800": [
+      "Cottbus",
+      "Vehlefanz"
+    ],
+    "804": [
+      "Sachsenhausen (Nordb)"
+    ],
+    "805": [
+      "Wensickendorf"
+    ],
+    "806": [
+      "Hermsdorf",
+      "Zühlsdorf"
+    ],
+    "807": [
+      "Velten (Mark)"
+    ],
+    "809": [
+      "Frohnau",
+      "Hohen Neuendorf"
+    ],
+    "812": [
+      "Bärenklau",
+      "Vehlefanz"
+    ],
+    "816": [
+      "Borgsdorf"
+    ],
+    "821": [
+      "Sachsenhausen (Nordb)"
+    ],
+    "822": [
+      "Birkenwerder",
+      "Hohen Neuendorf"
+    ],
+    "825": [
+      "Wandlitz",
+      "Wensickendorf"
+    ],
+    "849": [
+      "Cottbus"
+    ],
+    "867": [
+      "Zepernick"
+    ],
+    "868": [
+      "Bernau-Friedenstal",
+      "Zepernick"
+    ],
+    "872": [
+      "Bernau-Friedenstal"
+    ],
+    "877": [
+      "Cottbus"
+    ],
+    "878": [
+      "Werneuchen"
+    ],
+    "882": [
+      "Werneuchen"
+    ],
+    "887": [
+      "Werneuchen"
+    ],
+    "889": [
+      "Strausberg Nord"
+    ],
+    "891": [
+      "Bernau-Friedenstal",
+      "Schönerlinde",
+      "Schönwalde (Barnim)",
+      "Zepernick"
+    ],
+    "893": [
+      "Buch",
+      "Hohenschönhausen",
+      "Röntgental",
+      "Zepernick"
+    ],
+    "894": [
+      "Wandlitz",
+      "Wandlitzsee"
+    ],
+    "895": [
+      "Blumberg",
+      "Werneuchen"
+    ],
+    "896": [
+      "Rüdnitz"
+    ],
+    "897": [
+      "Wandlitz",
+      "Wandlitzsee"
+    ],
+    "898": [
+      "Werneuchen"
+    ],
+    "899": [
+      "Blumberg",
+      "Zepernick"
+    ],
+    "900": [
+      "Zepernick"
+    ],
+    "901": [
+      "Ahrensfelde Friedhof",
+      "Blumberg"
+    ],
+    "902": [
+      "Basdorf",
+      "Wandlitz",
+      "Wandlitzsee"
+    ],
+    "903": [
+      "Basdorf",
+      "Schönerlinde",
+      "Schönwalde (Barnim)",
+      "Wandlitz"
+    ],
+    "906": [
+      "Werneuchen"
+    ],
+    "908": [
+      "Werneuchen"
+    ],
+    "909": [
+      "Rüdnitz",
+      "Wandlitz",
+      "Wandlitzsee"
+    ],
+    "918": [
+      "Werneuchen"
+    ],
+    "923": [
+      "Hegermühle",
+      "Strausberg Stadt"
+    ],
+    "926": [
+      "Hegermühle",
+      "Strausberg Stadt"
+    ],
+    "927": [
+      "Hegermühle",
+      "Strausberg Nord",
+      "Strausberg Stadt"
+    ],
+    "929": [
+      "Hegermühle",
+      "Strausberg Nord",
+      "Strausberg Stadt"
+    ],
+    "931": [
+      "Hegermühle",
+      "Petershagen",
+      "Strausberg Nord",
+      "Strausberg Stadt"
+    ],
+    "932": [
+      "Petershagen"
+    ],
+    "933": [
+      "Fredersdorf",
+      "Petershagen"
+    ],
+    "937": [
+      "Hegermühle",
+      "Strausberg Nord",
+      "Strausberg Stadt"
+    ],
+    "938": [
+      "Neuenhagen"
+    ],
+    "940": [
+      "Hoppegarten",
+      "Neuenhagen"
+    ],
+    "942": [
+      "Hoppegarten",
+      "Wittenberge"
+    ],
+    "943": [
+      "Hoppegarten"
+    ],
+    "944": [
+      "Hoppegarten",
+      "Wittenberge"
+    ],
+    "945": [
+      "Hoppegarten",
+      "KremmenWittenberge",
+      "Wittenberge"
+    ],
+    "946": [
+      "Strausberg Nord"
+    ],
+    "947": [
+      "Strausberg Nord"
+    ],
+    "948": [
+      "Fredersdorf",
+      "Petershagen"
+    ],
+    "949": [
+      "Fredersdorf",
+      "Neuenhagen",
+      "Petershagen",
+      "Strausberg"
+    ],
+    "951": [
+      "Fredersdorf"
+    ],
+    "955": [
+      "Hegermühle",
+      "Strausberg Stadt"
+    ],
+    "957": [
+      "KremmenWittenberge",
+      "Wittenberge"
+    ],
+    "958": [
+      "Wittenberge"
+    ],
+    "966": [
+      "Hegermühle",
+      "Strausberg Nord",
+      "Strausberg Stadt"
+    ],
+    "968": [
+      "Frankfurt (Oder)"
+    ],
+    "969": [
+      "Frankfurt (Oder)"
+    ],
+    "970": [
+      "Frankfurt (Oder)"
+    ],
+    "973": [
+      "KremmenWittenberge"
+    ],
+    "980": [
+      "Frankfurt (Oder)"
+    ],
+    "981": [
+      "Frankfurt (Oder)"
+    ],
+    "982": [
+      "Frankfurt (Oder)"
+    ],
+    "983": [
+      "Frankfurt (Oder)"
+    ],
+    "984": [
+      "Frankfurt (Oder)"
+    ],
+    "988": [
+      "Frankfurt (Oder)"
+    ],
+    "U7": [
+      "Adenauerplatz",
+      "Altstadt Spandau",
+      "Bayerischer",
+      "Berliner Str.",
+      "Bismarckstr.",
+      "Blaschkoallee",
+      "Blissestr.",
+      "Eisenacher",
+      "Fehrbelliner Platz",
+      "Grenzallee",
+      "Großgörschenstr.",
+      "Halemweg",
+      "Hermannplatz",
+      "Jakob-Kaiser-Platz",
+      "Johannisthaler Chaussee",
+      "Jungfernheide",
+      "Karl-MarxStr.",
+      "Konstanzer Str.",
+      "Lipschitzallee",
+      "Mierendorffplatz",
+      "Möckernbrücke",
+      "Neukölln",
+      "Parchimer Allee",
+      "Rathaus Neukölln",
+      "Rathaus Spandau",
+      "Richard-Wagner-Platz",
+      "Rudow",
+      "Spandau",
+      "Str. Kleistpark",
+      "Wilmersdorfer Str.",
+      "Wutzkyallee",
+      "Yorckstr.",
+      "Zwickauer Damm"
+    ],
+    "M19": [
+      "Adenauerplatz",
+      "Großgörschenstr.",
+      "Halensee",
+      "Kurfürstendamm",
+      "Uhlandstr.",
+      "Wittenbergplatz",
+      "Yorckstr."
+    ],
+    "M29": [
+      "Adenauerplatz",
+      "Anhalter",
+      "Checkpoint Charlie",
+      "Halensee",
+      "Hermannplatz",
+      "Kochstr.",
+      "Kurfürstendamm",
+      "MendelssohnBartholdy-Park",
+      "Moritzplatz",
+      "Tor Görlitzer",
+      "Uhlandstr.",
+      "Wittenbergplatz"
+    ],
+    "N7": [
+      "Adenauerplatz",
+      "Altstadt Spandau",
+      "Bahnhof",
+      "Bayerischer",
+      "Berliner Str.",
+      "Bismarckstr.",
+      "Blaschkoallee",
+      "Blissestr.",
+      "Eisenacher",
+      "Fehrbelliner Platz",
+      "Flughafen BER",
+      "Gneisenaustr. Südstern",
+      "Grenzallee",
+      "Großgörschenstr.",
+      "Hermannplatz",
+      "Jakob-Kaiser-Platz",
+      "Johannisthaler Chaussee",
+      "Jungfernheide",
+      "Karl-MarxStr.",
+      "Konstanzer Str.",
+      "Lipschitzallee",
+      "Mierendorffplatz",
+      "Neukölln",
+      "Parchimer Allee",
+      "Rathaus Neukölln",
+      "Rathaus Spandau",
+      "Richard-Wagner-Platz",
+      "Rudow",
+      "Schönefeld",
+      "Spandau",
+      "Str. Kleistpark",
+      "Wutzkyallee",
+      "Yorckstr.",
+      "Zwickauer Damm"
+    ],
+    "N10": [
+      "Adenauerplatz",
+      "Dahlem-Dorf",
+      "Hohenzollerndamm",
+      "Kurfürstendamm",
+      "Uhlandstr.",
+      "Zehlendorf",
+      "Zoologischer Garten"
+    ],
+    "X10": [
+      "Adenauerplatz",
+      "Halensee",
+      "Kurfürstendamm",
+      "Uhlandstr.",
+      "Zehlendorf",
+      "Zoologischer Garten"
+    ],
+    "S8": [
+      "Adlershof",
+      "Allee",
+      "Baumschulenweg",
+      "Birkenwerder",
+      "Borgsdorf",
+      "Bornholmer",
+      "Eichwalde",
+      "Frankfurter",
+      "Greifswalder Str.",
+      "Hermannstr.",
+      "Hohen Neuendorf",
+      "Johannisthal",
+      "Landsberger Allee",
+      "Lehnitz",
+      "Nauen",
+      "Neukölln",
+      "Pankow",
+      "Park",
+      "Plänterwald",
+      "Schöneweide",
+      "Schönholz Pankow-Heinersdorf",
+      "Sonnenallee",
+      "Storkower Str.",
+      "Wildau"
+    ],
+    "S9": [
+      "Adlershof",
+      "Altglienicke",
+      "Bahnhof",
+      "Baumschulenweg",
+      "Bellevue",
+      "Flughafen BER",
+      "Friedrichstr.",
+      "Grünbergallee",
+      "Jannowitzbrücke",
+      "Johannisthal",
+      "Nöldnerplatz",
+      "OlympiaStadion Neu-Westend",
+      "Olympiastadion",
+      "Ostbahnhof",
+      "Park",
+      "Pichelsberg",
+      "Plänterwald",
+      "Rathaus Spandau",
+      "Savignyplatz",
+      "Schönefeld",
+      "Schöneweide",
+      "Spandau",
+      "Str.",
+      "Stresow",
+      "Süd",
+      "Tiergarten",
+      "Waßmannsdorf",
+      "Wilmersdorfer Str.",
+      "ZOBHeerstr.",
+      "Zoologischer Garten"
+    ],
+    "S41": [
+      "Adlershof",
+      "Allee",
+      "Baumschulenweg",
+      "Beusselstr.",
+      "Bornholmer",
+      "Frankfurter",
+      "Gesundbrunnen",
+      "Greifswalder Str.",
+      "Halensee",
+      "Heidelberger Platz",
+      "Hermannstr.",
+      "Hohenzollerndamm",
+      "Johannisthal",
+      "Jungfernheide",
+      "Kaiserdamm",
+      "Köllnische Heide",
+      "Landsberger Allee",
+      "Messe",
+      "Messe ZOB",
+      "Nauen",
+      "Neukölln",
+      "Nord",
+      "Park",
+      "Plänterwald",
+      "Schöneberg",
+      "Schöneweide",
+      "Sonnenallee",
+      "Storkower Str.",
+      "Tempelhof",
+      "Wedding",
+      "Westhafen",
+      "Wilmersdorfer Str."
+    ],
+    "S42": [
+      "Adlershof",
+      "Allee",
+      "Baumschulenweg",
+      "Beusselstr.",
+      "Bornholmer",
+      "Frankfurter",
+      "Gesundbrunnen",
+      "Greifswalder Str.",
+      "Halensee",
+      "Heidelberger Platz",
+      "Hermannstr.",
+      "Hohenzollerndamm",
+      "Johannisthal",
+      "Jungfernheide",
+      "Kaiserdamm",
+      "Köllnische Heide",
+      "Landsberger Allee",
+      "Messe",
+      "Messe ZOB",
+      "Nauen",
+      "Neukölln",
+      "Nord",
+      "Park",
+      "Schöneberg",
+      "Schöneweide",
+      "Sonnenallee",
+      "Storkower Str.",
+      "Str.",
+      "Tempelhof",
+      "Wedding",
+      "Westhafen",
+      "Wilhelmsruh",
+      "Wilmersdorfer Str.",
+      "Wittenau"
+    ],
+    "S46": [
+      "Adlershof",
+      "Baumschulenweg",
+      "Beusselstr.",
+      "Bornholmer",
+      "Eichwalde",
+      "Gesundbrunnen",
+      "Halensee",
+      "Heidelberger Platz",
+      "Hermannstr.",
+      "Hohenzollerndamm",
+      "Johannisthal",
+      "Jungfernheide",
+      "Kaiserdamm",
+      "Köllnische Heide",
+      "Messe",
+      "Messe ZOB",
+      "Nauen",
+      "Neukölln",
+      "Nord",
+      "Schöneberg",
+      "Schöneweide",
+      "Sonnenallee",
+      "Tempelhof",
+      "Wedding",
+      "Westhafen",
+      "Wildau",
+      "Wilmersdorfer Str."
+    ],
+    "S47": [
+      "Adlershof",
+      "Baumschulenweg",
+      "Halensee",
+      "Heidelberger Platz",
+      "Hermannstr.",
+      "Hohenzollerndamm",
+      "Johannisthal",
+      "Köllnische Heide",
+      "Nauen",
+      "Neukölln",
+      "Oberspree",
+      "Schöneberg",
+      "Schöneweide",
+      "Tempelhof",
+      "Wilmersdorfer Str."
+    ],
+    "S85": [
+      "Adlershof",
+      "Allee",
+      "Altglienicke",
+      "Bahnhof",
+      "Baumschulenweg",
+      "Birkenwerder",
+      "Borgsdorf",
+      "Bornholmer",
+      "Flughafen BER",
+      "Frankfurter",
+      "Frohnau",
+      "Gesundbrunnen",
+      "Greifswalder Str.",
+      "Grünbergallee",
+      "Hermsdorf",
+      "Hohen Neuendorf",
+      "Johannisthal",
+      "Landsberger Allee",
+      "Lehnitz",
+      "Nauen",
+      "Nordbahnhof",
+      "Pankow",
+      "Park",
+      "Plänterwald",
+      "Schönefeld",
+      "Schöneweide",
+      "Schönholz Pankow-Heinersdorf",
+      "Storkower Str.",
+      "Str.",
+      "Waßmannsdorf",
+      "Wilhelmsruh",
+      "Wittenau",
+      "Wollankstr."
+    ],
+    "M17": [
+      "Adlershof",
+      "Friedrichsfelde",
+      "Friedrichsfelde Ost",
+      "Hohenschönhausen",
+      "Johannisthal",
+      "Karlshorst",
+      "Marzahn",
+      "Schöneweide",
+      "Tierpark"
+    ],
+    "N60": [
+      "Adlershof",
+      "Bahnhof",
+      "Flughafen BER",
+      "HeinrichHeine-Str.",
+      "Jannowitzbrücke",
+      "Park",
+      "Plänterwald",
+      "Schlesisches Tor",
+      "Schönefeld",
+      "Schöneweide"
+    ],
+    "N64": [
+      "Adlershof"
+    ],
+    "N68": [
+      "Adlershof",
+      "Nauen"
+    ],
+    "S9A": [
+      "Adlershof",
+      "Altglienicke",
+      "Baumschulenweg",
+      "Grünbergallee",
+      "Johannisthal",
+      "Schöneweide"
+    ],
+    "S9X": [
+      "Adlershof",
+      "Bahnhof",
+      "Baumschulenweg",
+      "Flughafen BER",
+      "Schöneweide"
+    ],
+    "U6": [
+      "Afrikanische Str.",
+      "Alt-Mariendorf",
+      "Borsigwerke",
+      "Checkpoint Charlie",
+      "Friedrichstr.",
+      "Hallesches",
+      "Kaiserin-Augusta-Str.",
+      "Kochstr.",
+      "Kurt-Schumacher-Platz",
+      "Leopoldplatz",
+      "Luftbrücke",
+      "Naturkundemuseum",
+      "Oranienburger Tor",
+      "Paradestr.",
+      "Platz der",
+      "Rehberge",
+      "Reinickendorfer Str. Humboldthain",
+      "Scharnweberstr.",
+      "Seestr.",
+      "Stadtmitte",
+      "Tegel",
+      "Tempelhof",
+      "Ullsteinstr.",
+      "Wedding",
+      "Westphalweg"
+    ],
+    "N6": [
+      "Afrikanische Str.",
+      "Alt-Mariendorf",
+      "Borsigwerke",
+      "Checkpoint Charlie",
+      "Friedrichstr.",
+      "Hallesches",
+      "Kaiserin-Augusta-Str.",
+      "Kochstr.",
+      "Kurt-Schumacher-Platz",
+      "Leopoldplatz",
+      "Luftbrücke",
+      "Naturkundemuseum",
+      "Oranienburger Tor",
+      "Paradestr.",
+      "Platz der",
+      "Rehberge",
+      "Reinickendorfer Str. Humboldthain",
+      "Scharnweberstr.",
+      "Seestr.",
+      "Stadtmitte",
+      "Tegel",
+      "Tempelhof",
+      "Ullsteinstr.",
+      "Wedding",
+      "Westphalweg"
+    ],
+    "RB25": [
+      "Ahrensfelde Friedhof",
+      "Ahrensfelde Nord",
+      "Blumberg",
+      "Blumberg-Rehhahn",
+      "Seefeld (Mark)",
+      "Werneuchen"
+    ],
+    "RB10": [
+      "Albrechtshof",
+      "Brieselang",
+      "Dahlewitz",
+      "Falkensee",
+      "Finkenkrug",
+      "Gesundbrunnen",
+      "Jungfernheide",
+      "Platz",
+      "Potsdamer",
+      "RangsdorfThyrow",
+      "Rathaus Spandau",
+      "Schönefeld",
+      "Seegefeld",
+      "Spandau",
+      "Staaken"
+    ],
+    "RB14": [
+      "Albrechtshof",
+      "Brieselang",
+      "Falkensee",
+      "Finkenkrug",
+      "Friedrichstr.",
+      "Ostbahnhof",
+      "Rathaus Spandau",
+      "Seegefeld",
+      "Spandau",
+      "Wilmersdorfer Str.",
+      "Zoologischer Garten"
+    ],
+    "RB21": [
+      "Albrechtshof",
+      "Charlottenhof",
+      "Falkensee",
+      "Finkenkrug",
+      "Friedrichstr.",
+      "Gesundbrunnen",
+      "Golm",
+      "Griebnitzsee",
+      "Jungfernheide",
+      "Marquardt",
+      "Priort",
+      "Rathaus Spandau",
+      "Sanssouci",
+      "Seegefeld",
+      "Spandau",
+      "Staaken",
+      "Wilmersdorfer Str.",
+      "Zoologischer Garten"
+    ],
+    "RE2": [
+      "Albrechtshof",
+      "Brieselang",
+      "Cottbus",
+      "Falkensee",
+      "Finkenkrug",
+      "Friedrichstr.",
+      "Gesundbrunnen",
+      "Jungfernheide",
+      "Lübbenau/",
+      "Ostbahnhof",
+      "Priort",
+      "Rathaus Spandau",
+      "Schöneweide",
+      "Seegefeld",
+      "Spandau",
+      "Staaken",
+      "Wilmersdorfer Str.",
+      "Zeesen",
+      "Zoologischer Garten"
+    ],
+    "RE6": [
+      "Albrechtshof",
+      "Bärenklau",
+      "Falkensee",
+      "Finkenkrug",
+      "Gesundbrunnen",
+      "Rathaus Spandau",
+      "Seegefeld",
+      "Spandau",
+      "Vehlefanz",
+      "Wilmersdorfer Str.",
+      "Wittenberge"
+    ],
+    "RE8": [
+      "Albrechtshof",
+      "Baruth/Elsterwerda",
+      "Brieselang",
+      "Dahlewitz",
+      "Falkensee",
+      "Finkenkrug",
+      "Gesundbrunnen",
+      "Hohenschönhausen",
+      "Jungfernheide",
+      "Platz",
+      "Potsdamer",
+      "RangsdorfThyrow",
+      "Rathaus Spandau",
+      "Schönefeld",
+      "Seegefeld",
+      "Spandau",
+      "Staaken",
+      "Waßmannsdorf",
+      "Wismar/",
+      "Wittenberge"
+    ],
+    "S2": [
+      "Allee",
+      "Anhalter",
+      "Attilastr.",
+      "Bernau-Friedenstal",
+      "Bornholmer",
+      "Brandenburg/",
+      "Brandenburger Tor",
+      "Buch",
+      "Buckower Chaussee",
+      "Friedrichstr.",
+      "Gesundbrunnen",
+      "Greifswalder Str.",
+      "Großgörschenstr.",
+      "Lichtenrade",
+      "Mahlow",
+      "Marienfelde",
+      "Nordbahnhof",
+      "Oranienburger",
+      "Pankow",
+      "Platz",
+      "Potsdamer",
+      "Priesterweg",
+      "Röntgental",
+      "Schichauweg",
+      "Schönholz Pankow-Heinersdorf",
+      "Tor",
+      "Yorckstr.",
+      "Zepernick"
+    ],
+    "U2": [
+      "Allee",
+      "AntonWilhelmAmo-Str.",
+      "Bismarckstr.",
+      "Deutsche",
+      "Eberswalder Str.",
+      "Ernst-ReuterPlatz",
+      "GleisdreieckBülowstr.",
+      "Hausvogteiplatz",
+      "Kaiserdamm",
+      "Klosterstr.",
+      "MendelssohnBartholdy-Park",
+      "Messe",
+      "Messe ZOB",
+      "Museum",
+      "Märkisches",
+      "Nord",
+      "OlympiaStadion Neu-Westend",
+      "Olympiastadion",
+      "Oper",
+      "Pankow",
+      "Platz",
+      "Potsdamer",
+      "Rosa-Luxemburg-Platz",
+      "Senefelderplatz",
+      "SophieCharlotte-Platz",
+      "Spittelmarkt",
+      "Stadtmitte",
+      "Theodor-Heuss-Platz Messe Nord/",
+      "Vinetastr.",
+      "Wittenbergplatz",
+      "Zoologischer Garten"
+    ],
+    "M1": [
+      "Allee",
+      "Bornholmer",
+      "Eberswalder Str.",
+      "Friedrichstr.",
+      "Oranienburger",
+      "Oranienburger Tor",
+      "Pankow",
+      "Rosenthaler",
+      "Vinetastr."
+    ],
+    "N2": [
+      "Allee",
+      "AntonWilhelmAmo-Str.",
+      "Bismarckstr.",
+      "Deutsche",
+      "Eberswalder Str.",
+      "Ernst-ReuterPlatz",
+      "Frankfurt (Oder)",
+      "Kaiserdamm",
+      "Kurfürstendamm",
+      "Kurfürstenstr.",
+      "Messe",
+      "Messe ZOB",
+      "Nord",
+      "Oper",
+      "Pankow",
+      "Platz",
+      "Potsdamer",
+      "Rosa-Luxemburg-Platz",
+      "Senefelderplatz",
+      "SophieCharlotte-Platz",
+      "Spittelmarkt",
+      "Stadtmitte",
+      "Theodor-Heuss-Platz Messe Nord/",
+      "Vinetastr.",
+      "Wittenbergplatz",
+      "Zoologischer Garten"
+    ],
+    "M76": [
+      "Alt-Mariendorf",
+      "Feuerbachstr.",
+      "Lichtenrade",
+      "Priesterweg"
+    ],
+    "M77": [
+      "Alt-Mariendorf",
+      "Marienfelde"
+    ],
+    "N77": [
+      "Alt-Mariendorf",
+      "Hermannstr.",
+      "Köllnische Heide",
+      "Neukölln",
+      "Plänterwald",
+      "Sonnenallee"
+    ],
+    "X71": [
+      "Alt-Mariendorf",
+      "Bahnhof",
+      "Flughafen BER",
+      "Johannisthaler Chaussee",
+      "Lipschitzallee",
+      "Rudow",
+      "Zwickauer Damm"
+    ],
+    "X76": [
+      "Alt-Mariendorf"
+    ],
+    "S25": [
+      "Alt-Reinickendorf",
+      "Anhalter",
+      "Bornholmer",
+      "Brandenburg/",
+      "Brandenburger Tor",
+      "Eichborndamm",
+      "Friedrichstr.",
+      "Gesundbrunnen",
+      "Großgörschenstr.",
+      "Heiligensee",
+      "Karl-BonhoefferNervenklinik",
+      "Lankwitz",
+      "Lichterfelde Ost",
+      "Lichterfelde Süd",
+      "Nordbahnhof",
+      "Oranienburger",
+      "Osdorfer Str.",
+      "Paracelsus-Bad",
+      "Platz",
+      "Potsdamer",
+      "Priesterweg",
+      "Schulzendorf",
+      "Südende",
+      "Tegel",
+      "Tor",
+      "Wollankstr.",
+      "Yorckstr."
+    ],
+    "U8": [
+      "Alt-Reinickendorf",
+      "Am Schäfersee",
+      "Bernauer",
+      "Boddinstr.",
+      "Franz-Neumann-Platz",
+      "Gesundbrunnen",
+      "HeinrichHeine-Str.",
+      "Hermannplatz",
+      "Hermannstr.",
+      "Jannowitzbrücke",
+      "Karl-BonhoefferNervenklinik",
+      "Kottbusser",
+      "Leinestr.",
+      "Lindauer Allee",
+      "Moritzplatz",
+      "Osloer Str.",
+      "Pankstr.",
+      "Paracelsus-Bad",
+      "Rathaus Reinickendorf",
+      "Residenzstr.",
+      "Rosenthaler",
+      "Schönleinstr.",
+      "Voltastr.",
+      "Weinmeisterstr.",
+      "Wittenau"
+    ],
+    "N8": [
+      "Alt-Reinickendorf",
+      "Am Schäfersee",
+      "Bernauer",
+      "Boddinstr.",
+      "Franz-Neumann-Platz",
+      "Gesundbrunnen",
+      "HeinrichHeine-Str.",
+      "Hermannplatz",
+      "Hermannstr.",
+      "Jannowitzbrücke",
+      "Karl-BonhoefferNervenklinik",
+      "Kottbusser",
+      "Leinestr.",
+      "Lindauer Allee",
+      "Moritzplatz",
+      "Osloer Str.",
+      "Pankstr.",
+      "Paracelsus-Bad",
+      "Rathaus Reinickendorf",
+      "Residenzstr.",
+      "Rosenthaler",
+      "Schönleinstr.",
+      "Voltastr.",
+      "Wittenau"
+    ],
+    "N20": [
+      "Alt-Reinickendorf",
+      "Frohnau",
+      "Leopoldplatz",
+      "Paracelsus-Bad",
+      "Reinickendorfer Str. Humboldthain",
+      "Seestr.",
+      "Wedding",
+      "Wittenau"
+    ],
+    "X33": [
+      "Altstadt Spandau",
+      "Holzhauser Str.",
+      "Rathaus Reinickendorf",
+      "Rathaus Spandau",
+      "Spandau",
+      "Wittenau"
+    ],
+    "U9": [
+      "Amrumer Str.",
+      "Berliner Str.",
+      "Birkenstr.",
+      "Feuerbachstr.",
+      "Friedrich-Wilhelm-Platz",
+      "Güntzelstr.",
+      "Hansaplatz",
+      "Kurfürstendamm",
+      "Leopoldplatz",
+      "Nauener",
+      "Osloer Str.",
+      "Rathaus",
+      "Rathaus Steglitz",
+      "Schloßstr.",
+      "Spichernstr.",
+      "Turmstr.",
+      "Westhafen",
+      "Zoologischer Garten"
+    ],
+    "N9": [
+      "Amrumer Str.",
+      "Berliner Str.",
+      "Birkenstr.",
+      "Friedrich-Wilhelm-Platz",
+      "Güntzelstr.",
+      "Hansaplatz",
+      "Kurfürstendamm",
+      "Leopoldplatz",
+      "Nauener",
+      "Osloer Str.",
+      "Rathaus",
+      "Rathaus Steglitz",
+      "Schloßstr.",
+      "Spichernstr.",
+      "Tiergarten",
+      "Turmstr.",
+      "Westhafen",
+      "Zoologischer Garten"
+    ],
+    "S1": [
+      "Anhalter",
+      "Birkenwerder",
+      "Borgsdorf",
+      "Bornholmer",
+      "Botanischer Garten",
+      "Brandenburg/",
+      "Brandenburger Tor",
+      "Feuerbachstr.",
+      "Friedenau",
+      "Friedrichstr.",
+      "Frohnau",
+      "Gesundbrunnen",
+      "Großgörschenstr.",
+      "Hermsdorf",
+      "Hohen Neuendorf",
+      "JuliusLeber-Brücke",
+      "Lehnitz",
+      "Lichterfelde West",
+      "Magdeburg",
+      "Mexikoplatz",
+      "Nikolassee",
+      "Nordbahnhof",
+      "Oranienburger",
+      "Platz",
+      "Potsdamer",
+      "Rathaus",
+      "Rathaus Steglitz",
+      "Schlachtensee",
+      "Schöneberg",
+      "Stendal",
+      "Sundgauer Str.",
+      "Tor",
+      "West",
+      "Wilhelmsruh",
+      "Wittenau",
+      "Wittenberge",
+      "Wollankstr.",
+      "Yorckstr.",
+      "Zehlendorf"
+    ],
+    "S26": [
+      "Anhalter",
+      "Bornholmer",
+      "Brandenburg/",
+      "Brandenburger Tor",
+      "Friedrichstr.",
+      "Gesundbrunnen",
+      "Großgörschenstr.",
+      "Lankwitz",
+      "Lichterfelde Ost",
+      "Lichterfelde Süd",
+      "Nordbahnhof",
+      "Oranienburger",
+      "Osdorfer Str.",
+      "Pankow",
+      "Platz",
+      "Potsdamer",
+      "Priesterweg",
+      "Schönholz Pankow-Heinersdorf",
+      "Südende",
+      "Tor",
+      "Wilhelmsruh",
+      "Wittenau",
+      "Yorckstr."
+    ],
+    "M41": [
+      "Anhalter",
+      "Hallesches",
+      "Hermannplatz",
+      "Köllnische Heide",
+      "Platz",
+      "Potsdamer",
+      "Sonnenallee"
+    ],
+    "M48": [
+      "AntonWilhelmAmo-Str.",
+      "Kurfürstenstr.",
+      "Lichterfelde West",
+      "Platz",
+      "Potsdamer",
+      "Rathaus",
+      "Rathaus Steglitz",
+      "Schloßstr.",
+      "Str. Kleistpark",
+      "West"
+    ],
+    "M85": [
+      "AntonWilhelmAmo-Str.",
+      "Kurfürstenstr.",
+      "Lichterfelde Süd",
+      "Platz",
+      "Potsdamer",
+      "Rathaus",
+      "Rathaus Steglitz",
+      "Schloßstr.",
+      "Str. Kleistpark"
+    ],
+    "N84": [
+      "Attilastr.",
+      "Lichterfelde Ost",
+      "Tempelhof",
+      "Zehlendorf"
+    ],
+    "U3": [
+      "Augsburger",
+      "Breitenbachplatz",
+      "Dahlem-Dorf",
+      "Fehrbelliner Platz",
+      "Freie Universität",
+      "GleisdreieckBülowstr.",
+      "Hallesches",
+      "Heidelberger Platz",
+      "Hohenzollernplatz",
+      "Kottbusser",
+      "Kurfürstenstr.",
+      "Möckernbrücke",
+      "Onkel Toms Hütte",
+      "Podbielskiallee",
+      "Prinzenstr.",
+      "Rüdesheimer Platz",
+      "Schlesisches Tor",
+      "Spichernstr.",
+      "Str.",
+      "Thielplatz",
+      "Tor Görlitzer",
+      "Wittenbergplatz"
+    ],
+    "S7": [
+      "Babelsberg",
+      "Bellevue",
+      "Friedrichsfelde",
+      "Friedrichsfelde Ost",
+      "Friedrichstr.",
+      "Griebnitzsee",
+      "Jannowitzbrücke",
+      "Kaiserdamm",
+      "Marzahn",
+      "Mehrower Allee",
+      "Messe",
+      "Messe ZOB",
+      "Nikolassee",
+      "Nord",
+      "Nöldnerplatz",
+      "Ostbahnhof",
+      "Poelchaustr.",
+      "Raoul-Wallenberg-Str.",
+      "Savignyplatz",
+      "Str.",
+      "Tiergarten",
+      "Wilmersdorfer Str.",
+      "Zoologischer Garten"
+    ],
+    "N13": [
+      "Babelsberg",
+      "Medienstadt Babelsberg"
+    ],
+    "N14": [
+      "Babelsberg",
+      "Charlottenhof",
+      "Golm",
+      "Rehbrücke",
+      "Sanssouci"
+    ],
+    "N17": [
+      "Babelsberg",
+      "Griebnitzsee"
+    ],
+    "X19": [
+      "Babelsberg",
+      "Ludwigsfelde",
+      "Ludwigsfelde-Struveshof"
+    ],
+    "RE7": [
+      "Bad Belzig/",
+      "Friedrichstr.",
+      "Gesundbrunnen",
+      "Griebnitzsee",
+      "Lübbenau/",
+      "Medienstadt Babelsberg",
+      "Michendorf",
+      "Ostbahnhof",
+      "Rehbrücke",
+      "Schöneweide",
+      "Senftenberg",
+      "Wilhelmshorst",
+      "Wilmersdorfer Str.",
+      "Zeesen",
+      "Zoologischer Garten"
+    ],
+    "BER2": [
+      "Bahnhof",
+      "Flughafen BER",
+      "Schönefeld",
+      "Teltow"
+    ],
+    "N7X": [
+      "Bahnhof",
+      "Berliner Str.",
+      "Flughafen BER",
+      "Güntzelstr.",
+      "Kurfürstendamm",
+      "Schöneberg",
+      "Schönefeld",
+      "Spichernstr.",
+      "Zoologischer Garten"
+    ],
+    "N36": [
+      "Bahnhof",
+      "Flughafen BER",
+      "Wildau"
+    ],
+    "RB22": [
+      "Bahnhof",
+      "Birkengrund",
+      "Charlottenhof",
+      "Flughafen BER",
+      "Golm",
+      "Griebnitzsee",
+      "Ludwigsfelde",
+      "Ludwigsfelde-Struveshof",
+      "Pirschheide",
+      "Saarmund",
+      "Sanssouci",
+      "Schönefeld",
+      "Werder (Havel)"
+    ],
+    "RB24": [
+      "Bahnhof",
+      "Dahlewitz",
+      "Flughafen BER",
+      "Gesundbrunnen",
+      "Hohenschönhausen",
+      "RangsdorfThyrow",
+      "Rüdnitz",
+      "Schönefeld",
+      "Schöneweide"
+    ],
+    "RB32": [
+      "Bahnhof",
+      "Birkengrund",
+      "Flughafen BER",
+      "Hohenschönhausen",
+      "Ludwigsfelde",
+      "Schönefeld",
+      "Schöneweide"
+    ],
+    "X7": [
+      "Bahnhof",
+      "Flughafen BER",
+      "Rudow"
+    ],
+    "null": [
+      "Bahnhof",
+      "Baruth/Elsterwerda",
+      "Cottbus",
+      "Flughafen BER",
+      "Frankfurt (Oder)",
+      "Gesundbrunnen",
+      "Kostrzyn (Küstrin)",
+      "Ludwigsfelde",
+      "Lutherstadt Wittenberg",
+      "Lübbenau/",
+      "Magdeburg",
+      "Ostbahnhof",
+      "Rathaus Spandau",
+      "Spandau",
+      "Stendal",
+      "Werder (Havel)",
+      "Wilmersdorfer Str.",
+      "Wittenberge",
+      "Zoologischer Garten"
+    ],
+    "FEX": [
+      "Bahnhof",
+      "Flughafen BER",
+      "Friedrichstr.",
+      "Gesundbrunnen",
+      "Ostbahnhof",
+      "Platz",
+      "Potsdamer",
+      "Schönefeld",
+      "Wilmersdorfer Str.",
+      "Zoologischer Garten"
+    ],
+    "RE20": [
+      "Bahnhof",
+      "Cottbus",
+      "Flughafen BER",
+      "Lübbenau/",
+      "Platz",
+      "Potsdamer"
+    ],
+    "RB31": [
+      "Baruth/Elsterwerda"
+    ],
+    "RB45": [
+      "Baruth/Elsterwerda"
+    ],
+    "RE13": [
+      "Baruth/Elsterwerda",
+      "Cottbus",
+      "Senftenberg"
+    ],
+    "RB27": [
+      "Basdorf",
+      "Gesundbrunnen",
+      "Schönerlinde",
+      "Schönwalde (Barnim)",
+      "Wandlitz",
+      "Wandlitzsee",
+      "Wensickendorf",
+      "Zühlsdorf"
+    ],
+    "N70": [
+      "Baumschulenweg"
+    ],
+    "U4": [
+      "Bayerischer",
+      "Viktoria-LuisePlatz",
+      "Wittenbergplatz"
+    ],
+    "M46": [
+      "Bayerischer",
+      "Kurfürstendamm",
+      "Parchimer Allee",
+      "Schöneberg",
+      "Wittenbergplatz",
+      "Zoologischer Garten"
+    ],
+    "S3": [
+      "Bellevue",
+      "Betriebsbahnhof Rummelsburg",
+      "Friedrichshagen",
+      "Friedrichstr.",
+      "Hirschgarten",
+      "Jannowitzbrücke",
+      "Kaiserdamm",
+      "Karlshorst",
+      "Messe",
+      "Messe ZOB",
+      "Nord",
+      "Nöldnerplatz",
+      "OlympiaStadion Neu-Westend",
+      "Olympiastadion",
+      "Ostbahnhof",
+      "Pichelsberg",
+      "Rahnsdorf",
+      "Rathaus Spandau",
+      "Rummelsburg",
+      "Savignyplatz",
+      "Spandau",
+      "Str.",
+      "Stresow",
+      "Süd",
+      "Tiergarten",
+      "Wilhelmshagen",
+      "Wilmersdorfer Str.",
+      "Wuhlheide",
+      "ZOBHeerstr.",
+      "Zoologischer Garten"
+    ],
+    "S5": [
+      "Bellevue",
+      "Fredersdorf",
+      "Friedrichsfelde",
+      "Friedrichsfelde Ost",
+      "Friedrichstr.",
+      "Hegermühle",
+      "Hoppegarten",
+      "Jannowitzbrücke",
+      "Neuenhagen",
+      "Nöldnerplatz",
+      "OlympiaStadion Neu-Westend",
+      "Olympiastadion",
+      "Ostbahnhof",
+      "Petershagen",
+      "Pichelsberg",
+      "Rathaus Spandau",
+      "Savignyplatz",
+      "Spandau",
+      "Str.",
+      "Strausberg Nord",
+      "Strausberg Stadt",
+      "Stresow",
+      "Süd",
+      "Tiergarten",
+      "Wilmersdorfer Str.",
+      "ZOBHeerstr.",
+      "Zoologischer Garten"
+    ],
+    "S75": [
+      "Bellevue",
+      "Friedrichsfelde",
+      "Friedrichsfelde Ost",
+      "Friedrichstr.",
+      "Gehrenseestr.",
+      "Hohenschönhausen",
+      "Jannowitzbrücke",
+      "Nöldnerplatz",
+      "Ostbahnhof",
+      "Savignyplatz",
+      "Str.",
+      "Tiergarten",
+      "Wilmersdorfer Str.",
+      "Zoologischer Garten"
+    ],
+    "M43": [
+      "Berliner Str.",
+      "Boddinstr.",
+      "JuliusLeber-Brücke",
+      "Luftbrücke",
+      "Park",
+      "Platz der",
+      "Rathaus Neukölln"
+    ],
+    "N43": [
+      "Berliner Str.",
+      "Blissestr.",
+      "Fehrbelliner Platz",
+      "Halensee",
+      "Kaiserdamm",
+      "Messe",
+      "Messe ZOB",
+      "Nord",
+      "Theodor-Heuss-Platz Messe Nord/"
+    ],
+    "M10": [
+      "Bernauer",
+      "Eberswalder Str.",
+      "Frankfurter Tor",
+      "Landsberger Allee",
+      "Naturkundemuseum",
+      "Nordbahnhof",
+      "Str.",
+      "Turmstr."
+    ],
+    "N26": [
+      "Beusselstr.",
+      "Hansaplatz",
+      "Kurfürstendamm",
+      "Seestr.",
+      "Wittenbergplatz",
+      "Zoologischer Garten"
+    ],
+    "U5": [
+      "Biesdorf-Süd",
+      "Brandenburg/",
+      "Brandenburger Tor",
+      "Bundestag",
+      "Cottbusser Platz",
+      "Elsterwerdaer Platz",
+      "Frankfurter",
+      "Frankfurter Tor",
+      "Gärten der Welt",
+      "Hellersdorf",
+      "Kaulsdorf-Nord",
+      "Kienberg",
+      "Louis-Lewin-Str.",
+      "Magdalenenstr.",
+      "Samariterstr.",
+      "Schillingstr.",
+      "Strausberger Platz",
+      "Tierpark",
+      "Tor",
+      "Weberwiese"
+    ],
+    "RE3": [
+      "Birkengrund",
+      "Gesundbrunnen",
+      "Großbeeren",
+      "Lichterfelde Ost",
+      "Ludwigsfelde",
+      "Lutherstadt Wittenberg",
+      "Platz",
+      "Potsdamer",
+      "Rüdnitz",
+      "Teltow"
+    ],
+    "RE4": [
+      "Birkengrund",
+      "Gesundbrunnen",
+      "Großbeeren",
+      "Jungfernheide",
+      "Lichterfelde Ost",
+      "Ludwigsfelde",
+      "Platz",
+      "Potsdamer",
+      "Rathaus Spandau",
+      "Rathenow/",
+      "Spandau",
+      "Staaken",
+      "Stendal",
+      "Teltow"
+    ],
+    "RB20": [
+      "Birkenwerder",
+      "Charlottenhof",
+      "Golm",
+      "Griebnitzsee",
+      "Marquardt",
+      "Priort",
+      "Sanssouci",
+      "Werder (Havel)"
+    ],
+    "M2": [
+      "Bornholmer"
+    ],
+    "M13": [
+      "Bornholmer",
+      "Frankfurter",
+      "Osloer Str.",
+      "Seestr.",
+      "Str."
+    ],
+    "N88": [
+      "Botanischer Garten",
+      "Lichterfelde Süd",
+      "Lichterfelde West",
+      "Osdorfer Str.",
+      "Rathaus",
+      "Rathaus Steglitz",
+      "West"
+    ],
+    "N5": [
+      "Brandenburg/",
+      "Brandenburger Tor",
+      "Cottbusser Platz",
+      "Frankfurter",
+      "Frankfurter Tor",
+      "Gärten der Welt",
+      "Hellersdorf",
+      "Kaulsdorf-Nord",
+      "Kienberg",
+      "Louis-Lewin-Str.",
+      "Magdalenenstr.",
+      "Samariterstr.",
+      "Schillingstr.",
+      "Strausberger Platz",
+      "Tor",
+      "Weberwiese"
+    ],
+    "N3": [
+      "Breitenbachplatz",
+      "Dahlem-Dorf",
+      "Fehrbelliner Platz",
+      "Freie Universität",
+      "Heidelberger Platz",
+      "Hohenzollerndamm",
+      "Hohenzollernplatz",
+      "Kurfürstendamm",
+      "Mexikoplatz",
+      "Onkel Toms Hütte",
+      "Podbielskiallee",
+      "Spichernstr.",
+      "Thielplatz",
+      "Wittenbergplatz"
+    ],
+    "X4": [
+      "Brieselang",
+      "Wittenberge"
+    ],
+    "N58": [
+      "Buch"
+    ],
+    "M11": [
+      "Buckower Chaussee",
+      "Dahlem-Dorf",
+      "Johannisthaler Chaussee",
+      "Lichterfelde Ost",
+      "Lichterfelde West",
+      "Lipschitzallee",
+      "Schöneweide",
+      "West",
+      "Wutzkyallee",
+      "Zwickauer Damm"
+    ],
+    "X11": [
+      "Buckower Chaussee",
+      "Johannisthaler Chaussee",
+      "Lichterfelde Ost",
+      "Schöneweide",
+      "Sundgauer Str."
+    ],
+    "X83": [
+      "Buckower Chaussee",
+      "Dahlem-Dorf",
+      "Lankwitz",
+      "Rathaus",
+      "Rathaus Steglitz",
+      "Schichauweg"
+    ],
+    "RB55": [
+      "Bärenklau",
+      "Vehlefanz"
+    ],
+    "RB33": [
+      "CaputhGeltow",
+      "CaputhSchwielowsee",
+      "Charlottenhof",
+      "Pirschheide",
+      "SeddinFerchLienewitz",
+      "Stendal",
+      "Wittenberge"
+    ],
+    "X5": [
+      "Charlottenhof",
+      "Golm",
+      "Sanssouci"
+    ],
+    "F1": [
+      "Charlottenhof"
+    ],
+    "RB23": [
+      "Charlottenhof",
+      "Friedrichstr.",
+      "Golm",
+      "Griebnitzsee",
+      "Ostbahnhof",
+      "Sanssouci",
+      "Wilmersdorfer Str.",
+      "Zoologischer Garten"
+    ],
+    "RE1": [
+      "Charlottenhof",
+      "Cottbus",
+      "Eisenhüttenstadt",
+      "Frankfurt (Oder)",
+      "Friedrichstr.",
+      "Gesundbrunnen",
+      "Magdeburg",
+      "Ostbahnhof",
+      "Sanssouci",
+      "Werder (Havel)",
+      "Wilmersdorfer Str.",
+      "Zoologischer Garten"
+    ],
+    "2N": [
+      "Cottbus"
+    ],
+    "3N": [
+      "Cottbus"
+    ],
+    "4N": [
+      "Cottbus"
+    ],
+    "RB46": [
+      "Cottbus"
+    ],
+    "RB65": [
+      "Cottbus"
+    ],
+    "RB43": [
+      "Cottbus",
+      "Eisenhüttenstadt",
+      "Frankfurt (Oder)"
+    ],
+    "RB49": [
+      "Cottbus",
+      "Senftenberg"
+    ],
+    "RB93": [
+      "Cottbus"
+    ],
+    "RE10": [
+      "Cottbus",
+      "Eisenhüttenstadt",
+      "Frankfurt (Oder)"
+    ],
+    "RE18": [
+      "Cottbus",
+      "Senftenberg"
+    ],
+    "X69": [
+      "Elsterwerdaer Platz",
+      "Mehrower Allee"
+    ],
+    "M45": [
+      "Ernst-ReuterPlatz",
+      "Rathaus Spandau",
+      "Richard-Wagner-Platz",
+      "Spandau",
+      "Zoologischer Garten"
+    ],
+    "F": [
+      "Falkensee",
+      "Finkenkrug"
+    ],
+    "R": [
+      "Falkensee",
+      "Kostrzyn (Küstrin)",
+      "Seegefeld"
+    ],
+    "X37": [
+      "Falkensee",
+      "Rathaus Spandau",
+      "Spandau"
+    ],
+    "N81": [
+      "Feuerbachstr.",
+      "Lankwitz",
+      "Marienfelde"
+    ],
+    "N1": [
+      "Frankfurt (Oder)",
+      "Hallesches",
+      "Kottbusser",
+      "Kurfürstendamm",
+      "Kurfürstenstr.",
+      "MendelssohnBartholdy-Park",
+      "Möckernbrücke",
+      "Prinzenstr.",
+      "Schlesisches Tor",
+      "Str.",
+      "Tor Görlitzer",
+      "Wittenbergplatz",
+      "Zoologischer Garten"
+    ],
+    "RB36": [
+      "Frankfurt (Oder)",
+      "Kablow"
+    ],
+    "RB60": [
+      "Frankfurt (Oder)"
+    ],
+    "RB91": [
+      "Frankfurt (Oder)"
+    ],
+    "N65": [
+      "Friedrichshagen",
+      "HeinrichHeine-Str.",
+      "Jannowitzbrücke",
+      "Park",
+      "Plänterwald",
+      "Schlesisches Tor",
+      "Schöneweide"
+    ],
+    "HBX": [
+      "Friedrichstr.",
+      "Magdeburg",
+      "Ostbahnhof",
+      "Zoologischer Garten"
+    ],
+    "N56": [
+      "Gehrenseestr.",
+      "Hohenschönhausen",
+      "Magdalenenstr."
+    ],
+    "RB63": [
+      "Gesundbrunnen"
+    ],
+    "RE5": [
+      "Gesundbrunnen",
+      "Platz",
+      "Potsdamer",
+      "Sachsenhausen (Nordb)"
+    ],
+    "RE85": [
+      "Gesundbrunnen",
+      "Platz",
+      "Potsdamer"
+    ],
+    "U1": [
+      "GleisdreieckBülowstr.",
+      "Hallesches",
+      "Kottbusser",
+      "Kurfürstendamm",
+      "Kurfürstenstr.",
+      "Möckernbrücke",
+      "Prinzenstr.",
+      "Schlesisches Tor",
+      "Str.",
+      "Tor Görlitzer",
+      "Uhlandstr.",
+      "Wittenbergplatz"
+    ],
+    "M4": [
+      "Greifswalder Str.",
+      "Hohenschönhausen",
+      "Landsberger Allee"
+    ],
+    "N42": [
+      "Hallesches",
+      "Luftbrücke",
+      "Moritzplatz",
+      "Museum",
+      "Märkisches",
+      "Platz der",
+      "Spittelmarkt",
+      "Weinmeisterstr."
+    ],
+    "N24": [
+      "Heiligensee",
+      "Schulzendorf",
+      "Tegel",
+      "Wittenau"
+    ],
+    "M6": [
+      "Hellersdorf",
+      "Landsberger Allee",
+      "Marzahn"
+    ],
+    "T9": [
+      "Hellersdorf"
+    ],
+    "X54": [
+      "Hellersdorf",
+      "Hohenschönhausen",
+      "Marzahn",
+      "Pankow",
+      "Raoul-Wallenberg-Str."
+    ],
+    "N94": [
+      "Hermannplatz",
+      "Magdalenenstr.",
+      "Nöldnerplatz",
+      "Park",
+      "Rummelsburg"
+    ],
+    "M44": [
+      "Hermannstr."
+    ],
+    "N25": [
+      "Hermsdorf",
+      "Tegel"
+    ],
+    "M5": [
+      "Hohenschönhausen",
+      "Landsberger Allee",
+      "Naturkundemuseum",
+      "Oranienburger",
+      "Oranienburger Tor"
+    ],
+    "RB12": [
+      "Hohenschönhausen",
+      "Sachsenhausen (Nordb)",
+      "Templin StadtStralsund/Rostock"
+    ],
+    "RB54": [
+      "Hohenschönhausen"
+    ],
+    "M21": [
+      "Jakob-Kaiser-Platz",
+      "Jungfernheide",
+      "Karl-BonhoefferNervenklinik",
+      "Kurt-Schumacher-Platz",
+      "Wittenau"
+    ],
+    "X21": [
+      "Jakob-Kaiser-Platz",
+      "Jungfernheide",
+      "Karl-BonhoefferNervenklinik",
+      "Kurt-Schumacher-Platz",
+      "Wittenau"
+    ],
+    "N40": [
+      "Jannowitzbrücke",
+      "Karlshorst",
+      "Ostbahnhof",
+      "Rosa-Luxemburg-Platz",
+      "Rosenthaler",
+      "Rummelsburg"
+    ],
+    "M27": [
+      "Jungfernheide",
+      "Mierendorffplatz",
+      "Pankow",
+      "Pankstr.",
+      "Reinickendorfer Str. Humboldthain",
+      "Turmstr.",
+      "Wedding",
+      "Wollankstr."
+    ],
+    "M49": [
+      "Kaiserdamm",
+      "Messe",
+      "Messe ZOB",
+      "Nord",
+      "OlympiaStadion Neu-Westend",
+      "Olympiastadion",
+      "Pichelsberg",
+      "Savignyplatz",
+      "Theodor-Heuss-Platz Messe Nord/",
+      "Wilmersdorfer Str.",
+      "ZOBHeerstr.",
+      "Zoologischer Garten"
+    ],
+    "X34": [
+      "Kaiserdamm",
+      "Messe",
+      "Messe ZOB",
+      "Nord",
+      "Savignyplatz",
+      "Theodor-Heuss-Platz Messe Nord/",
+      "Wilmersdorfer Str.",
+      "ZOBHeerstr.",
+      "Zoologischer Garten"
+    ],
+    "X49": [
+      "Kaiserdamm",
+      "Messe",
+      "Messe ZOB",
+      "Nord",
+      "Theodor-Heuss-Platz Messe Nord/",
+      "Wilmersdorfer Str.",
+      "ZOBHeerstr."
+    ],
+    "N91": [
+      "Kaulsdorf-Nord"
+    ],
+    "Bsv": [
+      "Kostrzyn (Küstrin)"
+    ],
+    "RB26": [
+      "Kostrzyn (Küstrin)"
+    ],
+    "M8": [
+      "Landsberger Allee",
+      "Marzahn",
+      "Naturkundemuseum",
+      "Nordbahnhof",
+      "Rosa-Luxemburg-Platz",
+      "Rosenthaler"
+    ],
+    "M82": [
+      "Lankwitz",
+      "Rathaus",
+      "Rathaus Steglitz"
+    ],
+    "RB51": [
+      "Lutherstadt Wittenberg",
+      "Rathenow/"
+    ],
+    "RE14": [
+      "Lutherstadt Wittenberg",
+      "Magdeburg"
+    ],
+    "N50": [
+      "Magdalenenstr.",
+      "Pankow",
+      "Schönholz Pankow-Heinersdorf",
+      "Tierpark"
+    ],
+    "RB37": [
+      "Medienstadt Babelsberg",
+      "Michendorf",
+      "Rehbrücke",
+      "Wilhelmshorst"
+    ],
+    "N96": [
+      "Mehrower Allee"
+    ],
+    "X43": [
+      "Michendorf"
+    ],
+    "N63": [
+      "Nauen"
+    ],
+    "N16": [
+      "Nikolassee"
+    ],
+    "N18": [
+      "Nikolassee",
+      "Zehlendorf"
+    ],
+    "N52": [
+      "Osloer Str."
+    ],
+    "TES": [
+      "Ostbahnhof"
+    ],
+    "R933": [
+      "Petershagen"
+    ],
+    "N61": [
+      "Rahnsdorf",
+      "Wilhelmshagen"
+    ],
+    "M32": [
+      "Rathaus Spandau",
+      "Spandau",
+      "Staaken"
+    ],
+    "M36": [
+      "Rathaus Spandau",
+      "Spandau"
+    ],
+    "M37": [
+      "Rathaus Spandau",
+      "Spandau"
+    ],
+    "N30": [
+      "Rathaus Spandau",
+      "Spandau"
+    ],
+    "N34": [
+      "Rathaus Spandau",
+      "Spandau"
+    ],
+    "X36": [
+      "Rathaus Spandau",
+      "Spandau"
+    ],
+    "RB34": [
+      "Rathenow/",
+      "Senftenberg",
+      "Stendal"
+    ],
+    "RE20A": [
+      "Stendal"
+    ],
+    "T": [
+      "Stendal",
+      "Wittenberge"
+    ],
+    "R931": [
+      "Strausberg Nord"
+    ],
+    "N22": [
+      "Tegel"
+    ],
+    "N33": [
+      "Tegel"
+    ],
+    "X1": [
+      "Teltow"
+    ],
+    "RB17": [
+      "Wismar/"
+    ],
+    "S": [
+      "Wittenberge"
+    ],
+    "N12": [
+      "Zehlendorf"
+    ]
+  },
+  "stationDetails": {
+    "Adenauerplatz": {
+      "id": "900023302",
+      "name": "U Adenauerplatz (Berlin)",
+      "officialName": "U Adenauerplatz (Berlin)",
+      "lat": 52.500087,
+      "lng": 13.307352,
+      "lines": [
+        "U7",
+        "109",
+        "110",
+        "M19",
+        "M29",
+        "N7",
+        "N10",
+        "X10"
+      ]
+    },
+    "Adlershof": {
+      "id": "900193002",
+      "name": "S Adlershof (Berlin)",
+      "officialName": "S Adlershof (Berlin)",
+      "lat": 52.435104,
+      "lng": 13.54055,
+      "lines": [
+        "S8",
+        "S9",
+        "S41",
+        "S42",
+        "S46",
+        "S47",
+        "S85",
+        "S85",
+        "61",
+        "62",
+        "63",
+        "M17",
+        "162",
+        "163",
+        "164",
+        "260",
+        "N60",
+        "N64",
+        "N68",
+        "S9",
+        "S9A",
+        "S9X",
+        "S46"
+      ]
+    },
+    "Afrikanische Str.": {
+      "id": "900011102",
+      "name": "U Afrikanische Str. (Berlin)",
+      "officialName": "U Afrikanische Str. (Berlin)",
+      "lat": 52.560863,
+      "lng": 13.333502,
+      "lines": [
+        "U6",
+        "221",
+        "N6"
+      ]
+    },
+    "Ahrensfelde Friedhof": {
+      "id": "900350141",
+      "name": "Ahrensfelde, Friedhof Bhf",
+      "officialName": "Ahrensfelde, Friedhof Bhf",
+      "lat": 52.580522,
+      "lng": 13.573091,
+      "lines": [
+        "390",
+        "901",
+        "RB25",
+        "RB25"
+      ]
+    },
+    "Ahrensfelde Nord": {
+      "id": "900350142",
+      "name": "Ahrensfelde, Nord Bhf",
+      "officialName": "Ahrensfelde, Nord Bhf",
+      "lat": 52.590734,
+      "lng": 13.581964,
+      "lines": [
+        "RB25"
+      ]
+    },
+    "Albrechtshof": {
+      "id": "900037168",
+      "name": "Berlin, Albrechtshof Bhf",
+      "officialName": "Berlin, Albrechtshof Bhf",
+      "lat": 52.549339,
+      "lng": 13.129159,
+      "lines": [
+        "237",
+        "652",
+        "RB10",
+        "RB14",
+        "RB21",
+        "RE2",
+        "RE6",
+        "RE8"
+      ]
+    },
+    "Allee": {
+      "id": "900110001",
+      "name": "S+U Schönhauser Allee (Berlin)",
+      "officialName": "S+U Schönhauser Allee (Berlin)",
+      "lat": 52.549339,
+      "lng": 13.415142,
+      "lines": [
+        "S2",
+        "S8",
+        "S8",
+        "S41",
+        "S42",
+        "S85",
+        "S85",
+        "U2",
+        "M1",
+        "N2",
+        "S41",
+        "S42"
+      ]
+    },
+    "Alt-Mariendorf": {
+      "id": "900070301",
+      "name": "U Alt-Mariendorf (Berlin)",
+      "officialName": "U Alt-Mariendorf (Berlin)",
+      "lat": 52.43861,
+      "lng": 13.387922,
+      "lines": [
+        "U6",
+        "179",
+        "181",
+        "277",
+        "M76",
+        "M77",
+        "N6",
+        "N77",
+        "X71",
+        "X76"
+      ]
+    },
+    "Alt-Reinickendorf": {
+      "id": "900085105",
+      "name": "S Alt-Reinickendorf (Berlin)",
+      "officialName": "S Alt-Reinickendorf (Berlin)",
+      "lat": 52.578149,
+      "lng": 13.348577,
+      "lines": [
+        "S25",
+        "U8",
+        "120",
+        "122",
+        "320",
+        "322",
+        "N8",
+        "N20"
+      ]
+    },
+    "Altglienicke": {
+      "id": "900195510",
+      "name": "S Altglienicke (Berlin)",
+      "officialName": "S Altglienicke (Berlin)",
+      "lat": 52.407795,
+      "lng": 13.559598,
+      "lines": [
+        "S9",
+        "S85",
+        "S85",
+        "160",
+        "363",
+        "S9",
+        "S9A"
+      ]
+    },
+    "Altstadt Spandau": {
+      "id": "900029301",
+      "name": "U Altstadt Spandau (Berlin)",
+      "officialName": "U Altstadt Spandau (Berlin)",
+      "lat": 52.539163,
+      "lng": 13.206763,
+      "lines": [
+        "U7",
+        "N7",
+        "X33"
+      ]
+    },
+    "Am Schäfersee": {
+      "id": "900085202",
+      "name": "U Franz-Neumann-Platz (Am Schäfersee) (Berlin)",
+      "officialName": "U Franz-Neumann-Platz (Am Schäfersee) (Berlin)",
+      "lat": 52.563856,
+      "lng": 13.364281,
+      "lines": [
+        "U8",
+        "128",
+        "250",
+        "327",
+        "N8"
+      ]
+    },
+    "Amrumer Str.": {
+      "id": "900009101",
+      "name": "U Amrumer Str. (Berlin)",
+      "officialName": "U Amrumer Str. (Berlin)",
+      "lat": 52.542201,
+      "lng": 13.34953,
+      "lines": [
+        "U9",
+        "142",
+        "221",
+        "N9"
+      ]
+    },
+    "Anhalter": {
+      "id": "900012101",
+      "name": "S Anhalter Bahnhof (Berlin)",
+      "officialName": "S Anhalter Bahnhof (Berlin)",
+      "lat": 52.504537,
+      "lng": 13.38208,
+      "lines": [
+        "S1",
+        "S2",
+        "S25",
+        "S26",
+        "M29",
+        "M41"
+      ]
+    },
+    "AntonWilhelmAmo-Str.": {
+      "id": "900100010",
+      "name": "U Anton-Wilhelm-Amo-Str. (Berlin)",
+      "officialName": "U Anton-Wilhelm-Amo-Str. (Berlin)",
+      "lat": 52.511521,
+      "lng": 13.383796,
+      "lines": [
+        "U2",
+        "200",
+        "300",
+        "M48",
+        "M85",
+        "N2"
+      ]
+    },
+    "Attilastr.": {
+      "id": "900068301",
+      "name": "S Attilastr. (Berlin)",
+      "officialName": "S Attilastr. (Berlin)",
+      "lat": 52.447302,
+      "lng": 13.36118,
+      "lines": [
+        "S2",
+        "184",
+        "282",
+        "N84"
+      ]
+    },
+    "Augsburger": {
+      "id": "900023202",
+      "name": "U Augsburger Str. (Berlin)",
+      "officialName": "U Augsburger Str. (Berlin)",
+      "lat": 52.500446,
+      "lng": 13.336459,
+      "lines": [
+        "U3",
+        "U3"
+      ]
+    },
+    "Babelsberg": {
+      "id": "900230000",
+      "name": "S Babelsberg",
+      "officialName": "S Babelsberg",
+      "lat": 52.391425,
+      "lng": 13.092402,
+      "lines": [
+        "S7",
+        "94",
+        "99",
+        "601",
+        "602",
+        "616",
+        "690",
+        "693",
+        "694",
+        "715",
+        "N13",
+        "N14",
+        "N17",
+        "S7",
+        "X19"
+      ]
+    },
+    "Bad Belzig/": {
+      "id": "900220143",
+      "name": "Bad Belzig, Bahnhof",
+      "officialName": "Bad Belzig, Bahnhof",
+      "lat": 52.136257,
+      "lng": 12.595227,
+      "lines": [
+        "555",
+        "572",
+        "580",
+        "581",
+        "582",
+        "586",
+        "588",
+        "590",
+        "591",
+        "592",
+        "593",
+        "RE7"
+      ]
+    },
+    "Bahnhof": {
+      "id": "900260009",
+      "name": "Flughafen BER",
+      "officialName": "Flughafen BER",
+      "lat": 52.36461,
+      "lng": 13.50987,
+      "lines": [
+        "S9",
+        "S85",
+        "S85",
+        "263",
+        "735",
+        "736",
+        "741",
+        "BER2",
+        "N7",
+        "N7X",
+        "N36",
+        "N60",
+        "RB22",
+        "RB24",
+        "RB32",
+        "S9X",
+        "X7",
+        "X71",
+        null,
+        "FEX",
+        "RB22",
+        "RB24",
+        "RB32",
+        "RE20"
+      ]
+    },
+    "Baruth/Elsterwerda": {
+      "id": "900415502",
+      "name": "Elsterwerda, Bahnhof",
+      "officialName": "Elsterwerda, Bahnhof",
+      "lat": 51.459801,
+      "lng": 13.516414,
+      "lines": [
+        "520",
+        "579",
+        "581",
+        "584",
+        "585",
+        "586",
+        "587",
+        "RB31",
+        "RE8",
+        null,
+        "RB31",
+        "RB45",
+        "RE8",
+        "RE13"
+      ]
+    },
+    "Basdorf": {
+      "id": "900350149",
+      "name": "Basdorf (BAR), Bahnhof",
+      "officialName": "Basdorf (BAR), Bahnhof",
+      "lat": 52.715459,
+      "lng": 13.433857,
+      "lines": [
+        "902",
+        "903",
+        "RB27"
+      ]
+    },
+    "Baumschulenweg": {
+      "id": "900191001",
+      "name": "S Baumschulenweg (Berlin)",
+      "officialName": "S Baumschulenweg (Berlin)",
+      "lat": 52.467582,
+      "lng": 13.489501,
+      "lines": [
+        "S8",
+        "S9",
+        "S41",
+        "S42",
+        "S46",
+        "S47",
+        "S85",
+        "166",
+        "170",
+        "265",
+        "365",
+        "N70",
+        "S9",
+        "S9A",
+        "S9X",
+        "S46",
+        "S47"
+      ]
+    },
+    "Bayerischer": {
+      "id": "900055102",
+      "name": "U Bayerischer Platz (Berlin)",
+      "officialName": "U Bayerischer Platz (Berlin)",
+      "lat": 52.488653,
+      "lng": 13.340235,
+      "lines": [
+        "U4",
+        "U7",
+        "M46",
+        "N7",
+        "U4"
+      ]
+    },
+    "Bellevue": {
+      "id": "900003102",
+      "name": "S Bellevue (Berlin)",
+      "officialName": "S Bellevue (Berlin)",
+      "lat": 52.520034,
+      "lng": 13.3481,
+      "lines": [
+        "S3",
+        "S5",
+        "S7",
+        "S9",
+        "S75",
+        "187",
+        "245"
+      ]
+    },
+    "Berliner Str.": {
+      "id": "900044201",
+      "name": "U Berliner Str. (Berlin)",
+      "officialName": "U Berliner Str. (Berlin)",
+      "lat": 52.487044,
+      "lng": 13.331353,
+      "lines": [
+        "U7",
+        "U9",
+        "143",
+        "M43",
+        "N7",
+        "N7X",
+        "N9",
+        "N43",
+        "U9"
+      ]
+    },
+    "Bernau-Friedenstal": {
+      "id": "900350161",
+      "name": "S Bernau-Friedenstal",
+      "officialName": "S Bernau-Friedenstal",
+      "lat": 52.668365,
+      "lng": 13.564596,
+      "lines": [
+        "S2",
+        "868",
+        "872",
+        "891"
+      ]
+    },
+    "Bernauer": {
+      "id": "900007110",
+      "name": "U Bernauer Str. (Berlin)",
+      "officialName": "U Bernauer Str. (Berlin)",
+      "lat": 52.537994,
+      "lng": 13.396229,
+      "lines": [
+        "U8",
+        "M10",
+        "247",
+        "N8"
+      ]
+    },
+    "Betriebsbahnhof Rummelsburg": {
+      "id": "900160002",
+      "name": "S Betriebsbahnhof Rummelsburg (Berlin)",
+      "officialName": "S Betriebsbahnhof Rummelsburg (Berlin)",
+      "lat": 52.493597,
+      "lng": 13.498148,
+      "lines": [
+        "S3",
+        "194"
+      ]
+    },
+    "Beusselstr.": {
+      "id": "900020202",
+      "name": "S Beusselstr. (Berlin)",
+      "officialName": "S Beusselstr. (Berlin)",
+      "lat": 52.534318,
+      "lng": 13.328702,
+      "lines": [
+        "S41",
+        "S42",
+        "S46",
+        "106",
+        "123",
+        "N26"
+      ]
+    },
+    "Biesdorf-Süd": {
+      "id": "900171005",
+      "name": "U Biesdorf-Süd (Berlin)",
+      "officialName": "U Biesdorf-Süd (Berlin)",
+      "lat": 52.499521,
+      "lng": 13.547328,
+      "lines": [
+        "U5"
+      ]
+    },
+    "Birkengrund": {
+      "id": "900245030",
+      "name": "Ludwigsfelde, Birkengrund Bhf",
+      "officialName": "Ludwigsfelde, Birkengrund Bhf",
+      "lat": 52.315691,
+      "lng": 13.271782,
+      "lines": [
+        "701",
+        "702",
+        "703",
+        "709",
+        "710",
+        "720",
+        "RB22",
+        "RB32",
+        "RE3",
+        "RE4",
+        "RB32",
+        "RE3",
+        "RE4"
+      ]
+    },
+    "Birkenstr.": {
+      "id": "900002201",
+      "name": "U Birkenstr. (Berlin)",
+      "officialName": "U Birkenstr. (Berlin)",
+      "lat": 52.532268,
+      "lng": 13.341421,
+      "lines": [
+        "U9",
+        "N9"
+      ]
+    },
+    "Birkenwerder": {
+      "id": "900200008",
+      "name": "S Birkenwerder Bhf",
+      "officialName": "S Birkenwerder Bhf",
+      "lat": 52.688573,
+      "lng": 13.288843,
+      "lines": [
+        "S1",
+        "S8",
+        "S8",
+        "S85",
+        "822",
+        "RB20"
+      ]
+    },
+    "Bismarckstr.": {
+      "id": "900024201",
+      "name": "U Bismarckstr. (Berlin)",
+      "officialName": "U Bismarckstr. (Berlin)",
+      "lat": 52.511539,
+      "lng": 13.305339,
+      "lines": [
+        "U2",
+        "U7",
+        "109",
+        "N2",
+        "N7"
+      ]
+    },
+    "Blaschkoallee": {
+      "id": "900080201",
+      "name": "U Blaschkoallee (Berlin)",
+      "officialName": "U Blaschkoallee (Berlin)",
+      "lat": 52.452741,
+      "lng": 13.448977,
+      "lines": [
+        "U7",
+        "170",
+        "171",
+        "N7"
+      ]
+    },
+    "Blissestr.": {
+      "id": "900041102",
+      "name": "U Blissestr. (Berlin)",
+      "officialName": "U Blissestr. (Berlin)",
+      "lat": 52.486477,
+      "lng": 13.320548,
+      "lines": [
+        "U7",
+        "101",
+        "143",
+        "249",
+        "N7",
+        "N43"
+      ]
+    },
+    "Blumberg": {
+      "id": "900350151",
+      "name": "Blumberg (BAR), Bahnhof",
+      "officialName": "Blumberg (BAR), Bahnhof",
+      "lat": 52.604991,
+      "lng": 13.611161,
+      "lines": [
+        "895",
+        "899",
+        "901",
+        "RB25",
+        "RB25"
+      ]
+    },
+    "Blumberg-Rehhahn": {
+      "id": "900350178",
+      "name": "Blumberg (BAR), Rehhahn Bhf",
+      "officialName": "Blumberg (BAR), Rehhahn Bhf",
+      "lat": 52.596802,
+      "lng": 13.592265,
+      "lines": [
+        "RB25",
+        "RB25"
+      ]
+    },
+    "Boddinstr.": {
+      "id": "900079202",
+      "name": "U Boddinstr. (Berlin)",
+      "officialName": "U Boddinstr. (Berlin)",
+      "lat": 52.479744,
+      "lng": 13.425785,
+      "lines": [
+        "U8",
+        "166",
+        "M43",
+        "N8"
+      ]
+    },
+    "Borgsdorf": {
+      "id": "900200007",
+      "name": "S Borgsdorf",
+      "officialName": "S Borgsdorf",
+      "lat": 52.714309,
+      "lng": 13.276798,
+      "lines": [
+        "S1",
+        "S8",
+        "S85",
+        "816"
+      ]
+    },
+    "Bornholmer": {
+      "id": "900110011",
+      "name": "S Bornholmer Str. (Berlin)",
+      "officialName": "S Bornholmer Str. (Berlin)",
+      "lat": 52.554759,
+      "lng": 13.397838,
+      "lines": [
+        "S1",
+        "S2",
+        "S8",
+        "S8",
+        "S25",
+        "S26",
+        "S41",
+        "S42",
+        "S46",
+        "S85",
+        "S85",
+        "50",
+        "M1",
+        "M2",
+        "M13",
+        "S1"
+      ]
+    },
+    "Borsigwerke": {
+      "id": "900088202",
+      "name": "U Borsigwerke (Berlin)",
+      "officialName": "U Borsigwerke (Berlin)",
+      "lat": 52.58214,
+      "lng": 13.29012,
+      "lines": [
+        "133",
+        "N6",
+        "U6"
+      ]
+    },
+    "Botanischer Garten": {
+      "id": "900066102",
+      "name": "S Botanischer Garten (Berlin)",
+      "officialName": "S Botanischer Garten (Berlin)",
+      "lat": 52.447554,
+      "lng": 13.30604,
+      "lines": [
+        "S1",
+        "188",
+        "N88"
+      ]
+    },
+    "Brandenburg/": {
+      "id": "900100025",
+      "name": "S+U Brandenburger Tor (Berlin)",
+      "officialName": "S+U Brandenburger Tor (Berlin)",
+      "lat": 52.51651,
+      "lng": 13.381936,
+      "lines": [
+        "S1",
+        "S2",
+        "S25",
+        "S26",
+        "U5",
+        "100",
+        "N5"
+      ]
+    },
+    "Brandenburger Tor": {
+      "id": "900100025",
+      "name": "S+U Brandenburger Tor (Berlin)",
+      "officialName": "S+U Brandenburger Tor (Berlin)",
+      "lat": 52.51651,
+      "lng": 13.381936,
+      "lines": [
+        "S1",
+        "S2",
+        "S25",
+        "S26",
+        "U5",
+        "100",
+        "N5"
+      ]
+    },
+    "Breitenbachplatz": {
+      "id": "900051202",
+      "name": "U Breitenbachplatz (Berlin)",
+      "officialName": "U Breitenbachplatz (Berlin)",
+      "lat": 52.467339,
+      "lng": 13.309276,
+      "lines": [
+        "U3",
+        "101",
+        "248",
+        "282",
+        "N3"
+      ]
+    },
+    "Brieselang": {
+      "id": "900210326",
+      "name": "Brieselang, Bahnhof",
+      "officialName": "Brieselang, Bahnhof",
+      "lat": 52.583048,
+      "lng": 13.002123,
+      "lines": [
+        "649",
+        "656",
+        "657",
+        "667",
+        "686",
+        "X4",
+        "RB10",
+        "RB14",
+        "RE2",
+        "RE8"
+      ]
+    },
+    "Buch": {
+      "id": "900135001",
+      "name": "S Buch (Berlin)",
+      "officialName": "S Buch (Berlin)",
+      "lat": 52.6363,
+      "lng": 13.492368,
+      "lines": [
+        "S2",
+        "150",
+        "158",
+        "259",
+        "353",
+        "893",
+        "893",
+        "N58"
+      ]
+    },
+    "Buckower Chaussee": {
+      "id": "900072101",
+      "name": "S Buckower Chaussee (Berlin)",
+      "officialName": "S Buckower Chaussee (Berlin)",
+      "lat": 52.411031,
+      "lng": 13.382466,
+      "lines": [
+        "S2",
+        "277",
+        "710",
+        "711",
+        "M11",
+        "X11",
+        "X83"
+      ]
+    },
+    "Bundestag": {
+      "id": "900003254",
+      "name": "U Bundestag (Berlin)",
+      "officialName": "U Bundestag (Berlin)",
+      "lat": 52.520106,
+      "lng": 13.372955,
+      "lines": [
+        "U5"
+      ]
+    },
+    "Bärenklau": {
+      "id": "900204003",
+      "name": "Bärenklau (OHV), Bahnhof",
+      "officialName": "Bärenklau (OHV), Bahnhof",
+      "lat": 52.704645,
+      "lng": 13.14365,
+      "lines": [
+        "812",
+        "RB55",
+        "RE6",
+        "RB55",
+        "RE6"
+      ]
+    },
+    "CaputhGeltow": {
+      "id": "900220658",
+      "name": "Caputh-Geltow, Bahnhof",
+      "officialName": "Caputh-Geltow, Bahnhof",
+      "lat": 52.350021,
+      "lng": 12.984181,
+      "lines": [
+        "RB33"
+      ]
+    },
+    "CaputhSchwielowsee": {
+      "id": "900220573",
+      "name": "Caputh, Schwielowsee Bhf",
+      "officialName": "Caputh, Schwielowsee Bhf",
+      "lat": 52.341041,
+      "lng": 12.980423,
+      "lines": [
+        "607",
+        "613",
+        "RB33",
+        "RB33"
+      ]
+    },
+    "Charlottenhof": {
+      "id": "900230006",
+      "name": "Potsdam, Charlottenhof Bhf",
+      "officialName": "Potsdam, Charlottenhof Bhf",
+      "lat": 52.392765,
+      "lng": 13.03568,
+      "lines": [
+        "91",
+        "94",
+        "580",
+        "605",
+        "610",
+        "631",
+        "N14",
+        "RB21",
+        "X5",
+        "F1",
+        "RB20",
+        "RB21",
+        "RB22",
+        "RB23",
+        "RB33",
+        "RE1"
+      ]
+    },
+    "Checkpoint Charlie": {
+      "id": "900012102",
+      "name": "U Kochstr. (Checkpoint Charlie) (Berlin)",
+      "officialName": "U Kochstr. (Checkpoint Charlie) (Berlin)",
+      "lat": 52.506676,
+      "lng": 13.390862,
+      "lines": [
+        "U6",
+        "M29",
+        "N6"
+      ]
+    },
+    "Cottbus": {
+      "id": "900470000",
+      "name": "Cottbus, Hauptbahnhof",
+      "officialName": "Cottbus, Hauptbahnhof",
+      "lat": 51.750989,
+      "lng": 14.324464,
+      "lines": [
+        "1",
+        "2",
+        "4",
+        "2N",
+        "3N",
+        "4N",
+        "9",
+        "10",
+        "12",
+        "15",
+        "16",
+        "21",
+        "22",
+        "23",
+        "25",
+        "26",
+        "29",
+        "32",
+        "33",
+        "35",
+        "37",
+        "39",
+        "44",
+        "47",
+        "607",
+        "800",
+        "849",
+        "877",
+        "RB46",
+        "RB65",
+        null,
+        "RB43",
+        "RB46",
+        "RB49",
+        "RB65",
+        "RB93",
+        "RE1",
+        "RE2",
+        "RE10",
+        "RE13",
+        "RE18",
+        "RE20"
+      ]
+    },
+    "Cottbusser Platz": {
+      "id": "900175006",
+      "name": "U Cottbusser Platz (Berlin)",
+      "officialName": "U Cottbusser Platz (Berlin)",
+      "lat": 52.533967,
+      "lng": 13.596895,
+      "lines": [
+        "U5",
+        "195",
+        "N5"
+      ]
+    },
+    "Dahlem-Dorf": {
+      "id": "900051303",
+      "name": "U Dahlem-Dorf (Berlin)",
+      "officialName": "U Dahlem-Dorf (Berlin)",
+      "lat": 52.457694,
+      "lng": 13.290012,
+      "lines": [
+        "U3",
+        "110",
+        "M11",
+        "N3",
+        "N10",
+        "X83"
+      ]
+    },
+    "Dahlewitz": {
+      "id": "900245026",
+      "name": "Dahlewitz, Bahnhof",
+      "officialName": "Dahlewitz, Bahnhof",
+      "lat": 52.326343,
+      "lng": 13.419825,
+      "lines": [
+        "713",
+        "792",
+        "797",
+        "RB10",
+        "RB24",
+        "RE8",
+        "RB10",
+        "RB24",
+        "RE8"
+      ]
+    },
+    "Dessau": {
+      "id": "900170518",
+      "name": "Paul-Dessau-Str. (Berlin)",
+      "officialName": "Paul-Dessau-Str. (Berlin)",
+      "lat": 52.548701,
+      "lng": 13.554807,
+      "lines": [
+        "154"
+      ]
+    },
+    "Deutsche": {
+      "id": "900022201",
+      "name": "U Deutsche Oper (Berlin)",
+      "officialName": "U Deutsche Oper (Berlin)",
+      "lat": 52.511827,
+      "lng": 13.30942,
+      "lines": [
+        "U2",
+        "N2"
+      ]
+    },
+    "Eberswalder Str.": {
+      "id": "900110006",
+      "name": "U Eberswalder Str. (Berlin)",
+      "officialName": "U Eberswalder Str. (Berlin)",
+      "lat": 52.541024,
+      "lng": 13.412157,
+      "lines": [
+        "U2",
+        "12",
+        "M1",
+        "M10",
+        "N2"
+      ]
+    },
+    "Eichborndamm": {
+      "id": "900096405",
+      "name": "S Eichborndamm (Berlin)",
+      "officialName": "S Eichborndamm (Berlin)",
+      "lat": 52.577547,
+      "lng": 13.315586,
+      "lines": [
+        "S25",
+        "221",
+        "322"
+      ]
+    },
+    "Eichwalde": {
+      "id": "900260004",
+      "name": "S Eichwalde",
+      "officialName": "S Eichwalde",
+      "lat": 52.371604,
+      "lng": 13.614918,
+      "lines": [
+        "S8",
+        "S8",
+        "S46",
+        "731",
+        "734",
+        "738"
+      ]
+    },
+    "Eisenacher": {
+      "id": "900054103",
+      "name": "U Eisenacher Str. (Berlin)",
+      "officialName": "U Eisenacher Str. (Berlin)",
+      "lat": 52.48948,
+      "lng": 13.350285,
+      "lines": [
+        "U7",
+        "N7"
+      ]
+    },
+    "Eisenhüttenstadt": {
+      "id": "900311307",
+      "name": "Eisenhüttenstadt, Bahnhof",
+      "officialName": "Eisenhüttenstadt, Bahnhof",
+      "lat": 52.1478,
+      "lng": 14.658323,
+      "lines": [
+        "400",
+        "401",
+        "451",
+        "452",
+        "453",
+        "458",
+        "460",
+        "461",
+        "463",
+        "464",
+        "RE1",
+        "RB43",
+        "RE1",
+        "RE10"
+      ]
+    },
+    "Elstal DallgowDöberitz": {
+      "id": "900210685",
+      "name": "Dallgow-Döberitz, Kastanienstr.",
+      "officialName": "Dallgow-Döberitz, Kastanienstr.",
+      "lat": 52.540071,
+      "lng": 13.066891,
+      "lines": [
+        "670"
+      ]
+    },
+    "Elsterwerdaer Platz": {
+      "id": "900171006",
+      "name": "U Elsterwerdaer Platz (Berlin)",
+      "officialName": "U Elsterwerdaer Platz (Berlin)",
+      "lat": 52.50513,
+      "lng": 13.56065,
+      "lines": [
+        "U5",
+        "108",
+        "154",
+        "169",
+        "190",
+        "398",
+        "X69"
+      ]
+    },
+    "Ernst-ReuterPlatz": {
+      "id": "900023101",
+      "name": "U Ernst-Reuter-Platz (Berlin)",
+      "officialName": "U Ernst-Reuter-Platz (Berlin)",
+      "lat": 52.511584,
+      "lng": 13.32258,
+      "lines": [
+        "U2",
+        "245",
+        "M45",
+        "N2"
+      ]
+    },
+    "Falkensee": {
+      "id": "900210010",
+      "name": "Falkensee, Bahnhof",
+      "officialName": "Falkensee, Bahnhof",
+      "lat": 52.559721,
+      "lng": 13.089553,
+      "lines": [
+        "604",
+        "651",
+        "652",
+        "653",
+        "654",
+        "655",
+        "656",
+        "F",
+        "R",
+        "X37",
+        "RB10",
+        "RB14",
+        "RB21",
+        "RE2",
+        "RE6",
+        "RE8"
+      ]
+    },
+    "Fangschleuse": {
+      "id": "900310852",
+      "name": "Grünheide, Fangschleuse Schlößchen",
+      "officialName": "Grünheide, Fangschleuse Schlößchen",
+      "lat": 52.42118,
+      "lng": 13.794118,
+      "lines": [
+        "419",
+        "426",
+        "427",
+        "429"
+      ]
+    },
+    "Fehrbelliner Platz": {
+      "id": "900041101",
+      "name": "U Fehrbelliner Platz (Berlin)",
+      "officialName": "U Fehrbelliner Platz (Berlin)",
+      "lat": 52.490361,
+      "lng": 13.314409,
+      "lines": [
+        "U3",
+        "U7",
+        "101",
+        "115",
+        "143",
+        "N3",
+        "N7",
+        "N43"
+      ]
+    },
+    "Feuerbachstr.": {
+      "id": "900063101",
+      "name": "S Feuerbachstr. (Berlin)",
+      "officialName": "S Feuerbachstr. (Berlin)",
+      "lat": 52.463582,
+      "lng": 13.332414,
+      "lines": [
+        "S1",
+        "181",
+        "M76",
+        "N81",
+        "U9"
+      ]
+    },
+    "Finkenkrug": {
+      "id": "900210011",
+      "name": "Finkenkrug, Bahnhof",
+      "officialName": "Finkenkrug, Bahnhof",
+      "lat": 52.568845,
+      "lng": 13.05187,
+      "lines": [
+        "653",
+        "654",
+        "656",
+        "F",
+        "RB10",
+        "RB14",
+        "RB21",
+        "RE2",
+        "RE6",
+        "RE8"
+      ]
+    },
+    "Flughafen BER": {
+      "id": "900260009",
+      "name": "Flughafen BER",
+      "officialName": "Flughafen BER",
+      "lat": 52.36461,
+      "lng": 13.50987,
+      "lines": [
+        "S9",
+        "S85",
+        "S85",
+        "263",
+        "735",
+        "736",
+        "741",
+        "BER2",
+        "N7",
+        "N7X",
+        "N36",
+        "N60",
+        "RB22",
+        "RB24",
+        "RB32",
+        "S9X",
+        "X7",
+        "X71",
+        null,
+        "FEX",
+        "RB22",
+        "RB24",
+        "RB32",
+        "RE20"
+      ]
+    },
+    "Frankfurt (Oder)": {
+      "id": "900360000",
+      "name": "Frankfurt (Oder), Bahnhof",
+      "officialName": "Frankfurt (Oder), Bahnhof",
+      "lat": 52.336708,
+      "lng": 14.547144,
+      "lines": [
+        "1",
+        "3",
+        "4",
+        "5",
+        "462",
+        "968",
+        "969",
+        "970",
+        "980",
+        "981",
+        "982",
+        "983",
+        "984",
+        "988",
+        "N1",
+        "N2",
+        "RB36",
+        "RB60",
+        "RE1",
+        null,
+        "RB36",
+        "RB43",
+        "RB60",
+        "RB91",
+        "RE1",
+        "RE10"
+      ]
+    },
+    "Frankfurter": {
+      "id": "900120001",
+      "name": "S+U Frankfurter Allee (Berlin)",
+      "officialName": "S+U Frankfurter Allee (Berlin)",
+      "lat": 52.51358,
+      "lng": 13.475846,
+      "lines": [
+        "S8",
+        "S41",
+        "S42",
+        "S85",
+        "S85",
+        "U5",
+        "16",
+        "16",
+        "M13",
+        "N5"
+      ]
+    },
+    "Frankfurter Tor": {
+      "id": "900120008",
+      "name": "U Frankfurter Tor (Berlin)",
+      "officialName": "U Frankfurter Tor (Berlin)",
+      "lat": 52.515773,
+      "lng": 13.454083,
+      "lines": [
+        "U5",
+        "21",
+        "M10",
+        "N5"
+      ]
+    },
+    "Franz-Neumann-Platz": {
+      "id": "900085202",
+      "name": "U Franz-Neumann-Platz (Am Schäfersee) (Berlin)",
+      "officialName": "U Franz-Neumann-Platz (Am Schäfersee) (Berlin)",
+      "lat": 52.563856,
+      "lng": 13.364281,
+      "lines": [
+        "U8",
+        "128",
+        "250",
+        "327",
+        "N8"
+      ]
+    },
+    "Fredersdorf": {
+      "id": "900320006",
+      "name": "S Fredersdorf",
+      "officialName": "S Fredersdorf",
+      "lat": 52.526299,
+      "lng": 13.761074,
+      "lines": [
+        "S5",
+        "933",
+        "948",
+        "949",
+        "951"
+      ]
+    },
+    "Freie Universität": {
+      "id": "900051201",
+      "name": "U Freie Universität (Thielplatz) (Berlin)",
+      "officialName": "U Freie Universität (Thielplatz) (Berlin)",
+      "lat": 52.450997,
+      "lng": 13.281652,
+      "lines": [
+        "U3",
+        "110",
+        "N3"
+      ]
+    },
+    "Friedenau": {
+      "id": "900060101",
+      "name": "S Friedenau (Berlin)",
+      "officialName": "S Friedenau (Berlin)",
+      "lat": 52.47,
+      "lng": 13.340594,
+      "lines": [
+        "S1",
+        "143",
+        "187"
+      ]
+    },
+    "Friedrich-Wilhelm-Platz": {
+      "id": "900061102",
+      "name": "U Friedrich-Wilhelm-Platz (Berlin)",
+      "officialName": "U Friedrich-Wilhelm-Platz (Berlin)",
+      "lat": 52.471438,
+      "lng": 13.328675,
+      "lines": [
+        "U9",
+        "186",
+        "246",
+        "N9",
+        "U9"
+      ]
+    },
+    "Friedrichsfelde": {
+      "id": "900171002",
+      "name": "S Friedrichsfelde Ost (Berlin)",
+      "officialName": "S Friedrichsfelde Ost (Berlin)",
+      "lat": 52.513535,
+      "lng": 13.519075,
+      "lines": [
+        "S5",
+        "S7",
+        "S75",
+        "21",
+        "21",
+        "27",
+        "37",
+        "67",
+        "M17",
+        "192",
+        "194"
+      ]
+    },
+    "Friedrichsfelde Ost": {
+      "id": "900171002",
+      "name": "S Friedrichsfelde Ost (Berlin)",
+      "officialName": "S Friedrichsfelde Ost (Berlin)",
+      "lat": 52.513535,
+      "lng": 13.519075,
+      "lines": [
+        "S5",
+        "S7",
+        "S75",
+        "21",
+        "21",
+        "27",
+        "37",
+        "67",
+        "M17",
+        "192",
+        "194"
+      ]
+    },
+    "Friedrichshagen": {
+      "id": "900182002",
+      "name": "S Friedrichshagen (Berlin)",
+      "officialName": "S Friedrichshagen (Berlin)",
+      "lat": 52.45719,
+      "lng": 13.62548,
+      "lines": [
+        "S3",
+        "60",
+        "61",
+        "88",
+        "N65"
+      ]
+    },
+    "Friedrichstr.": {
+      "id": "900100001",
+      "name": "S+U Friedrichstr. Bhf (Berlin)",
+      "officialName": "S+U Friedrichstr. Bhf (Berlin)",
+      "lat": 52.520304,
+      "lng": 13.387257,
+      "lines": [
+        "S1",
+        "S2",
+        "S3",
+        "S5",
+        "S7",
+        "S9",
+        "S25",
+        "S26",
+        "S75",
+        "U6",
+        "12",
+        "M1",
+        "147",
+        "245",
+        "M1",
+        "N6",
+        "FEX",
+        "HBX",
+        "RB14",
+        "RB21",
+        "RB23",
+        "RE1",
+        "RE2",
+        "RE7"
+      ]
+    },
+    "Frohnau": {
+      "id": "900092201",
+      "name": "S Frohnau (Berlin)",
+      "officialName": "S Frohnau (Berlin)",
+      "lat": 52.632956,
+      "lng": 13.289563,
+      "lines": [
+        "S1",
+        "S85",
+        "125",
+        "220",
+        "809",
+        "N20"
+      ]
+    },
+    "Gehrenseestr.": {
+      "id": "900152002",
+      "name": "S Gehrenseestr. (Berlin)",
+      "officialName": "S Gehrenseestr. (Berlin)",
+      "lat": 52.555739,
+      "lng": 13.525655,
+      "lines": [
+        "S75",
+        "294",
+        "N56"
+      ]
+    },
+    "Gesundbrunnen": {
+      "id": "900007102",
+      "name": "S+U Gesundbrunnen Bhf (Berlin)",
+      "officialName": "S+U Gesundbrunnen Bhf (Berlin)",
+      "lat": 52.548638,
+      "lng": 13.388372,
+      "lines": [
+        "S1",
+        "S2",
+        "S25",
+        "S26",
+        "S41",
+        "S42",
+        "S46",
+        "S85",
+        "S85",
+        "U8",
+        "247",
+        "N8",
+        "S1",
+        "S41",
+        "S42",
+        null,
+        "FEX",
+        "RB10",
+        "RB21",
+        "RB24",
+        "RB27",
+        "RB63",
+        "RE1",
+        "RE2",
+        "RE3",
+        "RE4",
+        "RE5",
+        "RE5",
+        "RE6",
+        "RE7",
+        "RE8",
+        "RE85"
+      ]
+    },
+    "GleisdreieckBülowstr.": {
+      "id": "900017103",
+      "name": "U Gleisdreieck (Berlin)",
+      "officialName": "U Gleisdreieck (Berlin)",
+      "lat": 52.499583,
+      "lng": 13.374295,
+      "lines": [
+        "U1",
+        "U2",
+        "U3"
+      ]
+    },
+    "Gneisenaustr. Südstern": {
+      "id": "900016153",
+      "name": "Gneisenaustr./Baerwaldstr. (Berlin)",
+      "officialName": "Gneisenaustr./Baerwaldstr. (Berlin)",
+      "lat": 52.490388,
+      "lng": 13.400211,
+      "lines": [
+        "140",
+        "N7"
+      ]
+    },
+    "Golm": {
+      "id": "900220010",
+      "name": "Potsdam, Golm Bhf",
+      "officialName": "Potsdam, Golm Bhf",
+      "lat": 52.410536,
+      "lng": 12.972099,
+      "lines": [
+        "605",
+        "612",
+        "612",
+        "695",
+        "698",
+        "N14",
+        "RB20",
+        "RB21",
+        "X5",
+        "RB20",
+        "RB21",
+        "RB22",
+        "RB23"
+      ]
+    },
+    "Greifswalder Str.": {
+      "id": "900110003",
+      "name": "S Greifswalder Str. (Berlin)",
+      "officialName": "S Greifswalder Str. (Berlin)",
+      "lat": 52.540727,
+      "lng": 13.438352,
+      "lines": [
+        "S2",
+        "S8",
+        "S8",
+        "S41",
+        "S42",
+        "S85",
+        "S85",
+        "M4",
+        "158",
+        "S41",
+        "S42"
+      ]
+    },
+    "Grenzallee": {
+      "id": "900080202",
+      "name": "U Grenzallee (Berlin)",
+      "officialName": "U Grenzallee (Berlin)",
+      "lat": 52.463519,
+      "lng": 13.444824,
+      "lines": [
+        "U7",
+        "171",
+        "246",
+        "N7"
+      ]
+    },
+    "Griebnitzsee": {
+      "id": "900230003",
+      "name": "S Griebnitzsee Bhf",
+      "officialName": "S Griebnitzsee Bhf",
+      "lat": 52.393942,
+      "lng": 13.128808,
+      "lines": [
+        "S7",
+        "616",
+        "694",
+        "696",
+        "N17",
+        "RE7",
+        "S7",
+        "RB20",
+        "RB21",
+        "RB22",
+        "RB23"
+      ]
+    },
+    "Großbeeren": {
+      "id": "900245032",
+      "name": "Großbeeren, Bahnhof",
+      "officialName": "Großbeeren, Bahnhof",
+      "lat": 52.350021,
+      "lng": 13.284358,
+      "lines": [
+        "703",
+        "711",
+        "RE3",
+        "RE4",
+        "RE3",
+        "RE4"
+      ]
+    },
+    "Großgörschenstr.": {
+      "id": "900057102",
+      "name": "S+U Yorckstr. (Großgörschenstr.) (Berlin)",
+      "officialName": "S+U Yorckstr. (Großgörschenstr.) (Berlin)",
+      "lat": 52.493138,
+      "lng": 13.368479,
+      "lines": [
+        "S1",
+        "S2",
+        "S25",
+        "S26",
+        "U7",
+        "M19",
+        "N7"
+      ]
+    },
+    "Grünbergallee": {
+      "id": "900196001",
+      "name": "S Grünbergallee (Berlin)",
+      "officialName": "S Grünbergallee (Berlin)",
+      "lat": 52.399543,
+      "lng": 13.54322,
+      "lines": [
+        "S9",
+        "S85",
+        "S85",
+        "163",
+        "S9",
+        "S9A"
+      ]
+    },
+    "Gärten der Welt": {
+      "id": "900175005",
+      "name": "U Kienberg (Gärten der Welt) (Berlin)",
+      "officialName": "U Kienberg (Gärten der Welt) (Berlin)",
+      "lat": 52.528484,
+      "lng": 13.590539,
+      "lines": [
+        "U5",
+        "197",
+        "N5"
+      ]
+    },
+    "Güntzelstr.": {
+      "id": "900043201",
+      "name": "U Güntzelstr. (Berlin)",
+      "officialName": "U Güntzelstr. (Berlin)",
+      "lat": 52.49197,
+      "lng": 13.331084,
+      "lines": [
+        "U9",
+        "N7X",
+        "N9"
+      ]
+    },
+    "Halemweg": {
+      "id": "900018102",
+      "name": "U Halemweg (Berlin)",
+      "officialName": "U Halemweg (Berlin)",
+      "lat": 52.5367,
+      "lng": 13.286578,
+      "lines": [
+        "U7",
+        "123"
+      ]
+    },
+    "Halensee": {
+      "id": "900040101",
+      "name": "S Halensee (Berlin)",
+      "officialName": "S Halensee (Berlin)",
+      "lat": 52.496698,
+      "lng": 13.290147,
+      "lines": [
+        "S41",
+        "S42",
+        "S46",
+        "S47",
+        "143",
+        "M19",
+        "M29",
+        "N43",
+        "X10"
+      ]
+    },
+    "Hallesches": {
+      "id": "900012103",
+      "name": "U Hallesches Tor (Berlin)",
+      "officialName": "U Hallesches Tor (Berlin)",
+      "lat": 52.497777,
+      "lng": 13.391761,
+      "lines": [
+        "U1",
+        "U3",
+        "U6",
+        "248",
+        "M41",
+        "N1",
+        "N6",
+        "N42"
+      ]
+    },
+    "Hansaplatz": {
+      "id": "900003101",
+      "name": "U Hansaplatz (Berlin)",
+      "officialName": "U Hansaplatz (Berlin)",
+      "lat": 52.518092,
+      "lng": 13.342095,
+      "lines": [
+        "U9",
+        "106",
+        "N9",
+        "N26"
+      ]
+    },
+    "Hausvogteiplatz": {
+      "id": "900100012",
+      "name": "U Hausvogteiplatz (Berlin)",
+      "officialName": "U Hausvogteiplatz (Berlin)",
+      "lat": 52.513364,
+      "lng": 13.395348,
+      "lines": [
+        "U2"
+      ]
+    },
+    "Hegermühle": {
+      "id": "900320003",
+      "name": "S Hegermühle",
+      "officialName": "S Hegermühle",
+      "lat": 52.549042,
+      "lng": 13.866787,
+      "lines": [
+        "S5",
+        "923",
+        "926",
+        "927",
+        "929",
+        "931",
+        "937",
+        "955",
+        "966"
+      ]
+    },
+    "Heidelberger Platz": {
+      "id": "900045102",
+      "name": "S+U Heidelberger Platz (Berlin)",
+      "officialName": "S+U Heidelberger Platz (Berlin)",
+      "lat": 52.480122,
+      "lng": 13.312287,
+      "lines": [
+        "S41",
+        "S42",
+        "S46",
+        "S47",
+        "U3",
+        "215",
+        "249",
+        "N3"
+      ]
+    },
+    "Heiligensee": {
+      "id": "900091203",
+      "name": "S Heiligensee (Berlin)",
+      "officialName": "S Heiligensee (Berlin)",
+      "lat": 52.625145,
+      "lng": 13.22867,
+      "lines": [
+        "S25",
+        "124",
+        "N24"
+      ]
+    },
+    "HeinrichHeine-Str.": {
+      "id": "900100008",
+      "name": "U Heinrich-Heine-Str. (Berlin)",
+      "officialName": "U Heinrich-Heine-Str. (Berlin)",
+      "lat": 52.510559,
+      "lng": 13.416122,
+      "lines": [
+        "U8",
+        "165",
+        "265",
+        "N8",
+        "N60",
+        "N65"
+      ]
+    },
+    "Hellersdorf": {
+      "id": "900175007",
+      "name": "U Hellersdorf (Berlin)",
+      "officialName": "U Hellersdorf (Berlin)",
+      "lat": 52.536331,
+      "lng": 13.605327,
+      "lines": [
+        "U5",
+        "18",
+        "M6",
+        "195",
+        "N5",
+        "T9",
+        "X54"
+      ]
+    },
+    "Hermannplatz": {
+      "id": "900078101",
+      "name": "U Hermannplatz (Berlin)",
+      "officialName": "U Hermannplatz (Berlin)",
+      "lat": 52.486954,
+      "lng": 13.424724,
+      "lines": [
+        "U7",
+        "U8",
+        "171",
+        "194",
+        "M29",
+        "M41",
+        "N7",
+        "N8",
+        "N94"
+      ]
+    },
+    "Hermannstr.": {
+      "id": "900079221",
+      "name": "S+U Hermannstr. (Berlin)",
+      "officialName": "S+U Hermannstr. (Berlin)",
+      "lat": 52.467546,
+      "lng": 13.431295,
+      "lines": [
+        "S8",
+        "S41",
+        "S42",
+        "S46",
+        "S47",
+        "U8",
+        "246",
+        "277",
+        "377",
+        "M44",
+        "N8",
+        "N77"
+      ]
+    },
+    "Hermsdorf": {
+      "id": "900093201",
+      "name": "S Hermsdorf (Berlin)",
+      "officialName": "S Hermsdorf (Berlin)",
+      "lat": 52.618169,
+      "lng": 13.306804,
+      "lines": [
+        "S1",
+        "S85",
+        "326",
+        "806",
+        "N25"
+      ]
+    },
+    "Hirschgarten": {
+      "id": "900182001",
+      "name": "S Hirschgarten (Berlin)",
+      "officialName": "S Hirschgarten (Berlin)",
+      "lat": 52.457856,
+      "lng": 13.601461,
+      "lines": [
+        "S3"
+      ]
+    },
+    "Hohen Neuendorf": {
+      "id": "900200009",
+      "name": "S Hohen Neuendorf",
+      "officialName": "S Hohen Neuendorf",
+      "lat": 52.669444,
+      "lng": 13.287225,
+      "lines": [
+        "S1",
+        "S8",
+        "S8",
+        "S85",
+        "809",
+        "822"
+      ]
+    },
+    "Hohenschönhausen": {
+      "id": "900152001",
+      "name": "S Hohenschönhausen Bhf (Berlin)",
+      "officialName": "S Hohenschönhausen Bhf (Berlin)",
+      "lat": 52.565636,
+      "lng": 13.512324,
+      "lines": [
+        "S75",
+        "M4",
+        "M5",
+        "M17",
+        "154",
+        "197",
+        "256",
+        "893",
+        "893",
+        "N56",
+        "X54",
+        "RB12",
+        "RB24",
+        "RB32",
+        "RB54",
+        "RE8"
+      ]
+    },
+    "Hohenzollerndamm": {
+      "id": "900044101",
+      "name": "S Hohenzollerndamm (Berlin)",
+      "officialName": "S Hohenzollerndamm (Berlin)",
+      "lat": 52.488338,
+      "lng": 13.300718,
+      "lines": [
+        "S41",
+        "S42",
+        "S46",
+        "S47",
+        "115",
+        "N3",
+        "N10"
+      ]
+    },
+    "Hohenzollernplatz": {
+      "id": "900043101",
+      "name": "U Hohenzollernplatz (Berlin)",
+      "officialName": "U Hohenzollernplatz (Berlin)",
+      "lat": 52.49383,
+      "lng": 13.324054,
+      "lines": [
+        "U3",
+        "249",
+        "N3"
+      ]
+    },
+    "Holzhauser Str.": {
+      "id": "900097101",
+      "name": "Holzhauser Str./Schubartstr. (Berlin)",
+      "officialName": "Holzhauser Str./Schubartstr. (Berlin)",
+      "lat": 52.58206,
+      "lng": 13.305464,
+      "lines": [
+        "125",
+        "322",
+        "X33"
+      ]
+    },
+    "Hoppegarten": {
+      "id": "900320008",
+      "name": "S Hoppegarten",
+      "officialName": "S Hoppegarten",
+      "lat": 52.517832,
+      "lng": 13.673744,
+      "lines": [
+        "S5",
+        "940",
+        "942",
+        "943",
+        "944",
+        "945"
+      ]
+    },
+    "Jakob-Kaiser-Platz": {
+      "id": "900018101",
+      "name": "U Jakob-Kaiser-Platz (Berlin)",
+      "officialName": "U Jakob-Kaiser-Platz (Berlin)",
+      "lat": 52.536988,
+      "lng": 13.293662,
+      "lines": [
+        "U7",
+        "109",
+        "123",
+        "M21",
+        "N7",
+        "X21"
+      ]
+    },
+    "Jannowitzbrücke": {
+      "id": "900100004",
+      "name": "S+U Jannowitzbrücke (Berlin)",
+      "officialName": "S+U Jannowitzbrücke (Berlin)",
+      "lat": 52.515503,
+      "lng": 13.418027,
+      "lines": [
+        "S3",
+        "S5",
+        "S7",
+        "S9",
+        "S75",
+        "U8",
+        "300",
+        "N8",
+        "N40",
+        "N60",
+        "N65"
+      ]
+    },
+    "Johannisthal": {
+      "id": "900193001",
+      "name": "S Johannisthal (Berlin)",
+      "officialName": "S Johannisthal (Berlin)",
+      "lat": 52.446691,
+      "lng": 13.524028,
+      "lines": [
+        "S8",
+        "S9",
+        "S41",
+        "S42",
+        "S46",
+        "S47",
+        "S85",
+        "S85",
+        "61",
+        "62",
+        "63",
+        "M17",
+        "S9",
+        "S9A",
+        "S46"
+      ]
+    },
+    "Johannisthaler Chaussee": {
+      "id": "900082202",
+      "name": "U Johannisthaler Chaussee (Berlin)",
+      "officialName": "U Johannisthaler Chaussee (Berlin)",
+      "lat": 52.429252,
+      "lng": 13.453849,
+      "lines": [
+        "U7",
+        "172",
+        "M11",
+        "N7",
+        "X11",
+        "X71"
+      ]
+    },
+    "JuliusLeber-Brücke": {
+      "id": "900057104",
+      "name": "S Julius-Leber-Brücke (Berlin)",
+      "officialName": "S Julius-Leber-Brücke (Berlin)",
+      "lat": 52.486261,
+      "lng": 13.360775,
+      "lines": [
+        "S1",
+        "106",
+        "204",
+        "M43"
+      ]
+    },
+    "Jungfernheide": {
+      "id": "900020201",
+      "name": "S+U Jungfernheide Bhf (Berlin)",
+      "officialName": "S+U Jungfernheide Bhf (Berlin)",
+      "lat": 52.530452,
+      "lng": 13.300125,
+      "lines": [
+        "S41",
+        "S42",
+        "S46",
+        "U7",
+        "109",
+        "M21",
+        "M27",
+        "N7",
+        "X21",
+        "RB10",
+        "RB21",
+        "RE2",
+        "RE4",
+        "RE8"
+      ]
+    },
+    "Jüterbog Beelitz Stadt": {
+      "id": "900245164",
+      "name": "Jüterbog, Zinnaer Vorstadt",
+      "officialName": "Jüterbog, Zinnaer Vorstadt",
+      "lat": 51.996826,
+      "lng": 13.086038,
+      "lines": [
+        "753",
+        "754",
+        "758",
+        "761",
+        "763",
+        "765",
+        "768",
+        "769"
+      ]
+    },
+    "Jüterbog/Falkenberg": {
+      "id": "900245305",
+      "name": "Jüterbog, Kapellenberg",
+      "officialName": "Jüterbog, Kapellenberg",
+      "lat": 52.001545,
+      "lng": 13.068599,
+      "lines": [
+        "549",
+        "753",
+        "758"
+      ]
+    },
+    "Kablow": {
+      "id": "900260012",
+      "name": "Kablow, Bahnhof",
+      "officialName": "Kablow, Bahnhof",
+      "lat": 52.300068,
+      "lng": 13.721485,
+      "lines": [
+        "723",
+        "RB36",
+        "RB36"
+      ]
+    },
+    "Kaiserdamm": {
+      "id": "900026202",
+      "name": "U Kaiserdamm (Berlin)",
+      "officialName": "U Kaiserdamm (Berlin)",
+      "lat": 52.509984,
+      "lng": 13.281697,
+      "lines": [
+        "S41",
+        "S42",
+        "S46",
+        "U2",
+        "139",
+        "143",
+        "218",
+        "349",
+        "M49",
+        "N2",
+        "N43",
+        "S3",
+        "S7",
+        "X34",
+        "X49"
+      ]
+    },
+    "Kaiserin-Augusta-Str.": {
+      "id": "900068302",
+      "name": "U Kaiserin-Augusta-Str. (Berlin)",
+      "officialName": "U Kaiserin-Augusta-Str. (Berlin)",
+      "lat": 52.460516,
+      "lng": 13.384902,
+      "lines": [
+        "U6",
+        "184",
+        "N6"
+      ]
+    },
+    "Karl-BonhoefferNervenklinik": {
+      "id": "900096458",
+      "name": "S+U Karl-Bonhoeffer-Nervenklinik (Berlin)",
+      "officialName": "S+U Karl-Bonhoeffer-Nervenklinik (Berlin)",
+      "lat": 52.578167,
+      "lng": 13.332917,
+      "lines": [
+        "S25",
+        "U8",
+        "M21",
+        "N8",
+        "X21"
+      ]
+    },
+    "Karl-MarxStr.": {
+      "id": "900078103",
+      "name": "U Karl-Marx-Str. (Berlin)",
+      "officialName": "U Karl-Marx-Str. (Berlin)",
+      "lat": 52.476427,
+      "lng": 13.439808,
+      "lines": [
+        "U7",
+        "N7"
+      ]
+    },
+    "Karlshorst": {
+      "id": "900162001",
+      "name": "S Karlshorst (Berlin)",
+      "officialName": "S Karlshorst (Berlin)",
+      "lat": 52.481111,
+      "lng": 13.525853,
+      "lines": [
+        "S3",
+        "21",
+        "21",
+        "27",
+        "37",
+        "67",
+        "M17",
+        "296",
+        "396",
+        "N40"
+      ]
+    },
+    "Kaulsdorf-Nord": {
+      "id": "900175004",
+      "name": "U Kaulsdorf-Nord (Berlin)",
+      "officialName": "U Kaulsdorf-Nord (Berlin)",
+      "lat": 52.521436,
+      "lng": 13.588759,
+      "lines": [
+        "U5",
+        "191",
+        "197",
+        "269",
+        "291",
+        "N5",
+        "N91"
+      ]
+    },
+    "Kienberg": {
+      "id": "900175005",
+      "name": "U Kienberg (Gärten der Welt) (Berlin)",
+      "officialName": "U Kienberg (Gärten der Welt) (Berlin)",
+      "lat": 52.528484,
+      "lng": 13.590539,
+      "lines": [
+        "U5",
+        "197",
+        "N5"
+      ]
+    },
+    "Klosterstr.": {
+      "id": "900100015",
+      "name": "U Klosterstr. (Berlin)",
+      "officialName": "U Klosterstr. (Berlin)",
+      "lat": 52.517229,
+      "lng": 13.412454,
+      "lines": [
+        "U2",
+        "248",
+        "300"
+      ]
+    },
+    "Kochstr.": {
+      "id": "900012102",
+      "name": "U Kochstr. (Checkpoint Charlie) (Berlin)",
+      "officialName": "U Kochstr. (Checkpoint Charlie) (Berlin)",
+      "lat": 52.506676,
+      "lng": 13.390862,
+      "lines": [
+        "U6",
+        "M29",
+        "N6"
+      ]
+    },
+    "Konstanzer Str.": {
+      "id": "900041201",
+      "name": "U Konstanzer Str. (Berlin)",
+      "officialName": "U Konstanzer Str. (Berlin)",
+      "lat": 52.49357,
+      "lng": 13.310085,
+      "lines": [
+        "U7",
+        "101",
+        "N7"
+      ]
+    },
+    "Kostrzyn (Küstrin)": {
+      "id": "900810003",
+      "name": "Kostrzyn (PL), Bahnhof",
+      "officialName": "Kostrzyn (PL), Bahnhof",
+      "lat": 52.591453,
+      "lng": 14.646907,
+      "lines": [
+        "Bsv",
+        "RB26",
+        null,
+        "R",
+        "RB26"
+      ]
+    },
+    "Kottbusser": {
+      "id": "900013102",
+      "name": "U Kottbusser Tor (Berlin)",
+      "officialName": "U Kottbusser Tor (Berlin)",
+      "lat": 52.499044,
+      "lng": 13.417749,
+      "lines": [
+        "U1",
+        "U3",
+        "U8",
+        "140",
+        "N1",
+        "N8"
+      ]
+    },
+    "KremmenWittenberge": {
+      "id": "900216022",
+      "name": "Wittenberge, Akazienweg",
+      "officialName": "Wittenberge, Akazienweg",
+      "lat": 53.014665,
+      "lng": 11.742968,
+      "lines": [
+        "945",
+        "957",
+        "973"
+      ]
+    },
+    "Kurfürstendamm": {
+      "id": "900023203",
+      "name": "U Kurfürstendamm (Berlin)",
+      "officialName": "U Kurfürstendamm (Berlin)",
+      "lat": 52.503763,
+      "lng": 13.331416,
+      "lines": [
+        "U1",
+        "U9",
+        "109",
+        "110",
+        "204",
+        "249",
+        "M19",
+        "M29",
+        "M46",
+        "N1",
+        "N2",
+        "N3",
+        "N7X",
+        "N9",
+        "N10",
+        "N26",
+        "X10"
+      ]
+    },
+    "Kurfürstenstr.": {
+      "id": "900005201",
+      "name": "U Kurfürstenstr. (Berlin)",
+      "officialName": "U Kurfürstenstr. (Berlin)",
+      "lat": 52.499781,
+      "lng": 13.362861,
+      "lines": [
+        "U1",
+        "U3",
+        "106",
+        "187",
+        "M48",
+        "M85",
+        "N1",
+        "N2"
+      ]
+    },
+    "Kurt-Schumacher-Platz": {
+      "id": "900086102",
+      "name": "U Kurt-Schumacher-Platz (Berlin)",
+      "officialName": "U Kurt-Schumacher-Platz (Berlin)",
+      "lat": 52.563479,
+      "lng": 13.327326,
+      "lines": [
+        "U6",
+        "122",
+        "125",
+        "128",
+        "221",
+        "M21",
+        "N6",
+        "U6",
+        "X21"
+      ]
+    },
+    "Köllnische Heide": {
+      "id": "900077155",
+      "name": "S Köllnische Heide (Berlin)",
+      "officialName": "S Köllnische Heide (Berlin)",
+      "lat": 52.469164,
+      "lng": 13.467531,
+      "lines": [
+        "S41",
+        "S42",
+        "S46",
+        "S47",
+        "246",
+        "377",
+        "M41",
+        "N77",
+        "S46"
+      ]
+    },
+    "Landsberger Allee": {
+      "id": "900110004",
+      "name": "S Landsberger Allee (Berlin)",
+      "officialName": "S Landsberger Allee (Berlin)",
+      "lat": 52.528771,
+      "lng": 13.455944,
+      "lines": [
+        "S8",
+        "S41",
+        "S42",
+        "S85",
+        "S85",
+        "18",
+        "M4",
+        "M5",
+        "M6",
+        "M6",
+        "M8",
+        "M10",
+        "156"
+      ]
+    },
+    "Lankwitz": {
+      "id": "900067221",
+      "name": "S Lankwitz (Berlin)",
+      "officialName": "S Lankwitz (Berlin)",
+      "lat": 52.439032,
+      "lng": 13.342761,
+      "lines": [
+        "S25",
+        "S26",
+        "181",
+        "187",
+        "283",
+        "284",
+        "M82",
+        "N81",
+        "X83"
+      ]
+    },
+    "Lehnitz": {
+      "id": "900200006",
+      "name": "S Lehnitz",
+      "officialName": "S Lehnitz",
+      "lat": 52.741393,
+      "lng": 13.263278,
+      "lines": [
+        "S1",
+        "S8",
+        "S85"
+      ]
+    },
+    "Leinestr.": {
+      "id": "900079201",
+      "name": "U Leinestr. (Berlin)",
+      "officialName": "U Leinestr. (Berlin)",
+      "lat": 52.472877,
+      "lng": 13.428401,
+      "lines": [
+        "U8",
+        "N8"
+      ]
+    },
+    "Leopoldplatz": {
+      "id": "900009102",
+      "name": "U Leopoldplatz (Berlin)",
+      "officialName": "U Leopoldplatz (Berlin)",
+      "lat": 52.546489,
+      "lng": 13.359391,
+      "lines": [
+        "U6",
+        "U9",
+        "120",
+        "142",
+        "147",
+        "221",
+        "247",
+        "327",
+        "N6",
+        "N9",
+        "N20"
+      ]
+    },
+    "Lichtenrade": {
+      "id": "900074201",
+      "name": "S Lichtenrade (Berlin)",
+      "officialName": "S Lichtenrade (Berlin)",
+      "lat": 52.387164,
+      "lng": 13.396408,
+      "lines": [
+        "S2",
+        "172",
+        "175",
+        "275",
+        "743",
+        "M76"
+      ]
+    },
+    "Lichterfelde Ost": {
+      "id": "900064301",
+      "name": "S Lichterfelde Ost Bhf (Berlin)",
+      "officialName": "S Lichterfelde Ost Bhf (Berlin)",
+      "lat": 52.429297,
+      "lng": 13.327749,
+      "lines": [
+        "S25",
+        "S26",
+        "184",
+        "284",
+        "M11",
+        "N84",
+        "RE3",
+        "X11",
+        "RE3",
+        "RE4"
+      ]
+    },
+    "Lichterfelde Süd": {
+      "id": "900064201",
+      "name": "S Lichterfelde Süd (Berlin)",
+      "officialName": "S Lichterfelde Süd (Berlin)",
+      "lat": 52.409952,
+      "lng": 13.308665,
+      "lines": [
+        "S25",
+        "S26",
+        "186",
+        "284",
+        "M85",
+        "N88"
+      ]
+    },
+    "Lichterfelde West": {
+      "id": "900066101",
+      "name": "S Lichterfelde West (Berlin)",
+      "officialName": "S Lichterfelde West (Berlin)",
+      "lat": 52.443509,
+      "lng": 13.294138,
+      "lines": [
+        "S1",
+        "101",
+        "188",
+        "M11",
+        "M48",
+        "N88",
+        "S1"
+      ]
+    },
+    "Lindauer Allee": {
+      "id": "900086160",
+      "name": "U Lindauer Allee (Berlin)",
+      "officialName": "U Lindauer Allee (Berlin)",
+      "lat": 52.57539,
+      "lng": 13.339039,
+      "lines": [
+        "U8",
+        "322",
+        "N8"
+      ]
+    },
+    "Lipschitzallee": {
+      "id": "900082201",
+      "name": "U Lipschitzallee (Berlin)",
+      "officialName": "U Lipschitzallee (Berlin)",
+      "lat": 52.424649,
+      "lng": 13.463108,
+      "lines": [
+        "U7",
+        "172",
+        "744",
+        "M11",
+        "N7",
+        "X71"
+      ]
+    },
+    "Louis-Lewin-Str.": {
+      "id": "900175015",
+      "name": "U Louis-Lewin-Str. (Berlin)",
+      "officialName": "U Louis-Lewin-Str. (Berlin)",
+      "lat": 52.539136,
+      "lng": 13.619709,
+      "lines": [
+        "U5",
+        "195",
+        "N5"
+      ]
+    },
+    "Ludwigsfelde": {
+      "id": "900245029",
+      "name": "Ludwigsfelde, Bahnhof",
+      "officialName": "Ludwigsfelde, Bahnhof",
+      "lat": 52.299214,
+      "lng": 13.267602,
+      "lines": [
+        "621",
+        "701",
+        "702",
+        "705",
+        "708",
+        "710",
+        "714",
+        "715",
+        "720",
+        "721",
+        "750",
+        "751",
+        "RB22",
+        "RB32",
+        "RE3",
+        "RE4",
+        "X19",
+        null,
+        "RB32",
+        "RE3",
+        "RE4"
+      ]
+    },
+    "Ludwigsfelde-Struveshof": {
+      "id": "900245836",
+      "name": "Ludwigsfelde, Struveshof Bhf",
+      "officialName": "Ludwigsfelde, Struveshof Bhf",
+      "lat": 52.317273,
+      "lng": 13.232616,
+      "lines": [
+        "621",
+        "705",
+        "708",
+        "715",
+        "721",
+        "751",
+        "RB22",
+        "X19",
+        "RB22"
+      ]
+    },
+    "Luftbrücke": {
+      "id": "900017102",
+      "name": "U Platz der Luftbrücke (Berlin)",
+      "officialName": "U Platz der Luftbrücke (Berlin)",
+      "lat": 52.484868,
+      "lng": 13.385927,
+      "lines": [
+        "U6",
+        "248",
+        "M43",
+        "N6",
+        "N42"
+      ]
+    },
+    "Lutherstadt Wittenberg": {
+      "id": "900550093",
+      "name": "Lutherstadt Wittenberg, Hauptbahnhof",
+      "officialName": "Lutherstadt Wittenberg, Hauptbahnhof",
+      "lat": 51.867534,
+      "lng": 12.661999,
+      "lines": [
+        "RE3",
+        null,
+        "RB51",
+        "RE3",
+        "RE14"
+      ]
+    },
+    "Lübbenau/": {
+      "id": "900435602",
+      "name": "Lübbenau, Bahnhof",
+      "officialName": "Lübbenau, Bahnhof",
+      "lat": 51.862113,
+      "lng": 13.962171,
+      "lines": [
+        "601",
+        "602",
+        "603",
+        "604",
+        "606",
+        "607",
+        "661",
+        null,
+        "RE2",
+        "RE7",
+        "RE20"
+      ]
+    },
+    "Magdalenenstr.": {
+      "id": "900160005",
+      "name": "U Magdalenenstr. (Berlin)",
+      "officialName": "U Magdalenenstr. (Berlin)",
+      "lat": 52.512456,
+      "lng": 13.487496,
+      "lines": [
+        "U5",
+        "240",
+        "N5",
+        "N50",
+        "N56",
+        "N94"
+      ]
+    },
+    "Magdeburg": {
+      "id": "900550094",
+      "name": "Magdeburg, Hauptbahnhof",
+      "officialName": "Magdeburg, Hauptbahnhof",
+      "lat": 52.130199,
+      "lng": 11.627439,
+      "lines": [
+        "S1",
+        "RE1",
+        "S1",
+        null,
+        "HBX",
+        "RE1",
+        "RE14"
+      ]
+    },
+    "Mahlow": {
+      "id": "900245028",
+      "name": "S Mahlow",
+      "officialName": "S Mahlow",
+      "lat": 52.360161,
+      "lng": 13.408777,
+      "lines": [
+        "S2",
+        "600",
+        "794",
+        "797"
+      ]
+    },
+    "Marienfelde": {
+      "id": "900073101",
+      "name": "S Marienfelde (Berlin)",
+      "officialName": "S Marienfelde (Berlin)",
+      "lat": 52.423813,
+      "lng": 13.375023,
+      "lines": [
+        "S2",
+        "277",
+        "283",
+        "M77",
+        "N81"
+      ]
+    },
+    "Marquardt": {
+      "id": "900220012",
+      "name": "Potsdam, Marquardt Bhf",
+      "officialName": "Potsdam, Marquardt Bhf",
+      "lat": 52.458395,
+      "lng": 12.971911,
+      "lines": [
+        "609",
+        "614",
+        "619",
+        "650",
+        "RB20",
+        "RB21",
+        "RB20",
+        "RB21"
+      ]
+    },
+    "Marzahn": {
+      "id": "900170001",
+      "name": "S Marzahn (Berlin)",
+      "officialName": "S Marzahn (Berlin)",
+      "lat": 52.543271,
+      "lng": 13.541521,
+      "lines": [
+        "S7",
+        "16",
+        "27",
+        "M6",
+        "M8",
+        "M17",
+        "191",
+        "192",
+        "195",
+        "291",
+        "M6",
+        "X54"
+      ]
+    },
+    "Medienstadt Babelsberg": {
+      "id": "900230001",
+      "name": "Potsdam, Medienstadt Babelsberg Bhf",
+      "officialName": "Potsdam, Medienstadt Babelsberg Bhf",
+      "lat": 52.382886,
+      "lng": 13.121941,
+      "lines": [
+        "601",
+        "690",
+        "696",
+        "N13",
+        "RB37",
+        "RE7",
+        "RB37",
+        "RE7"
+      ]
+    },
+    "Mehrower Allee": {
+      "id": "900170003",
+      "name": "S Mehrower Allee (Berlin)",
+      "officialName": "S Mehrower Allee (Berlin)",
+      "lat": 52.557816,
+      "lng": 13.554394,
+      "lines": [
+        "S7",
+        "197",
+        "N96",
+        "X69"
+      ]
+    },
+    "MendelssohnBartholdy-Park": {
+      "id": "900005252",
+      "name": "U Mendelssohn-Bartholdy-Park (Berlin)",
+      "officialName": "U Mendelssohn-Bartholdy-Park (Berlin)",
+      "lat": 52.503188,
+      "lng": 13.374681,
+      "lines": [
+        "U2",
+        "M29",
+        "N1"
+      ]
+    },
+    "Messe": {
+      "id": "900024106",
+      "name": "S Messe Nord/ZOB (Berlin)",
+      "officialName": "S Messe Nord/ZOB (Berlin)",
+      "lat": 52.506622,
+      "lng": 13.282884,
+      "lines": [
+        "S41",
+        "S42",
+        "S46",
+        "U2",
+        "139",
+        "143",
+        "218",
+        "349",
+        "M49",
+        "N2",
+        "N43",
+        "S3",
+        "S7",
+        "X34",
+        "X49"
+      ]
+    },
+    "Messe ZOB": {
+      "id": "900024106",
+      "name": "S Messe Nord/ZOB (Berlin)",
+      "officialName": "S Messe Nord/ZOB (Berlin)",
+      "lat": 52.506622,
+      "lng": 13.282884,
+      "lines": [
+        "S41",
+        "S42",
+        "S46",
+        "U2",
+        "139",
+        "143",
+        "218",
+        "349",
+        "M49",
+        "N2",
+        "N43",
+        "S3",
+        "S7",
+        "X34",
+        "X49"
+      ]
+    },
+    "Mexikoplatz": {
+      "id": "900050301",
+      "name": "S Mexikoplatz (Berlin)",
+      "officialName": "S Mexikoplatz (Berlin)",
+      "lat": 52.437162,
+      "lng": 13.232059,
+      "lines": [
+        "S1",
+        "118",
+        "622",
+        "N3"
+      ]
+    },
+    "Michendorf": {
+      "id": "900220003",
+      "name": "Michendorf, Bahnhof",
+      "officialName": "Michendorf, Bahnhof",
+      "lat": 52.316365,
+      "lng": 13.030619,
+      "lines": [
+        "608",
+        "613",
+        "643",
+        "646",
+        "X43",
+        "RB37",
+        "RE7"
+      ]
+    },
+    "Mierendorffplatz": {
+      "id": "900019204",
+      "name": "U Mierendorffplatz (Berlin)",
+      "officialName": "U Mierendorffplatz (Berlin)",
+      "lat": 52.525787,
+      "lng": 13.305707,
+      "lines": [
+        "U7",
+        "M27",
+        "N7"
+      ]
+    },
+    "Moritzplatz": {
+      "id": "900013101",
+      "name": "U Moritzplatz (Berlin)",
+      "officialName": "U Moritzplatz (Berlin)",
+      "lat": 52.503737,
+      "lng": 13.410944,
+      "lines": [
+        "U8",
+        "M29",
+        "N8",
+        "N42"
+      ]
+    },
+    "Museum": {
+      "id": "900100014",
+      "name": "U Märkisches Museum (Berlin)",
+      "officialName": "U Märkisches Museum (Berlin)",
+      "lat": 52.512007,
+      "lng": 13.408768,
+      "lines": [
+        "U2",
+        "147",
+        "165",
+        "265",
+        "N42",
+        "U2"
+      ]
+    },
+    "Märkisches": {
+      "id": "900100014",
+      "name": "U Märkisches Museum (Berlin)",
+      "officialName": "U Märkisches Museum (Berlin)",
+      "lat": 52.512007,
+      "lng": 13.408768,
+      "lines": [
+        "U2",
+        "147",
+        "165",
+        "265",
+        "N42",
+        "U2"
+      ]
+    },
+    "Möckernbrücke": {
+      "id": "900017104",
+      "name": "U Möckernbrücke (Berlin)",
+      "officialName": "U Möckernbrücke (Berlin)",
+      "lat": 52.498945,
+      "lng": 13.383257,
+      "lines": [
+        "U1",
+        "U3",
+        "U7",
+        "N1"
+      ]
+    },
+    "Naturkundemuseum": {
+      "id": "900100009",
+      "name": "U Naturkundemuseum (Berlin)",
+      "officialName": "U Naturkundemuseum (Berlin)",
+      "lat": 52.531252,
+      "lng": 13.382412,
+      "lines": [
+        "U6",
+        "12",
+        "M5",
+        "M8",
+        "M10",
+        "N6"
+      ]
+    },
+    "Nauen": {
+      "id": "900186001",
+      "name": "S Grünau (Berlin)",
+      "officialName": "S Grünau (Berlin)",
+      "lat": 52.413026,
+      "lng": 13.573469,
+      "lines": [
+        "S8",
+        "S8",
+        "S41",
+        "S42",
+        "S46",
+        "S47",
+        "S85",
+        "S85",
+        "68",
+        "163",
+        "263",
+        "363",
+        "N63",
+        "N68",
+        "S46"
+      ]
+    },
+    "Nauener": {
+      "id": "900009201",
+      "name": "U Nauener Platz (Berlin)",
+      "officialName": "U Nauener Platz (Berlin)",
+      "lat": 52.551523,
+      "lng": 13.367364,
+      "lines": [
+        "U9",
+        "247",
+        "327",
+        "N9"
+      ]
+    },
+    "Neuenhagen": {
+      "id": "900320007",
+      "name": "S Neuenhagen (b Berlin)",
+      "officialName": "S Neuenhagen (b Berlin)",
+      "lat": 52.520618,
+      "lng": 13.700055,
+      "lines": [
+        "S5",
+        "420",
+        "938",
+        "940",
+        "949"
+      ]
+    },
+    "Neukölln": {
+      "id": "900078201",
+      "name": "S+U Neukölln (Berlin)",
+      "officialName": "S+U Neukölln (Berlin)",
+      "lat": 52.469137,
+      "lng": 13.442011,
+      "lines": [
+        "S8",
+        "S41",
+        "S42",
+        "S46",
+        "S47",
+        "U7",
+        "171",
+        "246",
+        "377",
+        "N7",
+        "N77",
+        "S41",
+        "S42",
+        "S46"
+      ]
+    },
+    "Nikolassee": {
+      "id": "900052201",
+      "name": "S Nikolassee (Berlin)",
+      "officialName": "S Nikolassee (Berlin)",
+      "lat": 52.431212,
+      "lng": 13.193297,
+      "lines": [
+        "S1",
+        "S7",
+        "112",
+        "N16",
+        "N18"
+      ]
+    },
+    "Nord": {
+      "id": "900024106",
+      "name": "S Messe Nord/ZOB (Berlin)",
+      "officialName": "S Messe Nord/ZOB (Berlin)",
+      "lat": 52.506622,
+      "lng": 13.282884,
+      "lines": [
+        "S41",
+        "S42",
+        "S46",
+        "U2",
+        "139",
+        "143",
+        "218",
+        "349",
+        "M49",
+        "N2",
+        "N43",
+        "S3",
+        "S7",
+        "X34",
+        "X49"
+      ]
+    },
+    "Nordbahnhof": {
+      "id": "900007104",
+      "name": "S Nordbahnhof (Berlin)",
+      "officialName": "S Nordbahnhof (Berlin)",
+      "lat": 52.531675,
+      "lng": 13.388794,
+      "lines": [
+        "S1",
+        "S2",
+        "S25",
+        "S26",
+        "S85",
+        "S85",
+        "12",
+        "M8",
+        "M10",
+        "247",
+        "S1"
+      ]
+    },
+    "Nöldnerplatz": {
+      "id": "900160003",
+      "name": "S Nöldnerplatz (Berlin)",
+      "officialName": "S Nöldnerplatz (Berlin)",
+      "lat": 52.50344,
+      "lng": 13.484296,
+      "lines": [
+        "S3",
+        "S5",
+        "S7",
+        "S9",
+        "S75",
+        "194",
+        "240",
+        "396",
+        "N94"
+      ]
+    },
+    "Oberspree": {
+      "id": "900192002",
+      "name": "S Oberspree (Berlin)",
+      "officialName": "S Oberspree (Berlin)",
+      "lat": 52.452426,
+      "lng": 13.538033,
+      "lines": [
+        "S47",
+        "165",
+        "S47"
+      ]
+    },
+    "OlympiaStadion Neu-Westend": {
+      "id": "900025321",
+      "name": "S Olympiastadion (Berlin)",
+      "officialName": "S Olympiastadion (Berlin)",
+      "lat": 52.511135,
+      "lng": 13.241111,
+      "lines": [
+        "S3",
+        "S5",
+        "S9",
+        "U2",
+        "218",
+        "M49",
+        "S3"
+      ]
+    },
+    "Olympiastadion": {
+      "id": "900025321",
+      "name": "S Olympiastadion (Berlin)",
+      "officialName": "S Olympiastadion (Berlin)",
+      "lat": 52.511135,
+      "lng": 13.241111,
+      "lines": [
+        "S3",
+        "S5",
+        "S9",
+        "U2",
+        "218",
+        "M49",
+        "S3"
+      ]
+    },
+    "Onkel Toms Hütte": {
+      "id": "900050282",
+      "name": "U Onkel Toms Hütte (Berlin)",
+      "officialName": "U Onkel Toms Hütte (Berlin)",
+      "lat": 52.450143,
+      "lng": 13.254019,
+      "lines": [
+        "U3",
+        "118",
+        "N3"
+      ]
+    },
+    "Oper": {
+      "id": "900022201",
+      "name": "U Deutsche Oper (Berlin)",
+      "officialName": "U Deutsche Oper (Berlin)",
+      "lat": 52.511827,
+      "lng": 13.30942,
+      "lines": [
+        "U2",
+        "N2"
+      ]
+    },
+    "Oranienburger": {
+      "id": "900100007",
+      "name": "S Oranienburger Str. (Berlin)",
+      "officialName": "S Oranienburger Str. (Berlin)",
+      "lat": 52.525158,
+      "lng": 13.393064,
+      "lines": [
+        "S1",
+        "S2",
+        "S25",
+        "S26",
+        "M1",
+        "M5",
+        "M1"
+      ]
+    },
+    "Oranienburger Tor": {
+      "id": "900100019",
+      "name": "U Oranienburger Tor (Berlin)",
+      "officialName": "U Oranienburger Tor (Berlin)",
+      "lat": 52.525167,
+      "lng": 13.38759,
+      "lines": [
+        "U6",
+        "12",
+        "M1",
+        "M5",
+        "M1",
+        "N6"
+      ]
+    },
+    "Osdorfer Str.": {
+      "id": "900064256",
+      "name": "S Osdorfer Str. (Berlin)",
+      "officialName": "S Osdorfer Str. (Berlin)",
+      "lat": 52.418375,
+      "lng": 13.313869,
+      "lines": [
+        "S25",
+        "S26",
+        "112",
+        "186",
+        "N88"
+      ]
+    },
+    "Osloer Str.": {
+      "id": "900009202",
+      "name": "U Osloer Str. (Berlin)",
+      "officialName": "U Osloer Str. (Berlin)",
+      "lat": 52.557105,
+      "lng": 13.373279,
+      "lines": [
+        "U8",
+        "U9",
+        "50",
+        "M13",
+        "125",
+        "128",
+        "150",
+        "255",
+        "N8",
+        "N9",
+        "N52"
+      ]
+    },
+    "Ostbahnhof": {
+      "id": "900120005",
+      "name": "S Ostbahnhof (Berlin)",
+      "officialName": "S Ostbahnhof (Berlin)",
+      "lat": 52.510335,
+      "lng": 13.435089,
+      "lines": [
+        "S3",
+        "S5",
+        "S7",
+        "S9",
+        "S75",
+        "140",
+        "142",
+        "147",
+        "240",
+        "300",
+        "347",
+        "N40",
+        "RE1",
+        null,
+        "FEX",
+        "HBX",
+        "RB14",
+        "RB23",
+        "RE1",
+        "RE2",
+        "RE7",
+        "TES"
+      ]
+    },
+    "Otisstr.": {
+      "id": "900086158",
+      "name": "Otisstr./Quäkerstr. (Berlin)",
+      "officialName": "Otisstr./Quäkerstr. (Berlin)",
+      "lat": 52.575381,
+      "lng": 13.305824,
+      "lines": [
+        "125"
+      ]
+    },
+    "Pankow": {
+      "id": "900130002",
+      "name": "S+U Pankow (Berlin)",
+      "officialName": "S+U Pankow (Berlin)",
+      "lat": 52.567281,
+      "lng": 13.412283,
+      "lines": [
+        "S2",
+        "S8",
+        "S8",
+        "S26",
+        "S85",
+        "S85",
+        "U2",
+        "50",
+        "M1",
+        "155",
+        "250",
+        "255",
+        "M27",
+        "N2",
+        "N50",
+        "X54"
+      ]
+    },
+    "Pankstr.": {
+      "id": "900009203",
+      "name": "U Pankstr. (Berlin)",
+      "officialName": "U Pankstr. (Berlin)",
+      "lat": 52.552278,
+      "lng": 13.381441,
+      "lines": [
+        "U8",
+        "M27",
+        "N8"
+      ]
+    },
+    "Paracelsus-Bad": {
+      "id": "900085104",
+      "name": "U Paracelsus-Bad (Berlin)",
+      "officialName": "U Paracelsus-Bad (Berlin)",
+      "lat": 52.574428,
+      "lng": 13.3473,
+      "lines": [
+        "S25",
+        "U8",
+        "120",
+        "122",
+        "320",
+        "322",
+        "N8",
+        "N20"
+      ]
+    },
+    "Paradestr.": {
+      "id": "900068101",
+      "name": "U Paradestr. (Berlin)",
+      "officialName": "U Paradestr. (Berlin)",
+      "lat": 52.478144,
+      "lng": 13.386727,
+      "lines": [
+        "U6",
+        "N6"
+      ]
+    },
+    "Parchimer Allee": {
+      "id": "900080401",
+      "name": "U Parchimer Allee (Berlin)",
+      "officialName": "U Parchimer Allee (Berlin)",
+      "lat": 52.445298,
+      "lng": 13.449966,
+      "lines": [
+        "U7",
+        "171",
+        "181",
+        "M46",
+        "N7"
+      ]
+    },
+    "Park": {
+      "id": "900190001",
+      "name": "S Treptower Park (Berlin)",
+      "officialName": "S Treptower Park (Berlin)",
+      "lat": 52.493426,
+      "lng": 13.461283,
+      "lines": [
+        "S8",
+        "S8",
+        "S9",
+        "S41",
+        "S42",
+        "S85",
+        "S85",
+        "165",
+        "166",
+        "194",
+        "265",
+        "M43",
+        "N60",
+        "N65",
+        "N94",
+        "S9",
+        "S41",
+        "S42"
+      ]
+    },
+    "Petershagen": {
+      "id": "900320005",
+      "name": "S Petershagen Nord",
+      "officialName": "S Petershagen Nord",
+      "lat": 52.528987,
+      "lng": 13.790693,
+      "lines": [
+        "S5",
+        "931",
+        "932",
+        "933",
+        "948",
+        "949",
+        "R933"
+      ]
+    },
+    "Pichelsberg": {
+      "id": "900025424",
+      "name": "S Pichelsberg (Berlin)",
+      "officialName": "S Pichelsberg (Berlin)",
+      "lat": 52.50993,
+      "lng": 13.228256,
+      "lines": [
+        "S3",
+        "S5",
+        "S9",
+        "218",
+        "M49"
+      ]
+    },
+    "Pirschheide": {
+      "id": "900230002",
+      "name": "Potsdam, Pirschheide Bhf",
+      "officialName": "Potsdam, Pirschheide Bhf",
+      "lat": 52.372719,
+      "lng": 13.010987,
+      "lines": [
+        "91",
+        "94",
+        "580",
+        "631",
+        "697",
+        "RB22",
+        "RB33"
+      ]
+    },
+    "Platz": {
+      "id": "900100020",
+      "name": "S+U Potsdamer Platz Bhf (Berlin)",
+      "officialName": "S+U Potsdamer Platz Bhf (Berlin)",
+      "lat": 52.509355,
+      "lng": 13.376551,
+      "lines": [
+        "S1",
+        "S2",
+        "S25",
+        "S26",
+        "U2",
+        "200",
+        "300",
+        "M41",
+        "M48",
+        "M85",
+        "N2",
+        "FEX",
+        "RB10",
+        "RE3",
+        "RE4",
+        "RE5",
+        "RE8",
+        "RE20",
+        "RE85"
+      ]
+    },
+    "Platz der": {
+      "id": "900017102",
+      "name": "U Platz der Luftbrücke (Berlin)",
+      "officialName": "U Platz der Luftbrücke (Berlin)",
+      "lat": 52.484868,
+      "lng": 13.385927,
+      "lines": [
+        "U6",
+        "248",
+        "M43",
+        "N6",
+        "N42"
+      ]
+    },
+    "Plänterwald": {
+      "id": "900191002",
+      "name": "S Plänterwald (Berlin)",
+      "officialName": "S Plänterwald (Berlin)",
+      "lat": 52.47872,
+      "lng": 13.47403,
+      "lines": [
+        "S8",
+        "S8",
+        "S9",
+        "S41",
+        "S85",
+        "165",
+        "166",
+        "377",
+        "N60",
+        "N65",
+        "N77",
+        "S9"
+      ]
+    },
+    "Podbielskiallee": {
+      "id": "900051302",
+      "name": "U Podbielskiallee (Berlin)",
+      "officialName": "U Podbielskiallee (Berlin)",
+      "lat": 52.464175,
+      "lng": 13.295199,
+      "lines": [
+        "U3",
+        "N3"
+      ]
+    },
+    "Poelchaustr.": {
+      "id": "900170005",
+      "name": "S Poelchaustr. (Berlin)",
+      "officialName": "S Poelchaustr. (Berlin)",
+      "lat": 52.534749,
+      "lng": 13.536011,
+      "lines": [
+        "S7",
+        "291"
+      ]
+    },
+    "Potsdamer": {
+      "id": "900100020",
+      "name": "S+U Potsdamer Platz Bhf (Berlin)",
+      "officialName": "S+U Potsdamer Platz Bhf (Berlin)",
+      "lat": 52.509355,
+      "lng": 13.376551,
+      "lines": [
+        "S1",
+        "S2",
+        "S25",
+        "S26",
+        "U2",
+        "200",
+        "300",
+        "M41",
+        "M48",
+        "M85",
+        "N2",
+        "FEX",
+        "RB10",
+        "RE3",
+        "RE4",
+        "RE5",
+        "RE8",
+        "RE20",
+        "RE85"
+      ]
+    },
+    "Priesterweg": {
+      "id": "900058102",
+      "name": "S Priesterweg (Berlin)",
+      "officialName": "S Priesterweg (Berlin)",
+      "lat": 52.45924,
+      "lng": 13.356029,
+      "lines": [
+        "S2",
+        "S25",
+        "S26",
+        "170",
+        "246",
+        "M76"
+      ]
+    },
+    "Prinzenstr.": {
+      "id": "900013103",
+      "name": "U Prinzenstr. (Berlin)",
+      "officialName": "U Prinzenstr. (Berlin)",
+      "lat": 52.498325,
+      "lng": 13.406548,
+      "lines": [
+        "U1",
+        "U3",
+        "140",
+        "N1"
+      ]
+    },
+    "Priort": {
+      "id": "900210001",
+      "name": "Priort, Bahnhof",
+      "officialName": "Priort, Bahnhof",
+      "lat": 52.515566,
+      "lng": 12.971317,
+      "lines": [
+        "662",
+        "662",
+        "RB20",
+        "RB21",
+        "RB20",
+        "RB21",
+        "RE2"
+      ]
+    },
+    "Rahnsdorf": {
+      "id": "900183001",
+      "name": "S Rahnsdorf (Berlin)",
+      "officialName": "S Rahnsdorf (Berlin)",
+      "lat": 52.451446,
+      "lng": 13.691578,
+      "lines": [
+        "S3",
+        "87",
+        "161",
+        "N61"
+      ]
+    },
+    "RangsdorfThyrow": {
+      "id": "900245025",
+      "name": "Rangsdorf, Bahnhof",
+      "officialName": "Rangsdorf, Bahnhof",
+      "lat": 52.294126,
+      "lng": 13.431116,
+      "lines": [
+        "707",
+        "713",
+        "728",
+        "RB10",
+        "RB24",
+        "RE8",
+        "RB10",
+        "RB24",
+        "RE8"
+      ]
+    },
+    "Raoul-Wallenberg-Str.": {
+      "id": "900170002",
+      "name": "S Raoul-Wallenberg-Str. (Berlin)",
+      "officialName": "S Raoul-Wallenberg-Str. (Berlin)",
+      "lat": 52.55075,
+      "lng": 13.548389,
+      "lines": [
+        "S7",
+        "154",
+        "X54"
+      ]
+    },
+    "Rathaus": {
+      "id": "900062202",
+      "name": "S+U Rathaus Steglitz (Berlin)",
+      "officialName": "S+U Rathaus Steglitz (Berlin)",
+      "lat": 52.455069,
+      "lng": 13.322148,
+      "lines": [
+        "S1",
+        "U9",
+        "170",
+        "186",
+        "188",
+        "282",
+        "283",
+        "284",
+        "285",
+        "380",
+        "M48",
+        "M82",
+        "M85",
+        "N9",
+        "N88",
+        "S1",
+        "U9",
+        "X83"
+      ]
+    },
+    "Rathaus Neukölln": {
+      "id": "900078102",
+      "name": "U Rathaus Neukölln (Berlin)",
+      "officialName": "U Rathaus Neukölln (Berlin)",
+      "lat": 52.481147,
+      "lng": 13.43481,
+      "lines": [
+        "U7",
+        "166",
+        "M43",
+        "N7"
+      ]
+    },
+    "Rathaus Reinickendorf": {
+      "id": "900096410",
+      "name": "U Rathaus Reinickendorf (Berlin)",
+      "officialName": "U Rathaus Reinickendorf (Berlin)",
+      "lat": 52.588217,
+      "lng": 13.325564,
+      "lines": [
+        "U8",
+        "220",
+        "221",
+        "322",
+        "N8",
+        "X33"
+      ]
+    },
+    "Rathaus Spandau": {
+      "id": "900029302",
+      "name": "S+U Rathaus Spandau (Berlin)",
+      "officialName": "S+U Rathaus Spandau (Berlin)",
+      "lat": 52.535639,
+      "lng": 13.199841,
+      "lines": [
+        "S3",
+        "S5",
+        "S9",
+        "U7",
+        "130",
+        "134",
+        "135",
+        "136",
+        "137",
+        "237",
+        "337",
+        "638",
+        "671",
+        "M32",
+        "M36",
+        "M37",
+        "M45",
+        "N7",
+        "N30",
+        "N34",
+        "RB10",
+        "RB21",
+        "RE4",
+        "RE8",
+        "S3",
+        "X33",
+        "X36",
+        "X37",
+        null,
+        "RB10",
+        "RB14",
+        "RB21",
+        "RE2",
+        "RE4",
+        "RE6",
+        "RE8"
+      ]
+    },
+    "Rathaus Steglitz": {
+      "id": "900062202",
+      "name": "S+U Rathaus Steglitz (Berlin)",
+      "officialName": "S+U Rathaus Steglitz (Berlin)",
+      "lat": 52.455069,
+      "lng": 13.322148,
+      "lines": [
+        "S1",
+        "U9",
+        "170",
+        "186",
+        "188",
+        "282",
+        "283",
+        "284",
+        "285",
+        "380",
+        "M48",
+        "M82",
+        "M85",
+        "N9",
+        "N88",
+        "S1",
+        "U9",
+        "X83"
+      ]
+    },
+    "Rathenow/": {
+      "id": "900210771",
+      "name": "Rathenow, Bahnhof",
+      "officialName": "Rathenow, Bahnhof",
+      "lat": 52.600101,
+      "lng": 12.354621,
+      "lines": [
+        "672",
+        "673",
+        "674",
+        "675",
+        "676",
+        "678",
+        "679",
+        "680",
+        "681",
+        "683",
+        "684",
+        "685",
+        "687",
+        "RB34",
+        "RE4",
+        "RB51",
+        "RE4"
+      ]
+    },
+    "Rehberge": {
+      "id": "900011101",
+      "name": "U Rehberge (Berlin)",
+      "officialName": "U Rehberge (Berlin)",
+      "lat": 52.556674,
+      "lng": 13.341017,
+      "lines": [
+        "U6",
+        "N6"
+      ]
+    },
+    "Rehbrücke": {
+      "id": "900220008",
+      "name": "Potsdam, Rehbrücke Bhf",
+      "officialName": "Potsdam, Rehbrücke Bhf",
+      "lat": 52.358138,
+      "lng": 13.098002,
+      "lines": [
+        "91",
+        "93",
+        "98",
+        "602",
+        "611",
+        "693",
+        "699",
+        "N14",
+        "RB37",
+        "RE7"
+      ]
+    },
+    "Reinickendorfer Str. Humboldthain": {
+      "id": "900008102",
+      "name": "U Reinickendorfer Str. (Berlin)",
+      "officialName": "U Reinickendorfer Str. (Berlin)",
+      "lat": 52.540817,
+      "lng": 13.369018,
+      "lines": [
+        "U6",
+        "120",
+        "147",
+        "M27",
+        "N6",
+        "N20"
+      ]
+    },
+    "Residenzstr.": {
+      "id": "900085203",
+      "name": "U Residenzstr. (Berlin)",
+      "officialName": "U Residenzstr. (Berlin)",
+      "lat": 52.570841,
+      "lng": 13.360631,
+      "lines": [
+        "U8",
+        "122",
+        "125",
+        "327",
+        "N8"
+      ]
+    },
+    "Richard-Wagner-Platz": {
+      "id": "900022202",
+      "name": "U Richard-Wagner-Platz (Berlin)",
+      "officialName": "U Richard-Wagner-Platz (Berlin)",
+      "lat": 52.517157,
+      "lng": 13.307217,
+      "lines": [
+        "U7",
+        "M45",
+        "N7"
+      ]
+    },
+    "Rosa-Luxemburg-Platz": {
+      "id": "900100016",
+      "name": "U Rosa-Luxemburg-Platz (Berlin)",
+      "officialName": "U Rosa-Luxemburg-Platz (Berlin)",
+      "lat": 52.528529,
+      "lng": 13.41009,
+      "lines": [
+        "U2",
+        "M8",
+        "142",
+        "N2",
+        "N40",
+        "U2"
+      ]
+    },
+    "Rosenthaler": {
+      "id": "900100023",
+      "name": "U Rosenthaler Platz (Berlin)",
+      "officialName": "U Rosenthaler Platz (Berlin)",
+      "lat": 52.529778,
+      "lng": 13.401397,
+      "lines": [
+        "U8",
+        "M1",
+        "M8",
+        "142",
+        "N8",
+        "N40"
+      ]
+    },
+    "Rudow": {
+      "id": "900083201",
+      "name": "U Rudow (Berlin)",
+      "officialName": "U Rudow (Berlin)",
+      "lat": 52.415714,
+      "lng": 13.49653,
+      "lines": [
+        "U7",
+        "162",
+        "171",
+        "172",
+        "260",
+        "271",
+        "371",
+        "372",
+        "744",
+        "N7",
+        "X7",
+        "X71"
+      ]
+    },
+    "Rummelsburg": {
+      "id": "900160001",
+      "name": "S Rummelsburg (Berlin)",
+      "officialName": "S Rummelsburg (Berlin)",
+      "lat": 52.501211,
+      "lng": 13.478696,
+      "lines": [
+        "S3",
+        "21",
+        "21",
+        "194",
+        "240",
+        "N40",
+        "N94"
+      ]
+    },
+    "Röntgental": {
+      "id": "900350162",
+      "name": "S Röntgental",
+      "officialName": "S Röntgental",
+      "lat": 52.649218,
+      "lng": 13.514527,
+      "lines": [
+        "S2",
+        "893",
+        "893"
+      ]
+    },
+    "Rüdesheimer Platz": {
+      "id": "900045101",
+      "name": "U Rüdesheimer Platz (Berlin)",
+      "officialName": "U Rüdesheimer Platz (Berlin)",
+      "lat": 52.472463,
+      "lng": 13.314391,
+      "lines": [
+        "U3",
+        "186"
+      ]
+    },
+    "Rüdnitz": {
+      "id": "900350158",
+      "name": "Rüdnitz, Bahnhof",
+      "officialName": "Rüdnitz, Bahnhof",
+      "lat": 52.717707,
+      "lng": 13.636223,
+      "lines": [
+        "896",
+        "909",
+        "RB24",
+        "RE3"
+      ]
+    },
+    "Saarmund": {
+      "id": "900220002",
+      "name": "Saarmund, Bahnhof",
+      "officialName": "Saarmund, Bahnhof",
+      "lat": 52.323647,
+      "lng": 13.139739,
+      "lines": [
+        "611",
+        "613",
+        "RB22",
+        "RB22"
+      ]
+    },
+    "Sachsenhausen (Nordb)": {
+      "id": "900200041",
+      "name": "Sachsenhausen, Bahnhof",
+      "officialName": "Sachsenhausen, Bahnhof",
+      "lat": 52.771157,
+      "lng": 13.251242,
+      "lines": [
+        "804",
+        "821",
+        "RB12",
+        "RB12",
+        "RE5"
+      ]
+    },
+    "Samariterstr.": {
+      "id": "900120009",
+      "name": "U Samariterstr. (Berlin)",
+      "officialName": "U Samariterstr. (Berlin)",
+      "lat": 52.514658,
+      "lng": 13.465347,
+      "lines": [
+        "U5",
+        "N5"
+      ]
+    },
+    "Sanssouci": {
+      "id": "900230007",
+      "name": "Potsdam, Park Sanssouci Bhf",
+      "officialName": "Potsdam, Park Sanssouci Bhf",
+      "lat": 52.39405,
+      "lng": 13.015167,
+      "lines": [
+        "605",
+        "610",
+        "697",
+        "N14",
+        "RB21",
+        "X5",
+        "RB20",
+        "RB21",
+        "RB22",
+        "RB23",
+        "RE1"
+      ]
+    },
+    "Savignyplatz": {
+      "id": "900024203",
+      "name": "S Savignyplatz (Berlin)",
+      "officialName": "S Savignyplatz (Berlin)",
+      "lat": 52.50522,
+      "lng": 13.319002,
+      "lines": [
+        "S3",
+        "S5",
+        "S7",
+        "S9",
+        "S75",
+        "M49",
+        "X34"
+      ]
+    },
+    "Scharnweberstr.": {
+      "id": "900087101",
+      "name": "U Scharnweberstr. (Berlin)",
+      "officialName": "U Scharnweberstr. (Berlin)",
+      "lat": 52.56711,
+      "lng": 13.311523,
+      "lines": [
+        "125",
+        "221",
+        "N6",
+        "U6"
+      ]
+    },
+    "Schichauweg": {
+      "id": "900074202",
+      "name": "S Schichauweg (Berlin)",
+      "officialName": "S Schichauweg (Berlin)",
+      "lat": 52.398563,
+      "lng": 13.389433,
+      "lines": [
+        "S2",
+        "175",
+        "275",
+        "X83"
+      ]
+    },
+    "Schillingstr.": {
+      "id": "900100017",
+      "name": "U Schillingstr. (Berlin)",
+      "officialName": "U Schillingstr. (Berlin)",
+      "lat": 52.520313,
+      "lng": 13.421893,
+      "lines": [
+        "U5",
+        "N5"
+      ]
+    },
+    "Schlachtensee": {
+      "id": "900050355",
+      "name": "S Schlachtensee (Berlin)",
+      "officialName": "S Schlachtensee (Berlin)",
+      "lat": 52.439805,
+      "lng": 13.21399,
+      "lines": [
+        "S1"
+      ]
+    },
+    "Schlesisches Tor": {
+      "id": "900014102",
+      "name": "U Schlesisches Tor (Berlin)",
+      "officialName": "U Schlesisches Tor (Berlin)",
+      "lat": 52.501148,
+      "lng": 13.441795,
+      "lines": [
+        "U1",
+        "U3",
+        "165",
+        "265",
+        "N1",
+        "N60",
+        "N65"
+      ]
+    },
+    "Schloßstr.": {
+      "id": "900062203",
+      "name": "U Schloßstr. (Berlin)",
+      "officialName": "U Schloßstr. (Berlin)",
+      "lat": 52.461182,
+      "lng": 13.324836,
+      "lines": [
+        "U9",
+        "186",
+        "282",
+        "M48",
+        "M85",
+        "N9",
+        "U9"
+      ]
+    },
+    "Schulzendorf": {
+      "id": "900091205",
+      "name": "S Schulzendorf (Berlin)",
+      "officialName": "S Schulzendorf (Berlin)",
+      "lat": 52.613513,
+      "lng": 13.245632,
+      "lines": [
+        "S25",
+        "124",
+        "N24"
+      ]
+    },
+    "Schöneberg": {
+      "id": "900054104",
+      "name": "S Schöneberg (Berlin)",
+      "officialName": "S Schöneberg (Berlin)",
+      "lat": 52.479807,
+      "lng": 13.352847,
+      "lines": [
+        "S1",
+        "S41",
+        "S42",
+        "S46",
+        "S47",
+        "248",
+        "M46",
+        "N7X",
+        "S1"
+      ]
+    },
+    "Schönefeld": {
+      "id": "900260005",
+      "name": "S Schönefeld (bei Berlin)",
+      "officialName": "S Schönefeld (bei Berlin)",
+      "lat": 52.390904,
+      "lng": 13.513043,
+      "lines": [
+        "S9",
+        "S85",
+        "S85",
+        "163",
+        "164",
+        "171",
+        "741",
+        "742",
+        "744",
+        "BER2",
+        "N7",
+        "N7X",
+        "N60",
+        "FEX",
+        "RB10",
+        "RB22",
+        "RB24",
+        "RB32",
+        "RE8"
+      ]
+    },
+    "Schönerlinde": {
+      "id": "900350164",
+      "name": "Schönerlinde (BAR), Bahnhof",
+      "officialName": "Schönerlinde (BAR), Bahnhof",
+      "lat": 52.652328,
+      "lng": 13.42859,
+      "lines": [
+        "891",
+        "903",
+        "RB27"
+      ]
+    },
+    "Schöneweide": {
+      "id": "900192001",
+      "name": "S Schöneweide Bhf (Berlin)",
+      "officialName": "S Schöneweide Bhf (Berlin)",
+      "lat": 52.45461,
+      "lng": 13.510149,
+      "lines": [
+        "S8",
+        "S9",
+        "S41",
+        "S42",
+        "S46",
+        "S47",
+        "S85",
+        "S85",
+        "21",
+        "21",
+        "37",
+        "60",
+        "61",
+        "62",
+        "63",
+        "67",
+        "M17",
+        "160",
+        "163",
+        "165",
+        "166",
+        "265",
+        "M11",
+        "N60",
+        "N65",
+        "S9",
+        "S9A",
+        "S9X",
+        "S46",
+        "S47",
+        "X11",
+        "RB24",
+        "RB32",
+        "RE2",
+        "RE7"
+      ]
+    },
+    "Schönholz Pankow-Heinersdorf": {
+      "id": "900130001",
+      "name": "S Pankow-Heinersdorf (Berlin)",
+      "officialName": "S Pankow-Heinersdorf (Berlin)",
+      "lat": 52.577601,
+      "lng": 13.429093,
+      "lines": [
+        "S2",
+        "S8",
+        "S8",
+        "S26",
+        "S85",
+        "S85",
+        "50",
+        "N50"
+      ]
+    },
+    "Schönleinstr.": {
+      "id": "900016201",
+      "name": "U Schönleinstr. (Berlin)",
+      "officialName": "U Schönleinstr. (Berlin)",
+      "lat": 52.493345,
+      "lng": 13.421911,
+      "lines": [
+        "U8",
+        "N8"
+      ]
+    },
+    "Schönwalde (Barnim)": {
+      "id": "900350165",
+      "name": "Schönwalde (BAR), Bahnhof",
+      "officialName": "Schönwalde (BAR), Bahnhof",
+      "lat": 52.679655,
+      "lng": 13.432185,
+      "lines": [
+        "891",
+        "903",
+        "RB27"
+      ]
+    },
+    "SeddinFerchLienewitz": {
+      "id": "900220303",
+      "name": "Ferch-Lienewitz, Bahnhof",
+      "officialName": "Ferch-Lienewitz, Bahnhof",
+      "lat": 52.303619,
+      "lng": 12.964045,
+      "lines": [
+        "RB33",
+        "RB33"
+      ]
+    },
+    "Seefeld (Mark)": {
+      "id": "900350168",
+      "name": "Seefeld (Mark), Bahnhof",
+      "officialName": "Seefeld (Mark), Bahnhof",
+      "lat": 52.618232,
+      "lng": 13.67582,
+      "lines": [
+        "RB25"
+      ]
+    },
+    "Seegefeld": {
+      "id": "900210180",
+      "name": "Seegefeld, Bahnhof",
+      "officialName": "Seegefeld, Bahnhof",
+      "lat": 52.552251,
+      "lng": 13.114947,
+      "lines": [
+        "652",
+        "655",
+        "R",
+        "RB10",
+        "RB14",
+        "RB21",
+        "RE2",
+        "RE6",
+        "RE8"
+      ]
+    },
+    "Seestr.": {
+      "id": "900009103",
+      "name": "U Seestr. (Berlin)",
+      "officialName": "U Seestr. (Berlin)",
+      "lat": 52.550471,
+      "lng": 13.351966,
+      "lines": [
+        "U6",
+        "50",
+        "M13",
+        "106",
+        "120",
+        "N6",
+        "N20",
+        "N26"
+      ]
+    },
+    "Senefelderplatz": {
+      "id": "900110005",
+      "name": "U Senefelderplatz (Berlin)",
+      "officialName": "U Senefelderplatz (Berlin)",
+      "lat": 52.532619,
+      "lng": 13.412625,
+      "lines": [
+        "U2",
+        "N2",
+        "U2"
+      ]
+    },
+    "Senftenberg": {
+      "id": "900435000",
+      "name": "Senftenberg, Bahnhof",
+      "officialName": "Senftenberg, Bahnhof",
+      "lat": 51.527068,
+      "lng": 14.003693,
+      "lines": [
+        "599",
+        "613",
+        "617",
+        "618",
+        "619",
+        "620",
+        "621",
+        "622",
+        "641",
+        "642",
+        "643",
+        "RB34",
+        "RB49",
+        "RE7",
+        "RE13",
+        "RE18"
+      ]
+    },
+    "Sonnenallee": {
+      "id": "900077106",
+      "name": "S Sonnenallee (Berlin)",
+      "officialName": "S Sonnenallee (Berlin)",
+      "lat": 52.473847,
+      "lng": 13.455989,
+      "lines": [
+        "S8",
+        "S41",
+        "S42",
+        "171",
+        "M41",
+        "N77",
+        "S41",
+        "S42",
+        "S46"
+      ]
+    },
+    "SophieCharlotte-Platz": {
+      "id": "900022101",
+      "name": "U Sophie-Charlotte-Platz (Berlin)",
+      "officialName": "U Sophie-Charlotte-Platz (Berlin)",
+      "lat": 52.510973,
+      "lng": 13.297464,
+      "lines": [
+        "U2",
+        "309",
+        "N2"
+      ]
+    },
+    "Spandau": {
+      "id": "900029101",
+      "name": "S Spandau Bhf (Berlin)",
+      "officialName": "S Spandau Bhf (Berlin)",
+      "lat": 52.534794,
+      "lng": 13.197477,
+      "lines": [
+        "S3",
+        "S5",
+        "S9",
+        "U7",
+        "130",
+        "134",
+        "135",
+        "136",
+        "137",
+        "237",
+        "337",
+        "638",
+        "671",
+        "M32",
+        "M36",
+        "M37",
+        "M45",
+        "N7",
+        "N30",
+        "N34",
+        "RB10",
+        "RB21",
+        "RE4",
+        "RE8",
+        "S3",
+        "X33",
+        "X36",
+        "X37",
+        null,
+        "RB10",
+        "RB14",
+        "RB21",
+        "RE2",
+        "RE4",
+        "RE6",
+        "RE8"
+      ]
+    },
+    "Spichernstr.": {
+      "id": "900042101",
+      "name": "U Spichernstr. (Berlin)",
+      "officialName": "U Spichernstr. (Berlin)",
+      "lat": 52.496581,
+      "lng": 13.330616,
+      "lines": [
+        "U3",
+        "U9",
+        "204",
+        "N3",
+        "N7X",
+        "N9",
+        "U3"
+      ]
+    },
+    "Spittelmarkt": {
+      "id": "900100013",
+      "name": "U Spittelmarkt (Berlin)",
+      "officialName": "U Spittelmarkt (Berlin)",
+      "lat": 52.511413,
+      "lng": 13.402027,
+      "lines": [
+        "U2",
+        "200",
+        "248",
+        "N2",
+        "N42",
+        "U2"
+      ]
+    },
+    "Staaken": {
+      "id": "900029305",
+      "name": "Berlin, Staaken Bhf",
+      "officialName": "Berlin, Staaken Bhf",
+      "lat": 52.537698,
+      "lng": 13.142157,
+      "lines": [
+        "237",
+        "M32",
+        "RB10",
+        "RE4",
+        "RE8",
+        "RB10",
+        "RB21",
+        "RE2",
+        "RE4",
+        "RE8"
+      ]
+    },
+    "Stadtmitte": {
+      "id": "900100011",
+      "name": "U Stadtmitte (Berlin)",
+      "officialName": "U Stadtmitte (Berlin)",
+      "lat": 52.511494,
+      "lng": 13.38972,
+      "lines": [
+        "U2",
+        "U6",
+        "200",
+        "248",
+        "N2",
+        "N6",
+        "U2"
+      ]
+    },
+    "Stendal": {
+      "id": "900550114",
+      "name": "Stendal, Hauptbahnhof",
+      "officialName": "Stendal, Hauptbahnhof",
+      "lat": 52.594689,
+      "lng": 11.854776,
+      "lines": [
+        "S1",
+        "RB33",
+        "RB34",
+        "RE4",
+        "RE20A",
+        "S1",
+        "T",
+        null,
+        "RB33",
+        "RE4"
+      ]
+    },
+    "Storkower Str.": {
+      "id": "900110012",
+      "name": "S Storkower Str. (Berlin)",
+      "officialName": "S Storkower Str. (Berlin)",
+      "lat": 52.523872,
+      "lng": 13.464708,
+      "lines": [
+        "S8",
+        "S41",
+        "S42",
+        "S85",
+        "S85",
+        "156",
+        "240"
+      ]
+    },
+    "Str.": {
+      "id": "900120004",
+      "name": "S+U Warschauer Str. (Berlin)",
+      "officialName": "S+U Warschauer Str. (Berlin)",
+      "lat": 52.505768,
+      "lng": 13.449157,
+      "lines": [
+        "S3",
+        "S5",
+        "S7",
+        "S9",
+        "S42",
+        "S75",
+        "S85",
+        "U1",
+        "U3",
+        "M10",
+        "M13",
+        "300",
+        "347",
+        "N1"
+      ]
+    },
+    "Str. Kleistpark": {
+      "id": "900054102",
+      "name": "U Kleistpark (Berlin)",
+      "officialName": "U Kleistpark (Berlin)",
+      "lat": 52.490684,
+      "lng": 13.360541,
+      "lines": [
+        "U7",
+        "106",
+        "187",
+        "204",
+        "M48",
+        "M85",
+        "N7"
+      ]
+    },
+    "Strausberg": {
+      "id": "900320643",
+      "name": "Eggersdorf (Strausberg), Goethestr.",
+      "officialName": "Eggersdorf (Strausberg), Goethestr.",
+      "lat": 52.525472,
+      "lng": 13.802865,
+      "lines": [
+        "949"
+      ]
+    },
+    "Strausberg Nord": {
+      "id": "900320001",
+      "name": "S Strausberg Nord",
+      "officialName": "S Strausberg Nord",
+      "lat": 52.590698,
+      "lng": 13.908892,
+      "lines": [
+        "S5",
+        "889",
+        "889",
+        "927",
+        "929",
+        "931",
+        "937",
+        "946",
+        "947",
+        "966",
+        "R931"
+      ]
+    },
+    "Strausberg Stadt": {
+      "id": "900320002",
+      "name": "S Strausberg Stadt",
+      "officialName": "S Strausberg Stadt",
+      "lat": 52.57761,
+      "lng": 13.888019,
+      "lines": [
+        "S5",
+        "923",
+        "923",
+        "926",
+        "927",
+        "929",
+        "931",
+        "937",
+        "955",
+        "966"
+      ]
+    },
+    "Strausberger Platz": {
+      "id": "900120006",
+      "name": "U Strausberger Platz (Berlin)",
+      "officialName": "U Strausberger Platz (Berlin)",
+      "lat": 52.518029,
+      "lng": 13.432212,
+      "lines": [
+        "U5",
+        "142",
+        "N5"
+      ]
+    },
+    "Stresow": {
+      "id": "900030202",
+      "name": "S Stresow (Berlin)",
+      "officialName": "S Stresow (Berlin)",
+      "lat": 52.531972,
+      "lng": 13.2091,
+      "lines": [
+        "S3",
+        "S5",
+        "S9",
+        "130",
+        "S3"
+      ]
+    },
+    "Sundgauer Str.": {
+      "id": "900049202",
+      "name": "S Sundgauer Str. (Berlin)",
+      "officialName": "S Sundgauer Str. (Berlin)",
+      "lat": 52.436183,
+      "lng": 13.273499,
+      "lines": [
+        "S1",
+        "S1",
+        "X11"
+      ]
+    },
+    "Süd": {
+      "id": "900025423",
+      "name": "S Messe Süd (Berlin)",
+      "officialName": "S Messe Süd (Berlin)",
+      "lat": 52.498774,
+      "lng": 13.270451,
+      "lines": [
+        "S3",
+        "S5",
+        "S9",
+        "349"
+      ]
+    },
+    "Südende": {
+      "id": "900063452",
+      "name": "S Südende (Berlin)",
+      "officialName": "S Südende (Berlin)",
+      "lat": 52.448902,
+      "lng": 13.354078,
+      "lines": [
+        "S25",
+        "S26",
+        "282"
+      ]
+    },
+    "Tegel": {
+      "id": "900089303",
+      "name": "S Tegel (Berlin)",
+      "officialName": "S Tegel (Berlin)",
+      "lat": 52.588801,
+      "lng": 13.288691,
+      "lines": [
+        "S25",
+        "124",
+        "125",
+        "133",
+        "220",
+        "222",
+        "N6",
+        "N22",
+        "N24",
+        "N25",
+        "N33",
+        "U6"
+      ]
+    },
+    "Teltow": {
+      "id": "900220001",
+      "name": "Teltow, Bahnhof",
+      "officialName": "Teltow, Bahnhof",
+      "lat": 52.388881,
+      "lng": 13.300008,
+      "lines": [
+        "600",
+        "601",
+        "704",
+        "BER2",
+        "RE3",
+        "RE4",
+        "X1",
+        "RE3",
+        "RE4"
+      ]
+    },
+    "Tempelhof": {
+      "id": "900068201",
+      "name": "S+U Tempelhof (Berlin)",
+      "officialName": "S+U Tempelhof (Berlin)",
+      "lat": 52.470575,
+      "lng": 13.3859,
+      "lines": [
+        "S41",
+        "S42",
+        "S46",
+        "S47",
+        "U6",
+        "140",
+        "184",
+        "N6",
+        "N84"
+      ]
+    },
+    "Templin StadtStralsund/Rostock": {
+      "id": "900340027",
+      "name": "Templin, Stadt Bhf",
+      "officialName": "Templin, Stadt Bhf",
+      "lat": 53.117115,
+      "lng": 13.508989,
+      "lines": [
+        "502",
+        "503",
+        "504",
+        "508",
+        "509",
+        "510",
+        "514",
+        "515",
+        "517",
+        "518",
+        "519",
+        "531",
+        "RB12"
+      ]
+    },
+    "Theodor-Heuss-Platz Messe Nord/": {
+      "id": "900026201",
+      "name": "U Theodor-Heuss-Platz (Berlin)",
+      "officialName": "U Theodor-Heuss-Platz (Berlin)",
+      "lat": 52.509795,
+      "lng": 13.272977,
+      "lines": [
+        "U2",
+        "143",
+        "218",
+        "349",
+        "M49",
+        "N2",
+        "N43",
+        "X34",
+        "X49"
+      ]
+    },
+    "Thielplatz": {
+      "id": "900051201",
+      "name": "U Freie Universität (Thielplatz) (Berlin)",
+      "officialName": "U Freie Universität (Thielplatz) (Berlin)",
+      "lat": 52.450997,
+      "lng": 13.281652,
+      "lines": [
+        "U3",
+        "110",
+        "N3"
+      ]
+    },
+    "Tiergarten": {
+      "id": "900003103",
+      "name": "S Tiergarten (Berlin)",
+      "officialName": "S Tiergarten (Berlin)",
+      "lat": 52.513957,
+      "lng": 13.336244,
+      "lines": [
+        "S3",
+        "S5",
+        "S7",
+        "S9",
+        "S75",
+        "N9"
+      ]
+    },
+    "Tierpark": {
+      "id": "900161002",
+      "name": "U Tierpark (Berlin)",
+      "officialName": "U Tierpark (Berlin)",
+      "lat": 52.497237,
+      "lng": 13.523624,
+      "lines": [
+        "U5",
+        "21",
+        "21",
+        "27",
+        "37",
+        "67",
+        "M17",
+        "296",
+        "N50"
+      ]
+    },
+    "Tor": {
+      "id": "900100025",
+      "name": "S+U Brandenburger Tor (Berlin)",
+      "officialName": "S+U Brandenburger Tor (Berlin)",
+      "lat": 52.51651,
+      "lng": 13.381936,
+      "lines": [
+        "S1",
+        "S2",
+        "S25",
+        "S26",
+        "U5",
+        "100",
+        "N5"
+      ]
+    },
+    "Tor Görlitzer": {
+      "id": "900014101",
+      "name": "U Görlitzer Bahnhof (Berlin)",
+      "officialName": "U Görlitzer Bahnhof (Berlin)",
+      "lat": 52.499143,
+      "lng": 13.427142,
+      "lines": [
+        "U1",
+        "U3",
+        "M29",
+        "N1"
+      ]
+    },
+    "Turmstr.": {
+      "id": "900003104",
+      "name": "U Turmstr. (Berlin)",
+      "officialName": "U Turmstr. (Berlin)",
+      "lat": 52.52594,
+      "lng": 13.341421,
+      "lines": [
+        "U9",
+        "M10",
+        "101",
+        "123",
+        "187",
+        "245",
+        "M27",
+        "N9"
+      ]
+    },
+    "Uhlandstr.": {
+      "id": "900023301",
+      "name": "U Uhlandstr. (Berlin)",
+      "officialName": "U Uhlandstr. (Berlin)",
+      "lat": 52.502739,
+      "lng": 13.32623,
+      "lines": [
+        "U1",
+        "109",
+        "110",
+        "M19",
+        "M29",
+        "N10",
+        "X10"
+      ]
+    },
+    "Ullsteinstr.": {
+      "id": "900069271",
+      "name": "U Ullsteinstr. (Berlin)",
+      "officialName": "U Ullsteinstr. (Berlin)",
+      "lat": 52.453451,
+      "lng": 13.384767,
+      "lines": [
+        "U6",
+        "170",
+        "N6"
+      ]
+    },
+    "Vehlefanz": {
+      "id": "900203671",
+      "name": "Vehlefanz, Bahnhof",
+      "officialName": "Vehlefanz, Bahnhof",
+      "lat": 52.722687,
+      "lng": 13.114156,
+      "lines": [
+        "800",
+        "812",
+        "RB55",
+        "RE6",
+        "RB55",
+        "RE6"
+      ]
+    },
+    "Velten (Mark)": {
+      "id": "900203892",
+      "name": "Velten, Business Park",
+      "officialName": "Velten, Business Park",
+      "lat": 52.665282,
+      "lng": 13.20305,
+      "lines": [
+        "807"
+      ]
+    },
+    "Viktoria-LuisePlatz": {
+      "id": "900055101",
+      "name": "U Viktoria-Luise-Platz (Berlin)",
+      "officialName": "U Viktoria-Luise-Platz (Berlin)",
+      "lat": 52.496168,
+      "lng": 13.343264,
+      "lines": [
+        "U4"
+      ]
+    },
+    "Vinetastr.": {
+      "id": "900130011",
+      "name": "U Vinetastr. (Berlin)",
+      "officialName": "U Vinetastr. (Berlin)",
+      "lat": 52.559515,
+      "lng": 13.413766,
+      "lines": [
+        "U2",
+        "50",
+        "M1",
+        "250",
+        "N2"
+      ]
+    },
+    "Voltastr.": {
+      "id": "900007103",
+      "name": "U Voltastr. (Berlin)",
+      "officialName": "U Voltastr. (Berlin)",
+      "lat": 52.541932,
+      "lng": 13.393154,
+      "lines": [
+        "U8",
+        "247",
+        "N8"
+      ]
+    },
+    "Wandlitz": {
+      "id": "900350169",
+      "name": "Wandlitz, Bahnhof",
+      "officialName": "Wandlitz, Bahnhof",
+      "lat": 52.745232,
+      "lng": 13.466362,
+      "lines": [
+        "825",
+        "825",
+        "894",
+        "897",
+        "902",
+        "903",
+        "909",
+        "RB27"
+      ]
+    },
+    "Wandlitzsee": {
+      "id": "900350170",
+      "name": "Wandlitz, Wandlitzsee Bhf",
+      "officialName": "Wandlitz, Wandlitzsee Bhf",
+      "lat": 52.756109,
+      "lng": 13.473949,
+      "lines": [
+        "894",
+        "897",
+        "902",
+        "909",
+        "RB27"
+      ]
+    },
+    "Waßmannsdorf": {
+      "id": "900260080",
+      "name": "S Waßmannsdorf",
+      "officialName": "S Waßmannsdorf",
+      "lat": 52.368287,
+      "lng": 13.463432,
+      "lines": [
+        "S9",
+        "S85",
+        "S85",
+        "600",
+        "742",
+        "743",
+        "RE8"
+      ]
+    },
+    "Weberwiese": {
+      "id": "900120025",
+      "name": "U Weberwiese (Berlin)",
+      "officialName": "U Weberwiese (Berlin)",
+      "lat": 52.516852,
+      "lng": 13.443278,
+      "lines": [
+        "U5",
+        "347",
+        "N5"
+      ]
+    },
+    "Wedding": {
+      "id": "900009104",
+      "name": "S+U Wedding (Berlin)",
+      "officialName": "S+U Wedding (Berlin)",
+      "lat": 52.542732,
+      "lng": 13.366061,
+      "lines": [
+        "S41",
+        "S42",
+        "S46",
+        "U6",
+        "120",
+        "147",
+        "247",
+        "M27",
+        "N6",
+        "N20",
+        "S41",
+        "S42"
+      ]
+    },
+    "Weinmeisterstr.": {
+      "id": "900100051",
+      "name": "U Weinmeisterstr. (Berlin)",
+      "officialName": "U Weinmeisterstr. (Berlin)",
+      "lat": 52.525374,
+      "lng": 13.405308,
+      "lines": [
+        "U8",
+        "N42"
+      ]
+    },
+    "Wensickendorf": {
+      "id": "900200035",
+      "name": "Wensickendorf, Bahnhof",
+      "officialName": "Wensickendorf, Bahnhof",
+      "lat": 52.755165,
+      "lng": 13.386322,
+      "lines": [
+        "805",
+        "825",
+        "825",
+        "RB27"
+      ]
+    },
+    "Werder (Havel)": {
+      "id": "900220009",
+      "name": "Werder (Havel), Bahnhof",
+      "officialName": "Werder (Havel), Bahnhof",
+      "lat": 52.392702,
+      "lng": 12.926461,
+      "lines": [
+        "607",
+        "630",
+        "631",
+        "632",
+        "633",
+        "634",
+        "635",
+        "641",
+        null,
+        "RB20",
+        "RB22",
+        "RE1"
+      ]
+    },
+    "Werneuchen": {
+      "id": "900350172",
+      "name": "Werneuchen, Bahnhof",
+      "officialName": "Werneuchen, Bahnhof",
+      "lat": 52.637451,
+      "lng": 13.737998,
+      "lines": [
+        "878",
+        "882",
+        "887",
+        "895",
+        "898",
+        "906",
+        "908",
+        "918",
+        "RB25",
+        "RB25"
+      ]
+    },
+    "West": {
+      "id": "900066101",
+      "name": "S Lichterfelde West (Berlin)",
+      "officialName": "S Lichterfelde West (Berlin)",
+      "lat": 52.443509,
+      "lng": 13.294138,
+      "lines": [
+        "S1",
+        "101",
+        "188",
+        "M11",
+        "M48",
+        "N88",
+        "S1"
+      ]
+    },
+    "Westhafen": {
+      "id": "900001201",
+      "name": "S+U Westhafen (Berlin)",
+      "officialName": "S+U Westhafen (Berlin)",
+      "lat": 52.536179,
+      "lng": 13.343839,
+      "lines": [
+        "S41",
+        "S42",
+        "S46",
+        "U9",
+        "N9"
+      ]
+    },
+    "Westphalweg": {
+      "id": "900070101",
+      "name": "U Westphalweg (Berlin)",
+      "officialName": "U Westphalweg (Berlin)",
+      "lat": 52.445648,
+      "lng": 13.385747,
+      "lines": [
+        "U6",
+        "282",
+        "N6"
+      ]
+    },
+    "Wildau": {
+      "id": "900260002",
+      "name": "S Wildau",
+      "officialName": "S Wildau",
+      "lat": 52.319206,
+      "lng": 13.633589,
+      "lines": [
+        "S8",
+        "S8",
+        "S46",
+        "736",
+        "737",
+        "738",
+        "N36"
+      ]
+    },
+    "Wilhelmshagen": {
+      "id": "900183002",
+      "name": "S Wilhelmshagen (Berlin)",
+      "officialName": "S Wilhelmshagen (Berlin)",
+      "lat": 52.439122,
+      "lng": 13.721422,
+      "lines": [
+        "S3",
+        "161",
+        "N61"
+      ]
+    },
+    "Wilhelmshorst": {
+      "id": "900220006",
+      "name": "Wilhelmshorst, Bahnhof",
+      "officialName": "Wilhelmshorst, Bahnhof",
+      "lat": 52.331773,
+      "lng": 13.068176,
+      "lines": [
+        "608",
+        "613",
+        "643",
+        "RB37",
+        "RE7"
+      ]
+    },
+    "Wilhelmsruh": {
+      "id": "900084101",
+      "name": "S Wilhelmsruh (Berlin)",
+      "officialName": "S Wilhelmsruh (Berlin)",
+      "lat": 52.581385,
+      "lng": 13.362941,
+      "lines": [
+        "S1",
+        "S26",
+        "S42",
+        "S85",
+        "S85",
+        "122"
+      ]
+    },
+    "Wilmersdorfer Str.": {
+      "id": "900024202",
+      "name": "U Wilmersdorfer Str. (Berlin)",
+      "officialName": "U Wilmersdorfer Str. (Berlin)",
+      "lat": 52.506415,
+      "lng": 13.306777,
+      "lines": [
+        "S3",
+        "S5",
+        "S7",
+        "S9",
+        "S41",
+        "S42",
+        "S46",
+        "S47",
+        "S75",
+        "U7",
+        "309",
+        "M49",
+        "S3",
+        "S7",
+        "X34",
+        "X49",
+        null,
+        "FEX",
+        "RB14",
+        "RB21",
+        "RB23",
+        "RE1",
+        "RE2",
+        "RE6",
+        "RE7"
+      ]
+    },
+    "Wismar/": {
+      "id": "900500351",
+      "name": "Wismar, Bahnhof",
+      "officialName": "Wismar, Bahnhof",
+      "lat": 53.896822,
+      "lng": 11.469409,
+      "lines": [
+        "RB17",
+        "RB17",
+        "RE8"
+      ]
+    },
+    "Wittenau": {
+      "id": "900096101",
+      "name": "S+U Wittenau (Berlin)",
+      "officialName": "S+U Wittenau (Berlin)",
+      "lat": 52.596451,
+      "lng": 13.335524,
+      "lines": [
+        "S1",
+        "S26",
+        "S42",
+        "S85",
+        "S85",
+        "U8",
+        "120",
+        "122",
+        "124",
+        "220",
+        "221",
+        "M21",
+        "N8",
+        "N20",
+        "N24",
+        "X21",
+        "X33"
+      ]
+    },
+    "Wittenberge": {
+      "id": "900216026",
+      "name": "Wittenberge, Bahnhof",
+      "officialName": "Wittenberge, Bahnhof",
+      "lat": 53.002368,
+      "lng": 11.763203,
+      "lines": [
+        "S1",
+        "200",
+        "942",
+        "944",
+        "945",
+        "957",
+        "958",
+        "S1",
+        "S",
+        "T",
+        "X4",
+        null,
+        "RB33",
+        "RE6",
+        "RE8"
+      ]
+    },
+    "Wittenbergplatz": {
+      "id": "900056101",
+      "name": "U Wittenbergplatz (Berlin)",
+      "officialName": "U Wittenbergplatz (Berlin)",
+      "lat": 52.502109,
+      "lng": 13.342563,
+      "lines": [
+        "U1",
+        "U2",
+        "U3",
+        "M19",
+        "M29",
+        "M46",
+        "N1",
+        "N2",
+        "N3",
+        "N26",
+        "U3",
+        "U4"
+      ]
+    },
+    "Wollankstr.": {
+      "id": "900130003",
+      "name": "S Wollankstr. (Berlin)",
+      "officialName": "S Wollankstr. (Berlin)",
+      "lat": 52.564971,
+      "lng": 13.393154,
+      "lines": [
+        "S1",
+        "S25",
+        "S85",
+        "250",
+        "255",
+        "M27"
+      ]
+    },
+    "Wuhlheide": {
+      "id": "900180002",
+      "name": "S Wuhlheide (Berlin)",
+      "officialName": "S Wuhlheide (Berlin)",
+      "lat": 52.469056,
+      "lng": 13.553531,
+      "lines": [
+        "S3",
+        "190"
+      ]
+    },
+    "Wustermark": {
+      "id": "900210602",
+      "name": "Wustermark, Am Umspannwerk",
+      "officialName": "Wustermark, Am Umspannwerk",
+      "lat": 52.560072,
+      "lng": 12.953995,
+      "lines": [
+        "649",
+        "667"
+      ]
+    },
+    "Wutzkyallee": {
+      "id": "900083102",
+      "name": "U Wutzkyallee (Berlin)",
+      "officialName": "U Wutzkyallee (Berlin)",
+      "lat": 52.423148,
+      "lng": 13.474821,
+      "lines": [
+        "U7",
+        "M11",
+        "N7"
+      ]
+    },
+    "Yorckstr.": {
+      "id": "900058103",
+      "name": "S+U Yorckstr. (Berlin)",
+      "officialName": "S+U Yorckstr. (Berlin)",
+      "lat": 52.492356,
+      "lng": 13.372209,
+      "lines": [
+        "S1",
+        "S2",
+        "S25",
+        "S26",
+        "U7",
+        "M19",
+        "N7"
+      ]
+    },
+    "ZOBHeerstr.": {
+      "id": "900026105",
+      "name": "S Heerstr. (Berlin)",
+      "officialName": "S Heerstr. (Berlin)",
+      "lat": 52.508501,
+      "lng": 13.258442,
+      "lines": [
+        "S3",
+        "S5",
+        "S9",
+        "218",
+        "349",
+        "M49",
+        "S3",
+        "X34",
+        "X49"
+      ]
+    },
+    "Zeesen": {
+      "id": "900260014",
+      "name": "Zeesen, Bahnhof",
+      "officialName": "Zeesen, Bahnhof",
+      "lat": 52.26492,
+      "lng": 13.634856,
+      "lines": [
+        "724",
+        "727",
+        "RE2",
+        "RE7"
+      ]
+    },
+    "Zehlendorf": {
+      "id": "900049201",
+      "name": "S Zehlendorf (Berlin)",
+      "officialName": "S Zehlendorf (Berlin)",
+      "lat": 52.431212,
+      "lng": 13.259224,
+      "lines": [
+        "S1",
+        "101",
+        "112",
+        "115",
+        "118",
+        "285",
+        "623",
+        "N10",
+        "N12",
+        "N18",
+        "N84",
+        "S1",
+        "X10"
+      ]
+    },
+    "Zepernick": {
+      "id": "900350163",
+      "name": "S Zepernick",
+      "officialName": "S Zepernick",
+      "lat": 52.65916,
+      "lng": 13.533053,
+      "lines": [
+        "S2",
+        "867",
+        "868",
+        "891",
+        "893",
+        "893",
+        "899",
+        "900"
+      ]
+    },
+    "Zoologischer Garten": {
+      "id": "900023201",
+      "name": "S+U Zoologischer Garten Bhf (Berlin)",
+      "officialName": "S+U Zoologischer Garten Bhf (Berlin)",
+      "lat": 52.506919,
+      "lng": 13.332711,
+      "lines": [
+        "S3",
+        "S5",
+        "S7",
+        "S9",
+        "S75",
+        "U2",
+        "U9",
+        "100",
+        "109",
+        "110",
+        "200",
+        "204",
+        "245",
+        "249",
+        "M45",
+        "M46",
+        "M49",
+        "N1",
+        "N2",
+        "N7X",
+        "N9",
+        "N10",
+        "N26",
+        "X10",
+        "X34",
+        null,
+        "FEX",
+        "HBX",
+        "RB14",
+        "RB21",
+        "RB23",
+        "RE1",
+        "RE2",
+        "RE7"
+      ]
+    },
+    "Zwickauer Damm": {
+      "id": "900083101",
+      "name": "U Zwickauer Damm (Berlin)",
+      "officialName": "U Zwickauer Damm (Berlin)",
+      "lat": 52.423031,
+      "lng": 13.484368,
+      "lines": [
+        "U7",
+        "171",
+        "172",
+        "271",
+        "M11",
+        "N7",
+        "X71"
+      ]
+    },
+    "Zühlsdorf": {
+      "id": "900203211",
+      "name": "Zühlsdorf, Bahnhof",
+      "officialName": "Zühlsdorf, Bahnhof",
+      "lat": 52.73289,
+      "lng": 13.403015,
+      "lines": [
+        "806",
+        "RB27"
+      ]
+    }
+  }
+}
