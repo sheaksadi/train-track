@@ -81,6 +81,12 @@
           <span class="opacity-value">{{ editorStore.mapOpacity }}%</span>
         </div>
 
+        <div class="tools-section">
+          <h3>Inner Circle Size</h3>
+          <input type="range" v-model.number="innerCircleScale" min="30" max="150" step="5" class="opacity-slider" />
+          <span class="opacity-value">{{ innerCircleScale }}%</span>
+        </div>
+
         <div class="tools-section stats">
           <h3>Statistics</h3>
           <div class="stat">Stations: {{ editorStore.stations.length }}</div>
@@ -127,10 +133,48 @@
 
             <!-- Stations -->
             <g v-for="station in editorStore.stations" :key="station.id" class="station-group" :class="{ selected: editorStore.selectedStationId === station.id, 'multi-connect': editorStore.multiConnectStations.includes(station.id), dragging: dragging.draggingStationId.value === station.id }" :transform="`translate(${station.x}, ${station.y}) rotate(${station.rotation || 0})`" @mousedown.stop="handleStationMouseDown($event, station)" @click.stop="handleStationClick($event, station)">
-              <circle v-if="!station.length || station.length <= 6" :r="canvas.stationRadius.value" :fill="getStationFill(station)" stroke="white" :stroke-width="canvas.stationStrokeWidth.value" class="station-circle" />
+              <!-- Single-line circle station -->
+              <circle v-if="(!station.length || station.length <= 6) && station.lines.length <= 1" :r="canvas.stationRadius.value" :fill="getStationFill(station)" stroke="white" :stroke-width="canvas.stationStrokeWidth.value" class="station-circle" />
+              
+              <!-- Multi-line circle station (squarish with rounded corners) -->
+              <g v-else-if="(!station.length || station.length <= 6) && station.lines.length > 1" :key="`multi-${station.id}-${innerCircleScale}`">
+                <rect 
+                  :x="-getMultiStationSize(station).width / 2" 
+                  :y="-getMultiStationSize(station).height / 2" 
+                  :width="getMultiStationSize(station).width" 
+                  :height="getMultiStationSize(station).height" 
+                  :rx="getMultiStationSize(station).radius" 
+                  fill="white" 
+                  stroke="white" 
+                  :stroke-width="canvas.stationStrokeWidth.value" 
+                  class="station-circle" 
+                />
+                <!-- Line indicator circles in grid -->
+                <circle 
+                  v-for="(linePos, idx) in getLineCirclePositions(station)" 
+                  :key="`${station.lines[idx]}-${innerCircleScale}`" 
+                  :cx="linePos.x" 
+                  :cy="linePos.y" 
+                  :r="linePos.r" 
+                  :fill="getLineColor(station.lines[idx])" 
+                  class="line-indicator" 
+                />
+              </g>
+              
+              <!-- Pill-shaped station -->
               <rect v-else :x="-station.length / 2" :y="-(station.width || canvas.stationHeight.value) / 2" :width="station.length" :height="station.width || canvas.stationHeight.value" :rx="(station.width || canvas.stationHeight.value) / 2" :ry="(station.width || canvas.stationHeight.value) / 2" :fill="getStationFill(station)" stroke="white" :stroke-width="canvas.stationStrokeWidth.value" class="station-pill" />
+              
+              <!-- Multi-line indicators for pill stations -->
               <g v-if="station.lines.length > 1 && station.length && station.length > 6">
-                <rect v-for="(line, index) in station.lines.slice(0, 4)" :key="line" :x="-station.length / 2 + 2 + index * (station.length - 4) / Math.min(station.lines.length, 4)" :y="-(station.width || canvas.stationHeight.value) / 2 + 2" :width="(station.length - 4) / Math.min(station.lines.length, 4) - 1" :height="(station.width || canvas.stationHeight.value) - 4" :rx="2" :fill="getLineColor(line)" class="line-segment" />
+                <circle 
+                  v-for="(line, index) in station.lines.slice(0, 6)" 
+                  :key="`${line}-${innerCircleScale}`" 
+                  :cx="getPillCircleX(station, index)" 
+                  :cy="0" 
+                  :r="canvas.stationRadius.value * (innerCircleScale / 100)" 
+                  :fill="getLineColor(line)" 
+                  class="line-indicator" 
+                />
               </g>
               <!-- Label -->
               <g v-if="canvas.zoom.value > 0.4" :transform="`rotate(${-(station.rotation || 0)}) translate(${station.labelOffsetX || 0}, ${station.labelOffsetY ?? -15})`">
@@ -220,6 +264,7 @@ const autoConnect = ref(true);
 const lastPlacedStationId = ref<string | null>(null);
 const trackStartStation = ref<string | null>(null);
 const editingTextNodeId = ref<string | null>(null);
+const innerCircleScale = ref(45); // Percentage of single station size for multi-station circles
 
 // Tool definitions
 const tools = [
@@ -256,6 +301,79 @@ function getTrackPathForTrack(track: EditorTrack): string {
 
 function getTrackEndpointsForTrack(track: EditorTrack) {
   return getTrackEndpoints(track, editorStore.stations, canvas.stationRadius.value, canvas.stationHeight.value, editorStore.tracks);
+}
+
+// Calculate size for multi-line circle stations (squarish with rounded corners)
+function getMultiStationSize(station: EditorStation): { width: number; height: number; radius: number } {
+  const lineCount = station.lines.length;
+  const baseSize = canvas.stationRadius.value * 2;
+  
+  // Determine grid layout: 1x1, 1x2, 2x2, 2x3, 3x3, etc.
+  const cols = lineCount <= 2 ? lineCount : Math.ceil(Math.sqrt(lineCount));
+  const rows = Math.ceil(lineCount / cols);
+  
+  // Circle size based on slider (percentage of single station radius)
+  const circleRadius = canvas.stationRadius.value * (innerCircleScale.value / 100);
+  const gap = circleRadius * 0.15; // Small gap
+  const padding = circleRadius * 0.2; // Padding around the grid
+  
+  const width = cols * (circleRadius * 2) + (cols - 1) * gap + padding * 2;
+  const height = rows * (circleRadius * 2) + (rows - 1) * gap + padding * 2;
+  
+  // Corner radius: more rounded when square-ish, less when rectangular
+  const minDim = Math.min(width, height);
+  const radius = minDim * 0.25;
+  
+  return { width, height, radius };
+}
+
+// Get positions for line indicator circles in a grid layout
+function getLineCirclePositions(station: EditorStation): Array<{ x: number; y: number; r: number }> {
+  const lineCount = station.lines.length;
+  
+  // Grid layout
+  const cols = lineCount <= 2 ? lineCount : Math.ceil(Math.sqrt(lineCount));
+  const rows = Math.ceil(lineCount / cols);
+  
+  // Circle size based on slider (percentage of single station radius)
+  const circleRadius = canvas.stationRadius.value * (innerCircleScale.value / 100);
+  const gap = circleRadius * 0.15; // Small gap
+  
+  const totalWidth = cols * (circleRadius * 2) + (cols - 1) * gap;
+  const totalHeight = rows * (circleRadius * 2) + (rows - 1) * gap;
+  
+  const positions: Array<{ x: number; y: number; r: number }> = [];
+  
+  for (let i = 0; i < lineCount; i++) {
+    const row = Math.floor(i / cols);
+    const col = i % cols;
+    
+    // Center the circles in the grid
+    const x = -totalWidth / 2 + circleRadius + col * (circleRadius * 2 + gap);
+    const y = -totalHeight / 2 + circleRadius + row * (circleRadius * 2 + gap);
+    
+    positions.push({ x, y, r: circleRadius });
+  }
+  
+  return positions;
+}
+
+// Get X position for pill station indicator circles with even gaps
+function getPillCircleX(station: EditorStation, index: number): number {
+  const circleRadius = canvas.stationRadius.value * (innerCircleScale.value / 100);
+  const lineCount = Math.min(station.lines.length, 6);
+  const pillWidth = station.length;
+  
+  // Calculate even gap: total space / (number of gaps + 1 for each side)
+  // For n circles, we have n-1 gaps between + 2 edge gaps = n+1 total gaps
+  const totalCircleWidth = lineCount * (circleRadius * 2);
+  const availableForGaps = pillWidth - totalCircleWidth;
+  const evenGap = availableForGaps / (lineCount + 1);
+  
+  // Position each circle with even spacing
+  const startX = -pillWidth / 2 + evenGap + circleRadius;
+  
+  return startX + index * (circleRadius * 2 + evenGap);
 }
 
 function getTextNodePosition(textNode: TextNode): { x: number; y: number } {
