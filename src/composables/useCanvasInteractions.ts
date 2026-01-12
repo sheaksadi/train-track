@@ -11,9 +11,9 @@ export function useCanvasInteractions() {
     const panOffset = reactive({ x: 0, y: 0 });
     const mousePosition = ref<{ x: number; y: number } | null>(null);
 
-    // Computed sizes that depend on zoom
-    const stationRadius = computed(() => Math.max(3, 5 / zoom.value));
-    const stationHeight = computed(() => Math.max(6, 8 / zoom.value));
+    // Computed sizes - station sizes are fixed (same visual size regardless of zoom)
+    const stationRadius = computed(() => 5);
+    const stationHeight = computed(() => 8);
     const stationStrokeWidth = computed(() => Math.max(1, 1.5 / zoom.value));
     const trackWidth = computed(() => Math.max(2, 3 / zoom.value));
     const labelFontSize = computed(() => Math.max(6, 8 / zoom.value));
